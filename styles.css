@@ -267,6 +267,10 @@ p { color: var(--ivory-dim); margin: 0 0 16px; }
 }
 .signup h2 { margin-bottom: 10px; }
 .signup .lede { margin: 0 auto 32px; text-align: center; }
+.beehiiv-wrap {
+  max-width: 480px;
+  margin: 0 auto;
+}
 .signup-form {
   max-width: 480px;
   margin: 0 auto;
