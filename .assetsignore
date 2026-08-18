@@ -1,0 +1,7 @@
+.git
+.git/**
+.wrangler
+.wrangler/**
+README.md
+CNAME
+wrangler.jsonc
