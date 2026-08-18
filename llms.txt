@@ -1,0 +1,27 @@
+# Fractal Infinity
+
+Fractal Infinity is a California-born, U.S.-made frontier-technology research and consulting practice. The canonical public site is https://fractalinfinity.io.
+
+## Public services
+- Brand, market, and platform ecosystem design
+- Data creation and knowledge graph design
+- LLM workflows and AI assistance
+- Emerging-network and ASI-readiness planning
+- Difficult technical, product, and personal-AI problem solving
+
+## Human engagement
+Consulting is human-assisted and begins by email. It is not an autonomous API or a self-service agent endpoint.
+
+- Contact: fractalinfinityfuture@gmail.com
+- Contact page: https://fractalinfinity.io/contact.html
+- Rates: $250/hour signal call; $400/hour build session; $650/hour embedded partner
+
+## Machine-readable resources
+- Service discovery: https://fractalinfinity.io/api/discovery.json
+- Agent discovery: https://fractalinfinity.io/.well-known/agent.json
+- Sitemap: https://fractalinfinity.io/sitemap.xml
+
+## Public research
+- Home: https://fractalinfinity.io/
+- Reports and comparisons: https://fractalinfinity.io/reports.html
+- Ecosystem and channels: https://fractalinfinity.io/ecosystem.html

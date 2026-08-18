@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "name": "Fractal Infinity",
+  "description": "Public discovery manifest for Fractal Infinity frontier-technology research and human-assisted consulting.",
+  "homepage": "https://fractalinfinity.io/",
+  "service_discovery": "https://fractalinfinity.io/api/discovery.json",
+  "contact": "mailto:fractalinfinityfuture@gmail.com",
+  "capabilities": [
+    "brand-market-platform-ecosystem-design",
+    "data-creation",
+    "knowledge-graph-design",
+    "llm-workflows",
+    "ai-assistance",
+    "emerging-network-readiness",
+    "complex-problem-solving"
+  ],
+  "access": {
+    "autonomous_api": false,
+    "engagement": "human_review_required"
+  }
+}

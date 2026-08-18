@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "name": "Fractal Infinity Service Discovery",
+  "canonical_url": "https://fractalinfinity.io",
+  "organization": {
+    "name": "Fractal Infinity",
+    "origin": "California-born, Made in the USA",
+    "type": "Frontier technology research and consulting"
+  },
+  "access_model": {
+    "mode": "human_assisted_consulting",
+    "autonomous_api": false,
+    "note": "This manifest is for discovery only. Consulting requests receive human review and require explicit scoping."
+  },
+  "services": [
+    {
+      "id": "brand-market-platform",
+      "name": "Brand, market, and platform ecosystem design",
+      "description": "Shape complex offerings into coherent brands, market positions, and operating platform ecosystems."
+    },
+    {
+      "id": "intelligence-systems",
+      "name": "Data, knowledge graph, and LLM systems",
+      "description": "Create data foundations, knowledge graphs, LLM workflows, and AI-assistance patterns."
+    },
+    {
+      "id": "emerging-network-preparedness",
+      "name": "Emerging-network and ASI readiness",
+      "description": "Plan responsibly for advanced AI and networked-system changes without claiming autonomous execution."
+    },
+    {
+      "id": "problem-solving",
+      "name": "Complex problem solving",
+      "description": "Work through stalled initiatives, technical decisions, and personal AI questions with a senior technical partner."
+    }
+  ],
+  "consultation_rates_usd_per_hour": [
+    { "service": "Signal Call", "rate": 250, "description": "Focused diagnosis and a concrete next move." },
+    { "service": "Build Session", "rate": 400, "description": "Hands-on systems, data, product, and AI workflow work." },
+    { "service": "Embedded Partner", "rate": 650, "description": "Ongoing senior collaboration for complex programs and decisions." }
+  ],
+  "contact": {
+    "email": "fractalinfinityfuture@gmail.com",
+    "mailto": "mailto:fractalinfinityfuture@gmail.com?subject=Fractal%20Infinity%20consulting%20inquiry",
+    "website": "https://fractalinfinity.io/contact.html"
+  },
+  "public_resources": {
+    "home": "https://fractalinfinity.io/",
+    "reports": "https://fractalinfinity.io/reports.html",
+    "ecosystem": "https://fractalinfinity.io/ecosystem.html",
+    "sitemap": "https://fractalinfinity.io/sitemap.xml",
+    "llms": "https://fractalinfinity.io/llms.txt"
+  }
+}
