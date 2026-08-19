@@ -3,5 +3,6 @@
 .wrangler
 .wrangler/**
 README.md
+GOVERNANCE.md
 CNAME
 wrangler.jsonc

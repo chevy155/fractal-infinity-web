@@ -83,8 +83,9 @@ input:focus-visible {
   color: var(--ivory);
   min-width: 0;
   white-space: nowrap;
-  overflow: hidden;
+  overflow: visible;
   text-overflow: ellipsis;
+  position: relative;
 }
 .topbar-brand img { height: 28px; width: 28px; display: block; flex-shrink: 0; }
 .topbar-nav {
@@ -812,4 +813,19 @@ a.report-card:hover {
 .dashboard-visual { padding: 20px 11px 10px; }.dash-label { left: 12px; top: 11px; border: 0; box-shadow: none; }.dash-side { position: absolute; left: 11px; top: 35px; bottom: 11px; width: 26px; border: 1px solid rgba(201, 255, 32, 0.3); }.dash-chart { position: absolute; bottom: 14px; width: 18px; background: linear-gradient(180deg, var(--lime), rgba(201, 255, 32, 0.13)); box-shadow: 0 0 10px rgba(201, 255, 32, 0.24); }.chart-one { left: 53px; height: 48px; }.chart-two { left: 83px; height: 74px; }.chart-three { left: 113px; height: 36px; }
 .path-line { position: absolute; left: 21px; right: 18px; top: 72px; height: 1px; background: var(--lime); box-shadow: 0 0 12px rgba(201, 255, 32, 0.45); transform: rotate(-14deg); }.path-dot { width: 17px; height: 17px; border-radius: 50%; }.dot-one { left: 18px; top: 76px; }.dot-two { left: 67px; top: 61px; }.dot-three { right: 18px; top: 45px; }.path-label { left: 45px; bottom: 15px; width: 67px; height: 33px; text-align: center; line-height: 1.1; }
 @keyframes detail-reveal { from { opacity: 0; transform: translateY(-7px); } to { opacity: 1; transform: translateY(0); } }
-@media (max-width: 640px) { .offer-card summary { min-height: 220px; }.offer-detail { grid-template-columns: 1fr; }.mini-visual { width: 100%; height: 150px; }.contact-hero-email { font-size: 11px; overflow-wrap: anywhere; }.offer-instruction { font-size: 10px; } }
+/* ==== Logo orbital particles ==== */
+.logo-orbit { position: absolute; top: 50%; left: 50%; border: 1.5px solid rgba(201, 255, 32, 0.5); border-radius: 50%; transform: translate(-50%, -50%); }
+.orbit-sm { width: 50px; height: 50px; animation: spin 12s linear infinite; }
+.orbit-md { width: 70px; height: 70px; animation: spin 18s linear infinite reverse; }
+.orbit-lg { width: 90px; height: 90px; animation: spin 24s linear infinite; }
+.particle-sm { position: absolute; top: -4px; left: 50%; width: 8px; height: 8px; background: radial-gradient(circle, var(--lime), rgba(201, 255, 32, 0.6)); border-radius: 50%; box-shadow: 0 0 14px rgba(201, 255, 32, 0.9), inset 0 0 6px rgba(255, 255, 255, 0.4); filter: blur(0.2px); transform: translateX(-50%); }
+.particle-sm::before { content: ""; position: absolute; inset: -6px; background: radial-gradient(circle, rgba(201, 255, 32, 0.5), transparent); border-radius: 50%; filter: blur(6px); animation: comet-blur 1s ease-out infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes comet-blur { 0% { opacity: 0.8; transform: scale(1.2); } 100% { opacity: 0; transform: scale(0.5); } }
+/* Hero-sized orbits */
+.hero-orbit-wrapper { position: relative; display: inline-block; margin: 0 auto 32px; }
+.hero-orbit-field { position: absolute; top: 50%; left: 50%; width: 220px; height: 220px; transform: translate(-50%, -50%); pointer-events: none; z-index: 1; }
+.hero-orbit-field .orbit-sm { width: 120px; height: 120px; }
+.hero-orbit-field .orbit-md { width: 160px; height: 160px; }
+.hero-orbit-field .orbit-lg { width: 200px; height: 200px; }
+@media (max-width: 640px) { .logo-orbit-field { width: 60px; height: 60px; }.orbit-sm { width: 38px; height: 38px; }.orbit-md { width: 52px; height: 52px; }.orbit-lg { width: 66px; height: 66px; }.offer-card summary { min-height: 220px; }.offer-detail { grid-template-columns: 1fr; }.mini-visual { width: 100%; height: 150px; }.contact-hero-email { font-size: 11px; overflow-wrap: anywhere; }.offer-instruction { font-size: 10px; } }.offer-card summary { min-height: 220px; }.offer-detail { grid-template-columns: 1fr; }.mini-visual { width: 100%; height: 150px; }.contact-hero-email { font-size: 11px; overflow-wrap: anywhere; }.offer-instruction { font-size: 10px; } }
