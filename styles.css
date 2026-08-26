@@ -195,7 +195,81 @@ p { color: var(--ivory-dim); margin: 0 0 16px; }
 .hero .lede { margin: 0 auto 36px; text-align: center; }
 .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-/* ---- What we do ---- */
+/* ---- What we do / lab capabilities ---- */
+.lab-pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin: 28px 0 8px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--lime);
+}
+.lab-pipeline-sep {
+  color: rgba(201, 255, 32, 0.35);
+  font-weight: 500;
+}
+.capability-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+.capability-card {
+  display: block;
+  border: 1px solid var(--lime-border);
+  background: linear-gradient(180deg, var(--panel), var(--panel2));
+  border-radius: 14px;
+  padding: 22px 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.capability-card:hover {
+  border-color: rgba(201, 255, 32, 0.55);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.45), 0 0 24px rgba(201, 255, 32, 0.12);
+  text-decoration: none;
+  color: inherit;
+}
+.capability-step {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--lime);
+  margin-bottom: 12px;
+}
+.capability-card h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.capability-card p {
+  font-size: 14.5px;
+  margin-bottom: 0;
+  color: var(--ivory-dim);
+}
+.lab-closer {
+  margin-top: 36px;
+  max-width: 720px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ivory);
+}
+.lab-rigor {
+  margin-top: 14px;
+  max-width: 720px;
+  font-size: 14.5px;
+  color: var(--ivory-dim);
+  font-style: italic;
+}
+
+/* legacy method-grid kept for any residual pages */
 .method-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -782,6 +856,7 @@ a.report-card:hover {
 /* ---- Responsive ---- */
 @media (max-width: 860px) {
   .topbar-nav { display: none; }
+  .capability-grid { grid-template-columns: 1fr 1fr; }
   .method-grid { grid-template-columns: 1fr; }
   .ep-grid { grid-template-columns: repeat(2, 1fr); }
   .vertical-card { grid-template-columns: 1fr; }
@@ -789,6 +864,7 @@ a.report-card:hover {
   .signup-form { flex-direction: column; }
 }
 @media (max-width: 520px) {
+  .capability-grid { grid-template-columns: 1fr; }
   .ep-grid { grid-template-columns: 1fr; }
   section { padding: 64px 0; }
   .topbar-brand { font-size: 13px; max-width: 46vw; }
