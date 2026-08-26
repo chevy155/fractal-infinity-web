@@ -1,0 +1,50 @@
+{
+  "version": "2.0.0",
+  "forces": ["ai_demand", "capital", "manufacturing", "optical_adoption", "hyperscaler_buyin", "geopolitics"],
+  "levels": {
+    "ai_demand": ["plateau", "steady", "accel"],
+    "capital": ["winter", "normal", "abundant"],
+    "manufacturing": ["bottleneck", "constrained", "expansion"],
+    "optical_adoption": ["delayed", "gradual", "rapid"],
+    "hyperscaler_buyin": ["weak", "selective", "broad"],
+    "geopolitics": ["disrupted", "stressed", "stable"]
+  },
+  "presets": {
+    "all": { "label": "All Worlds", "fixed": null, "weights": null },
+    "ai_supercycle": {
+      "label": "AI Super-Cycle",
+      "fixed": { "ai_demand": "accel", "hyperscaler_buyin": "broad", "capital": "abundant" }
+    },
+    "capital_winter": {
+      "label": "Capital Winter",
+      "fixed": { "capital": "winter", "ai_demand": "steady", "hyperscaler_buyin": "selective" }
+    },
+    "packaging_bottleneck": {
+      "label": "Packaging Bottleneck",
+      "fixed": { "manufacturing": "bottleneck", "geopolitics": "stressed" }
+    },
+    "optical_breakout": {
+      "label": "Optical Breakout",
+      "fixed": { "optical_adoption": "rapid", "ai_demand": "accel", "hyperscaler_buyin": "broad" }
+    },
+    "optical_delay": {
+      "label": "Optical Delay",
+      "fixed": { "optical_adoption": "delayed", "ai_demand": "steady" }
+    },
+    "supply_shock": {
+      "label": "Supply Shock",
+      "fixed": { "geopolitics": "disrupted", "manufacturing": "bottleneck", "capital": "normal" }
+    }
+  },
+  "default_weights": {
+    "ai_demand": [0.15, 0.55, 0.30],
+    "capital": [0.20, 0.55, 0.25],
+    "manufacturing": [0.25, 0.50, 0.25],
+    "optical_adoption": [0.20, 0.50, 0.30],
+    "hyperscaler_buyin": [0.15, 0.50, 0.35],
+    "geopolitics": [0.15, 0.45, 0.40]
+  },
+  "phases": 4,
+  "horizon": "2026-2045",
+  "seed": 19450716
+}

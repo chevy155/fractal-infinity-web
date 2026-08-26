@@ -1,108 +1,155 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>The Crucible — Head-to-Head Company Simulator — Fractal Infinity</title>
-<meta name="description" content="Free interactive simulator: pit two frontier-compute companies against each other across thousands of simulated worlds, 2026 to 2045." />
-<link rel="icon" href="assets/archival-portal.jpg" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-
-<div class="topbar">
-  <div class="wrap">
-    <a href="index.html" class="topbar-brand">
-      <img src="assets/archival-portal.jpg" alt="" />
-      FRACTAL INFINITY
-    </a>
-    <nav class="topbar-nav">
-      <a href="reports.html">All Reports</a>
-    </nav>
-    <a href="index.html" class="btn btn-ghost">&larr; Back to Home</a>
-  </div>
-</div>
-
-<header class="hero report-hero">
-  <div class="wrap hero-content">
-    <p class="eyebrow">Report · Free to Use</p>
-    <h1>The Crucible — Head-to-Head Company Simulator</h1>
-    <p class="lede"><b>Purpose:</b> pick two companies from the frontier-compute roster and run them through thousands of simulated worlds, 2026&nbsp;→&nbsp;2045. Each world walks through boom, war, recession, and capital winter; each company inherits its fate through its technology ladder and archetype. Ladders and statuses are anchored to reported mid-2026 events; forward gate odds are estimates.</p>
-  </div>
-</header>
-
-<main>
-<section class="tight">
-  <div class="wrap report-tool">
-
-    <div class="duel-pick">
-      <select id="duelA" aria-label="Company A"></select>
-      <span class="vs">VS</span>
-      <select id="duelB" aria-label="Company B"></select>
-    </div>
-    <p id="duelNoteA" class="duel-note"></p>
-    <p id="duelNoteB" class="duel-note"></p>
-
-    <div class="duel-presets">
-      <button class="duel-preset active" data-p="all">🔮 All Worlds</button>
-      <button class="duel-preset" data-p="best">☀️ Best Case</button>
-      <button class="duel-preset" data-p="worst">🌑 Worst Case</button>
-      <button class="duel-preset" data-p="war">⚔️ War Decade</button>
-      <button class="duel-preset" data-p="winter">🥶 Capital Winter</button>
-    </div>
-
-    <div class="duel-runrow">
-      <select id="duelWorlds" aria-label="World count">
-        <option value="1000">1,000 worlds</option>
-        <option value="5000" selected>5,000 worlds</option>
-        <option value="10000">10,000 worlds</option>
-      </select>
-      <button id="duelRun" class="duel-run">⚗ Run Comparison</button>
-    </div>
-
-    <div id="duelResults" class="duel-results">
-      <div id="duelVerdict" class="duel-verdict"></div>
-      <div id="duelCards"></div>
-      <div class="duel-legend">
-        <span><i style="background:#c9ff20"></i>Dominant</span>
-        <span><i style="background:#a3e635"></i>Prospered</span>
-        <span><i style="background:rgba(74,222,128,0.55)"></i>Niche</span>
-        <span><i style="background:#60a5fa"></i>Acquired</span>
-        <span><i style="background:#94a3b8"></i>Zombie</span>
-        <span><i style="background:#fb7185"></i>Dead</span>
-      </div>
-      <p class="duel-foot">Toy model, honest structure: 2026 starting stages trace to reported events; forward gate probabilities are estimates, not calibrated forecasts. Outcome tiers, not price targets. Not financial advice.</p>
-    </div>
-
-    <p class="section-footer-link">
-      <a href="reports.html">&larr; All reports</a> &nbsp;·&nbsp; <a href="index.html">Fractal Infinity home</a>
-    </p>
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <div class="footer-row">
-      <a href="index.html" class="footer-brand">
-        <img src="assets/archival-portal.jpg" alt="" />
-        FRACTAL INFINITY
-      </a>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="research-lab.html">Research Lab</a>
-        <a href="reports.html">Reports</a>
-        <a href="index.html#signup">Newsletter</a>
-        <a href="privacy.html">Privacy</a>
-      </div>
-    </div>
-    <p class="footer-copy">&copy; 2026 Fractal Infinity. A Fractal Infinity Production.</p>
-  </div>
-</footer>
-
-<script src="console.js" defer></script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Crucible v2 — Ayar Labs vs Lightmatter — Fractal Infinity</title>
+<meta name="description" content="Evidence-grounded strategic simulation: Ayar Labs vs Lightmatter across thousands of future worlds. Optical I/O, CPO, and photonic interconnect dynamics." />
+<link rel="icon" href="assets/archival-portal.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a href="index.html" class="topbar-brand">
+      <img src="assets/archival-portal.jpg" alt="" />
+      FRACTAL INFINITY
+    </a>
+    <nav class="topbar-nav">
+      <a href="reports.html">All Reports</a>
+    </nav>
+    <a href="index.html" class="btn btn-ghost">&larr; Back to Home</a>
+  </div>
+</div>
+
+<header class="hero report-hero">
+  <div class="wrap hero-content">
+    <p class="eyebrow">Crucible v2 · Research Alpha</p>
+    <h1>Ayar Labs vs Lightmatter</h1>
+    <p class="lede">Evidence-grounded strategic simulation of two photonic interconnect leaders. Each company moves as a dynamic particle through simulated future worlds — momentum, energy, and field forces derived from sourced model variables, not archetype labels alone.</p>
+  </div>
+</header>
+
+<main>
+<section class="tight">
+  <div class="wrap crucible-v2">
+
+    <div class="cr-presets">
+      <button class="cr-preset active" data-p="all">All Worlds</button>
+      <button class="cr-preset" data-p="ai_supercycle">AI Super-Cycle</button>
+      <button class="cr-preset" data-p="capital_winter">Capital Winter</button>
+      <button class="cr-preset" data-p="packaging_bottleneck">Packaging Bottleneck</button>
+      <button class="cr-preset" data-p="optical_breakout">Optical Breakout</button>
+      <button class="cr-preset" data-p="optical_delay">Optical Delay</button>
+      <button class="cr-preset" data-p="supply_shock">Supply Shock</button>
+    </div>
+
+    <div class="cr-runrow">
+      <select id="worldCount" aria-label="World count">
+        <option value="1000">1,000 worlds</option>
+        <option value="5000" selected>5,000 worlds</option>
+        <option value="10000">10,000 worlds</option>
+      </select>
+      <button id="runBtn" class="duel-run">Run Simulation</button>
+    </div>
+
+    <div id="results" class="cr-results">
+      <div id="verdict" class="duel-verdict"></div>
+
+      <div class="cr-arena" aria-label="Strategic particle field">
+        <div class="cr-side cr-side-ayar">
+          <p class="cr-co-name">Ayar Labs</p>
+          <div class="cr-particle-wrap">
+            <div id="particleA" class="cr-particle cr-particle-ayar">
+              <span class="p-core"></span>
+              <span class="p-momentum"></span>
+              <span class="p-energy"></span>
+              <span class="p-meta"><span class="p-mass"></span> · <span class="p-vel"></span></span>
+            </div>
+          </div>
+        </div>
+        <div class="cr-field">
+          <p class="cr-field-label">Future-State Field</p>
+          <div class="cr-field-grid"></div>
+        </div>
+        <div class="cr-side cr-side-lm">
+          <p class="cr-co-name">Lightmatter</p>
+          <div class="cr-particle-wrap">
+            <div id="particleB" class="cr-particle cr-particle-lm">
+              <span class="p-core"></span>
+              <span class="p-momentum"></span>
+              <span class="p-energy"></span>
+              <span class="p-meta"><span class="p-mass"></span> · <span class="p-vel"></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cr-grid-2">
+        <div>
+          <h3 class="cr-h3">Ayar Labs · outcomes</h3>
+          <div id="outcomesA" class="cr-outcomes"></div>
+          <h4 class="cr-h4">What drives the result</h4>
+          <div id="contribA" class="cr-contrib"></div>
+        </div>
+        <div>
+          <h3 class="cr-h3">Lightmatter · outcomes</h3>
+          <div id="outcomesB" class="cr-outcomes"></div>
+          <h4 class="cr-h4">What drives the result</h4>
+          <div id="contribB" class="cr-contrib"></div>
+        </div>
+      </div>
+
+      <div class="cr-summary-block">
+        <h3 class="cr-h3">World Summary</h3>
+        <pre id="worldSummary" class="cr-summary"></pre>
+      </div>
+
+      <div class="cr-flip-block">
+        <h3 class="cr-h3">Flip conditions</h3>
+        <ul id="flipList" class="cr-flip"></ul>
+      </div>
+
+      <p class="duel-foot">Strategic simulation only — not stock-price prediction. Model outputs are Monte Carlo estimates from sourced variables (FACT / INFERENCE). Evidence confidence is shown separately from simulation probability. Not financial advice.</p>
+    </div>
+
+    <aside id="evPanel" class="cr-ev-panel">
+      <button id="evClose" type="button" class="cr-ev-close" aria-label="Close">×</button>
+      <h3 id="evTitle" class="cr-h3"></h3>
+      <div id="evBody" class="cr-ev-body"></div>
+    </aside>
+
+    <p class="section-footer-link">
+      <a href="reports.html">&larr; All reports</a> &nbsp;·&nbsp; <a href="index.html">Fractal Infinity home</a>
+    </p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <a href="index.html" class="footer-brand">
+        <img src="assets/archival-portal.jpg" alt="" />
+        FRACTAL INFINITY
+      </a>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="research-lab.html">Research Lab</a>
+        <a href="reports.html">Reports</a>
+        <a href="index.html#signup">Newsletter</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; 2026 Fractal Infinity. A Fractal Infinity Production.</p>
+  </div>
+</footer>
+
+<script type="module" src="crucible/app.js"></script>
+</body>
+</html>
+

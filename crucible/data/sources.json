@@ -1,0 +1,32 @@
+{
+  "version": "2.0.0",
+  "as_of": "2026-08-26",
+  "sources": [
+    {"id": "S01", "title": "Ayar Labs Series E press release", "url": "https://ayarlabs.com/news/ayar-labs-closes-500m-series-e-accelerates-volume-production-of-co-packaged-optics/", "publisher": "Ayar Labs", "date": "2026-03-03", "lineage": "primary"},
+    {"id": "S02", "title": "Ayar Labs Series E — Business Wire", "url": "https://www.businesswire.com/news/home/20260303608615/en/", "publisher": "Business Wire", "date": "2026-03-03", "lineage": "primary_syndicated"},
+    {"id": "S03", "title": "Ayar Labs $500M round — DCD", "url": "https://www.datacenterdynamics.com/en/news/optical-interconnect-startup-ayar-labs-closes-500m-funding-round-backed-by-nvidia-and-amd/", "publisher": "DatacenterDynamics", "date": "2026-03-03", "lineage": "industry_press"},
+    {"id": "S04", "title": "Ayar Labs UCIe optical chiplet announcement", "url": "https://ayarlabs.com/", "publisher": "Ayar Labs", "date": "2025-04-01", "lineage": "primary"},
+    {"id": "S05", "title": "Ayar Labs + Alchip partnership", "url": "https://www.datacenterdynamics.com/", "publisher": "DatacenterDynamics", "date": "2025-09-01", "lineage": "industry_press"},
+    {"id": "S06", "title": "Ayar Labs + Wiwynn 1024-GPU reference design", "url": "https://www.theregister.com/on-prem/2026/03/11/ayar-labs-wiwynn-to-cram-1024-gpus-into-photonic-system/", "publisher": "The Register", "date": "2026-03-11", "lineage": "industry_press"},
+    {"id": "S07", "title": "Lightmatter Passage M1000 press release", "url": "https://lightmatter.co/press-release/lightmatter-unveils-passage-m1000-photonic-superchip-worlds-fastest-ai-interconnect/", "publisher": "Lightmatter", "date": "2025-03-31", "lineage": "primary"},
+    {"id": "S08", "title": "Lightmatter Passage L200 press release", "url": "https://www.businesswire.com/news/home/20250331315231/en/", "publisher": "Business Wire", "date": "2025-03-31", "lineage": "primary_syndicated"},
+    {"id": "S09", "title": "Lightmatter M1000/L200 — DCD", "url": "https://www.datacenterdynamics.com/en/news/lightmatter-unveils-m1000-and-l200-passage-photonic-interconnects/", "publisher": "DatacenterDynamics", "date": "2025-03-31", "lineage": "industry_press"},
+    {"id": "S10", "title": "Lightmatter + Amkor 3D photonics package", "url": "https://www.businesswire.com/news/home/20241114683428/en/", "publisher": "Business Wire", "date": "2024-11-14", "lineage": "primary_syndicated"},
+    {"id": "S11", "title": "Passage M1000 EVK product page", "url": "https://lightmatter.co/products/passage-m1000-evk/", "publisher": "Lightmatter", "date": "2025-06-01", "lineage": "primary"},
+    {"id": "S12", "title": "TSMC COUPE mass production", "url": "https://www.tsmc.com/", "publisher": "TSMC", "date": "2026-04-01", "lineage": "foundry_primary"},
+    {"id": "S13", "title": "NVIDIA Quantum-X Photonics switch", "url": "https://www.nvidia.com/", "publisher": "NVIDIA", "date": "2026-01-01", "lineage": "hyperscaler_ecosystem"},
+    {"id": "S14", "title": "Broadcom Tomahawk 6 Davisson CPO", "url": "https://www.broadcom.com/", "publisher": "Broadcom", "date": "2026-01-01", "lineage": "hyperscaler_ecosystem"},
+    {"id": "S15", "title": "UCIe specification (chiplet standard)", "url": "https://www.uciexpress.org/", "publisher": "UCIe Consortium", "date": "2024-01-01", "lineage": "standards"},
+    {"id": "S16", "title": "Photonic interconnect production landscape", "url": "https://nextwavesinsight.com/photonic-compute-production-lightmatter-ayar-labs/", "publisher": "Next Waves Insight", "date": "2026-03-15", "lineage": "industry_analysis"},
+    {"id": "S17", "title": "GlobalFoundries Fotonix platform", "url": "https://gf.com/", "publisher": "GlobalFoundries", "date": "2025-01-01", "lineage": "foundry_primary"},
+    {"id": "S18", "title": "Amkor advanced packaging services", "url": "https://amkor.com/", "publisher": "Amkor", "date": "2025-01-01", "lineage": "packaging_primary"},
+    {"id": "S19", "title": "Alphawave + Lightmatter L200 chiplet IP", "url": "https://www.businesswire.com/news/home/20250331315231/en/", "publisher": "Business Wire", "date": "2025-03-31", "lineage": "primary_syndicated"},
+    {"id": "S20", "title": "Lightmatter NVLink Fusion ecosystem participation", "url": "https://lightmatter.co/", "publisher": "Lightmatter", "date": "2025-09-01", "lineage": "primary"},
+    {"id": "S21", "title": "Ayar Labs Hsinchu Taiwan office expansion", "url": "https://ayarlabs.com/news/ayar-labs-closes-500m-series-e-accelerates-volume-production-of-co-packaged-optics/", "publisher": "Ayar Labs", "date": "2026-03-03", "lineage": "primary"},
+    {"id": "S22", "title": "Ayar TeraPHY optical engine product", "url": "https://ayarlabs.com/", "publisher": "Ayar Labs", "date": "2025-09-01", "lineage": "primary"},
+    {"id": "S23", "title": "Lightmatter Guide VLSP light engine", "url": "https://lightmatter.co/products/passage-m1000-evk/", "publisher": "Lightmatter", "date": "2025-06-01", "lineage": "primary"},
+    {"id": "S24", "title": "OFC 2026 industry conference context", "url": "https://www.ofcconference.org/", "publisher": "OFC", "date": "2026-03-01", "lineage": "industry_event"},
+    {"id": "S25", "title": "Ayar GUC reference design partnership", "url": "https://www.theregister.com/on-prem/2026/03/11/ayar-labs-wiwynn-to-cram-1024-gpus-into-photonic-system/", "publisher": "The Register", "date": "2026-03-11", "lineage": "industry_press"}
+  ],
+  "independent_lineages": 12
+}

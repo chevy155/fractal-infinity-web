@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "variables": [
+    {"id": "cpo_ecosystem_maturity", "label": "CPO ecosystem maturity", "value": 0.68, "as_of": "2026-08", "type": "INFERENCE", "confidence": 0.78, "sources": ["S12", "S16"], "claim_ids": ["C041"]},
+    {"id": "hyperscaler_optical_pull", "label": "Hyperscaler optical pull", "value": 0.72, "as_of": "2026-08", "type": "INFERENCE", "confidence": 0.80, "sources": ["S13", "S14"], "claim_ids": ["C042"]},
+    {"id": "standards_maturity", "label": "UCIe/chiplet standards maturity", "value": 0.82, "as_of": "2026-08", "type": "FACT", "confidence": 0.88, "sources": ["S15"], "claim_ids": ["C043", "C060"]},
+    {"id": "ai_demand_tailwind", "label": "AI scale-up demand tailwind", "value": 0.85, "as_of": "2026-08", "type": "INFERENCE", "confidence": 0.75, "sources": ["S16"], "claim_ids": ["C044", "C059"]},
+    {"id": "packaging_bottleneck_risk", "label": "Packaging bottleneck severity", "value": 0.62, "as_of": "2026-08", "type": "INFERENCE", "confidence": 0.72, "sources": ["S10", "S16"], "claim_ids": ["C045"]},
+    {"id": "optical_adoption_friction", "label": "Optical adoption friction (copper persistence)", "value": 0.45, "as_of": "2026-08", "type": "INFERENCE", "confidence": 0.70, "sources": ["S16"], "claim_ids": ["C046"]},
+    {"id": "power_efficiency_advantage", "label": "CPO power-efficiency advantage vs pluggable", "value": 0.74, "as_of": "2026-08", "type": "INFERENCE", "confidence": 0.68, "sources": ["S16"], "claim_ids": ["C047"]},
+    {"id": "supply_chain_geo_risk", "label": "Supply-chain / geo stress", "value": 0.55, "as_of": "2026-08", "type": "INFERENCE", "confidence": 0.74, "sources": ["S21", "S16"], "claim_ids": ["C048"]},
+    {"id": "capital_market_access", "label": "Private capital market access", "value": 0.58, "as_of": "2026-08", "type": "INFERENCE", "confidence": 0.70, "sources": ["S01", "S16"], "claim_ids": ["C049"]},
+    {"id": "commercialization_window", "label": "2026–2027 commercialization window pressure", "value": 0.80, "as_of": "2026-08", "type": "INFERENCE", "confidence": 0.74, "sources": ["S16"], "claim_ids": ["C050"]},
+    {"id": "datacenter_scale_demand", "label": "Datacenter scale-up bandwidth demand", "value": 0.88, "as_of": "2026-08", "type": "INFERENCE", "confidence": 0.76, "sources": ["S16"], "claim_ids": ["C059"]},
+    {"id": "interconnect_latency_sensitivity", "label": "Latency sensitivity at accelerator tier", "value": 0.83, "as_of": "2026-08", "type": "INFERENCE", "confidence": 0.72, "sources": ["S16"], "claim_ids": ["C051", "C052"]},
+    {"id": "chiplet_integration_complexity", "label": "Chiplet/package integration complexity", "value": 0.70, "as_of": "2026-08", "type": "INFERENCE", "confidence": 0.75, "sources": ["S10", "S11"], "claim_ids": ["C038", "C045"]}
+  ],
+  "count": 13
+}
