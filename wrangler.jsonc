@@ -1,7 +1,16 @@
 {
   "name": "fractal-infinity-web",
-  "compatibility_date": "2026-08-18",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-08-25",
   "assets": {
-    "directory": "."
-  }
+    "directory": ".",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "fractal-research-mcp",
+      "database_id": "0378e4ee-4090-4271-b676-84c3df9931d8"
+    }
+  ]
 }

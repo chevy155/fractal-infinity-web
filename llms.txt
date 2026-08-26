@@ -23,5 +23,13 @@ Consulting is human-assisted and begins by email. It is not an autonomous API or
 
 ## Public research
 - Home: https://fractalinfinity.io/
+- Research Lab (Process Intelligence): https://fractalinfinity.io/research-lab.html
+- Sample Process X-Ray: https://fractalinfinity.io/report/sample.html
 - Reports and comparisons: https://fractalinfinity.io/reports.html
 - Ecosystem and channels: https://fractalinfinity.io/ecosystem.html
+
+## Process Intelligence (product direction)
+- Live: Fractal Research MCP v0.1 recorder (local/private alpha) → swarmresearch-run-v1 → /report/{run}
+- Coming next: SDK wrapper, GitHub Action
+- Later: Adaptive Research auto-investigator (opt-in)
+Fractal is a layer on existing agent workflows, not a place to paste prompts. Focus: independence, evidence lineage, consensus, novelty, duplication, unresolved uncertainty.

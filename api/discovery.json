@@ -29,6 +29,11 @@
       "description": "Plan responsibly for advanced AI and networked-system changes without claiming autonomous execution."
     },
     {
+      "id": "process-intelligence",
+      "name": "Agent process intelligence (Research Lab)",
+      "description": "After-action X-rays for multi-agent runs via Fractal Research MCP v0.1 (live recorder). SDK and GitHub Action adapters are coming next; one RunArtifact engine."
+    },
+    {
       "id": "problem-solving",
       "name": "Complex problem solving",
       "description": "Work through stalled initiatives, technical decisions, and personal AI questions with a senior technical partner."
@@ -46,6 +51,8 @@
   },
   "public_resources": {
     "home": "https://fractalinfinity.io/",
+    "research_lab": "https://fractalinfinity.io/research-lab.html",
+    "sample_xray": "https://fractalinfinity.io/report/sample.html",
     "reports": "https://fractalinfinity.io/reports.html",
     "ecosystem": "https://fractalinfinity.io/ecosystem.html",
     "sitemap": "https://fractalinfinity.io/sitemap.xml",

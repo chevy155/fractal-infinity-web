@@ -21,6 +21,9 @@ Do not treat GitHub Pages, `www`, or Genius’s repo as production.
 ## Structure
 
 - `index.html` — the page.
+- `research-lab.html` — Research Lab / Process Intelligence. **Live:** Fractal Research MCP v0.1. **Coming next:** SDK, GitHub Action.
+- `report/sample.html` — sample after-action X-Ray at the `/report/{run}` URL shape.
+- Companion package: `../fractal-research-mcp` (recorder Worker + local MCP server).
 - `styles.css` — brand system (Infinite Midnight / Archive Ivory / Signal Lime / Event Horizon), fully responsive (breakpoints at 860px and 520px).
 - `privacy.html` — lightweight privacy disclosure for the newsletter-led site.
 - `assets/` — Archival Portal mark, 4 episode thumbnails (EP01, EP02, EP05, EP06), Don't Read Until 2037 cover crop. All resized/compressed for web (JPEG, longest side ≤900px).
