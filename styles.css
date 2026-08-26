@@ -195,7 +195,32 @@ p { color: var(--ivory-dim); margin: 0 0 16px; }
 .hero .lede { margin: 0 auto 36px; text-align: center; }
 .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-/* ---- What we do / lab capabilities ---- */
+/* ---- What we do / brand statement ---- */
+.brand-statement {
+  max-width: 760px;
+}
+.brand-statement .lede {
+  margin-bottom: 28px;
+}
+.lab-closer {
+  margin-top: 0;
+  max-width: 720px;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--ivory);
+}
+.lab-closer + .lab-closer {
+  margin-top: 10px;
+}
+.lab-closer-strong {
+  font-size: clamp(24px, 3.2vw, 32px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--lime);
+  text-shadow: 0 0 28px rgba(201, 255, 32, 0.18);
+}
+
+/* legacy method / capability styles (unused on home) */
 .lab-pipeline {
   display: flex;
   flex-wrap: wrap;
@@ -254,13 +279,6 @@ p { color: var(--ivory-dim); margin: 0 0 16px; }
   margin-bottom: 0;
   color: var(--ivory-dim);
 }
-.lab-closer {
-  margin-top: 36px;
-  max-width: 720px;
-  font-size: 17px;
-  line-height: 1.55;
-  color: var(--ivory);
-}
 .lab-rigor {
   margin-top: 14px;
   max-width: 720px;
@@ -269,7 +287,6 @@ p { color: var(--ivory-dim); margin: 0 0 16px; }
   font-style: italic;
 }
 
-/* legacy method-grid kept for any residual pages */
 .method-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
