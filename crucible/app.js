@@ -1,6 +1,7 @@
 import { runSimulation, contributionAnalysis } from "./engine/simulator.js";
 import { analyzeFlipConditions } from "./engine/sensitivity.js";
 import { buildWorldSummary, formatSummaryText } from "./engine/summary.js";
+import { computeDriverAttribution, collapsedDrivers, lineageAdjustedEvidence } from "./engine/drivers.js";
 
 const DATA = {};
 let presetKey = "all";
@@ -70,6 +71,23 @@ function showEvidence(varId, side) {
   $("evPanel").classList.add("on");
 }
 
+function renderDriverBlock(result, summary, collapsed, attribution) {
+  const leader = result.leader === "ayar" ? result.ayar.name.toUpperCase() :
+    result.leader === "lightmatter" ? result.lightmatter.name.toUpperCase() : "NO CLEAR LEADER";
+  const lineages = lineageAdjustedEvidence(DATA.sources);
+  const rows = collapsed.top.map((d, i) =>
+    `<div class="driver-row"><span>${i + 1}. ${d.label}</span><span>${d.share}%</span></div>`
+  ).join("");
+  $("driverBlock").innerHTML = `
+    <p class="driver-headline"><b>${leader} LEADS: ${result.leaderPct}%</b></p>
+    <p class="driver-sub">Result is primarily driven by (${collapsed.top.length} effective dimensions explain ~${collapsed.top[collapsed.top.length - 1]?.cumulative || 80}%):</p>
+    ${rows}
+    <p class="driver-meta">89 research variables · 8 state dimensions · ${collapsed.effectiveCount} drivers explain ≥80% of margin<br>
+    Evidence strength: <b>${summary.evidenceConfidence.ayar === "HIGH" && summary.evidenceConfidence.lightmatter === "HIGH" ? "MEDIUM-HIGH" : "MEDIUM"}</b> ·
+    Independent source lineages: <b>${lineages}</b> (not ${DATA.sources.independent_lineages})<br>
+    <span class="driver-note">Research inventory ≠ decision dimensions. ±12% single-variable moves rarely flip outcomes; state-level gaps dominate.</span></p>`;
+}
+
 function renderFlips(flip) {
   $("flipList").innerHTML = (flip.flips.length ? flip.flips : [{ company: "—", variable: "No flip in ±15% single-variable pass", leadershipDelta: 0 }])
     .map(f => `<li>${f.company}: ${f.variable}${f.leadershipDelta ? ` (${f.leadershipDelta > 0 ? "+" : ""}${f.leadershipDelta} pts)` : ""}${f.flipped ? " · <b>flips leader</b>" : ""}</li>`).join("");
@@ -106,7 +124,9 @@ async function runSim() {
     scenarios: DATA.scenarios, presetKey, worldCount: Math.min(2000, worldCount)
   });
   const summary = buildWorldSummary(result, DATA.ayar, DATA.lightmatter, flip);
-  lastResult = { result, flip, summary };
+  const attribution = computeDriverAttribution(DATA.ayar, DATA.lightmatter);
+  const collapsed = collapsedDrivers(attribution);
+  lastResult = { result, flip, summary, attribution, collapsed };
 
   renderVerdict(result, summary);
   renderSummary(summary);
@@ -115,6 +135,7 @@ async function runSim() {
   renderContributions("ayar", contributionAnalysis(DATA.ayar));
   renderContributions("lightmatter", contributionAnalysis(DATA.lightmatter));
   renderFlips(flip);
+  renderDriverBlock(result, summary, collapsed, attribution);
 
   let phase = 0;
   const anim = () => {

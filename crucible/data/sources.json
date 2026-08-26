@@ -28,5 +28,7 @@
     {"id": "S24", "title": "OFC 2026 industry conference context", "url": "https://www.ofcconference.org/", "publisher": "OFC", "date": "2026-03-01", "lineage": "industry_event"},
     {"id": "S25", "title": "Ayar GUC reference design partnership", "url": "https://www.theregister.com/on-prem/2026/03/11/ayar-labs-wiwynn-to-cram-1024-gpus-into-photonic-system/", "publisher": "The Register", "date": "2026-03-11", "lineage": "industry_press"}
   ],
-  "independent_lineages": 12
+  "independent_lineages": 12,
+  "defensible_independent_lineages": 8,
+  "lineage_audit_note": "12 publisher-type labels; ~8 after deduplicating syndicated PR echoes and shared event chains"
 }

@@ -822,6 +822,23 @@ body.console-open .console { transform: translateX(0); }
 .cr-runrow select { width: auto; }
 .cr-results { display: none; }
 .cr-results.on { display: block; }
+.cr-driver-block {
+  border: 1px solid rgba(201, 255, 32, 0.35);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  background: linear-gradient(180deg, rgba(201, 255, 32, 0.06), rgba(3, 9, 29, 0.4));
+}
+.driver-headline { font-size: 15px; margin: 0 0 8px; }
+.driver-sub { font-size: 12px; color: var(--ivory-dim); margin: 0 0 10px; }
+.driver-row {
+  display: flex; justify-content: space-between; gap: 12px;
+  font-family: var(--mono); font-size: 12px;
+  padding: 5px 0; border-bottom: 1px solid rgba(243, 240, 228, 0.06);
+}
+.driver-row span:last-child { color: var(--lime); font-weight: 600; }
+.driver-meta { font-size: 11px; color: var(--ivory-faint); line-height: 1.55; margin: 12px 0 0; }
+.driver-note { display: block; margin-top: 6px; font-style: italic; }
 .cr-arena {
   display: grid;
   grid-template-columns: 1fr minmax(120px, 160px) 1fr;
