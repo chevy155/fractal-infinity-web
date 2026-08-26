@@ -48,10 +48,14 @@ export function buildWorldSummary(result, ayar, lightmatter, flipAnalysis) {
 
   const topFlip = flipAnalysis?.flips?.[0];
   let flip = "Result is stable within modeled variable bands; no single ±15% input change reverses the majority outcome in sensitivity pass.";
-  if (topFlip?.flipped) {
-    flip = `Result flips if ${topFlip.company} ${topFlip.variable.toLowerCase()} improves ~${Math.round(topFlip.delta * 100)}% (leadership probability shift ~${topFlip.leadershipDelta > 0 ? "+" : ""}${topFlip.leadershipDelta} pts).`;
-  } else if (topFlip) {
-    flip = `Largest sensitivity: ${topFlip.company} ${topFlip.variable.toLowerCase()} +${Math.round(topFlip.delta * 100)}% shifts leadership probability ~${topFlip.leadershipDelta > 0 ? "+" : ""}${topFlip.leadershipDelta} pts without full reversal.`;
+  if (topFlip) {
+    const flipLabel = (topFlip.variable || topFlip.dimension || "input").toLowerCase();
+    const shift = topFlip.leadershipDelta ?? topFlip.marginShift ?? 0;
+    if (topFlip.flipped) {
+      flip = `Result flips if ${topFlip.company} ${flipLabel} improves ~${Math.round(topFlip.delta * 100)}% (leadership probability shift ~${shift > 0 ? "+" : ""}${Math.round(shift)} pts).`;
+    } else {
+      flip = `Largest sensitivity: ${topFlip.company} ${flipLabel} +${Math.round(topFlip.delta * 100)}% shifts leadership probability ~${shift > 0 ? "+" : ""}${Math.round(shift)} pts without full reversal.`;
+    }
   }
   if (flipAnalysis?.scenarioFlips?.[0]) {
     flip += ` ${flipAnalysis.scenarioFlips[0].condition} would materially alter relative advantage.`;

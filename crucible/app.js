@@ -227,47 +227,54 @@ async function runSim() {
   const btn = $("runBtn");
   btn.disabled = true;
   btn.textContent = "Running…";
-  await new Promise(r => setTimeout(r, 40));
+  try {
+    await new Promise(r => setTimeout(r, 40));
 
-  const result = runSimulation({
-    ayar: DATA.ayar,
-    lightmatter: DATA.lightmatter,
-    tech: DATA.technology,
-    scenarios: DATA.scenarios,
-    presetKey,
-    worldCount
-  });
-  const stateFlip = analyzeStateFlips({
-    ayar: DATA.ayar, lightmatter: DATA.lightmatter, tech: DATA.technology,
-    scenarios: DATA.scenarios, presetKey, worldCount: Math.min(2000, worldCount)
-  });
-  const summary = buildWorldSummary(result, DATA.ayar, DATA.lightmatter, stateFlip);
-  const attribution = computeDriverAttribution(DATA.ayar, DATA.lightmatter);
-  const collapsed = collapsedDrivers(attribution);
+    const result = runSimulation({
+      ayar: DATA.ayar,
+      lightmatter: DATA.lightmatter,
+      tech: DATA.technology,
+      scenarios: DATA.scenarios,
+      presetKey,
+      worldCount
+    });
+    const stateFlip = analyzeStateFlips({
+      ayar: DATA.ayar, lightmatter: DATA.lightmatter, tech: DATA.technology,
+      scenarios: DATA.scenarios, presetKey, worldCount: Math.min(2000, worldCount)
+    });
+    const summary = buildWorldSummary(result, DATA.ayar, DATA.lightmatter, stateFlip);
+    const attribution = computeDriverAttribution(DATA.ayar, DATA.lightmatter);
+    const collapsed = collapsedDrivers(attribution);
 
-  renderVerdict(result, summary);
-  renderSummaryHtml(summary);
-  renderDriverBlock(collapsed);
-  renderOutcomes("ayar", result.ayar);
-  renderOutcomes("lightmatter", result.lightmatter);
-  renderFlips(stateFlip);
-  renderConfidence(summary);
-  renderEvidenceExplorer(collapsed, attribution);
+    renderVerdict(result, summary);
+    renderSummaryHtml(summary);
+    renderDriverBlock(collapsed);
+    renderOutcomes("ayar", result.ayar);
+    renderOutcomes("lightmatter", result.lightmatter);
+    renderFlips(stateFlip);
+    renderConfidence(summary);
+    renderEvidenceExplorer(collapsed, attribution);
 
-  let phase = 0;
-  const anim = () => {
-    phase += 0.08;
-    renderParticle("ayar", { dynamics: result.ayar.dynamics, avgMomentum: result.ayar.avgMomentum, avgEnergy: result.ayar.avgEnergy }, phase);
-    renderParticle("lightmatter", { dynamics: result.lightmatter.dynamics, avgMomentum: result.lightmatter.avgMomentum, avgEnergy: result.lightmatter.avgEnergy }, phase);
-  };
-  anim();
-  if (window._crAnim) clearInterval(window._crAnim);
-  window._crAnim = setInterval(anim, 120);
+    let phase = 0;
+    const anim = () => {
+      phase += 0.08;
+      renderParticle("ayar", { dynamics: result.ayar.dynamics, avgMomentum: result.ayar.avgMomentum, avgEnergy: result.ayar.avgEnergy }, phase);
+      renderParticle("lightmatter", { dynamics: result.lightmatter.dynamics, avgMomentum: result.lightmatter.avgMomentum, avgEnergy: result.lightmatter.avgEnergy }, phase);
+    };
+    anim();
+    if (window._crAnim) clearInterval(window._crAnim);
+    window._crAnim = setInterval(anim, 120);
 
-  hasRun = true;
-  showResults();
-  btn.disabled = false;
-  updateRunCta();
+    hasRun = true;
+    showResults();
+  } catch (err) {
+    console.error(err);
+    showResults();
+    $("verdict").innerHTML = `<p class="cr-verdict-name">Simulation error</p><p class="cr-verdict-pct">${err.message}</p>`;
+  } finally {
+    btn.disabled = false;
+    updateRunCta();
+  }
 }
 
 function bindUI() {
