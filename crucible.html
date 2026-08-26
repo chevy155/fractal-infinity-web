@@ -1,311 +1,190 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8" />
-
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-<title>The Crucible v2 — Ayar Labs vs Lightmatter — Fractal Infinity</title>
-
-<meta name="description" content="Evidence-grounded strategic simulation: Ayar Labs vs Lightmatter across thousands of future worlds. Optical I/O, CPO, and photonic interconnect dynamics." />
-
+<title>The Crucible — Ayar Labs vs Lightmatter — Fractal Infinity</title>
+<meta name="description" content="Evidence-grounded strategic simulation: Ayar Labs vs Lightmatter across thousands of future worlds." />
 <link rel="icon" href="assets/archival-portal.jpg" />
-
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-
 <link rel="stylesheet" href="styles.css" />
-
 </head>
-
 <body>
 
-
-
 <div class="topbar">
-
   <div class="wrap">
-
     <a href="index.html" class="topbar-brand">
-
       <img src="assets/archival-portal.jpg" alt="" />
-
       FRACTAL INFINITY
-
     </a>
-
-    <nav class="topbar-nav">
-
-      <a href="reports.html">All Reports</a>
-
-    </nav>
-
+    <nav class="topbar-nav"><a href="reports.html">All Reports</a></nav>
     <a href="index.html" class="btn btn-ghost">&larr; Back to Home</a>
-
   </div>
-
 </div>
 
-
-
-<header class="hero report-hero">
-
-  <div class="wrap hero-content">
-
-    <p class="eyebrow">Crucible v2 · Research Alpha</p>
-
-    <h1>Ayar Labs vs Lightmatter</h1>
-
-    <p class="lede">Evidence-grounded strategic simulation of two photonic interconnect leaders. Each company moves as a dynamic particle through simulated future worlds — momentum, energy, and field forces derived from sourced model variables, not archetype labels alone.</p>
-
-  </div>
-
+<header class="cr-hero wrap">
+  <p class="cr-eyebrow">CRUCIBLE · RESEARCH ALPHA</p>
+  <h1 class="cr-title">Ayar Labs vs Lightmatter</h1>
+  <p class="cr-desc">Run two photonic-interconnect companies through thousands of possible future environments. The Crucible combines sourced company research, technology readiness, commercial momentum, manufacturing position, capital resilience, and scenario forces to test which company is better positioned — and why.</p>
+  <p class="cr-metrics"><span class="cr-mono">89 research variables · 60 claims · 25 sources · 8 defensible evidence lineages</span></p>
+  <p class="cr-note">Research variables compress into 8 modeled state dimensions. Most outcomes are driven by a small number of effective factors.</p>
 </header>
 
+<main class="wrap crucible-v2">
 
+  <section class="cr-steps" aria-label="How it works">
+    <h2 class="cr-section-label">How it works</h2>
+    <ol class="cr-step-row">
+      <li><strong>Choose a world</strong><span>Select the future environment to stress-test.</span></li>
+      <li><strong>Run the model</strong><span>Both companies move through 1,000–10,000 simulated futures.</span></li>
+      <li><strong>Read the result</strong><span>See who leads, why, evidence strength, and what would flip the outcome.</span></li>
+    </ol>
+  </section>
 
-<main>
-
-<section class="tight">
-
-  <div class="wrap crucible-v2">
-
-
-
-    <div class="cr-presets">
-
-      <button class="cr-preset active" data-p="all">All Worlds</button>
-
-      <button class="cr-preset" data-p="ai_supercycle">AI Super-Cycle</button>
-
-      <button class="cr-preset" data-p="capital_winter">Capital Winter</button>
-
-      <button class="cr-preset" data-p="packaging_bottleneck">Packaging Bottleneck</button>
-
-      <button class="cr-preset" data-p="optical_breakout">Optical Breakout</button>
-
-      <button class="cr-preset" data-p="optical_delay">Optical Delay</button>
-
-      <button class="cr-preset" data-p="supply_shock">Supply Shock</button>
-
+  <details class="cr-about">
+    <summary>About the model &amp; evidence</summary>
+    <div class="cr-about-body">
+      <p><strong>Data.</strong> Sourced company and technology research covering technology readiness, commercial momentum, manufacturing / packaging, ecosystem strength, capital resilience, execution, competitive position, and market timing.</p>
+      <p><strong>Evidence inventory.</strong> 89 research variables · 60 structured claims · 25 source records · 8 defensible evidence lineages. Multiple articles repeating the same announcement do not count as independent evidence.</p>
+      <p class="cr-about-limit"><strong>Model limit.</strong> Company facts are sourced. Some state scores, simulation weights, and scenario sensitivities are analyst priors because this market does not yet have enough historical outcomes for full statistical calibration.</p>
     </div>
+  </details>
 
-
-
-    <div class="cr-runrow">
-
-      <select id="worldCount" aria-label="World count">
-
-        <option value="1000">1,000 worlds</option>
-
-        <option value="5000" selected>5,000 worlds</option>
-
-        <option value="10000">10,000 worlds</option>
-
-      </select>
-
-      <button id="runBtn" class="duel-run">Run Simulation</button>
-
+  <section class="cr-controls">
+    <h2 class="cr-section-label">1 · Choose a world</h2>
+    <div class="cr-presets" role="tablist">
+      <button type="button" class="cr-preset active" data-p="all">All Worlds</button>
+      <button type="button" class="cr-preset" data-p="ai_supercycle">AI Super-Cycle</button>
+      <button type="button" class="cr-preset" data-p="capital_winter">Capital Winter</button>
+      <button type="button" class="cr-preset" data-p="packaging_bottleneck">Packaging Bottleneck</button>
+      <button type="button" class="cr-preset" data-p="optical_breakout">Optical Breakout</button>
+      <button type="button" class="cr-preset" data-p="optical_delay">Optical Delay</button>
+      <button type="button" class="cr-preset" data-p="supply_shock">Supply Shock</button>
     </div>
+    <p id="scenarioDesc" class="cr-scenario-desc"></p>
 
-
-
-    <div id="results" class="cr-results">
-
-      <div id="verdict" class="duel-verdict"></div>
-
-      <div id="driverBlock" class="cr-driver-block"></div>
-
-
-
-      <div class="cr-arena" aria-label="Strategic particle field">
-
-        <div class="cr-side cr-side-ayar">
-
-          <p class="cr-co-name">Ayar Labs</p>
-
-          <div class="cr-particle-wrap">
-
-            <div id="particleA" class="cr-particle cr-particle-ayar">
-
-              <span class="p-core"></span>
-
-              <span class="p-momentum"></span>
-
-              <span class="p-energy"></span>
-
-              <span class="p-meta"><span class="p-mass"></span> · <span class="p-vel"></span></span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="cr-field">
-
-          <p class="cr-field-label">Future-State Field</p>
-
-          <div class="cr-field-grid"></div>
-
-        </div>
-
-        <div class="cr-side cr-side-lm">
-
-          <p class="cr-co-name">Lightmatter</p>
-
-          <div class="cr-particle-wrap">
-
-            <div id="particleB" class="cr-particle cr-particle-lm">
-
-              <span class="p-core"></span>
-
-              <span class="p-momentum"></span>
-
-              <span class="p-energy"></span>
-
-              <span class="p-meta"><span class="p-mass"></span> · <span class="p-vel"></span></span>
-
-            </div>
-
-          </div>
-
-        </div>
-
+    <h2 class="cr-section-label">2 · Run the model</h2>
+    <div class="cr-size-row">
+      <span class="cr-size-label">Simulation size</span>
+      <div class="cr-size-btns" role="group" aria-label="Simulation size">
+        <button type="button" class="cr-size" data-n="1000">1,000</button>
+        <button type="button" class="cr-size" data-n="5000">5,000</button>
+        <button type="button" class="cr-size active" data-n="10000">10,000</button>
       </div>
-
-
-
-      <div class="cr-grid-2">
-
-        <div>
-
-          <h3 class="cr-h3">Ayar Labs · outcomes</h3>
-
-          <div id="outcomesA" class="cr-outcomes"></div>
-
-          <h4 class="cr-h4">What drives the result</h4>
-
-          <div id="contribA" class="cr-contrib"></div>
-
-        </div>
-
-        <div>
-
-          <h3 class="cr-h3">Lightmatter · outcomes</h3>
-
-          <div id="outcomesB" class="cr-outcomes"></div>
-
-          <h4 class="cr-h4">What drives the result</h4>
-
-          <div id="contribB" class="cr-contrib"></div>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="cr-summary-block">
-
-        <h3 class="cr-h3">World Summary</h3>
-
-        <pre id="worldSummary" class="cr-summary"></pre>
-
-      </div>
-
-
-
-      <div class="cr-flip-block">
-
-        <h3 class="cr-h3">Flip conditions</h3>
-
-        <ul id="flipList" class="cr-flip"></ul>
-
-      </div>
-
-
-
-      <p class="duel-foot">Strategic simulation only — not stock-price prediction. Model outputs are Monte Carlo estimates from sourced variables (FACT / INFERENCE). Evidence confidence is shown separately from simulation probability. Not financial advice.</p>
-
     </div>
+    <button type="button" id="runBtn" class="cr-run-btn">Run 10,000 future worlds</button>
+    <p class="cr-run-note">Runs locally with deterministic simulation logic. No AI model is called.</p>
+  </section>
 
-
-
-    <aside id="evPanel" class="cr-ev-panel">
-
-      <button id="evClose" type="button" class="cr-ev-close" aria-label="Close">×</button>
-
-      <h3 id="evTitle" class="cr-h3"></h3>
-
-      <div id="evBody" class="cr-ev-body"></div>
-
-    </aside>
-
-
-
-    <p class="section-footer-link">
-
-      <a href="reports.html">&larr; All reports</a> &nbsp;·&nbsp; <a href="index.html">Fractal Infinity home</a>
-
-    </p>
-
+  <div id="resultsEmpty" class="cr-empty">
+    <h2 class="cr-section-label">Ready to run</h2>
+    <p>Choose a future world, select the number of simulations, and run the model.</p>
+    <ul>
+      <li>Head-to-head winner</li>
+      <li>Plain-English world summary</li>
+      <li>Strongest effective drivers</li>
+      <li>Evidence confidence</li>
+      <li>Flip conditions</li>
+      <li>Source-level inspection</li>
+    </ul>
   </div>
 
-</section>
+  <div id="resultsBody" class="cr-results-body" hidden>
 
+    <section class="cr-verdict-block">
+      <p class="cr-verdict-label">Verdict</p>
+      <div id="verdict" class="cr-verdict"></div>
+    </section>
+
+    <section class="cr-panel">
+      <h2 class="cr-section-label">World summary</h2>
+      <div id="worldSummary" class="cr-summary-html"></div>
+    </section>
+
+    <section class="cr-panel">
+      <h2 class="cr-section-label">What drove the result</h2>
+      <p class="cr-panel-note">Attribution shares of the modeled head-to-head margin — not claims of real-world causal truth.</p>
+      <div id="driverBlock" class="cr-drivers"></div>
+      <p class="cr-panel-note">89 research variables compress into 8 state dimensions. These factors explain most of the modeled difference.</p>
+    </section>
+
+    <section class="cr-panel">
+      <h2 class="cr-section-label">Strategic state view</h2>
+      <p class="cr-panel-note">Particle motion illustrates structural dynamics — secondary to the verdict above.</p>
+      <dl class="cr-particle-legend">
+        <div><dt>Mass</dt><dd>Structural strength (ecosystem, capital, manufacturing depth)</dd></div>
+        <div><dt>Velocity</dt><dd>Rate of execution and commercial progress</dd></div>
+        <div><dt>Momentum</dt><dd>Mass × velocity</dd></div>
+        <div><dt>Energy</dt><dd>Resilience under adverse scenario forces</dd></div>
+      </dl>
+      <div class="cr-arena" aria-label="Strategic particle field">
+        <div class="cr-side">
+          <p class="cr-co-name">Ayar Labs</p>
+          <div class="cr-particle-wrap"><div id="particleA" class="cr-particle cr-particle-ayar"><span class="p-core"></span><span class="p-momentum"></span><span class="p-energy"></span><span class="p-meta"><span class="p-mass"></span> · <span class="p-vel"></span></span></div></div>
+        </div>
+        <div class="cr-field"><p class="cr-field-label">Scenario field</p><div class="cr-field-grid"></div></div>
+        <div class="cr-side">
+          <p class="cr-co-name">Lightmatter</p>
+          <div class="cr-particle-wrap"><div id="particleB" class="cr-particle cr-particle-lm"><span class="p-core"></span><span class="p-momentum"></span><span class="p-energy"></span><span class="p-meta"><span class="p-mass"></span> · <span class="p-vel"></span></span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cr-panel">
+      <h2 class="cr-section-label">Outcome distributions</h2>
+      <div class="cr-grid-2">
+        <div><h3 class="cr-h3">Ayar Labs</h3><div id="outcomesA" class="cr-outcomes"></div></div>
+        <div><h3 class="cr-h3">Lightmatter</h3><div id="outcomesB" class="cr-outcomes"></div></div>
+      </div>
+    </section>
+
+    <section class="cr-panel">
+      <h2 class="cr-section-label">What would flip the result?</h2>
+      <p class="cr-panel-note">Sensitivity tests at the state-dimension level (+15%). Not predictions.</p>
+      <ul id="flipList" class="cr-flip"></ul>
+    </section>
+
+    <section class="cr-panel cr-confidence">
+      <h2 class="cr-section-label">Evidence confidence</h2>
+      <p class="cr-conf-def">Confidence measures the strength and independence of the evidence behind model inputs — <em>not</em> the probability the forecast will come true.</p>
+      <div id="confidenceBlock" class="cr-conf-levels"></div>
+    </section>
+
+    <section class="cr-panel">
+      <h2 class="cr-section-label">Explore the evidence</h2>
+      <p class="cr-panel-note">Sources establish research inputs. Simulation weights and scenario responses also include explicit analyst priors where historical calibration is unavailable.</p>
+      <div id="evidenceExplorer" class="cr-ev-explorer"></div>
+    </section>
+
+    <p class="cr-disclaimer">Strategic simulation only — not stock-price prediction. Not financial advice.</p>
+  </div>
+
+  <aside id="evPanel" class="cr-ev-panel">
+    <button id="evClose" type="button" class="cr-ev-close" aria-label="Close">×</button>
+    <h3 id="evTitle" class="cr-h3"></h3>
+    <div id="evBody" class="cr-ev-body"></div>
+  </aside>
+
+  <p class="section-footer-link"><a href="reports.html">&larr; All reports</a> · <a href="index.html">Fractal Infinity home</a></p>
 </main>
 
-
-
 <footer>
-
   <div class="wrap">
-
     <div class="footer-row">
-
-      <a href="index.html" class="footer-brand">
-
-        <img src="assets/archival-portal.jpg" alt="" />
-
-        FRACTAL INFINITY
-
-      </a>
-
+      <a href="index.html" class="footer-brand"><img src="assets/archival-portal.jpg" alt="" />FRACTAL INFINITY</a>
       <div class="footer-links">
-
         <a href="index.html">Home</a>
-
         <a href="research-lab.html">Research Lab</a>
-
         <a href="reports.html">Reports</a>
-
-        <a href="index.html#signup">Newsletter</a>
-
         <a href="privacy.html">Privacy</a>
-
       </div>
-
     </div>
-
     <p class="footer-copy">&copy; 2026 Fractal Infinity. A Fractal Infinity Production.</p>
-
   </div>
-
 </footer>
 
-
-
 <script type="module" src="crucible/app.js"></script>
-
 </body>
-
 </html>
-
-

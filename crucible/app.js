@@ -1,11 +1,36 @@
-import { runSimulation, contributionAnalysis } from "./engine/simulator.js";
-import { analyzeFlipConditions } from "./engine/sensitivity.js";
-import { buildWorldSummary, formatSummaryText } from "./engine/summary.js";
+import { runSimulation } from "./engine/simulator.js";
+import { analyzeStateFlips } from "./engine/state-flips.js";
+import { buildWorldSummary } from "./engine/summary.js";
 import { computeDriverAttribution, collapsedDrivers, lineageAdjustedEvidence } from "./engine/drivers.js";
 
 const DATA = {};
 let presetKey = "all";
-let lastResult = null;
+let worldCount = 10000;
+let hasRun = false;
+
+const SCENARIO_DESC = {
+  all: "Balanced mix of plausible future conditions.",
+  ai_supercycle: "AI infrastructure demand remains exceptionally strong.",
+  capital_winter: "Funding becomes scarce and capital-intensive companies face pressure.",
+  packaging_bottleneck: "Advanced packaging and manufacturing capacity become dominant constraints.",
+  optical_breakout: "Optical interconnect adoption accelerates faster than expected.",
+  optical_delay: "Electrical interconnect remains competitive longer than expected.",
+  supply_shock: "Manufacturing and geopolitical disruption dominate."
+};
+
+const DIM_STATE_KEY = {
+  packaging_integration: "manufacturing_readiness",
+  commercial_momentum: "commercial_momentum",
+  capital_resilience: "capital_resilience",
+  market_timing: "market_timing",
+  technology_maturity: "technology_maturity"
+};
+
+const CONF_LEVELS = {
+  HIGH: "Multiple strong, independent sources support the main drivers.",
+  MEDIUM: "Good evidence exists, but some important inputs rely on inference or limited independent verification.",
+  LOW: "Important drivers depend heavily on analyst assumptions, sparse evidence, or unresolved uncertainty."
+};
 
 async function loadData() {
   const base = "crucible/data/";
@@ -25,6 +50,25 @@ function outcomeRows(out) {
   ];
 }
 
+function combinedConfidence(summary) {
+  const { ayar, lightmatter } = summary.evidenceConfidence;
+  if (ayar === "LOW" || lightmatter === "LOW") return "LOW";
+  if (ayar === "HIGH" && lightmatter === "HIGH") return "HIGH";
+  return "MEDIUM";
+}
+
+function updateScenarioDesc() {
+  const el = $("scenarioDesc");
+  if (el) el.textContent = SCENARIO_DESC[presetKey] || "";
+}
+
+function updateRunCta() {
+  const btn = $("runBtn");
+  if (btn && !btn.disabled) {
+    btn.textContent = `Run ${worldCount.toLocaleString()} future worlds`;
+  }
+}
+
 function renderParticle(side, co, animPhase) {
   const el = $(side === "ayar" ? "particleA" : "particleB");
   const d = co.dynamics;
@@ -39,15 +83,6 @@ function renderParticle(side, co, animPhase) {
   el.querySelector(".p-energy").textContent = `Energy ${e.toFixed(2)}`;
   el.querySelector(".p-mass").textContent = `Mass ${d.mass.toFixed(2)}`;
   el.querySelector(".p-vel").textContent = `Velocity ${d.velocity.toFixed(2)}`;
-}
-
-function renderContributions(side, analysis) {
-  const host = $(side === "ayar" ? "contribA" : "contribB");
-  host.innerHTML = analysis.top.map(it => {
-    const sign = it.value >= 0 ? "+" : "";
-    const cls = it.value >= 0 ? "pos" : "neg";
-    return `<button type="button" class="contrib-row ${cls}" data-var="${it.id}" data-side="${side}"><span>${it.label}</span><span>${sign}${it.value}</span></button>`;
-  }).join("");
 }
 
 function renderOutcomes(side, co) {
@@ -65,50 +100,133 @@ function showEvidence(varId, side) {
   const srcMap = Object.fromEntries(DATA.sources.sources.map(s => [s.id, s]));
   $("evTitle").textContent = `${company.name} · ${v.label}`;
   $("evBody").innerHTML = `
-    <p class="ev-val"><b>Value:</b> ${typeof v.value === "number" ? v.value.toFixed(2) : v.value} · <b>${v.type}</b> · confidence ${(v.confidence * 100).toFixed(0)}% · as of ${v.as_of}</p>
-    <ul class="ev-claims">${claims.map(c => `<li><span class="tag-${c.type.toLowerCase()}">${c.type}</span> ${c.text} <span class="ev-conf">${(c.confidence * 100).toFixed(0)}%</span></li>`).join("")}</ul>
-    <ul class="ev-src">${(v.sources || []).map(id => { const s = srcMap[id]; return s ? `<li><a href="${s.url}" target="_blank" rel="noopener">${s.title}</a> · ${s.date} · ${s.lineage}</li>` : ""; }).join("")}</ul>`;
+    <p class="ev-val"><b>Value:</b> ${typeof v.value === "number" ? v.value.toFixed(2) : v.value}</p>
+    <p class="ev-val"><b>Type:</b> ${v.type} · <b>Confidence:</b> ${(v.confidence * 100).toFixed(0)}% · <b>As of:</b> ${v.as_of}</p>
+    <p class="ev-val"><b>Claim supported:</b></p>
+    <ul class="ev-claims">${claims.map(c => `<li><span class="tag-${c.type.toLowerCase()}">${c.type}</span> ${c.text} <span class="ev-conf">${(c.confidence * 100).toFixed(0)}%</span></li>`).join("") || "<li>No linked claim</li>"}</ul>
+    <p class="ev-val"><b>Sources:</b></p>
+    <ul class="ev-src">${(v.sources || []).map(id => {
+      const s = srcMap[id];
+      return s ? `<li><a href="${s.url}" target="_blank" rel="noopener">${s.title}</a><br><span class="ev-meta">${s.publisher || "—"} · ${s.date} · lineage: ${s.lineage}</span></li>` : "";
+    }).join("") || "<li>No source linked</li>"}</ul>`;
   $("evPanel").classList.add("on");
 }
 
-function renderDriverBlock(result, summary, collapsed, attribution) {
-  const leader = result.leader === "ayar" ? result.ayar.name.toUpperCase() :
-    result.leader === "lightmatter" ? result.lightmatter.name.toUpperCase() : "NO CLEAR LEADER";
-  const lineages = lineageAdjustedEvidence(DATA.sources);
-  const rows = collapsed.top.map((d, i) =>
-    `<div class="driver-row"><span>${i + 1}. ${d.label}</span><span>${d.share}%</span></div>`
+function showDimensionEvidence(stateKey, side) {
+  const company = DATA[side];
+  const ids = company.state_weights[stateKey] || [];
+  const vars = ids.map(id => company.variables.find(x => x.id === id)).filter(Boolean);
+  if (!vars.length) return;
+  const primary = vars.sort((a, b) => (b.confidence || 0) - (a.confidence || 0))[0];
+  showEvidence(primary.id, side);
+}
+
+function renderDriverBlock(collapsed) {
+  const rows = collapsed.top.slice(0, 6).map(d =>
+    `<div class="driver-row"><span>${d.label}</span><span class="cr-mono">${d.share}%</span></div>`
   ).join("");
-  $("driverBlock").innerHTML = `
-    <p class="driver-headline"><b>${leader} LEADS: ${result.leaderPct}%</b></p>
-    <p class="driver-sub">Result is primarily driven by (${collapsed.top.length} effective dimensions explain ~${collapsed.top[collapsed.top.length - 1]?.cumulative || 80}%):</p>
-    ${rows}
-    <p class="driver-meta">89 research variables · 8 state dimensions · ${collapsed.effectiveCount} drivers explain ≥80% of margin<br>
-    Evidence strength: <b>${summary.evidenceConfidence.ayar === "HIGH" && summary.evidenceConfidence.lightmatter === "HIGH" ? "MEDIUM-HIGH" : "MEDIUM"}</b> ·
-    Independent source lineages: <b>${lineages}</b> (not ${DATA.sources.independent_lineages})<br>
-    <span class="driver-note">Research inventory ≠ decision dimensions. ±12% single-variable moves rarely flip outcomes; state-level gaps dominate.</span></p>`;
+  const otherShare = 100 - (collapsed.top[collapsed.top.length - 1]?.cumulative || 0);
+  const other = otherShare > 0
+    ? `<div class="driver-row driver-other"><span>Other modeled factors</span><span class="cr-mono">${otherShare}%</span></div>`
+    : "";
+  $("driverBlock").innerHTML = rows + other;
 }
 
-function renderFlips(flip) {
-  $("flipList").innerHTML = (flip.flips.length ? flip.flips : [{ company: "—", variable: "No flip in ±15% single-variable pass", leadershipDelta: 0 }])
-    .map(f => `<li>${f.company}: ${f.variable}${f.leadershipDelta ? ` (${f.leadershipDelta > 0 ? "+" : ""}${f.leadershipDelta} pts)` : ""}${f.flipped ? " · <b>flips leader</b>" : ""}</li>`).join("");
+function renderSummaryHtml(summary) {
+  $("worldSummary").innerHTML = `
+    <div class="cr-summary-section">
+      <h3 class="cr-h3">Why this happened</h3>
+      <p>${summary.why}</p>
+    </div>
+    <div class="cr-summary-section">
+      <h3 class="cr-h3">What changed in this world</h3>
+      <ul>${summary.changed.map(c => `<li>${c}</li>`).join("")}</ul>
+    </div>`;
 }
 
-function renderSummary(summary) {
-  $("worldSummary").textContent = formatSummaryText(summary);
+function renderFlips(stateFlip) {
+  const flips = stateFlip.flips.filter(f => f.flipped || Math.abs(f.marginShift) >= 10);
+  if (!flips.length) {
+    $("flipList").innerHTML = `<li>Result is stable within modeled state-dimension bands at current evidence levels.</li>`;
+    return;
+  }
+  $("flipList").innerHTML = flips.map(f => {
+    const pct = Math.round(f.delta * 100);
+    const sign = f.delta > 0 ? "+" : "";
+    if (f.flipped) {
+      return `<li><strong>${f.company}</strong> ${f.dimension} ${sign}${pct}% → ${f.company.split(" ")[0]} becomes the modeled leader</li>`;
+    }
+    const near = Math.abs(f.marginShift) >= 15 ? "Head-to-head moves to near parity" : `Modeled margin shifts ~${Math.round(f.marginShift)} pts`;
+    return `<li><strong>${f.company}</strong> ${f.dimension} ${sign}${pct}% → ${near}</li>`;
+  }).join("");
 }
 
 function renderVerdict(result, summary) {
   const leader = result.leader === "ayar" ? result.ayar.name : result.leader === "lightmatter" ? result.lightmatter.name : "No clear leader";
-  $("verdict").innerHTML = result.leader === "tie"
-    ? `Dead heat across ${result.N.toLocaleString()} worlds (${summary.preset}).`
-    : `<b>${leader}</b> leads in <span class="pct">${result.leaderPct}%</span> of ${result.N.toLocaleString()} simulated worlds (${summary.preset}). Same outcome tier tie rate: ${result.tiesPct}%. Evidence confidence: Ayar <b>${summary.evidenceConfidence.ayar}</b> · Lightmatter <b>${summary.evidenceConfidence.lightmatter}</b>. Model result ≠ real-world certainty.`;
+  const conf = combinedConfidence(summary);
+  if (result.leader === "tie") {
+    $("verdict").innerHTML = `
+      <p class="cr-verdict-name">Dead heat</p>
+      <p class="cr-verdict-pct">~${result.tiesPct}% of modeled worlds</p>
+      <dl class="cr-verdict-meta">
+        <div><dt>Selected scenario</dt><dd>${summary.preset}</dd></div>
+        <div><dt>Evidence confidence</dt><dd>${conf}</dd></div>
+      </dl>`;
+    return;
+  }
+  $("verdict").innerHTML = `
+    <p class="cr-verdict-name">${leader.toUpperCase()} leads</p>
+    <p class="cr-verdict-pct">~${result.leaderPct}% of modeled worlds</p>
+    <dl class="cr-verdict-meta">
+      <div><dt>Selected scenario</dt><dd>${summary.preset}</dd></div>
+      <div><dt>Evidence confidence</dt><dd>${conf}</dd></div>
+    </dl>`;
+}
+
+function renderConfidence(summary) {
+  const level = combinedConfidence(summary);
+  $("confidenceBlock").innerHTML = `
+    <p class="cr-conf-current">Current model inputs: <strong>${level}</strong></p>
+    <dl class="cr-conf-dl">
+      ${Object.entries(CONF_LEVELS).map(([k, v]) =>
+        `<div class="${k === level ? "active" : ""}"><dt>${k}</dt><dd>${v}</dd></div>`
+      ).join("")}
+    </dl>`;
+}
+
+function renderEvidenceExplorer(collapsed, attribution) {
+  const lineages = lineageAdjustedEvidence(DATA.sources);
+  const driverMap = Object.fromEntries(attribution.drivers.map(d => [d.id, d]));
+
+  const dimBtns = collapsed.rows.slice(0, 6).map(d => {
+    const stateKey = DIM_STATE_KEY[d.id] || d.id;
+    const drv = driverMap[stateKey];
+    const side = drv && drv.delta >= 0 ? "lightmatter" : "ayar";
+    return `<button type="button" class="cr-ev-btn" data-dim="${stateKey}" data-side="${side}">${d.label}</button>`;
+  }).join("");
+
+  const ayarVars = DATA.ayar.variables.filter(v => typeof v.value === "number" && v.confidence >= 0.7).slice(0, 3);
+  const lmVars = DATA.lightmatter.variables.filter(v => typeof v.value === "number" && v.confidence >= 0.7).slice(0, 3);
+  const varBtns = [
+    ...ayarVars.map(v => `<button type="button" class="cr-ev-btn" data-var="${v.id}" data-side="ayar">${DATA.ayar.name}: ${v.label}</button>`),
+    ...lmVars.map(v => `<button type="button" class="cr-ev-btn" data-var="${v.id}" data-side="lightmatter">${DATA.lightmatter.name}: ${v.label}</button>`)
+  ].join("");
+
+  $("evidenceExplorer").innerHTML = `
+    <p class="cr-ev-stats cr-mono">${lineages} defensible lineages · ${DATA.sources.sources.length} source records · ${DATA.claims.count} claims</p>
+    <p class="cr-panel-note">Click a driver or variable to inspect value, FACT/INFERENCE, confidence, publisher, date, and lineage.</p>
+    <div class="cr-ev-btns">${dimBtns}${varBtns}</div>`;
+}
+
+function showResults() {
+  $("resultsEmpty").hidden = true;
+  $("resultsBody").hidden = false;
 }
 
 async function runSim() {
   const btn = $("runBtn");
   btn.disabled = true;
   btn.textContent = "Running…";
-  const worldCount = +$("worldCount").value;
   await new Promise(r => setTimeout(r, 40));
 
   const result = runSimulation({
@@ -119,23 +237,22 @@ async function runSim() {
     presetKey,
     worldCount
   });
-  const flip = analyzeFlipConditions({
+  const stateFlip = analyzeStateFlips({
     ayar: DATA.ayar, lightmatter: DATA.lightmatter, tech: DATA.technology,
     scenarios: DATA.scenarios, presetKey, worldCount: Math.min(2000, worldCount)
   });
-  const summary = buildWorldSummary(result, DATA.ayar, DATA.lightmatter, flip);
+  const summary = buildWorldSummary(result, DATA.ayar, DATA.lightmatter, stateFlip);
   const attribution = computeDriverAttribution(DATA.ayar, DATA.lightmatter);
   const collapsed = collapsedDrivers(attribution);
-  lastResult = { result, flip, summary, attribution, collapsed };
 
   renderVerdict(result, summary);
-  renderSummary(summary);
+  renderSummaryHtml(summary);
+  renderDriverBlock(collapsed);
   renderOutcomes("ayar", result.ayar);
   renderOutcomes("lightmatter", result.lightmatter);
-  renderContributions("ayar", contributionAnalysis(DATA.ayar));
-  renderContributions("lightmatter", contributionAnalysis(DATA.lightmatter));
-  renderFlips(flip);
-  renderDriverBlock(result, summary, collapsed, attribution);
+  renderFlips(stateFlip);
+  renderConfidence(summary);
+  renderEvidenceExplorer(collapsed, attribution);
 
   let phase = 0;
   const anim = () => {
@@ -147,9 +264,10 @@ async function runSim() {
   if (window._crAnim) clearInterval(window._crAnim);
   window._crAnim = setInterval(anim, 120);
 
-  $("results").classList.add("on");
+  hasRun = true;
+  showResults();
   btn.disabled = false;
-  btn.textContent = "Run Simulation";
+  updateRunCta();
 }
 
 function bindUI() {
@@ -158,14 +276,33 @@ function bindUI() {
       document.querySelectorAll(".cr-preset").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       presetKey = btn.dataset.p;
+      updateScenarioDesc();
     });
   });
-  $("runBtn").addEventListener("click", runSim);
-  document.body.addEventListener("click", e => {
-    const row = e.target.closest(".contrib-row");
-    if (row) showEvidence(row.dataset.var, row.dataset.side);
+
+  document.querySelectorAll(".cr-size").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".cr-size").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      worldCount = +btn.dataset.n;
+      updateRunCta();
+    });
   });
+
+  $("runBtn").addEventListener("click", runSim);
+
+  document.body.addEventListener("click", e => {
+    const evBtn = e.target.closest(".cr-ev-btn");
+    if (evBtn) {
+      if (evBtn.dataset.var) showEvidence(evBtn.dataset.var, evBtn.dataset.side);
+      else if (evBtn.dataset.dim) showDimensionEvidence(evBtn.dataset.dim, evBtn.dataset.side);
+      return;
+    }
+  });
+
   $("evClose").addEventListener("click", () => $("evPanel").classList.remove("on"));
+  updateScenarioDesc();
+  updateRunCta();
 }
 
 async function init() {
@@ -174,8 +311,9 @@ async function init() {
     await loadData();
     bindUI();
   } catch (err) {
+    $("resultsEmpty").hidden = true;
+    $("resultsBody").hidden = false;
     $("verdict").textContent = "Failed to load Crucible data: " + err.message;
-    $("results").classList.add("on");
   }
 }
 
