@@ -1,16 +1,25 @@
 import { runSimulation } from "./engine/simulator.js";
 import { analyzeStateFlips } from "./engine/state-flips.js";
-import { buildWorldSummary } from "./engine/summary.js";
+import { buildWorldSummary, yearSummary } from "./engine/summary.js";
 import { computeDriverAttribution, collapsedDrivers, lineageAdjustedEvidence } from "./engine/drivers.js";
+import { buildTrajectory, liveCompanies } from "./engine/trajectory.js";
+import { createScene3D, drawTrajectoryChart } from "./scene3d.js";
+import { renderDriverVectors, drawDriverSurface, renderOutcomes, renderSensitivityFlow } from "./viz.js";
 
 const DATA = {};
 let presetKey = "all";
 let worldCount = 10000;
-let hasRun = false;
+let scene = null;
+let trajectory = [];
+let selectedYear = 2026;
+let collapsedCache = null;
+let lastResult = null;
+let lastSummary = null;
+let liveCache = [];
 
 const SCENARIO_DESC = {
   all: "Balanced mix of plausible future conditions.",
-  ai_supercycle: "AI infrastructure demand remains exceptionally strong.",
+  ai_supercycle: "Sustained AI infrastructure demand increases the value of interconnect execution, ecosystem pull, and qualification momentum.",
   capital_winter: "Funding becomes scarce and capital-intensive companies face pressure.",
   packaging_bottleneck: "Advanced packaging and manufacturing capacity become dominant constraints.",
   optical_breakout: "Optical interconnect adoption accelerates faster than expected.",
@@ -23,39 +32,30 @@ const DIM_STATE_KEY = {
   commercial_momentum: "commercial_momentum",
   capital_resilience: "capital_resilience",
   market_timing: "market_timing",
-  technology_maturity: "technology_maturity"
+  technology_maturity: "technology_maturity",
+  technology_readiness: "technology_maturity"
 };
 
-const CONF_LEVELS = {
-  HIGH: "Multiple strong, independent sources support the main drivers.",
-  MEDIUM: "Good evidence exists, but some important inputs rely on inference or limited independent verification.",
-  LOW: "Important drivers depend heavily on analyst assumptions, sparse evidence, or unresolved uncertainty."
+const STATE_LABELS = {
+  commercial_momentum: "Commercial momentum",
+  technology_maturity: "Technology readiness",
+  manufacturing_readiness: "Packaging integration",
+  capital_resilience: "Capital resilience",
+  ecosystem_strength: "Ecosystem strength",
+  execution_quality: "Execution quality",
+  competitive_position: "Competitive position",
+  market_timing: "Market timing"
 };
 
 async function loadData() {
   const base = "crucible/data/";
   const files = ["sources.json", "claims.json", "technology.json", "ayar.json", "lightmatter.json", "graph.json", "scenarios.json"];
   await Promise.all(files.map(async (f) => {
-    const r = await fetch(base + f);
-    DATA[f.replace(".json", "")] = await r.json();
+    DATA[f.replace(".json", "")] = await (await fetch(base + f)).json();
   }));
 }
 
 function $(id) { return document.getElementById(id); }
-
-function outcomeRows(out) {
-  return [
-    ["Survival", out.survival], ["Scale", out.scale], ["Leadership", out.leadership],
-    ["Acquisition", out.acquisition], ["Niche", out.niche], ["Failure", out.failure]
-  ];
-}
-
-function combinedConfidence(summary) {
-  const { ayar, lightmatter } = summary.evidenceConfidence;
-  if (ayar === "LOW" || lightmatter === "LOW") return "LOW";
-  if (ayar === "HIGH" && lightmatter === "HIGH") return "HIGH";
-  return "MEDIUM";
-}
 
 function updateScenarioDesc() {
   const el = $("scenarioDesc");
@@ -64,32 +64,7 @@ function updateScenarioDesc() {
 
 function updateRunCta() {
   const btn = $("runBtn");
-  if (btn && !btn.disabled) {
-    btn.textContent = `Run ${worldCount.toLocaleString()} future worlds`;
-  }
-}
-
-function renderParticle(side, co, animPhase) {
-  const el = $(side === "ayar" ? "particleA" : "particleB");
-  const d = co.dynamics;
-  const m = co.avgMomentum;
-  const e = co.avgEnergy;
-  const r = 28 + d.mass * 34;
-  const x = (d.velocity - 0.5) * 36 + Math.sin(animPhase + (side === "ayar" ? 0 : 1.2)) * 8;
-  const y = (m - 0.35) * -28 + Math.cos(animPhase * 0.7) * 6;
-  el.style.width = el.style.height = `${r * 2}px`;
-  el.style.transform = `translate(${x}px, ${y}px)`;
-  el.querySelector(".p-momentum").textContent = `Momentum ${m.toFixed(2)}`;
-  el.querySelector(".p-energy").textContent = `Energy ${e.toFixed(2)}`;
-  el.querySelector(".p-mass").textContent = `Mass ${d.mass.toFixed(2)}`;
-  el.querySelector(".p-vel").textContent = `Velocity ${d.velocity.toFixed(2)}`;
-}
-
-function renderOutcomes(side, co) {
-  const host = $(side === "ayar" ? "outcomesA" : "outcomesB");
-  host.innerHTML = outcomeRows(co.outcomes).map(([l, v]) =>
-    `<div class="out-row"><span>${l}</span><span class="out-bar"><i style="width:${v}%"></i></span><span>${v}%</span></div>`
-  ).join("");
+  if (btn && !btn.disabled) btn.textContent = `Run ${worldCount.toLocaleString()} worlds`;
 }
 
 function showEvidence(varId, side) {
@@ -121,106 +96,84 @@ function showDimensionEvidence(stateKey, side) {
   showEvidence(primary.id, side);
 }
 
-function renderDriverBlock(collapsed) {
-  const rows = collapsed.top.slice(0, 6).map(d =>
-    `<div class="driver-row"><span>${d.label}</span><span class="cr-mono">${d.share}%</span></div>`
+function renderInspector(coId) {
+  const co = liveCache.find(c => c.id === coId);
+  if (!co) return;
+  $("inspTitle").textContent = co.name.toUpperCase();
+  const rows = Object.entries(co.state).map(([k, v]) =>
+    `<div><dt>${STATE_LABELS[k] || k}</dt><dd class="cr-mono cr-insp-val" data-key="${k}" data-side="${coId}">${v.toFixed(2)}</dd></div>`
   ).join("");
-  const otherShare = 100 - (collapsed.top[collapsed.top.length - 1]?.cumulative || 0);
-  const other = otherShare > 0
-    ? `<div class="driver-row driver-other"><span>Other modeled factors</span><span class="cr-mono">${otherShare}%</span></div>`
-    : "";
-  $("driverBlock").innerHTML = rows + other;
+  const dyn = `<div><dt>Mass</dt><dd class="cr-mono">${co.dynamics.mass.toFixed(2)}</dd></div>
+    <div><dt>Velocity</dt><dd class="cr-mono">${co.dynamics.velocity.toFixed(2)}</dd></div>
+    <div><dt>Momentum</dt><dd class="cr-mono">${co.dynamics.momentum.toFixed(2)}</dd></div>
+    <div><dt>Energy</dt><dd class="cr-mono">${co.dynamics.energy.toFixed(2)}</dd></div>
+    <div><dt>Evidence confidence</dt><dd>${co.evidence.level}</dd></div>`;
+  $("inspBody").innerHTML = rows + dyn;
+  $("coInspector").hidden = false;
+  scene?.select(coId);
 }
 
-function renderSummaryHtml(summary) {
-  $("worldSummary").innerHTML = `
-    <div class="cr-summary-section">
-      <h3 class="cr-h3">Why this happened</h3>
-      <p>${summary.why}</p>
-    </div>
-    <div class="cr-summary-section">
-      <h3 class="cr-h3">What changed in this world</h3>
-      <ul>${summary.changed.map(c => `<li>${c}</li>`).join("")}</ul>
+function renderExecutive(result, summary, collapsed) {
+  const leader = summary.winner;
+  const other = 100 - (collapsed.top[collapsed.top.length - 1]?.cumulative || 0);
+  const drivers = collapsed.top.slice(0, 3).map(d =>
+    `<div class="cr-exec-driver"><span>${d.label}</span><span class="cr-mono">${d.share}%</span></div>`
+  ).join("") + (other > 0 ? `<div class="cr-exec-driver cr-other"><span>Other</span><span class="cr-mono">${other}%</span></div>` : "");
+
+  $("executiveBody").innerHTML = `
+    <p class="cr-exec-text">${summary.executive}</p>
+    <div class="cr-exec-meta">
+      <div class="cr-exec-drivers">
+        <p class="cr-exec-sub">Top drivers</p>
+        ${drivers}
+      </div>
+      <div class="cr-exec-badges">
+        <div><span class="cr-badge-label">Strategic leader</span><span class="cr-badge">${leader}</span></div>
+        <div><span class="cr-badge-label">Modeled lead</span><span class="cr-badge">~${result.leaderPct}%</span></div>
+        <div><span class="cr-badge-label">Evidence</span><span class="cr-badge">${summary.combinedConfidence}</span></div>
+        <div><span class="cr-badge-label">Stability</span><span class="cr-badge">${summary.stability}</span></div>
+      </div>
     </div>`;
+
+  $("executivePlaceholder").hidden = true;
+  $("executiveRead").hidden = false;
+  $("sensitivityPanel").hidden = false;
+  $("evConfInline").textContent = summary.combinedConfidence;
 }
 
-function renderFlips(stateFlip) {
-  const flips = stateFlip.flips.filter(f => f.flipped || Math.abs(f.marginShift) >= 10);
-  if (!flips.length) {
-    $("flipList").innerHTML = `<li>Result is stable within modeled state-dimension bands at current evidence levels.</li>`;
-    return;
-  }
-  $("flipList").innerHTML = flips.map(f => {
-    const pct = Math.round(f.delta * 100);
-    const sign = f.delta > 0 ? "+" : "";
-    if (f.flipped) {
-      return `<li><strong>${f.company}</strong> ${f.dimension} ${sign}${pct}% → ${f.company.split(" ")[0]} becomes the modeled leader</li>`;
-    }
-    const near = Math.abs(f.marginShift) >= 15 ? "Head-to-head moves to near parity" : `Modeled margin shifts ~${Math.round(f.marginShift)} pts`;
-    return `<li><strong>${f.company}</strong> ${f.dimension} ${sign}${pct}% → ${near}</li>`;
-  }).join("");
+function renderYearButtons() {
+  $("yearBtns").innerHTML = [2026, 2027, 2028, 2029, 2030, 2031, 2032].map(y =>
+    `<button type="button" class="cr-year ${y === selectedYear ? "active" : ""}" data-y="${y}">${y}</button>`).join("");
 }
 
-function renderVerdict(result, summary) {
-  const leader = result.leader === "ayar" ? result.ayar.name : result.leader === "lightmatter" ? result.lightmatter.name : "No clear leader";
-  const conf = combinedConfidence(summary);
-  if (result.leader === "tie") {
-    $("verdict").innerHTML = `
-      <p class="cr-verdict-name">Dead heat</p>
-      <p class="cr-verdict-pct">~${result.tiesPct}% of modeled worlds</p>
-      <dl class="cr-verdict-meta">
-        <div><dt>Selected scenario</dt><dd>${summary.preset}</dd></div>
-        <div><dt>Evidence confidence</dt><dd>${conf}</dd></div>
-      </dl>`;
-    return;
-  }
-  $("verdict").innerHTML = `
-    <p class="cr-verdict-name">${leader.toUpperCase()} leads</p>
-    <p class="cr-verdict-pct">~${result.leaderPct}% of modeled worlds</p>
-    <dl class="cr-verdict-meta">
-      <div><dt>Selected scenario</dt><dd>${summary.preset}</dd></div>
-      <div><dt>Evidence confidence</dt><dd>${conf}</dd></div>
-    </dl>`;
+function renderYearPanel() {
+  const idx = trajectory.findIndex(t => t.year === selectedYear);
+  const pt = trajectory[idx];
+  if (!pt || !collapsedCache) return;
+  const prev = idx > 0 ? trajectory[idx - 1] : null;
+  const ys = yearSummary(pt, collapsedCache, prev);
+  $("yearPanel").innerHTML = `<p>${ys.text}</p>`;
 }
 
-function renderConfidence(summary) {
-  const level = combinedConfidence(summary);
-  $("confidenceBlock").innerHTML = `
-    <p class="cr-conf-current">Current model inputs: <strong>${level}</strong></p>
-    <dl class="cr-conf-dl">
-      ${Object.entries(CONF_LEVELS).map(([k, v]) =>
-        `<div class="${k === level ? "active" : ""}"><dt>${k}</dt><dd>${v}</dd></div>`
-      ).join("")}
-    </dl>`;
+function refreshLive() {
+  liveCache = liveCompanies(DATA.ayar, DATA.lightmatter);
+  if (scene) scene.setCompanies(liveCache);
+  trajectory = buildTrajectory(DATA.ayar, DATA.lightmatter);
+  drawTrajectoryChart($("trajChart"), trajectory, selectedYear);
+  renderDriverVectors($("driverVectors"), DATA.ayar, DATA.lightmatter, (key, side) => {
+    showDimensionEvidence(key, side);
+  });
+  drawDriverSurface($("driverSurface"), DATA.ayar, DATA.lightmatter);
+  renderYearPanel();
 }
 
-function renderEvidenceExplorer(collapsed, attribution) {
+function renderEvidenceFooter(collapsed) {
   const lineages = lineageAdjustedEvidence(DATA.sources);
-  const driverMap = Object.fromEntries(attribution.drivers.map(d => [d.id, d]));
-
-  const dimBtns = collapsed.rows.slice(0, 6).map(d => {
+  $("evStats").textContent = `${DATA.claims.count} claims · ${DATA.sources.sources.length} sources · ${lineages} defensible evidence lineages`;
+  $("evidenceExplorer").innerHTML = collapsed.rows.slice(0, 6).map(d => {
     const stateKey = DIM_STATE_KEY[d.id] || d.id;
-    const drv = driverMap[stateKey];
-    const side = drv && drv.delta >= 0 ? "lightmatter" : "ayar";
-    return `<button type="button" class="cr-ev-btn" data-dim="${stateKey}" data-side="${side}">${d.label}</button>`;
+    return `<button type="button" class="cr-ev-btn" data-dim="${stateKey}" data-side="lightmatter">${d.label}</button>`;
   }).join("");
-
-  const ayarVars = DATA.ayar.variables.filter(v => typeof v.value === "number" && v.confidence >= 0.7).slice(0, 3);
-  const lmVars = DATA.lightmatter.variables.filter(v => typeof v.value === "number" && v.confidence >= 0.7).slice(0, 3);
-  const varBtns = [
-    ...ayarVars.map(v => `<button type="button" class="cr-ev-btn" data-var="${v.id}" data-side="ayar">${DATA.ayar.name}: ${v.label}</button>`),
-    ...lmVars.map(v => `<button type="button" class="cr-ev-btn" data-var="${v.id}" data-side="lightmatter">${DATA.lightmatter.name}: ${v.label}</button>`)
-  ].join("");
-
-  $("evidenceExplorer").innerHTML = `
-    <p class="cr-ev-stats cr-mono">${lineages} defensible lineages · ${DATA.sources.sources.length} source records · ${DATA.claims.count} claims</p>
-    <p class="cr-panel-note">Click a driver or variable to inspect value, FACT/INFERENCE, confidence, publisher, date, and lineage.</p>
-    <div class="cr-ev-btns">${dimBtns}${varBtns}</div>`;
-}
-
-function showResults() {
-  $("resultsEmpty").hidden = true;
-  $("resultsBody").hidden = false;
 }
 
 async function runSim() {
@@ -242,35 +195,23 @@ async function runSim() {
       ayar: DATA.ayar, lightmatter: DATA.lightmatter, tech: DATA.technology,
       scenarios: DATA.scenarios, presetKey, worldCount: Math.min(2000, worldCount)
     });
-    const summary = buildWorldSummary(result, DATA.ayar, DATA.lightmatter, stateFlip);
     const attribution = computeDriverAttribution(DATA.ayar, DATA.lightmatter);
     const collapsed = collapsedDrivers(attribution);
+    collapsedCache = collapsed;
+    lastResult = result;
+    lastSummary = buildWorldSummary(result, DATA.ayar, DATA.lightmatter, stateFlip, collapsed);
 
-    renderVerdict(result, summary);
-    renderSummaryHtml(summary);
-    renderDriverBlock(collapsed);
-    renderOutcomes("ayar", result.ayar);
-    renderOutcomes("lightmatter", result.lightmatter);
-    renderFlips(stateFlip);
-    renderConfidence(summary);
-    renderEvidenceExplorer(collapsed, attribution);
-
-    let phase = 0;
-    const anim = () => {
-      phase += 0.08;
-      renderParticle("ayar", { dynamics: result.ayar.dynamics, avgMomentum: result.ayar.avgMomentum, avgEnergy: result.ayar.avgEnergy }, phase);
-      renderParticle("lightmatter", { dynamics: result.lightmatter.dynamics, avgMomentum: result.lightmatter.avgMomentum, avgEnergy: result.lightmatter.avgEnergy }, phase);
-    };
-    anim();
-    if (window._crAnim) clearInterval(window._crAnim);
-    window._crAnim = setInterval(anim, 120);
-
-    hasRun = true;
-    showResults();
+    renderExecutive(result, lastSummary, collapsed);
+    renderOutcomes($("outcomeBlock"), result.ayar, result.lightmatter, DATA.ayar.name, DATA.lightmatter.name);
+    renderSensitivityFlow($("sensitivityBody"), stateFlip.flips);
+    renderEvidenceFooter(collapsed);
+    refreshLive();
+    drawDriverSurface($("driverSurface"), DATA.ayar, DATA.lightmatter);
   } catch (err) {
     console.error(err);
-    showResults();
-    $("verdict").innerHTML = `<p class="cr-verdict-name">Simulation error</p><p class="cr-verdict-pct">${err.message}</p>`;
+    $("executivePlaceholder").hidden = true;
+    $("executiveRead").hidden = false;
+    $("executiveBody").innerHTML = `<p class="cr-exec-text">Simulation error: ${err.message}</p>`;
   } finally {
     btn.disabled = false;
     updateRunCta();
@@ -297,6 +238,7 @@ function bindUI() {
   });
 
   $("runBtn").addEventListener("click", runSim);
+  $("reset3d")?.addEventListener("click", () => scene?.resetView());
 
   document.body.addEventListener("click", e => {
     const evBtn = e.target.closest(".cr-ev-btn");
@@ -304,6 +246,18 @@ function bindUI() {
       if (evBtn.dataset.var) showEvidence(evBtn.dataset.var, evBtn.dataset.side);
       else if (evBtn.dataset.dim) showDimensionEvidence(evBtn.dataset.dim, evBtn.dataset.side);
       return;
+    }
+    const yearBtn = e.target.closest(".cr-year");
+    if (yearBtn) {
+      selectedYear = +yearBtn.dataset.y;
+      document.querySelectorAll(".cr-year").forEach(b => b.classList.toggle("active", +b.dataset.y === selectedYear));
+      drawTrajectoryChart($("trajChart"), trajectory, selectedYear);
+      renderYearPanel();
+      return;
+    }
+    const insp = e.target.closest(".cr-insp-val");
+    if (insp) {
+      showDimensionEvidence(insp.dataset.key, insp.dataset.side);
     }
   });
 
@@ -316,11 +270,17 @@ async function init() {
   if (!$("runBtn")) return;
   try {
     await loadData();
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    scene = createScene3D($("crScene3d"), {
+      reducedMotion,
+      fallbackEl: $("crSceneFallback"),
+      onSelect: renderInspector
+    });
+    renderYearButtons();
+    refreshLive();
     bindUI();
   } catch (err) {
-    $("resultsEmpty").hidden = true;
-    $("resultsBody").hidden = false;
-    $("verdict").textContent = "Failed to load Crucible data: " + err.message;
+    $("executivePlaceholder").textContent = "Failed to load Crucible data: " + err.message;
   }
 }
 

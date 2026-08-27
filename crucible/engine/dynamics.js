@@ -141,6 +141,26 @@ export function leadershipScore(state, dynamics) {
   );
 }
 
+/** 3D display coords: X commercial · Y technology · Z manufacturing */
+export function coords3D(state) {
+  return {
+    x: clamp(state.commercial_momentum),
+    y: clamp(state.technology_maturity),
+    z: clamp(state.manufacturing_readiness)
+  };
+}
+
+export function projectYear(state, dynamics, year, baseYear = 2026) {
+  const dt = Math.max(0, year - baseYear);
+  const g = dynamics.velocity * 0.016 * dt;
+  const next = { ...state };
+  for (const k of STATE_KEYS) {
+    next[k] = clamp(state[k] + g * (k === "technology_maturity" || k === "commercial_momentum" ? 1.15 : 0.85));
+  }
+  if (year >= 2029) next.technology_maturity = clamp(next.technology_maturity + 0.025);
+  return next;
+}
+
 export function deriveOutcomes(state, dynamics, rnd) {
   const score = leadershipScore(state, dynamics);
   const surv = clamp(dynamics.energy * 0.45 + state.capital_resilience * 0.35 + state.ecosystem_strength * 0.20);
