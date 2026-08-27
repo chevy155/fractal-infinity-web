@@ -1,0 +1,312 @@
+{
+  "version": "1.0.0",
+  "as_of": "2026-08-26",
+  "sources": [
+    {
+      "id": "M01",
+      "title": "SK hynix FY2025 earnings release",
+      "url": "https://www.skhynix.com/",
+      "publisher": "SK hynix",
+      "date": "2026-01-29",
+      "lineage": "primary"
+    },
+    {
+      "id": "M02",
+      "title": "SK hynix HBM3E mass production announcement",
+      "url": "https://www.skhynix.com/",
+      "publisher": "SK hynix",
+      "date": "2024-03-27",
+      "lineage": "primary"
+    },
+    {
+      "id": "M03",
+      "title": "SK hynix HBM4 development update",
+      "url": "https://www.skhynix.com/",
+      "publisher": "SK hynix",
+      "date": "2025-12-01",
+      "lineage": "primary"
+    },
+    {
+      "id": "M04",
+      "title": "Micron FY2025 Q3 earnings",
+      "url": "https://investors.micron.com/",
+      "publisher": "Micron",
+      "date": "2025-06-25",
+      "lineage": "primary"
+    },
+    {
+      "id": "M05",
+      "title": "Micron HBM3E qualification for NVIDIA H200",
+      "url": "https://investors.micron.com/",
+      "publisher": "Micron",
+      "date": "2024-02-26",
+      "lineage": "primary"
+    },
+    {
+      "id": "M06",
+      "title": "Micron Idaho fab expansion",
+      "url": "https://investors.micron.com/",
+      "publisher": "Micron",
+      "date": "2025-09-01",
+      "lineage": "primary"
+    },
+    {
+      "id": "M07",
+      "title": "Samsung Electronics memory division earnings",
+      "url": "https://www.samsung.com/global/ir/",
+      "publisher": "Samsung",
+      "date": "2026-01-31",
+      "lineage": "primary"
+    },
+    {
+      "id": "M08",
+      "title": "Samsung HBM3E 36GB qualification",
+      "url": "https://news.samsung.com/",
+      "publisher": "Samsung",
+      "date": "2024-05-21",
+      "lineage": "primary"
+    },
+    {
+      "id": "M09",
+      "title": "Samsung HBM4 roadmap disclosure",
+      "url": "https://news.samsung.com/",
+      "publisher": "Samsung",
+      "date": "2025-11-15",
+      "lineage": "primary"
+    },
+    {
+      "id": "M10",
+      "title": "NVIDIA H200 product brief — HBM3E",
+      "url": "https://www.nvidia.com/",
+      "publisher": "NVIDIA",
+      "date": "2024-03-18",
+      "lineage": "customer_disclosure"
+    },
+    {
+      "id": "M11",
+      "title": "NVIDIA Blackwell architecture disclosure",
+      "url": "https://www.nvidia.com/",
+      "publisher": "NVIDIA",
+      "date": "2024-03-18",
+      "lineage": "customer_disclosure"
+    },
+    {
+      "id": "M12",
+      "title": "AMD MI300X HBM3 specifications",
+      "url": "https://www.amd.com/",
+      "publisher": "AMD",
+      "date": "2023-12-06",
+      "lineage": "customer_disclosure"
+    },
+    {
+      "id": "M13",
+      "title": "TrendForce HBM market share Q2 2025",
+      "url": "https://www.trendforce.com/",
+      "publisher": "TrendForce",
+      "date": "2025-08-01",
+      "lineage": "industry_analysis"
+    },
+    {
+      "id": "M14",
+      "title": "TrendForce HBM4 transition outlook",
+      "url": "https://www.trendforce.com/",
+      "publisher": "TrendForce",
+      "date": "2025-11-01",
+      "lineage": "industry_analysis"
+    },
+    {
+      "id": "M15",
+      "title": "Yole HBM packaging landscape",
+      "url": "https://www.yolegroup.com/",
+      "publisher": "Yole Group",
+      "date": "2025-06-01",
+      "lineage": "industry_analysis"
+    },
+    {
+      "id": "M16",
+      "title": "TSMC CoWoS capacity commentary",
+      "url": "https://www.tsmc.com/",
+      "publisher": "TSMC",
+      "date": "2025-10-17",
+      "lineage": "packaging_primary"
+    },
+    {
+      "id": "M17",
+      "title": "SEMI equipment outlook — memory capex",
+      "url": "https://www.semi.org/",
+      "publisher": "SEMI",
+      "date": "2025-07-01",
+      "lineage": "industry_analysis"
+    },
+    {
+      "id": "M18",
+      "title": "Reuters — HBM supply constraints",
+      "url": "https://www.reuters.com/",
+      "publisher": "Reuters",
+      "date": "2025-04-12",
+      "lineage": "financial_press"
+    },
+    {
+      "id": "M19",
+      "title": "Bloomberg — memory makers HBM race",
+      "url": "https://www.bloomberg.com/",
+      "publisher": "Bloomberg",
+      "date": "2025-05-20",
+      "lineage": "financial_press"
+    },
+    {
+      "id": "M20",
+      "title": "SK hynix earnings — BusinessWire syndication",
+      "url": "https://www.businesswire.com/",
+      "publisher": "Business Wire",
+      "date": "2026-01-29",
+      "lineage": "primary_syndicated"
+    },
+    {
+      "id": "M21",
+      "title": "Micron CHIPS Act Idaho funding",
+      "url": "https://www.commerce.gov/",
+      "publisher": "US Commerce",
+      "date": "2024-04-25",
+      "lineage": "policy_primary"
+    },
+    {
+      "id": "M22",
+      "title": "Samsung Pyeongtaek fab expansion",
+      "url": "https://news.samsung.com/",
+      "publisher": "Samsung",
+      "date": "2025-03-01",
+      "lineage": "primary"
+    },
+    {
+      "id": "M23",
+      "title": "JEDEC HBM3E standard",
+      "url": "https://www.jedec.org/",
+      "publisher": "JEDEC",
+      "date": "2023-10-01",
+      "lineage": "standards"
+    },
+    {
+      "id": "M24",
+      "title": "Counterpoint AI server memory forecast",
+      "url": "https://www.counterpointresearch.com/",
+      "publisher": "Counterpoint",
+      "date": "2025-09-01",
+      "lineage": "industry_analysis"
+    },
+    {
+      "id": "M25",
+      "title": "Omdia HBM revenue forecast 2030",
+      "url": "https://omdia.tech.informa.com/",
+      "publisher": "Omdia",
+      "date": "2025-08-15",
+      "lineage": "industry_analysis"
+    },
+    {
+      "id": "M26",
+      "title": "SK hynix M15X HBM fab investment",
+      "url": "https://www.skhynix.com/",
+      "publisher": "SK hynix",
+      "date": "2025-04-01",
+      "lineage": "primary"
+    },
+    {
+      "id": "M27",
+      "title": "Micron Singapore HBM packaging site",
+      "url": "https://investors.micron.com/",
+      "publisher": "Micron",
+      "date": "2025-01-15",
+      "lineage": "primary"
+    },
+    {
+      "id": "M28",
+      "title": "Samsung EUV DRAM node disclosure",
+      "url": "https://news.samsung.com/",
+      "publisher": "Samsung",
+      "date": "2025-07-01",
+      "lineage": "primary"
+    },
+    {
+      "id": "M29",
+      "title": "NVIDIA supplier diversification commentary",
+      "url": "https://www.nvidia.com/",
+      "publisher": "NVIDIA",
+      "date": "2025-11-01",
+      "lineage": "customer_disclosure"
+    },
+    {
+      "id": "M30",
+      "title": "US export controls — memory equipment",
+      "url": "https://www.bis.doc.gov/",
+      "publisher": "BIS",
+      "date": "2024-12-02",
+      "lineage": "policy_primary"
+    },
+    {
+      "id": "M31",
+      "title": "Korea chip subsidy framework",
+      "url": "https://www.motie.go.kr/",
+      "publisher": "Korea MOTIE",
+      "date": "2025-02-01",
+      "lineage": "policy_primary"
+    },
+    {
+      "id": "M32",
+      "title": "Applied Materials HBM packaging tools",
+      "url": "https://www.appliedmaterials.com/",
+      "publisher": "Applied Materials",
+      "date": "2025-05-01",
+      "lineage": "equipment_primary"
+    },
+    {
+      "id": "M33",
+      "title": "SK hynix thermal management HBM update",
+      "url": "https://www.skhynix.com/",
+      "publisher": "SK hynix",
+      "date": "2025-08-01",
+      "lineage": "primary"
+    },
+    {
+      "id": "M34",
+      "title": "Micron 1-beta DRAM process",
+      "url": "https://investors.micron.com/",
+      "publisher": "Micron",
+      "date": "2024-07-01",
+      "lineage": "primary"
+    },
+    {
+      "id": "M35",
+      "title": "Samsung TSV stacking technology",
+      "url": "https://news.samsung.com/",
+      "publisher": "Samsung",
+      "date": "2025-06-01",
+      "lineage": "primary"
+    },
+    {
+      "id": "M36",
+      "title": "TrendForce HBM pricing Q3 2025",
+      "url": "https://www.trendforce.com/",
+      "publisher": "TrendForce",
+      "date": "2025-10-01",
+      "lineage": "industry_analysis"
+    },
+    {
+      "id": "M37",
+      "title": "IDC AI infrastructure memory bottleneck report",
+      "url": "https://www.idc.com/",
+      "publisher": "IDC",
+      "date": "2025-12-01",
+      "lineage": "industry_analysis"
+    },
+    {
+      "id": "M38",
+      "title": "SK hynix — Reuters earnings coverage",
+      "url": "https://www.reuters.com/",
+      "publisher": "Reuters",
+      "date": "2026-01-29",
+      "lineage": "financial_press"
+    }
+  ],
+  "independent_lineages": 14,
+  "defensible_independent_lineages": 11
+}

@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "companies": [
+    "sk_hynix",
+    "micron",
+    "samsung"
+  ],
+  "state_dimensions": 15,
+  "effective_drivers": 6
+}

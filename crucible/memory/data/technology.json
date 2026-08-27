@@ -1,0 +1,228 @@
+{
+  "version": "1.0.0",
+  "count": 13,
+  "variables": [
+    {
+      "id": "hbm_demand_growth",
+      "label": "HBM demand growth outlook",
+      "domain": "system",
+      "value": 0.88,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.84,
+      "sources": [
+        "M24",
+        "M25"
+      ],
+      "claim_ids": [
+        "MC046",
+        "MC212"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "packaging_bottleneck",
+      "label": "Packaging bottleneck severity",
+      "domain": "system",
+      "value": 0.78,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M16"
+      ],
+      "claim_ids": [
+        "MC047",
+        "MC213"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "hbm4_transition_pace",
+      "label": "HBM4 transition pace",
+      "domain": "system",
+      "value": 0.72,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M14"
+      ],
+      "claim_ids": [
+        "MC049",
+        "MC214"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "ai_accelerator_tam",
+      "label": "AI accelerator TAM growth",
+      "domain": "system",
+      "value": 0.86,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M24"
+      ],
+      "claim_ids": [
+        "MC046",
+        "MC215"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "memory_wall_severity",
+      "label": "Memory wall severity",
+      "domain": "system",
+      "value": 0.8,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M37"
+      ],
+      "claim_ids": [
+        "MC050",
+        "MC216"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "inference_memory_intensity",
+      "label": "Inference memory intensity",
+      "domain": "system",
+      "value": 0.74,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M37"
+      ],
+      "claim_ids": [
+        "MC051",
+        "MC217"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "hbm_pricing_environment",
+      "label": "HBM pricing environment",
+      "domain": "system",
+      "value": 0.82,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M36"
+      ],
+      "claim_ids": [
+        "MC052",
+        "MC218"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "cowos_constraint",
+      "label": "CoWoS packaging constraint",
+      "domain": "system",
+      "value": 0.76,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M16"
+      ],
+      "claim_ids": [
+        "MC053",
+        "MC219"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "export_control_pressure",
+      "label": "Export control pressure",
+      "domain": "system",
+      "value": 0.72,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.88,
+      "sources": [
+        "M30"
+      ],
+      "claim_ids": [
+        "MC054",
+        "MC220"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "korea_subsidy_support",
+      "label": "Korea HBM subsidy support",
+      "domain": "system",
+      "value": 0.78,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.84,
+      "sources": [
+        "M31"
+      ],
+      "claim_ids": [
+        "MC055",
+        "MC221"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "nvidia_multi_source",
+      "label": "NVIDIA multi-source push",
+      "domain": "system",
+      "value": 0.8,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.86,
+      "sources": [
+        "M29"
+      ],
+      "claim_ids": [
+        "MC048",
+        "MC222"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "equipment_lead_time",
+      "label": "Memory equipment lead times",
+      "domain": "system",
+      "value": 0.68,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M17"
+      ],
+      "claim_ids": [
+        "MC047",
+        "MC223"
+      ],
+      "weight": 0.8
+    },
+    {
+      "id": "commodity_dram_cycle",
+      "label": "Commodity DRAM cycle position",
+      "domain": "system",
+      "value": 0.62,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.68,
+      "sources": [
+        "M36"
+      ],
+      "claim_ids": [
+        "MC052",
+        "MC224"
+      ],
+      "weight": 0.7
+    }
+  ]
+}

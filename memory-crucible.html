@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Memory Crucible — SK hynix vs Micron vs Samsung — Fractal Infinity</title>
+<meta name="description" content="Evidence-grounded HBM competitive simulation: SK hynix, Micron, and Samsung through thousands of AI-memory futures to 2032." />
+<link rel="icon" href="assets/archival-portal.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a href="index.html" class="topbar-brand"><img src="assets/archival-portal.jpg" alt="" />FRACTAL INFINITY</a>
+    <nav class="topbar-nav"><a href="reports.html">All Reports</a></nav>
+    <a href="reports.html" class="btn btn-ghost">&larr; All Reports</a>
+  </div>
+</div>
+
+<header class="mc-hero wrap">
+  <p class="mc-eyebrow">THE MEMORY CRUCIBLE · RESEARCH ALPHA</p>
+  <h1 class="mc-title">SK hynix · Micron · Samsung</h1>
+  <p class="mc-tagline">Three companies. Thousands of AI-memory futures.</p>
+  <p class="mc-desc">Explore how HBM technology, manufacturing capacity, customer qualification, packaging, and AI demand reshape the competitive landscape through 2032.</p>
+  <p class="mc-brandline">Choose a world. Change the forces. Watch leadership move.</p>
+  <p class="mc-metrics mc-mono" id="metricsLine">Loading research inventory…</p>
+</header>
+
+<main class="wrap memory-crucible">
+
+  <section class="mc-steps">
+    <h2 class="mc-label">How it works</h2>
+    <ol class="mc-step-row">
+      <li><strong>Choose a world</strong><span>Stress-test a future memory environment.</span></li>
+      <li><strong>Change the forces</strong><span>Adjust demand, packaging, pricing, diversification, and supply.</span></li>
+      <li><strong>Run the model</strong><span>See who leads, why, evidence strength, and what would flip the result.</span></li>
+    </ol>
+  </section>
+
+  <details class="mc-about">
+    <summary>About the model &amp; evidence</summary>
+    <div class="mc-about-body">
+      <p><strong>Data.</strong> Sourced HBM / AI-memory research covering technology readiness, manufacturing scale, customer qualification, packaging, capital, ecosystem, and geopolitical exposure.</p>
+      <p><strong>Model limit.</strong> Company facts are sourced. State scores, scenario sensitivities, dynamics weights, and future-transition assumptions are analyst priors where historical calibration is unavailable.</p>
+    </div>
+  </details>
+
+  <section class="mc-controls">
+    <h2 class="mc-label">1 · Choose a world</h2>
+    <div class="mc-presets">
+      <button type="button" class="mc-preset active" data-p="all">All Worlds</button>
+      <button type="button" class="mc-preset" data-p="ai_supercycle">AI Super-Cycle</button>
+      <button type="button" class="mc-preset" data-p="hbm_shortage">HBM Shortage</button>
+      <button type="button" class="mc-preset" data-p="hbm4_transition">HBM4 Transition</button>
+      <button type="button" class="mc-preset" data-p="packaging_crisis">Packaging Crisis</button>
+      <button type="button" class="mc-preset" data-p="price_war">Price War</button>
+      <button type="button" class="mc-preset" data-p="nvidia_diversifies">NVIDIA Diversifies</button>
+      <button type="button" class="mc-preset" data-p="china_korea_shock">China / Korea Shock</button>
+      <button type="button" class="mc-preset" data-p="inference_explosion">Inference Explosion</button>
+      <button type="button" class="mc-preset" data-p="memory_wall">Memory Wall</button>
+    </div>
+    <p id="scenarioDesc" class="mc-scenario-desc"></p>
+
+    <h2 class="mc-label">2 · Adjust forces</h2>
+    <div id="sliderPanel" class="mc-sliders"></div>
+
+    <h2 class="mc-label">3 · Run the model</h2>
+    <div class="mc-size-row">
+      <span>Simulation size</span>
+      <div class="mc-size-btns">
+        <button type="button" class="mc-size" data-n="1000">1,000</button>
+        <button type="button" class="mc-size" data-n="5000">5,000</button>
+        <button type="button" class="mc-size active" data-n="10000">10,000</button>
+      </div>
+    </div>
+    <button type="button" id="runBtn" class="mc-run-btn">Run 10,000 future worlds</button>
+    <p class="mc-run-note">Runs locally with deterministic simulation logic. No AI model is called.</p>
+  </section>
+
+  <div id="resultsEmpty" class="mc-empty">
+    <h2 class="mc-label">Ready to simulate</h2>
+    <p>Choose a world, adjust any forces, select the number of future worlds, and run the model.</p>
+    <ul>
+      <li>Strategic leader</li>
+      <li>Trajectory through 2032</li>
+      <li>Strongest effective drivers</li>
+      <li>Evidence confidence</li>
+      <li>Flip conditions</li>
+      <li>Source-level evidence</li>
+    </ul>
+  </div>
+
+  <div id="resultsBody" hidden>
+    <section class="mc-panel"><p class="mc-label">Strategic leader</p><div id="verdict"></div></section>
+    <section class="mc-panel"><h2 class="mc-label">World summary</h2><div id="worldSummary"></div></section>
+    <section class="mc-panel">
+      <h2 class="mc-label">What drives this world</h2>
+      <p class="mc-note">Driver shares explain the modeled competitive margin. They are not claims of real-world causal certainty.</p>
+      <div id="driverBlock"></div>
+    </section>
+    <section class="mc-panel">
+      <h2 class="mc-label">3D competitive state space</h2>
+      <p class="mc-note">X = commercial capture · Y = technology position · Z = manufacturing strength. Size = mass · Trail = momentum · Pulse = velocity · Halo = evidence confidence.</p>
+      <div class="mc-3d-wrap">
+        <canvas id="scene3d" width="800" height="420" aria-label="3D competitive state space"></canvas>
+        <button type="button" id="reset3d" class="mc-reset-btn">Reset view</button>
+      </div>
+    </section>
+    <section class="mc-panel">
+      <h2 class="mc-label">2026–2032 trajectory</h2>
+      <div id="yearBtns" class="mc-year-btns"></div>
+      <canvas id="trajChart" width="800" height="180" aria-label="Strategic trajectory chart"></canvas>
+      <div id="yearPanel" class="mc-year-panel"></div>
+    </section>
+    <section class="mc-panel"><h2 class="mc-label">Company states</h2><div id="companyStates" class="mc-co-grid"></div></section>
+    <section class="mc-panel">
+      <h2 class="mc-label">What would flip the result?</h2>
+      <p class="mc-note">Sensitivity tests at state-dimension level (+15%). Not predictions.</p>
+      <ul id="flipList" class="mc-flip"></ul>
+    </section>
+    <section class="mc-panel">
+      <h2 class="mc-label">Evidence confidence</h2>
+      <p class="mc-note">Confidence measures the strength, recency, and independence of evidence behind model inputs. It does not mean the forecast has that probability of being correct.</p>
+      <div id="confidenceBlock"></div>
+    </section>
+    <section class="mc-panel">
+      <h2 class="mc-label">Explore the evidence</h2>
+      <p class="mc-note">Sources establish research inputs. Simulation weights and scenario responses include explicit analyst priors where historical calibration is unavailable.</p>
+      <div id="evidenceExplorer"></div>
+    </section>
+    <p class="mc-disclaimer">Strategic simulation only — not stock-price prediction. Not financial advice.</p>
+  </div>
+
+  <aside id="evPanel" class="mc-ev-panel">
+    <button id="evClose" type="button" class="mc-ev-close" aria-label="Close">×</button>
+    <h3 id="evTitle"></h3>
+    <div id="evBody"></div>
+  </aside>
+</main>
+
+<footer><div class="wrap"><p class="footer-copy">&copy; 2026 Fractal Infinity.</p></div></footer>
+<script type="module" src="crucible/memory/app.js"></script>
+<script type="module">
+  fetch("crucible/memory/data/graph.json").then(r=>r.json()).then(g=>{
+    fetch("crucible/memory/data/claims.json").then(r=>r.json()).then(cl=>{
+      fetch("crucible/memory/data/sources.json").then(r=>r.json()).then(s=>{
+        const el=document.getElementById("metricsLine");
+        if(el) el.textContent=`${52*3} research variables · ${cl.count} claims · ${s.sources.length} sources · ${s.defensible_independent_lineages} defensible evidence lineages · ${g.state_dimensions} state dimensions`;
+      });
+    });
+  });
+</script>
+</body>
+</html>

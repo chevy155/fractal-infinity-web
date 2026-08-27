@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "forces": [
+    "hbm_demand",
+    "packaging",
+    "price_pressure",
+    "diversification",
+    "ai_growth",
+    "supply_disruption",
+    "hbm4_pace"
+  ],
+  "levels": {
+    "hbm_demand": [
+      "weak",
+      "steady",
+      "surge"
+    ],
+    "packaging": [
+      "available",
+      "tight",
+      "crisis"
+    ],
+    "price_pressure": [
+      "low",
+      "moderate",
+      "severe"
+    ],
+    "diversification": [
+      "low",
+      "moderate",
+      "high"
+    ],
+    "ai_growth": [
+      "slow",
+      "steady",
+      "explosive"
+    ],
+    "supply_disruption": [
+      "stable",
+      "stressed",
+      "severe"
+    ],
+    "hbm4_pace": [
+      "delayed",
+      "normal",
+      "accelerated"
+    ]
+  },
+  "presets": {
+    "all": {
+      "label": "All Worlds",
+      "fixed": null
+    },
+    "ai_supercycle": {
+      "label": "AI Super-Cycle",
+      "fixed": {
+        "hbm_demand": "surge",
+        "ai_growth": "explosive",
+        "price_pressure": "low"
+      }
+    },
+    "hbm_shortage": {
+      "label": "HBM Shortage",
+      "fixed": {
+        "hbm_demand": "surge",
+        "packaging": "crisis",
+        "price_pressure": "low"
+      }
+    },
+    "hbm4_transition": {
+      "label": "HBM4 Transition",
+      "fixed": {
+        "hbm4_pace": "accelerated",
+        "diversification": "moderate",
+        "hbm_demand": "surge"
+      }
+    },
+    "packaging_crisis": {
+      "label": "Packaging Crisis",
+      "fixed": {
+        "packaging": "crisis",
+        "hbm_demand": "steady",
+        "supply_disruption": "stressed"
+      }
+    },
+    "price_war": {
+      "label": "Price War",
+      "fixed": {
+        "price_pressure": "severe",
+        "hbm_demand": "steady",
+        "packaging": "available"
+      }
+    },
+    "nvidia_diversifies": {
+      "label": "NVIDIA Diversifies",
+      "fixed": {
+        "diversification": "high",
+        "hbm_demand": "surge",
+        "price_pressure": "moderate"
+      }
+    },
+    "china_korea_shock": {
+      "label": "China / Korea Shock",
+      "fixed": {
+        "supply_disruption": "severe",
+        "packaging": "tight",
+        "diversification": "low"
+      }
+    },
+    "inference_explosion": {
+      "label": "Inference Explosion",
+      "fixed": {
+        "ai_growth": "explosive",
+        "hbm_demand": "surge",
+        "hbm4_pace": "normal"
+      }
+    },
+    "memory_wall": {
+      "label": "Memory Wall",
+      "fixed": {
+        "hbm_demand": "surge",
+        "ai_growth": "explosive",
+        "price_pressure": "low"
+      }
+    }
+  },
+  "default_weights": {
+    "hbm_demand": [
+      0.12,
+      0.48,
+      0.4
+    ],
+    "packaging": [
+      0.18,
+      0.52,
+      0.3
+    ],
+    "price_pressure": [
+      0.25,
+      0.5,
+      0.25
+    ],
+    "diversification": [
+      0.2,
+      0.5,
+      0.3
+    ],
+    "ai_growth": [
+      0.15,
+      0.45,
+      0.4
+    ],
+    "supply_disruption": [
+      0.3,
+      0.45,
+      0.25
+    ],
+    "hbm4_pace": [
+      0.2,
+      0.5,
+      0.3
+    ]
+  },
+  "phases": 5,
+  "horizon": "2026-2032",
+  "seed": 28475163
+}

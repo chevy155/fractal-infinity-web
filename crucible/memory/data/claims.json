@@ -1,0 +1,2306 @@
+{
+  "version": "1.0.0",
+  "count": 224,
+  "claims": [
+    {
+      "id": "MC001",
+      "text": "SK hynix mass-produced HBM3E ahead of peers",
+      "type": "FACT",
+      "confidence": 0.92,
+      "sources": [
+        "M02",
+        "M13"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC002",
+      "text": "SK hynix disclosed HBM4 development on accelerated timeline",
+      "type": "FACT",
+      "confidence": 0.85,
+      "sources": [
+        "M03",
+        "M14"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC003",
+      "text": "SK hynix is primary HBM supplier for NVIDIA Blackwell-class accelerators",
+      "type": "INFERENCE",
+      "confidence": 0.88,
+      "sources": [
+        "M10",
+        "M11",
+        "M13"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC004",
+      "text": "SK hynix held ~50%+ HBM market share in 2025",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M13",
+        "M19"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC005",
+      "text": "SK hynix expanding M15X and Yongin cluster for HBM capacity",
+      "type": "FACT",
+      "confidence": 0.86,
+      "sources": [
+        "M26",
+        "M01"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC006",
+      "text": "SK hynix HBM yield reportedly industry-leading",
+      "type": "INFERENCE",
+      "confidence": 0.75,
+      "sources": [
+        "M13",
+        "M15"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC007",
+      "text": "SK hynix uses advanced TSV and MR-MUF packaging for HBM stacks",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M15",
+        "M33"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC008",
+      "text": "SK hynix memory revenue rebounded strongly on HBM mix shift",
+      "type": "FACT",
+      "confidence": 0.9,
+      "sources": [
+        "M01",
+        "M38"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC009",
+      "text": "HBM mix improved SK hynix DRAM margins vs commodity cycle",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M01",
+        "M36"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC010",
+      "text": "Customer concentration in NVIDIA remains high for SK hynix HBM",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M13",
+        "M29"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC011",
+      "text": "Korea-based production creates geopolitical concentration risk",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M30",
+        "M31"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC012",
+      "text": "SK hynix supplies HBM for AMD MI300 series",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M12",
+        "M13"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC013",
+      "text": "SK hynix executed HBM roadmap on schedule since HBM2E",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M02",
+        "M03"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC014",
+      "text": "SK hynix HBM3E bandwidth meets JEDEC HBM3E spec targets",
+      "type": "FACT",
+      "confidence": 0.88,
+      "sources": [
+        "M23",
+        "M02"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC015",
+      "text": "SK hynix shipping 12-high HBM3E stacks in volume",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M02",
+        "M13"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC016",
+      "text": "Micron qualified HBM3E for NVIDIA H200",
+      "type": "FACT",
+      "confidence": 0.9,
+      "sources": [
+        "M05",
+        "M10"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC017",
+      "text": "Micron targeting HBM4 sampling in 2026",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M14",
+        "M04"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC018",
+      "text": "Micron is secondary HBM supplier gaining NVIDIA share",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M05",
+        "M29",
+        "M13"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC019",
+      "text": "Micron HBM share estimated ~10–15% in 2025",
+      "type": "INFERENCE",
+      "confidence": 0.75,
+      "sources": [
+        "M13",
+        "M19"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC020",
+      "text": "Micron expanding Idaho and Singapore for HBM capacity",
+      "type": "FACT",
+      "confidence": 0.88,
+      "sources": [
+        "M06",
+        "M27",
+        "M21"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC021",
+      "text": "Micron HBM yield improving but behind SK hynix",
+      "type": "INFERENCE",
+      "confidence": 0.68,
+      "sources": [
+        "M14",
+        "M15"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC022",
+      "text": "Micron leveraging Singapore advanced packaging for HBM",
+      "type": "FACT",
+      "confidence": 0.82,
+      "sources": [
+        "M27",
+        "M15"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC023",
+      "text": "Micron HBM revenue growing but smaller base than SK hynix",
+      "type": "FACT",
+      "confidence": 0.85,
+      "sources": [
+        "M04",
+        "M25"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC024",
+      "text": "Micron margins sensitive to HBM ramp costs",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M04",
+        "M36"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC025",
+      "text": "Micron customer diversification improving with multi-customer HBM",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M05",
+        "M12"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC026",
+      "text": "US fab footprint provides geopolitical resilience advantage",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M21",
+        "M30"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC027",
+      "text": "Micron HBM present in AMD accelerator supply chain",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M12",
+        "M05"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC028",
+      "text": "Micron HBM execution accelerated after initial delay vs SK hynix",
+      "type": "INFERENCE",
+      "confidence": 0.75,
+      "sources": [
+        "M05",
+        "M14"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC029",
+      "text": "Micron 1-beta process supports competitive HBM bandwidth",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M34",
+        "M23"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC030",
+      "text": "Micron HBM stack height competitive at 8–12 high",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M05",
+        "M15"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC031",
+      "text": "Samsung qualified 36GB HBM3E for NVIDIA",
+      "type": "FACT",
+      "confidence": 0.88,
+      "sources": [
+        "M08",
+        "M10"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC032",
+      "text": "Samsung disclosed HBM4 development with custom logic base die",
+      "type": "FACT",
+      "confidence": 0.84,
+      "sources": [
+        "M09",
+        "M14"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC033",
+      "text": "Samsung gaining NVIDIA HBM share from low base",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M08",
+        "M29",
+        "M13"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC034",
+      "text": "Samsung HBM share estimated ~10–20% in 2025",
+      "type": "INFERENCE",
+      "confidence": 0.73,
+      "sources": [
+        "M13",
+        "M19"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC035",
+      "text": "Samsung has largest DRAM fab footprint globally",
+      "type": "FACT",
+      "confidence": 0.92,
+      "sources": [
+        "M07",
+        "M22"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC036",
+      "text": "Samsung HBM yield historically lagged SK hynix",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M13",
+        "M18"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC037",
+      "text": "Samsung internal advanced packaging reduces OSAT dependence",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M35",
+        "M15"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC038",
+      "text": "Samsung memory division revenue driven by HBM mix improvement",
+      "type": "FACT",
+      "confidence": 0.86,
+      "sources": [
+        "M07",
+        "M25"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC039",
+      "text": "Samsung can absorb margin pressure via vertical integration",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M07",
+        "M36"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC040",
+      "text": "Samsung customer concentration remains NVIDIA-weighted",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M08",
+        "M29"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC041",
+      "text": "Korea concentration plus China market exposure creates dual geo risk",
+      "type": "INFERENCE",
+      "confidence": 0.68,
+      "sources": [
+        "M30",
+        "M07"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC042",
+      "text": "Samsung pursuing AMD HBM socket opportunities",
+      "type": "INFERENCE",
+      "confidence": 0.65,
+      "sources": [
+        "M12",
+        "M09"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC043",
+      "text": "Samsung HBM execution improved after initial HBM3 setbacks",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M08",
+        "M18"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC044",
+      "text": "Samsung EUV 1a DRAM supports HBM performance roadmap",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M28",
+        "M23"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC045",
+      "text": "Samsung TSV stacking supports 12-high HBM stacks",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M35",
+        "M08"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC046",
+      "text": "HBM demand growth exceeds commodity DRAM through 2030",
+      "type": "INFERENCE",
+      "confidence": 0.85,
+      "sources": [
+        "M24",
+        "M25"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC047",
+      "text": "Advanced packaging remains binding constraint on HBM output",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M16",
+        "M15"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC048",
+      "text": "NVIDIA seeking multi-source HBM supply",
+      "type": "FACT",
+      "confidence": 0.88,
+      "sources": [
+        "M29",
+        "M11"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC049",
+      "text": "HBM4 transition will re-rank suppliers by qualification timing",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M14",
+        "M37"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC050",
+      "text": "Memory wall makes HBM strategically more valuable vs compute scaling",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M37",
+        "M24"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC051",
+      "text": "Inference workloads increase memory bandwidth intensity",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M24",
+        "M37"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC052",
+      "text": "HBM pricing elevated vs historical DRAM norms",
+      "type": "INFERENCE",
+      "confidence": 0.84,
+      "sources": [
+        "M36",
+        "M18"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC053",
+      "text": "CoWoS and HBM packaging interdependencies persist",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M16",
+        "M15"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC054",
+      "text": "US-China export controls affect memory equipment access",
+      "type": "FACT",
+      "confidence": 0.9,
+      "sources": [
+        "M30",
+        "M21"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC055",
+      "text": "Korea government supporting HBM capex",
+      "type": "FACT",
+      "confidence": 0.85,
+      "sources": [
+        "M31",
+        "M26"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC056",
+      "text": "SK hynix — HBM3E readiness: 0.94 (FACT, confidence 92%)",
+      "type": "FACT",
+      "confidence": 0.92,
+      "sources": [
+        "M02"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC057",
+      "text": "SK hynix — HBM4 readiness: 0.82 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M14"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC058",
+      "text": "SK hynix — HBM4E roadmap credibility: 0.72 (INFERENCE, confidence 65%)",
+      "type": "INFERENCE",
+      "confidence": 0.65,
+      "sources": [
+        "M14"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC059",
+      "text": "SK hynix — Bandwidth leadership: 0.90 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M23"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC060",
+      "text": "SK hynix — Power efficiency: 0.86 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M15"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC061",
+      "text": "SK hynix — Stack height capability: 0.92 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M15"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC062",
+      "text": "SK hynix — Die stacking technology: 0.90 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M35"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC063",
+      "text": "SK hynix — Thermal performance: 0.88 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M33"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC064",
+      "text": "SK hynix — Interconnect / bonding: 0.88 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M15"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC065",
+      "text": "SK hynix — Packaging architecture: 0.90 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M15"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC066",
+      "text": "SK hynix — DRAM process node: 0.86 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M28"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC067",
+      "text": "SK hynix — Roadmap timing credibility: 0.88 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M14"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC068",
+      "text": "SK hynix — Qualification stage: 0.92 (INFERENCE, confidence 82%)",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M10"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC069",
+      "text": "SK hynix — Technical yield evidence: 0.86 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M13"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC070",
+      "text": "SK hynix — Product maturity: 0.92 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M13"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC071",
+      "text": "SK hynix — DRAM capacity: 0.82 (INFERENCE, confidence 82%)",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M07"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC072",
+      "text": "SK hynix — HBM capacity: 0.90 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M26"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC073",
+      "text": "SK hynix — Advanced packaging capacity: 0.84 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M16"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC074",
+      "text": "SK hynix — Manufacturing yield: 0.88 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M13"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC075",
+      "text": "SK hynix — Ramp speed: 0.90 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M18"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC076",
+      "text": "SK hynix — Internal packaging capability: 0.86 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M15"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC077",
+      "text": "SK hynix — Fab expansion underway: 0.92 (FACT, confidence 86%)",
+      "type": "FACT",
+      "confidence": 0.86,
+      "sources": [
+        "M26"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC078",
+      "text": "SK hynix — Capex intensity: 0.80 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M17"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC079",
+      "text": "SK hynix — Supply availability: 0.82 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M18"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC080",
+      "text": "SK hynix — NVIDIA qualification / supply: 0.94 (INFERENCE, confidence 84%)",
+      "type": "INFERENCE",
+      "confidence": 0.84,
+      "sources": [
+        "M10"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC081",
+      "text": "SK hynix — AMD qualification / supply: 0.78 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M12"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC082",
+      "text": "SK hynix — Hyperscaler exposure: 0.80 (INFERENCE, confidence 70%)",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M24"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC083",
+      "text": "SK hynix — HBM market share momentum: 0.92 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M13"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC084",
+      "text": "SK hynix — HBM shipment growth: 0.90 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M25"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC085",
+      "text": "SK hynix — Pricing leverage: 0.88 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M36"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC086",
+      "text": "SK hynix — Customer concentration risk: 0.72 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M29"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC087",
+      "text": "SK hynix — Customer diversification: 0.58 (INFERENCE, confidence 70%)",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M29"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC088",
+      "text": "SK hynix — HBM product mix shift: 0.90 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M01"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC089",
+      "text": "SK hynix — Memory revenue scale: 0.88 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M01"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC090",
+      "text": "SK hynix — HBM revenue contribution: 0.86 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M25"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC091",
+      "text": "SK hynix — Operating margins: 0.86 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M01"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC092",
+      "text": "SK hynix — Capex funding capacity: 0.84 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M17"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC093",
+      "text": "SK hynix — Cash generation: 0.86 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M01"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC094",
+      "text": "SK hynix — Memory downturn resilience: 0.78 (INFERENCE, confidence 70%)",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M36"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC095",
+      "text": "SK hynix — NVIDIA alignment: 0.94 (INFERENCE, confidence 82%)",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M10"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC096",
+      "text": "SK hynix — AMD alignment: 0.74 (INFERENCE, confidence 70%)",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M12"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC097",
+      "text": "SK hynix — Packaging partner depth: 0.82 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M16"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC098",
+      "text": "SK hynix — Equipment supplier dependencies: 0.70 (INFERENCE, confidence 68%)",
+      "type": "INFERENCE",
+      "confidence": 0.68,
+      "sources": [
+        "M32"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC099",
+      "text": "SK hynix — Geographic concentration: 0.68 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M30"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC100",
+      "text": "SK hynix — Execution history: 0.92 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M02"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC101",
+      "text": "SK hynix — Roadmap credibility: 0.88 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M14"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC102",
+      "text": "SK hynix — Manufacturing moat: 0.88 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M13"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC103",
+      "text": "SK hynix — Qualification moat: 0.92 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M10"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC104",
+      "text": "SK hynix — Customer switching friction: 0.82 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M29"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC105",
+      "text": "SK hynix — Competitive positioning: 0.92 (INFERENCE, confidence 82%)",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M13"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC106",
+      "text": "SK hynix — Geopolitical exposure: 0.62 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M30"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC107",
+      "text": "SK hynix — Timing risk: 0.42 (INFERENCE, confidence 68%)",
+      "type": "INFERENCE",
+      "confidence": 0.68,
+      "sources": [
+        "M14"
+      ],
+      "company": "sk_hynix"
+    },
+    {
+      "id": "MC108",
+      "text": "Micron — HBM3E readiness: 0.82 (INFERENCE, confidence 88%)",
+      "type": "INFERENCE",
+      "confidence": 0.88,
+      "sources": [
+        "M02"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC109",
+      "text": "Micron — HBM4 readiness: 0.68 (INFERENCE, confidence 70%)",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M14"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC110",
+      "text": "Micron — HBM4E roadmap credibility: 0.58 (INFERENCE, confidence 65%)",
+      "type": "INFERENCE",
+      "confidence": 0.65,
+      "sources": [
+        "M14"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC111",
+      "text": "Micron — Bandwidth leadership: 0.78 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M23"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC112",
+      "text": "Micron — Power efficiency: 0.80 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M15"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC113",
+      "text": "Micron — Stack height capability: 0.80 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M15"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC114",
+      "text": "Micron — Die stacking technology: 0.78 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M35"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC115",
+      "text": "Micron — Thermal performance: 0.76 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M33"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC116",
+      "text": "Micron — Interconnect / bonding: 0.76 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M15"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC117",
+      "text": "Micron — Packaging architecture: 0.78 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M15"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC118",
+      "text": "Micron — DRAM process node: 0.82 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M28"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC119",
+      "text": "Micron — Roadmap timing credibility: 0.72 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M14"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC120",
+      "text": "Micron — Qualification stage: 0.80 (INFERENCE, confidence 82%)",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M10"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC121",
+      "text": "Micron — Technical yield evidence: 0.72 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M13"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC122",
+      "text": "Micron — Product maturity: 0.78 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M13"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC123",
+      "text": "Micron — DRAM capacity: 0.78 (INFERENCE, confidence 82%)",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M07"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC124",
+      "text": "Micron — HBM capacity: 0.68 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M26"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC125",
+      "text": "Micron — Advanced packaging capacity: 0.72 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M16"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC126",
+      "text": "Micron — Manufacturing yield: 0.74 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M13"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC127",
+      "text": "Micron — Ramp speed: 0.76 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M18"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC128",
+      "text": "Micron — Internal packaging capability: 0.70 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M15"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC129",
+      "text": "Micron — Fab expansion underway: 0.86 (FACT, confidence 86%)",
+      "type": "FACT",
+      "confidence": 0.86,
+      "sources": [
+        "M26"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC130",
+      "text": "Micron — Capex intensity: 0.76 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M17"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC131",
+      "text": "Micron — Supply availability: 0.70 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M18"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC132",
+      "text": "Micron — NVIDIA qualification / supply: 0.80 (INFERENCE, confidence 84%)",
+      "type": "INFERENCE",
+      "confidence": 0.84,
+      "sources": [
+        "M10"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC133",
+      "text": "Micron — AMD qualification / supply: 0.72 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M12"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC134",
+      "text": "Micron — Hyperscaler exposure: 0.68 (INFERENCE, confidence 70%)",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M24"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC135",
+      "text": "Micron — HBM market share momentum: 0.62 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M13"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC136",
+      "text": "Micron — HBM shipment growth: 0.82 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M25"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC137",
+      "text": "Micron — Pricing leverage: 0.70 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M36"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC138",
+      "text": "Micron — Customer concentration risk: 0.65 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M29"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC139",
+      "text": "Micron — Customer diversification: 0.74 (INFERENCE, confidence 70%)",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M29"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC140",
+      "text": "Micron — HBM product mix shift: 0.72 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M01"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC141",
+      "text": "Micron — Memory revenue scale: 0.76 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M01"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC142",
+      "text": "Micron — HBM revenue contribution: 0.58 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M25"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC143",
+      "text": "Micron — Operating margins: 0.72 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M01"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC144",
+      "text": "Micron — Capex funding capacity: 0.80 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M17"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC145",
+      "text": "Micron — Cash generation: 0.74 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M01"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC146",
+      "text": "Micron — Memory downturn resilience: 0.76 (INFERENCE, confidence 70%)",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M36"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC147",
+      "text": "Micron — NVIDIA alignment: 0.78 (INFERENCE, confidence 82%)",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M10"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC148",
+      "text": "Micron — AMD alignment: 0.72 (INFERENCE, confidence 70%)",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M12"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC149",
+      "text": "Micron — Packaging partner depth: 0.76 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M16"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC150",
+      "text": "Micron — Equipment supplier dependencies: 0.72 (INFERENCE, confidence 68%)",
+      "type": "INFERENCE",
+      "confidence": 0.68,
+      "sources": [
+        "M32"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC151",
+      "text": "Micron — Geographic concentration: 0.42 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M30"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC152",
+      "text": "Micron — Execution history: 0.78 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M02"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC153",
+      "text": "Micron — Roadmap credibility: 0.74 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M14"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC154",
+      "text": "Micron — Manufacturing moat: 0.70 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M13"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC155",
+      "text": "Micron — Qualification moat: 0.76 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M10"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC156",
+      "text": "Micron — Customer switching friction: 0.68 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M29"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC157",
+      "text": "Micron — Competitive positioning: 0.72 (INFERENCE, confidence 82%)",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M13"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC158",
+      "text": "Micron — Geopolitical exposure: 0.38 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M30"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC159",
+      "text": "Micron — Timing risk: 0.52 (INFERENCE, confidence 68%)",
+      "type": "INFERENCE",
+      "confidence": 0.68,
+      "sources": [
+        "M14"
+      ],
+      "company": "micron"
+    },
+    {
+      "id": "MC160",
+      "text": "Samsung Electronics — HBM3E readiness: 0.80 (INFERENCE, confidence 86%)",
+      "type": "INFERENCE",
+      "confidence": 0.86,
+      "sources": [
+        "M02"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC161",
+      "text": "Samsung Electronics — HBM4 readiness: 0.76 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M14"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC162",
+      "text": "Samsung Electronics — HBM4E roadmap credibility: 0.68 (INFERENCE, confidence 65%)",
+      "type": "INFERENCE",
+      "confidence": 0.65,
+      "sources": [
+        "M14"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC163",
+      "text": "Samsung Electronics — Bandwidth leadership: 0.82 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M23"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC164",
+      "text": "Samsung Electronics — Power efficiency: 0.82 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M15"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC165",
+      "text": "Samsung Electronics — Stack height capability: 0.84 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M15"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC166",
+      "text": "Samsung Electronics — Die stacking technology: 0.86 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M35"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC167",
+      "text": "Samsung Electronics — Thermal performance: 0.80 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M33"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC168",
+      "text": "Samsung Electronics — Interconnect / bonding: 0.82 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M15"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC169",
+      "text": "Samsung Electronics — Packaging architecture: 0.86 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M15"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC170",
+      "text": "Samsung Electronics — DRAM process node: 0.88 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M28"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC171",
+      "text": "Samsung Electronics — Roadmap timing credibility: 0.80 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M14"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC172",
+      "text": "Samsung Electronics — Qualification stage: 0.78 (INFERENCE, confidence 82%)",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M10"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC173",
+      "text": "Samsung Electronics — Technical yield evidence: 0.70 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M13"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC174",
+      "text": "Samsung Electronics — Product maturity: 0.80 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M13"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC175",
+      "text": "Samsung Electronics — DRAM capacity: 0.94 (INFERENCE, confidence 82%)",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M07"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC176",
+      "text": "Samsung Electronics — HBM capacity: 0.76 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M26"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC177",
+      "text": "Samsung Electronics — Advanced packaging capacity: 0.88 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M16"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC178",
+      "text": "Samsung Electronics — Manufacturing yield: 0.72 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M13"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC179",
+      "text": "Samsung Electronics — Ramp speed: 0.74 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M18"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC180",
+      "text": "Samsung Electronics — Internal packaging capability: 0.92 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M15"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC181",
+      "text": "Samsung Electronics — Fab expansion underway: 0.90 (FACT, confidence 86%)",
+      "type": "FACT",
+      "confidence": 0.86,
+      "sources": [
+        "M26"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC182",
+      "text": "Samsung Electronics — Capex intensity: 0.88 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M17"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC183",
+      "text": "Samsung Electronics — Supply availability: 0.86 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M18"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC184",
+      "text": "Samsung Electronics — NVIDIA qualification / supply: 0.76 (INFERENCE, confidence 84%)",
+      "type": "INFERENCE",
+      "confidence": 0.84,
+      "sources": [
+        "M10"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC185",
+      "text": "Samsung Electronics — AMD qualification / supply: 0.66 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M12"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC186",
+      "text": "Samsung Electronics — Hyperscaler exposure: 0.72 (INFERENCE, confidence 70%)",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M24"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC187",
+      "text": "Samsung Electronics — HBM market share momentum: 0.68 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M13"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC188",
+      "text": "Samsung Electronics — HBM shipment growth: 0.78 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M25"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC189",
+      "text": "Samsung Electronics — Pricing leverage: 0.72 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M36"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC190",
+      "text": "Samsung Electronics — Customer concentration risk: 0.70 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M29"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC191",
+      "text": "Samsung Electronics — Customer diversification: 0.62 (INFERENCE, confidence 70%)",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M29"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC192",
+      "text": "Samsung Electronics — HBM product mix shift: 0.74 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M01"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC193",
+      "text": "Samsung Electronics — Memory revenue scale: 0.92 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M01"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC194",
+      "text": "Samsung Electronics — HBM revenue contribution: 0.62 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M25"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC195",
+      "text": "Samsung Electronics — Operating margins: 0.74 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M01"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC196",
+      "text": "Samsung Electronics — Capex funding capacity: 0.90 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M17"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC197",
+      "text": "Samsung Electronics — Cash generation: 0.88 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M01"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC198",
+      "text": "Samsung Electronics — Memory downturn resilience: 0.82 (INFERENCE, confidence 70%)",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M36"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC199",
+      "text": "Samsung Electronics — NVIDIA alignment: 0.74 (INFERENCE, confidence 82%)",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M10"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC200",
+      "text": "Samsung Electronics — AMD alignment: 0.64 (INFERENCE, confidence 70%)",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M12"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC201",
+      "text": "Samsung Electronics — Packaging partner depth: 0.88 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M16"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC202",
+      "text": "Samsung Electronics — Equipment supplier dependencies: 0.74 (INFERENCE, confidence 68%)",
+      "type": "INFERENCE",
+      "confidence": 0.68,
+      "sources": [
+        "M32"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC203",
+      "text": "Samsung Electronics — Geographic concentration: 0.70 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M30"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC204",
+      "text": "Samsung Electronics — Execution history: 0.76 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M02"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC205",
+      "text": "Samsung Electronics — Roadmap credibility: 0.78 (INFERENCE, confidence 78%)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M14"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC206",
+      "text": "Samsung Electronics — Manufacturing moat: 0.90 (INFERENCE, confidence 76%)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M13"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC207",
+      "text": "Samsung Electronics — Qualification moat: 0.74 (INFERENCE, confidence 80%)",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M10"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC208",
+      "text": "Samsung Electronics — Customer switching friction: 0.70 (INFERENCE, confidence 72%)",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M29"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC209",
+      "text": "Samsung Electronics — Competitive positioning: 0.76 (INFERENCE, confidence 82%)",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M13"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC210",
+      "text": "Samsung Electronics — Geopolitical exposure: 0.64 (INFERENCE, confidence 74%)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M30"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC211",
+      "text": "Samsung Electronics — Timing risk: 0.48 (INFERENCE, confidence 68%)",
+      "type": "INFERENCE",
+      "confidence": 0.68,
+      "sources": [
+        "M14"
+      ],
+      "company": "samsung"
+    },
+    {
+      "id": "MC212",
+      "text": "System — HBM demand growth outlook: 0.88 (INFERENCE)",
+      "type": "INFERENCE",
+      "confidence": 0.84,
+      "sources": [
+        "M24",
+        "M25"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC213",
+      "text": "System — Packaging bottleneck severity: 0.78 (INFERENCE)",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M16"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC214",
+      "text": "System — HBM4 transition pace: 0.72 (INFERENCE)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M14"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC215",
+      "text": "System — AI accelerator TAM growth: 0.86 (INFERENCE)",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M24"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC216",
+      "text": "System — Memory wall severity: 0.8 (INFERENCE)",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M37"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC217",
+      "text": "System — Inference memory intensity: 0.74 (INFERENCE)",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M37"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC218",
+      "text": "System — HBM pricing environment: 0.82 (INFERENCE)",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M36"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC219",
+      "text": "System — CoWoS packaging constraint: 0.76 (INFERENCE)",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M16"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC220",
+      "text": "System — Export control pressure: 0.72 (FACT)",
+      "type": "FACT",
+      "confidence": 0.88,
+      "sources": [
+        "M30"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC221",
+      "text": "System — Korea HBM subsidy support: 0.78 (FACT)",
+      "type": "FACT",
+      "confidence": 0.84,
+      "sources": [
+        "M31"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC222",
+      "text": "System — NVIDIA multi-source push: 0.8 (FACT)",
+      "type": "FACT",
+      "confidence": 0.86,
+      "sources": [
+        "M29"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC223",
+      "text": "System — Memory equipment lead times: 0.68 (INFERENCE)",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M17"
+      ],
+      "company": "system"
+    },
+    {
+      "id": "MC224",
+      "text": "System — Commodity DRAM cycle position: 0.62 (INFERENCE)",
+      "type": "INFERENCE",
+      "confidence": 0.68,
+      "sources": [
+        "M36"
+      ],
+      "company": "system"
+    }
+  ]
+}

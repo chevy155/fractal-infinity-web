@@ -1,0 +1,987 @@
+{
+  "version": "1.0.0",
+  "id": "sk_hynix",
+  "name": "SK hynix",
+  "focus": "HBM leader · NVIDIA primary supplier",
+  "variable_count": 52,
+  "variables": [
+    {
+      "id": "hbm3e_readiness",
+      "label": "HBM3E readiness",
+      "domain": "technology",
+      "value": 0.94,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.92,
+      "sources": [
+        "M02"
+      ],
+      "claim_ids": [
+        "MC001",
+        "MC056"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "hbm4_readiness",
+      "label": "HBM4 readiness",
+      "domain": "technology",
+      "value": 0.82,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M14"
+      ],
+      "claim_ids": [
+        "MC002",
+        "MC057"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "hbm4e_roadmap",
+      "label": "HBM4E roadmap credibility",
+      "domain": "technology",
+      "value": 0.72,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.65,
+      "sources": [
+        "M14"
+      ],
+      "claim_ids": [
+        "MC002",
+        "MC058"
+      ],
+      "weight": 0.7
+    },
+    {
+      "id": "bandwidth",
+      "label": "Bandwidth leadership",
+      "domain": "technology",
+      "value": 0.9,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M23"
+      ],
+      "claim_ids": [
+        "MC014",
+        "MC059"
+      ],
+      "weight": 0.9
+    },
+    {
+      "id": "power_efficiency",
+      "label": "Power efficiency",
+      "domain": "technology",
+      "value": 0.86,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M15"
+      ],
+      "claim_ids": [
+        "MC001",
+        "MC060"
+      ],
+      "weight": 0.8
+    },
+    {
+      "id": "stack_height",
+      "label": "Stack height capability",
+      "domain": "technology",
+      "value": 0.92,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M15"
+      ],
+      "claim_ids": [
+        "MC015",
+        "MC061"
+      ],
+      "weight": 0.9
+    },
+    {
+      "id": "die_stacking",
+      "label": "Die stacking technology",
+      "domain": "technology",
+      "value": 0.9,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M35"
+      ],
+      "claim_ids": [
+        "MC015",
+        "MC062"
+      ],
+      "weight": 0.8
+    },
+    {
+      "id": "thermal_performance",
+      "label": "Thermal performance",
+      "domain": "technology",
+      "value": 0.88,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M33"
+      ],
+      "claim_ids": [
+        "MC001",
+        "MC063"
+      ],
+      "weight": 0.8
+    },
+    {
+      "id": "interconnect_bonding",
+      "label": "Interconnect / bonding",
+      "domain": "technology",
+      "value": 0.88,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M15"
+      ],
+      "claim_ids": [
+        "MC007",
+        "MC064"
+      ],
+      "weight": 0.8
+    },
+    {
+      "id": "packaging_architecture",
+      "label": "Packaging architecture",
+      "domain": "technology",
+      "value": 0.9,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M15"
+      ],
+      "claim_ids": [
+        "MC007",
+        "MC065"
+      ],
+      "weight": 0.9
+    },
+    {
+      "id": "process_node",
+      "label": "DRAM process node",
+      "domain": "technology",
+      "value": 0.86,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M28"
+      ],
+      "claim_ids": [
+        "MC014",
+        "MC066"
+      ],
+      "weight": 0.8
+    },
+    {
+      "id": "roadmap_timing",
+      "label": "Roadmap timing credibility",
+      "domain": "technology",
+      "value": 0.88,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M14"
+      ],
+      "claim_ids": [
+        "MC002",
+        "MC067"
+      ],
+      "weight": 0.9
+    },
+    {
+      "id": "qualification_stage",
+      "label": "Qualification stage",
+      "domain": "technology",
+      "value": 0.92,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M10"
+      ],
+      "claim_ids": [
+        "MC003",
+        "MC068"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "yield_evidence",
+      "label": "Technical yield evidence",
+      "domain": "technology",
+      "value": 0.86,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M13"
+      ],
+      "claim_ids": [
+        "MC006",
+        "MC069"
+      ],
+      "weight": 0.9
+    },
+    {
+      "id": "product_maturity",
+      "label": "Product maturity",
+      "domain": "technology",
+      "value": 0.92,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M13"
+      ],
+      "claim_ids": [
+        "MC001",
+        "MC070"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "dram_capacity",
+      "label": "DRAM capacity",
+      "domain": "manufacturing",
+      "value": 0.82,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M07"
+      ],
+      "claim_ids": [
+        "MC005",
+        "MC071"
+      ],
+      "weight": 0.9
+    },
+    {
+      "id": "hbm_capacity",
+      "label": "HBM capacity",
+      "domain": "manufacturing",
+      "value": 0.9,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M26"
+      ],
+      "claim_ids": [
+        "MC005",
+        "MC072"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "packaging_capacity",
+      "label": "Advanced packaging capacity",
+      "domain": "manufacturing",
+      "value": 0.84,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M16"
+      ],
+      "claim_ids": [
+        "MC007",
+        "MC073"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "yield_rate",
+      "label": "Manufacturing yield",
+      "domain": "manufacturing",
+      "value": 0.88,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M13"
+      ],
+      "claim_ids": [
+        "MC006",
+        "MC074"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "ramp_speed",
+      "label": "Ramp speed",
+      "domain": "manufacturing",
+      "value": 0.9,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M18"
+      ],
+      "claim_ids": [
+        "MC013",
+        "MC075"
+      ],
+      "weight": 0.9
+    },
+    {
+      "id": "internal_packaging",
+      "label": "Internal packaging capability",
+      "domain": "manufacturing",
+      "value": 0.86,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M15"
+      ],
+      "claim_ids": [
+        "MC007",
+        "MC076"
+      ],
+      "weight": 0.8
+    },
+    {
+      "id": "fab_expansion",
+      "label": "Fab expansion underway",
+      "domain": "manufacturing",
+      "value": 0.92,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.86,
+      "sources": [
+        "M26"
+      ],
+      "claim_ids": [
+        "MC005",
+        "MC077"
+      ],
+      "weight": 0.9
+    },
+    {
+      "id": "capex_intensity",
+      "label": "Capex intensity",
+      "domain": "manufacturing",
+      "value": 0.8,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M17"
+      ],
+      "claim_ids": [
+        "MC005",
+        "MC078"
+      ],
+      "weight": 0.7
+    },
+    {
+      "id": "supply_availability",
+      "label": "Supply availability",
+      "domain": "manufacturing",
+      "value": 0.82,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M18"
+      ],
+      "claim_ids": [
+        "MC005",
+        "MC079"
+      ],
+      "weight": 0.8
+    },
+    {
+      "id": "nvidia_qualification",
+      "label": "NVIDIA qualification / supply",
+      "domain": "commercial",
+      "value": 0.94,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.84,
+      "sources": [
+        "M10"
+      ],
+      "claim_ids": [
+        "MC003",
+        "MC080"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "amd_qualification",
+      "label": "AMD qualification / supply",
+      "domain": "commercial",
+      "value": 0.78,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M12"
+      ],
+      "claim_ids": [
+        "MC012",
+        "MC081"
+      ],
+      "weight": 0.8
+    },
+    {
+      "id": "hyperscaler_exposure",
+      "label": "Hyperscaler exposure",
+      "domain": "commercial",
+      "value": 0.8,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M24"
+      ],
+      "claim_ids": [
+        "MC010",
+        "MC082"
+      ],
+      "weight": 0.8
+    },
+    {
+      "id": "hbm_market_share",
+      "label": "HBM market share momentum",
+      "domain": "commercial",
+      "value": 0.92,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M13"
+      ],
+      "claim_ids": [
+        "MC004",
+        "MC083"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "shipment_growth",
+      "label": "HBM shipment growth",
+      "domain": "commercial",
+      "value": 0.9,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M25"
+      ],
+      "claim_ids": [
+        "MC008",
+        "MC084"
+      ],
+      "weight": 0.9
+    },
+    {
+      "id": "pricing_leverage",
+      "label": "Pricing leverage",
+      "domain": "commercial",
+      "value": 0.88,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M36"
+      ],
+      "claim_ids": [
+        "MC009",
+        "MC085"
+      ],
+      "weight": 0.9
+    },
+    {
+      "id": "customer_concentration",
+      "label": "Customer concentration risk",
+      "domain": "commercial",
+      "value": 0.72,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M29"
+      ],
+      "claim_ids": [
+        "MC010",
+        "MC086"
+      ],
+      "weight": 0.8
+    },
+    {
+      "id": "customer_diversification",
+      "label": "Customer diversification",
+      "domain": "commercial",
+      "value": 0.58,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M29"
+      ],
+      "claim_ids": [
+        "MC010",
+        "MC087"
+      ],
+      "weight": 0.9
+    },
+    {
+      "id": "product_mix",
+      "label": "HBM product mix shift",
+      "domain": "commercial",
+      "value": 0.9,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M01"
+      ],
+      "claim_ids": [
+        "MC008",
+        "MC088"
+      ],
+      "weight": 0.8
+    },
+    {
+      "id": "memory_revenue",
+      "label": "Memory revenue scale",
+      "domain": "financial",
+      "value": 0.88,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M01"
+      ],
+      "claim_ids": [
+        "MC008",
+        "MC089"
+      ],
+      "weight": 0.8
+    },
+    {
+      "id": "hbm_contribution",
+      "label": "HBM revenue contribution",
+      "domain": "financial",
+      "value": 0.86,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M25"
+      ],
+      "claim_ids": [
+        "MC008",
+        "MC090"
+      ],
+      "weight": 0.9
+    },
+    {
+      "id": "margins",
+      "label": "Operating margins",
+      "domain": "financial",
+      "value": 0.86,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M01"
+      ],
+      "claim_ids": [
+        "MC009",
+        "MC091"
+      ],
+      "weight": 0.9
+    },
+    {
+      "id": "capex_funding",
+      "label": "Capex funding capacity",
+      "domain": "financial",
+      "value": 0.84,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M17"
+      ],
+      "claim_ids": [
+        "MC005",
+        "MC092"
+      ],
+      "weight": 0.8
+    },
+    {
+      "id": "cash_generation",
+      "label": "Cash generation",
+      "domain": "financial",
+      "value": 0.86,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M01"
+      ],
+      "claim_ids": [
+        "MC008",
+        "MC093"
+      ],
+      "weight": 0.8
+    },
+    {
+      "id": "downturn_resilience",
+      "label": "Memory downturn resilience",
+      "domain": "financial",
+      "value": 0.78,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M36"
+      ],
+      "claim_ids": [
+        "MC009",
+        "MC094"
+      ],
+      "weight": 0.7
+    },
+    {
+      "id": "nvidia_alignment",
+      "label": "NVIDIA alignment",
+      "domain": "ecosystem",
+      "value": 0.94,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M10"
+      ],
+      "claim_ids": [
+        "MC003",
+        "MC095"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "amd_alignment",
+      "label": "AMD alignment",
+      "domain": "ecosystem",
+      "value": 0.74,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "M12"
+      ],
+      "claim_ids": [
+        "MC012",
+        "MC096"
+      ],
+      "weight": 0.7
+    },
+    {
+      "id": "packaging_partners",
+      "label": "Packaging partner depth",
+      "domain": "ecosystem",
+      "value": 0.82,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M16"
+      ],
+      "claim_ids": [
+        "MC007",
+        "MC097"
+      ],
+      "weight": 0.7
+    },
+    {
+      "id": "equipment_dependencies",
+      "label": "Equipment supplier dependencies",
+      "domain": "ecosystem",
+      "value": 0.7,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.68,
+      "sources": [
+        "M32"
+      ],
+      "claim_ids": [
+        "MC005",
+        "MC098"
+      ],
+      "weight": 0.6
+    },
+    {
+      "id": "geo_concentration",
+      "label": "Geographic concentration",
+      "domain": "ecosystem",
+      "value": 0.68,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M30"
+      ],
+      "claim_ids": [
+        "MC011",
+        "MC099"
+      ],
+      "weight": 0.8
+    },
+    {
+      "id": "execution_history",
+      "label": "Execution history",
+      "domain": "strategic",
+      "value": 0.92,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M02"
+      ],
+      "claim_ids": [
+        "MC013",
+        "MC100"
+      ],
+      "weight": 0.9
+    },
+    {
+      "id": "roadmap_credibility",
+      "label": "Roadmap credibility",
+      "domain": "strategic",
+      "value": 0.88,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "M14"
+      ],
+      "claim_ids": [
+        "MC002",
+        "MC101"
+      ],
+      "weight": 0.9
+    },
+    {
+      "id": "manufacturing_moat",
+      "label": "Manufacturing moat",
+      "domain": "strategic",
+      "value": 0.88,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "M13"
+      ],
+      "claim_ids": [
+        "MC005",
+        "MC102"
+      ],
+      "weight": 0.9
+    },
+    {
+      "id": "qualification_moat",
+      "label": "Qualification moat",
+      "domain": "strategic",
+      "value": 0.92,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "M10"
+      ],
+      "claim_ids": [
+        "MC003",
+        "MC103"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "switching_friction",
+      "label": "Customer switching friction",
+      "domain": "strategic",
+      "value": 0.82,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "M29"
+      ],
+      "claim_ids": [
+        "MC010",
+        "MC104"
+      ],
+      "weight": 0.7
+    },
+    {
+      "id": "competitive_position",
+      "label": "Competitive positioning",
+      "domain": "strategic",
+      "value": 0.92,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "M13"
+      ],
+      "claim_ids": [
+        "MC004",
+        "MC105"
+      ],
+      "weight": 1
+    },
+    {
+      "id": "geopolitical_exposure",
+      "label": "Geopolitical exposure",
+      "domain": "strategic",
+      "value": 0.62,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "M30"
+      ],
+      "claim_ids": [
+        "MC011",
+        "MC106"
+      ],
+      "weight": 0.8
+    },
+    {
+      "id": "timing_risk",
+      "label": "Timing risk",
+      "domain": "strategic",
+      "value": 0.42,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.68,
+      "sources": [
+        "M14"
+      ],
+      "claim_ids": [
+        "MC002",
+        "MC107"
+      ],
+      "weight": 0.7
+    }
+  ],
+  "state_weights": {
+    "hbm_technology_readiness": [
+      "hbm3e_readiness",
+      "hbm4_readiness",
+      "product_maturity",
+      "bandwidth",
+      "stack_height"
+    ],
+    "next_gen_roadmap": [
+      "hbm4_readiness",
+      "hbm4e_roadmap",
+      "roadmap_timing",
+      "roadmap_credibility"
+    ],
+    "customer_qualification": [
+      "nvidia_qualification",
+      "amd_qualification",
+      "qualification_stage",
+      "qualification_moat"
+    ],
+    "commercial_momentum": [
+      "hbm_market_share",
+      "shipment_growth",
+      "product_mix",
+      "competitive_position"
+    ],
+    "hbm_production_scale": [
+      "hbm_capacity",
+      "dram_capacity",
+      "supply_availability",
+      "fab_expansion"
+    ],
+    "advanced_packaging": [
+      "packaging_architecture",
+      "packaging_capacity",
+      "internal_packaging",
+      "interconnect_bonding"
+    ],
+    "manufacturing_yield_ramp": [
+      "yield_rate",
+      "yield_evidence",
+      "ramp_speed",
+      "die_stacking"
+    ],
+    "capital_strength": [
+      "cash_generation",
+      "capex_funding",
+      "memory_revenue",
+      "downturn_resilience"
+    ],
+    "customer_diversification": [
+      "customer_diversification",
+      "amd_qualification",
+      "hyperscaler_exposure"
+    ],
+    "ecosystem_leverage": [
+      "nvidia_alignment",
+      "amd_alignment",
+      "packaging_partners",
+      "equipment_dependencies"
+    ],
+    "execution_velocity": [
+      "execution_history",
+      "ramp_speed",
+      "roadmap_credibility"
+    ],
+    "geopolitical_resilience": [
+      "geopolitical_exposure",
+      "geo_concentration"
+    ],
+    "pricing_power": [
+      "pricing_leverage",
+      "margins",
+      "hbm_contribution"
+    ],
+    "supply_flexibility": [
+      "supply_availability",
+      "internal_packaging",
+      "fab_expansion"
+    ],
+    "market_timing": [
+      "roadmap_timing",
+      "timing_risk"
+    ]
+  },
+  "sensitivities": {
+    "hbm_demand": 0.14,
+    "packaging_constraint": -0.12,
+    "price_pressure": -0.1,
+    "customer_diversification": 0.08,
+    "ai_accelerator_growth": 0.12,
+    "supply_chain_disruption": -0.14,
+    "hbm4_transition": 0.1
+  }
+}
