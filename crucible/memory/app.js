@@ -12,6 +12,7 @@ let scene = null;
 let trajectory = [];
 let selectedYear = 2026;
 let collapsedCache = null;
+let lastSummary = null;
 
 const SCENARIO_DESC = {
   all: "Balanced mix of plausible AI-memory futures.",
@@ -26,21 +27,17 @@ const SCENARIO_DESC = {
   memory_wall: "Compute improves faster than memory bandwidth — HBM becomes more strategically valuable."
 };
 
-const CONF_LEVELS = {
-  HIGH: "Multiple strong independent evidence lineages support the primary drivers.",
-  MEDIUM: "Evidence is credible but important inputs include inference or limited independent verification.",
-  LOW: "Important inputs depend heavily on assumptions, sparse evidence, or unresolved uncertainty."
-};
-
 const SLIDER_META = [
-  { key: "hbm_demand", label: "HBM demand growth", low: "Low", high: "Very high" },
-  { key: "packaging_constraint", label: "Packaging constraint", low: "Low", high: "Severe" },
-  { key: "price_pressure", label: "Price pressure", low: "Low", high: "Severe" },
-  { key: "customer_diversification", label: "Customer diversification", low: "Low", high: "High" },
-  { key: "ai_accelerator_growth", label: "AI accelerator growth", low: "Low", high: "Very high" },
-  { key: "supply_chain_disruption", label: "Supply-chain disruption", low: "Low", high: "Severe" },
-  { key: "hbm4_transition_speed", label: "HBM4 transition speed", low: "Slow", high: "Fast" }
+  { key: "hbm_demand", label: "HBM demand" },
+  { key: "packaging_constraint", label: "Packaging constraint" },
+  { key: "price_pressure", label: "Price pressure" },
+  { key: "customer_diversification", label: "Customer diversification" },
+  { key: "ai_accelerator_growth", label: "Accelerator growth" },
+  { key: "supply_chain_disruption", label: "Supply disruption" },
+  { key: "hbm4_transition_speed", label: "HBM4 transition" }
 ];
+
+const CO_IDS = ["sk_hynix", "micron", "samsung"];
 
 async function loadData() {
   const base = "crucible/memory/data/";
@@ -57,6 +54,10 @@ async function loadData() {
 
 function $(id) { return document.getElementById(id); }
 
+function lvl(v, t = 0.55, m = 0.35) {
+  return v > t ? "HIGH" : v > m ? "MED" : "LOW";
+}
+
 function updateScenarioDesc() {
   const el = $("scenarioDesc");
   if (el) el.textContent = SCENARIO_DESC[presetKey] || "";
@@ -64,7 +65,95 @@ function updateScenarioDesc() {
 
 function updateRunCta() {
   const btn = $("runBtn");
-  if (btn && !btn.disabled) btn.textContent = `Run ${worldCount.toLocaleString()} future worlds`;
+  if (btn && !btn.disabled) btn.textContent = `Run ${worldCount.toLocaleString()} worlds`;
+}
+
+function renderSliders() {
+  $("sliderPanel").innerHTML = SLIDER_META.map(s => `
+    <label class="mc-slider-compact">
+      <span>${s.label}</span>
+      <input type="range" min="0" max="100" value="${Math.round(sliders[s.key] * 100)}" data-key="${s.key}" aria-label="${s.label}" />
+    </label>`).join("");
+}
+
+function renderExecutive(result, summary, collapsed, stateFlip) {
+  const other = 100 - (collapsed.top[collapsed.top.length - 1]?.cumulative || 0);
+  const drivers = collapsed.top.slice(0, 3).map(d =>
+    `<div class="mc-exec-driver"><span>${d.label}</span><span class="mc-mono">${d.share}%</span></div>`
+  ).join("") + (other > 0 ? `<div class="mc-exec-driver mc-other"><span>Other</span><span class="mc-mono">${other}%</span></div>` : "");
+
+  $("executiveBody").innerHTML = `
+    <p class="mc-exec-text">${summary.executive}</p>
+    <div class="mc-exec-meta">
+      <div class="mc-exec-drivers">
+        <p class="mc-exec-sub">Key drivers</p>
+        ${drivers}
+      </div>
+      <div class="mc-exec-badges">
+        <div><span class="mc-badge-label">Evidence</span><span class="mc-badge">${summary.evidenceConfidence}</span></div>
+        <div><span class="mc-badge-label">Model stability</span><span class="mc-badge">${summary.stability.split(" — ")[0]}</span></div>
+      </div>
+    </div>`;
+
+  $("executivePlaceholder").hidden = true;
+  $("executiveRead").hidden = false;
+  $("sensitivityPanel").hidden = false;
+  $("evConfInline").textContent = summary.evidenceConfidence;
+  renderSensitivity(stateFlip, summary);
+}
+
+function renderSensitivity(stateFlip, summary) {
+  const flipped = stateFlip.flips.filter(f => f.flipped);
+  const near = stateFlip.flips.filter(f => !f.flipped && Math.abs(f.marginShift) >= 5);
+
+  let html = "";
+  if (!flipped.length) {
+    html += `<p class="mc-sens-lead">The current result is structurally stable. No single modeled state dimension shifted by +15% changes the strategic leader.</p>`;
+    html += `<p class="mc-sens-sub">Nearest challenger conditions:</p><ul class="mc-sens-list">`;
+    const challengers = [
+      { name: "Micron", items: ["HBM4 readiness ↑", "Customer qualification ↑"] },
+      { name: "Samsung", items: ["Qualification strength ↑", "Execution velocity ↑"] }
+    ];
+    for (const c of challengers) {
+      html += `<li><strong>${c.name}</strong> — ${c.items.join(" · ")}</li>`;
+    }
+    for (const f of near.slice(0, 2)) {
+      html += `<li><strong>${f.company.split(" ")[0]}</strong> ${f.dimension} +${Math.round(f.delta * 100)}% narrows margin ~${Math.round(Math.abs(f.marginShift))} pts</li>`;
+    }
+    html += `</ul>`;
+  } else {
+    html += `<ul class="mc-sens-list">${flipped.map(f =>
+      `<li><strong>${f.company}</strong> ${f.dimension} +${Math.round(f.delta * 100)}% → becomes strategic leader</li>`
+    ).join("")}</ul>`;
+  }
+  html += `<p class="mc-sens-note">Sensitivity tests — not predictions.</p>`;
+  $("sensitivityBody").innerHTML = html;
+}
+
+function renderCompanyTable(live) {
+  const rows = [
+    { key: "tech", label: "Technology", fn: c => (c.coords.y * 100).toFixed(0) },
+    { key: "comm", label: "Commercial", fn: c => (c.coords.x * 100).toFixed(0) },
+    { key: "mfg", label: "Manufacturing", fn: c => (c.coords.z * 100).toFixed(0) },
+    { key: "mom", label: "Momentum", fn: c => lvl(c.dynamics.momentum) },
+    { key: "eng", label: "Energy", fn: c => lvl(c.dynamics.energy) },
+    { key: "ev", label: "Evidence", fn: c => c.evidence.level === "MEDIUM" ? "MED" : c.evidence.level.slice(0, 3) }
+  ];
+  const byId = Object.fromEntries(live.companies.map(c => [c.id, c]));
+  $("companyTable").querySelector("tbody").innerHTML = rows.map(r =>
+    `<tr data-row="${r.key}"><th>${r.label}</th>${CO_IDS.map(id =>
+      `<td><button type="button" class="mc-table-cell" data-id="${id}">${r.fn(byId[id])}</button></td>`
+    ).join("")}</tr>`
+  ).join("");
+}
+
+function renderEvidenceFooter(collapsed) {
+  const lineages = lineageAdjustedEvidence(DATA.sources);
+  const prior = analystPriorShare(DATA.companies);
+  $("evStats").textContent = `${DATA.claims.count} claims · ${DATA.sources.sources.length} sources · ${lineages} defensible lineages`;
+  $("priorLine").textContent = `Share of scored model inputs containing analyst inference: ~${prior}%`;
+  $("evidenceExplorer").innerHTML = collapsed.rows.slice(0, 6).map(d =>
+    `<button type="button" class="mc-ev-btn" data-dim="${d.id}">${d.label}</button>`).join("");
 }
 
 function refreshLive() {
@@ -72,99 +161,34 @@ function refreshLive() {
   if (scene) scene.setCompanies(live.companies);
   trajectory = buildTrajectory(DATA.companies, DATA.technology, sliders, presetKey);
   drawTrajectoryChart($("trajChart"), trajectory, selectedYear);
+  renderCompanyTable(live);
   renderYearPanel();
 }
 
-function renderSliders() {
-  $("sliderPanel").innerHTML = SLIDER_META.map(s => `
-    <label class="mc-slider-row">
-      <span class="mc-slider-label">${s.label}</span>
-      <input type="range" min="0" max="100" value="${Math.round(sliders[s.key] * 100)}" data-key="${s.key}" />
-      <span class="mc-slider-ends"><span>${s.low}</span><span>${s.high}</span></span>
-    </label>`).join("");
+function renderYearPanel() {
+  const pt = trajectory.find(t => t.year === selectedYear);
+  if (!pt || !collapsedCache) return;
+  const ys = yearSummary(pt, collapsedCache);
+  $("yearPanel").innerHTML = `
+    <p class="mc-mono"><strong>${ys.year}</strong> — ${ys.leader} remains ahead.</p>
+    <p>Primary driver: ${ys.driver.toLowerCase()}. Largest state: ${ys.stateChange}. Evidence: ${ys.confidence}.</p>`;
 }
 
-function renderVerdict(result, summary) {
-  $("verdict").innerHTML = result.leader === "tie"
-    ? `<p class="mc-verdict-name">Dead heat</p><p class="mc-verdict-pct">~${result.tiesPct}% tied worlds</p>`
-    : `<p class="mc-verdict-name">${summary.leader.toUpperCase()} leads</p>
-       <p class="mc-verdict-pct">~${summary.winPct}% of modeled worlds</p>
-       <dl class="mc-verdict-meta">
-         <div><dt>Selected world</dt><dd>${summary.preset}</dd></div>
-         <div><dt>Evidence confidence</dt><dd>${summary.evidenceConfidence}</dd></div>
-       </dl>`;
-}
-
-function renderSummary(summary) {
-  $("worldSummary").innerHTML = `
-    <div class="mc-summary-section"><h3>Why</h3><p>${summary.why}</p></div>
-    <div class="mc-summary-section"><h3>What changed</h3><ul>${summary.changed.map(c => `<li>${c}</li>`).join("")}</ul></div>
-    <div class="mc-summary-section"><h3>What would flip it</h3><p>${summary.flip}</p></div>`;
-}
-
-function renderDrivers(collapsed) {
-  const other = 100 - (collapsed.top[collapsed.top.length - 1]?.cumulative || 0);
-  $("driverBlock").innerHTML = collapsed.top.slice(0, 5).map(d =>
-    `<div class="mc-driver-row"><span>${d.label}</span><span>${d.share}%</span></div>`
-  ).join("") + (other > 0 ? `<div class="mc-driver-row mc-other"><span>Other modeled factors</span><span>${other}%</span></div>` : "");
-}
-
-function renderFlips(stateFlip) {
-  const flips = stateFlip.flips.filter(f => f.flipped || Math.abs(f.marginShift) >= 8);
-  $("flipList").innerHTML = flips.length ? flips.map(f => {
-    const pct = Math.round(f.delta * 100);
-    return f.flipped
-      ? `<li><strong>${f.company}</strong> ${f.dimension} +${pct}% → ${f.company.split(" ")[0]} becomes strategic leader</li>`
-      : `<li><strong>${f.company}</strong> ${f.dimension} +${pct}% → modeled margin shifts ~${Math.round(f.marginShift)} pts</li>`;
-  }).join("") : `<li>Result stable within modeled state-dimension bands.</li>`;
-}
-
-function renderConfidence(level) {
-  $("confidenceBlock").innerHTML = `
-    <p class="mc-conf-current">Current model inputs: <strong>${level}</strong></p>
-    <dl class="mc-conf-dl">${Object.entries(CONF_LEVELS).map(([k, v]) =>
-      `<div class="${k === level ? "active" : ""}"><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>`;
-}
-
-function renderCompanyStates(result) {
-  $("companyStates").innerHTML = result.companies.map(c => `
-    <button type="button" class="mc-co-card" data-id="${c.id}">
-      <h4>${c.name}</h4>
-      <dl>
-        <div><dt>Technology</dt><dd>${(c.coords.y * 100).toFixed(0)}%</dd></div>
-        <div><dt>Manufacturing</dt><dd>${(c.coords.z * 100).toFixed(0)}%</dd></div>
-        <div><dt>Commercial</dt><dd>${(c.coords.x * 100).toFixed(0)}%</dd></div>
-        <div><dt>Momentum</dt><dd>${c.dynamics.momentum > 0.55 ? "HIGH" : c.dynamics.momentum > 0.35 ? "MEDIUM" : "LOW"}</dd></div>
-        <div><dt>Energy</dt><dd>${c.dynamics.energy > 0.55 ? "HIGH" : c.dynamics.energy > 0.35 ? "MEDIUM" : "LOW"}</dd></div>
-        <div><dt>Evidence</dt><dd>${c.evidence.level}</dd></div>
-      </dl>
-    </button>`).join("");
-}
-
-function renderEvidenceExplorer(collapsed, attribution) {
-  const lineages = lineageAdjustedEvidence(DATA.sources);
-  const prior = analystPriorShare(DATA.companies);
-  $("evidenceExplorer").innerHTML = `
-    <p class="mc-mono mc-ev-stats">${lineages} defensible lineages · ${DATA.sources.sources.length} sources · ${DATA.claims.count} claims · ~${prior}% analyst priors/inference</p>
-    <div class="mc-ev-btns">${collapsed.rows.slice(0, 6).map(d =>
-      `<button type="button" class="mc-ev-btn" data-dim="${d.id}">${d.label}</button>`).join("")}</div>`;
+function renderYearButtons() {
+  $("yearBtns").innerHTML = [2026, 2027, 2028, 2029, 2030, 2031, 2032].map(y =>
+    `<button type="button" class="mc-year ${y === selectedYear ? "active" : ""}" data-y="${y}">${y}</button>`).join("");
 }
 
 function showEvidenceForDriver(driverId) {
   const map = {
-    hbm_readiness: "hbm_technology_readiness",
-    customer_qualification: "customer_qualification",
-    manufacturing_scale: "hbm_production_scale",
-    packaging_strength: "advanced_packaging",
-    capital_resilience: "capital_strength",
-    execution_momentum: "execution_velocity"
+    hbm_readiness: "hbm_technology_readiness", customer_qualification: "customer_qualification",
+    manufacturing_scale: "hbm_production_scale", packaging_strength: "advanced_packaging",
+    capital_resilience: "capital_strength", execution_momentum: "execution_velocity"
   };
   const stateKey = map[driverId] || driverId;
   const co = DATA.companies[0];
-  const ids = co.state_weights[stateKey] || [];
-  const v = co.variables.find(x => x.id === ids[0]);
-  if (!v) return;
-  showEvidence(v.id, co.id);
+  const v = co.variables.find(x => x.id === (co.state_weights[stateKey] || [])[0]);
+  if (v) showEvidence(v.id, co.id);
 }
 
 function showEvidence(varId, coId) {
@@ -175,9 +199,9 @@ function showEvidence(varId, coId) {
   const srcMap = Object.fromEntries(DATA.sources.sources.map(s => [s.id, s]));
   $("evTitle").textContent = `${company.name} · ${v.label}`;
   $("evBody").innerHTML = `
-    <p><b>Value:</b> ${typeof v.value === "number" ? v.value.toFixed(2) : v.value} · <b>${v.type}</b> · confidence ${(v.confidence * 100).toFixed(0)}%</p>
-    <ul>${claims.map(c => `<li><span class="tag-${c.type.toLowerCase()}">${c.type}</span> ${c.text}</li>`).join("") || "<li>No linked claim</li>"}</ul>
-    <ul>${(v.sources || []).map(id => { const s = srcMap[id]; return s ? `<li><a href="${s.url}" target="_blank" rel="noopener">${s.title}</a><br>${s.publisher} · ${s.date} · ${s.lineage}</li>` : ""; }).join("")}</ul>`;
+    <p><b>${typeof v.value === "number" ? v.value.toFixed(2) : v.value}</b> · ${v.type} · ${(v.confidence * 100).toFixed(0)}%</p>
+    <ul>${claims.slice(0, 4).map(c => `<li><span class="tag-${c.type.toLowerCase()}">${c.type}</span> ${c.text.slice(0, 120)}</li>`).join("")}</ul>
+    <ul>${(v.sources || []).slice(0, 3).map(id => { const s = srcMap[id]; return s ? `<li><a href="${s.url}" target="_blank" rel="noopener">${s.title}</a> · ${s.publisher} · ${s.lineage}</li>` : ""; }).join("")}</ul>`;
   $("evPanel").classList.add("on");
 }
 
@@ -186,37 +210,15 @@ function showCompanyInspector(coId) {
   const co = live.companies.find(c => c.id === coId);
   if (!co) return;
   $("evTitle").textContent = co.name;
-  $("evBody").innerHTML = `
-    <dl class="mc-inspector">
-      <div><dt>Technology position</dt><dd>${co.coords.y.toFixed(2)}</dd></div>
-      <div><dt>Manufacturing strength</dt><dd>${co.coords.z.toFixed(2)}</dd></div>
-      <div><dt>Commercial capture</dt><dd>${co.coords.x.toFixed(2)}</dd></div>
-      <div><dt>Momentum</dt><dd>${co.dynamics.momentum.toFixed(2)}</dd></div>
-      <div><dt>Energy</dt><dd>${co.dynamics.energy.toFixed(2)}</dd></div>
-      <div><dt>Evidence confidence</dt><dd>${co.evidence.level}</dd></div>
-    </dl>`;
+  $("evBody").innerHTML = `<dl class="mc-inspector">
+    <div><dt>Technology</dt><dd>${(co.coords.y * 100).toFixed(0)}</dd></div>
+    <div><dt>Commercial</dt><dd>${(co.coords.x * 100).toFixed(0)}</dd></div>
+    <div><dt>Manufacturing</dt><dd>${(co.coords.z * 100).toFixed(0)}</dd></div>
+    <div><dt>Momentum</dt><dd>${co.dynamics.momentum.toFixed(2)}</dd></div>
+    <div><dt>Energy</dt><dd>${co.dynamics.energy.toFixed(2)}</dd></div>
+    <div><dt>Evidence</dt><dd>${co.evidence.level}</dd></div></dl>`;
   $("evPanel").classList.add("on");
-  if (scene) scene.select(coId);
-}
-
-function renderYearPanel() {
-  const pt = trajectory.find(t => t.year === selectedYear);
-  if (!pt || !collapsedCache) return;
-  const ys = yearSummary(pt, collapsedCache);
-  $("yearPanel").innerHTML = `
-    <p class="mc-year-lead"><strong>${ys.year}</strong> — ${ys.leader} leads</p>
-    <p>${ys.text}</p>
-    <p class="mc-mono">Evidence confidence: ${ys.confidence}</p>`;
-}
-
-function renderYearButtons() {
-  $("yearBtns").innerHTML = [2026, 2027, 2028, 2029, 2030, 2031, 2032].map(y =>
-    `<button type="button" class="mc-year ${y === selectedYear ? "active" : ""}" data-y="${y}">${y}</button>`).join("");
-}
-
-function showResults() {
-  $("resultsEmpty").hidden = true;
-  $("resultsBody").hidden = false;
+  scene?.select(coId);
 }
 
 async function runSim() {
@@ -237,21 +239,15 @@ async function runSim() {
       presetKey, sliders, worldCount: Math.min(1500, worldCount)
     });
     const summary = buildWorldSummary(result, stateFlip, collapsed);
-
-    renderVerdict(result, summary);
-    renderSummary(summary);
-    renderDrivers(collapsed);
-    renderFlips(stateFlip);
-    renderConfidence(summary.evidenceConfidence);
-    renderCompanyStates(result);
-    renderEvidenceExplorer(collapsed, attribution);
+    lastSummary = summary;
+    renderExecutive(result, summary, collapsed, stateFlip);
+    renderEvidenceFooter(collapsed);
     refreshLive();
-    renderYearPanel();
-    showResults();
+    scene?.render();
   } catch (err) {
     console.error(err);
-    showResults();
-    $("verdict").innerHTML = `<p class="mc-verdict-name">Error</p><p>${err.message}</p>`;
+    $("executiveBody").innerHTML = `<p class="mc-exec-text">Error: ${err.message}</p>`;
+    $("executiveRead").hidden = false;
   } finally {
     btn.disabled = false;
     updateRunCta();
@@ -259,14 +255,10 @@ async function runSim() {
 }
 
 function bindUI() {
-  document.querySelectorAll(".mc-preset").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".mc-preset").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      presetKey = btn.dataset.p;
-      updateScenarioDesc();
-      refreshLive();
-    });
+  $("scenarioSelect").addEventListener("change", e => {
+    presetKey = e.target.value;
+    updateScenarioDesc();
+    refreshLive();
   });
   document.querySelectorAll(".mc-size").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -284,12 +276,8 @@ function bindUI() {
     const key = e.target.dataset.key;
     if (!key) return;
     sliders[key] = +e.target.value / 100;
+    collapsedCache = collapsedDrivers(computeDriverAttribution(DATA.companies));
     refreshLive();
-    if (collapsedCache) {
-      const attribution = computeDriverAttribution(DATA.companies);
-      collapsedCache = collapsedDrivers(attribution);
-      renderDrivers(collapsedCache);
-    }
   });
 
   document.body.addEventListener("click", e => {
@@ -301,20 +289,21 @@ function bindUI() {
       renderYearPanel();
       return;
     }
-    const card = e.target.closest(".mc-co-card");
-    if (card) { showCompanyInspector(card.dataset.id); return; }
+    const cell = e.target.closest(".mc-table-cell");
+    if (cell) { showCompanyInspector(cell.dataset.id); return; }
     const ev = e.target.closest(".mc-ev-btn");
     if (ev) { showEvidenceForDriver(ev.dataset.dim); return; }
   });
 
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  scene = createScene3D($("scene3d"), { reducedMotion: reduced });
+  scene = createScene3D($("scene3d"), { reducedMotion: reduced, fallbackEl: $("sceneFallback") });
 
   renderSliders();
   renderYearButtons();
   updateScenarioDesc();
   updateRunCta();
   collapsedCache = collapsedDrivers(computeDriverAttribution(DATA.companies));
+  renderEvidenceFooter(collapsedCache);
   refreshLive();
 }
 
@@ -324,9 +313,7 @@ async function init() {
     await loadData();
     bindUI();
   } catch (err) {
-    $("resultsEmpty").hidden = true;
-    $("resultsBody").hidden = false;
-    $("verdict").textContent = "Failed to load: " + err.message;
+    $("executivePlaceholder").innerHTML = `<p>Failed to load: ${err.message}</p>`;
   }
 }
 
