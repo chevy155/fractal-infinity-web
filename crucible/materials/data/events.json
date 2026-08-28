@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0",
+  "data_current_through": "2026-08-28T19:00:00Z",
+  "events": [
+    {
+      "date": "2025-04",
+      "headline": "China tightens export controls on seven medium/heavy rare earths",
+      "source": "S11",
+      "category": "export_control",
+      "affected_resource": "REE",
+      "expected_direction": "REE_scarcity_up",
+      "magnitude": "high",
+      "duration": "ongoing",
+      "confidence": 0.94,
+      "URNM_impact": "low",
+      "REMX_impact": "high"
+    },
+    {
+      "date": "2025-10",
+      "headline": "China expands rare-earth export controls (later suspended to Nov 2026)",
+      "source": "S12",
+      "category": "export_control",
+      "affected_resource": "REE",
+      "expected_direction": "policy_uncertainty_up",
+      "magnitude": "high",
+      "duration": "suspended_1y",
+      "confidence": 0.94,
+      "URNM_impact": "low",
+      "REMX_impact": "high"
+    },
+    {
+      "date": "2025",
+      "headline": "WNA projects uranium requirements rising toward ~150ktU by 2040 (reference)",
+      "source": "S10",
+      "category": "demand",
+      "affected_resource": "uranium",
+      "expected_direction": "demand_up",
+      "magnitude": "high",
+      "duration": "structural",
+      "confidence": 0.9,
+      "URNM_impact": "high",
+      "REMX_impact": "low"
+    },
+    {
+      "date": "2026-08",
+      "headline": "Utility uranium contracting coverage gap into 2030s highlighted",
+      "source": "S14",
+      "category": "contracting",
+      "affected_resource": "uranium",
+      "expected_direction": "scarcity_up",
+      "magnitude": "medium",
+      "duration": "multi_year",
+      "confidence": 0.78,
+      "URNM_impact": "high",
+      "REMX_impact": "none"
+    },
+    {
+      "date": "2026",
+      "headline": "~80 reactors under construction globally (WNA)",
+      "source": "S09",
+      "category": "nuclear",
+      "affected_resource": "uranium",
+      "expected_direction": "demand_up",
+      "magnitude": "high",
+      "duration": "decade",
+      "confidence": 0.92,
+      "URNM_impact": "high",
+      "REMX_impact": "low"
+    }
+  ]
+}

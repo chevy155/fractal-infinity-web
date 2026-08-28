@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Strategic Materials Crucible — URNM × REMX — Fractal Infinity</title>
+<meta name="description" content="Evidence-grounded war-game of URNM and REMX across thousands of strategic-material futures." />
+<link rel="icon" href="assets/archival-portal.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a href="index.html" class="topbar-brand"><img src="assets/archival-portal.jpg" alt="" />FRACTAL INFINITY</a>
+    <nav class="topbar-nav"><a href="reports.html">All Reports</a></nav>
+    <a href="reports.html" class="btn btn-ghost">&larr; All Reports</a>
+  </div>
+</div>
+
+<header class="sm-hero wrap">
+  <p class="sm-eyebrow">THE STRATEGIC MATERIALS CRUCIBLE</p>
+  <h1 class="sm-title">URNM × REMX</h1>
+  <p class="sm-lede">Place two strategic-material ETFs inside a particle accelerator of plausible futures — uranium miners versus rare earths &amp; strategic metals.</p>
+  <p class="sm-desc">The model separates sourced fund and commodity facts from analyst assumptions, then war-games demand, supply constraints, geopolitics, policy, and capital markets to show which environments structurally favor URNM or REMX — and what would falsify that ranking.</p>
+  <p class="sm-mono sm-metrics" id="dataStamp">DATA CURRENT THROUGH: —</p>
+  <p class="sm-note">Not a price forecast. Confidence scores measure evidence support for theses — not probability of positive returns.</p>
+</header>
+
+<main class="wrap sm-main">
+
+  <section class="sm-section">
+    <h2 class="sm-section-title">1 · System pulse</h2>
+    <div class="sm-pulse-grid">
+      <div id="pulseUrnm" class="sm-pulse-card"></div>
+      <div id="pulseRemx" class="sm-pulse-card"></div>
+    </div>
+    <div class="sm-mom-grid">
+      <div><p class="sm-control-label">URNM momentum vectors</p><div id="momUrnm"></div></div>
+      <div><p class="sm-control-label">REMX momentum vectors</p><div id="momRemx"></div></div>
+    </div>
+  </section>
+
+  <details class="sm-fold">
+    <summary>2 · Research universe</summary>
+    <div class="sm-fold-body">
+      <p id="evStats" class="sm-mono sm-muted"></p>
+      <p>Click a variable to inspect FACT/INFERENCE type, confidence, claims, publisher, date, and URL.</p>
+      <div id="evidenceExplorer" class="sm-ev-btns"></div>
+    </div>
+  </details>
+
+  <section class="sm-control-panel">
+    <div>
+      <p class="sm-control-label">3 · Choose a world</p>
+      <select id="scenarioSelect" class="sm-select" aria-label="World scenario">
+        <option value="all">All Worlds</option>
+        <option value="ai_infrastructure_boom">AI Infrastructure Boom</option>
+        <option value="us_china_trade_war">U.S.–China Trade War</option>
+        <option value="global_recession">Global Recession</option>
+        <option value="nuclear_renaissance">Nuclear Renaissance</option>
+        <option value="peace_dividend">Peace Dividend</option>
+        <option value="resource_nationalism">Resource Nationalism</option>
+        <option value="china_ree_shock">China Rare-Earth Shock</option>
+        <option value="uranium_supply_shock">Uranium Supply Shock</option>
+        <option value="commodity_capex_boom">Commodity Capex Boom</option>
+        <option value="tech_acceleration">Technological Acceleration</option>
+      </select>
+      <p id="scenarioDesc" class="sm-scenario-desc"></p>
+    </div>
+    <div>
+      <p class="sm-control-label">4 · Particle crucible</p>
+      <div class="sm-size-btns">
+        <button type="button" class="sm-size" data-n="1000">1,000</button>
+        <button type="button" class="sm-size" data-n="5000">5,000</button>
+        <button type="button" class="sm-size active" data-n="10000">10,000</button>
+      </div>
+      <button type="button" id="runBtn" class="sm-run-btn">Run 10,000 worlds</button>
+      <p class="sm-run-note">Deterministic seeded simulation in your browser. No paid AI inference.</p>
+    </div>
+  </section>
+
+  <canvas id="particleField" class="sm-particles" aria-label="Particle field animation"></canvas>
+
+  <section id="execPlaceholder" class="sm-placeholder">
+    <p>Select a world and run the particle crucible to generate an executive read, outcome distribution, sensitivity ranking, thesis breakers, and white paper.</p>
+  </section>
+
+  <section id="execRead" class="sm-exec-read" hidden>
+    <h2 class="sm-section-title">Executive read</h2>
+    <div id="execBody"></div>
+  </section>
+
+  <div id="resultsBlock" hidden>
+    <section class="sm-section">
+      <h2 class="sm-section-title">5 · Outcome distribution</h2>
+      <p class="sm-viz-q">Who is structurally stronger across simulated futures?</p>
+      <div class="sm-two-col">
+        <div id="outcomeBlock"></div>
+        <canvas id="distChart" aria-label="Score distribution"></canvas>
+      </div>
+      <div class="sm-pulse-grid sm-mt">
+        <div id="pulseResultUrnm" class="sm-pulse-card"></div>
+        <div id="pulseResultRemx" class="sm-pulse-card"></div>
+      </div>
+    </section>
+
+    <section class="sm-section">
+      <h2 class="sm-section-title">State dimensions</h2>
+      <p class="sm-viz-q">Where do the funds sit on the 10 modeled axes?</p>
+      <div class="sm-radar-head sm-mono"><span></span><span class="sm-u">URNM</span><span class="sm-r">REMX</span></div>
+      <div id="stateRadar"></div>
+    </section>
+
+    <section class="sm-section">
+      <h2 class="sm-section-title">6 · Why — dominant drivers</h2>
+      <p class="sm-viz-q">Which variables actually control the ranking?</p>
+      <div id="driverBlock" class="sm-drivers"></div>
+      <div id="sensTable" class="sm-mt"></div>
+      <p id="whyBlock" class="sm-exec-text sm-mt"></p>
+    </section>
+
+    <section class="sm-section">
+      <h2 class="sm-section-title">7 · Thesis breakers</h2>
+      <p class="sm-viz-q">What would prove the current thesis wrong?</p>
+      <p id="flipLine" class="sm-flip-line"></p>
+      <div id="breakerBlock" class="sm-tb-grid"></div>
+      <p class="sm-muted">Sensitivity tests — not predictions. Breakers are derived from research claims, not hardcoded conclusions.</p>
+    </section>
+
+    <section class="sm-section">
+      <h2 class="sm-section-title">8 · Executive white paper</h2>
+      <div id="whitePaper"></div>
+    </section>
+  </div>
+
+  <aside id="evPanel" class="sm-ev-panel">
+    <button type="button" id="evClose" class="sm-ev-close" aria-label="Close">×</button>
+    <h3 id="evTitle"></h3>
+    <div id="evBody"></div>
+  </aside>
+
+  <p class="sm-disclaimer">Strategic simulation only — not investment advice, not a price target, not a recommendation to buy or sell any security.</p>
+  <p class="section-footer-link"><a href="reports.html">&larr; All reports</a> · <a href="index.html">Home</a></p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <a href="index.html" class="footer-brand"><img src="assets/archival-portal.jpg" alt="" />FRACTAL INFINITY</a>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="research-lab.html">Research Lab</a>
+        <a href="reports.html">Reports</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; 2026 Fractal Infinity. A Fractal Infinity Production.</p>
+  </div>
+</footer>
+
+<script type="module" src="crucible/materials/app.js"></script>
+</body>
+</html>

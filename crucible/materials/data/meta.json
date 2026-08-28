@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "product": "Strategic Materials Crucible — URNM × REMX",
+  "data_current_through": "2026-08-28T19:00:00Z",
+  "retrieved": "2026-08-28",
+  "state_dimensions": [
+    "structural_demand",
+    "supply_scarcity",
+    "geopolitical_leverage",
+    "policy_support",
+    "technological_demand",
+    "industry_economics",
+    "supply_chain_resilience",
+    "capital_market_momentum",
+    "valuation_pressure",
+    "time_to_supply"
+  ],
+  "note": "Facts and inferences are separated in claims/variables. Simulation outputs are model-derived, not sourced facts."
+}

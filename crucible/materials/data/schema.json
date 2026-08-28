@@ -1,0 +1,25 @@
+{
+  "entities": [
+    "FUND",
+    "HOLDING",
+    "EVIDENCE",
+    "HEADLINE",
+    "MODEL_VARIABLE",
+    "SIMULATION_RUN"
+  ],
+  "layers": [
+    "raw_facts",
+    "market_observations",
+    "derived_variables",
+    "hypotheses",
+    "model_assumptions",
+    "simulation_outputs"
+  ],
+  "extensible": true,
+  "next_funds": [
+    "URA",
+    "NLR",
+    "LIT",
+    "PICK"
+  ]
+}

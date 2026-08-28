@@ -1,0 +1,712 @@
+{
+  "version": "1.0.0",
+  "id": "remx",
+  "ticker": "REMX",
+  "name": "VanEck Rare Earth and Strategic Metals ETF",
+  "issuer": "Van Eck Associates Corporation",
+  "inception_date": "2010-10-27",
+  "expense_ratio": 0.0053,
+  "aum_usd": 1900000000,
+  "aum_note": "Fact sheet ~$1.90B (Jul 2026); ETFdb ~$2.3B (Aug 2026)",
+  "holdings_count": 35,
+  "index": "MVIS Global Rare Earth/Strategic Metals Index (MVREMXTR)",
+  "geographic_exposure": [
+    "Australia",
+    "United States",
+    "China",
+    "Chile",
+    "Netherlands",
+    "Taiwan"
+  ],
+  "commodity_exposure": [
+    "Rare earths",
+    "Lithium",
+    "Molybdenum",
+    "Tungsten",
+    "Other strategic metals"
+  ],
+  "top_holdings": [
+    {
+      "ticker": "PLS.AX",
+      "company": "Pilbara Minerals",
+      "weight": 0.0807,
+      "country": "Australia",
+      "primary_resource": "lithium",
+      "production_status": "producer"
+    },
+    {
+      "ticker": "ALB",
+      "company": "Albemarle",
+      "weight": 0.0791,
+      "country": "United States",
+      "primary_resource": "lithium",
+      "production_status": "producer"
+    },
+    {
+      "ticker": "MP",
+      "company": "MP Materials",
+      "weight": 0.072,
+      "country": "United States",
+      "primary_resource": "rare_earths",
+      "production_status": "producer"
+    },
+    {
+      "ticker": "LYC.AX",
+      "company": "Lynas Rare Earths",
+      "weight": 0.0666,
+      "country": "Australia",
+      "primary_resource": "rare_earths",
+      "production_status": "producer"
+    },
+    {
+      "ticker": "600111.SS",
+      "company": "China Northern Rare Earth",
+      "weight": 0.0647,
+      "country": "China",
+      "primary_resource": "rare_earths",
+      "production_status": "producer"
+    }
+  ],
+  "concentration_top10": 0.6075,
+  "historical": {
+    "as_of": "2026-07-31",
+    "note": "Highly cyclical strategic-metals equity basket; use regime analysis not return extrapolation."
+  },
+  "variables": [
+    {
+      "id": "expense_ratio",
+      "domain": "fund",
+      "label": "Expense ratio (low=better)",
+      "value": 0.62,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.96,
+      "sources": [
+        "S05",
+        "S06"
+      ],
+      "claim_ids": [
+        "C08"
+      ],
+      "weight": 0.4,
+      "fund": "REMX"
+    },
+    {
+      "id": "aum_scale",
+      "domain": "fund",
+      "label": "AUM / liquidity scale",
+      "value": 0.8,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.86,
+      "sources": [
+        "S06",
+        "S08"
+      ],
+      "claim_ids": [
+        "C10"
+      ],
+      "weight": 0.7,
+      "fund": "REMX"
+    },
+    {
+      "id": "concentration",
+      "domain": "fund",
+      "label": "Holdings concentration",
+      "value": 0.7,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.88,
+      "sources": [
+        "S06",
+        "S08"
+      ],
+      "claim_ids": [
+        "C29"
+      ],
+      "weight": 0.8,
+      "fund": "REMX"
+    },
+    {
+      "id": "commodity_purity",
+      "domain": "fund",
+      "label": "Rare-earth purity (vs lithium/other)",
+      "value": 0.48,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.94,
+      "sources": [
+        "S05",
+        "S06"
+      ],
+      "claim_ids": [
+        "C12"
+      ],
+      "weight": 1.1,
+      "fund": "REMX"
+    },
+    {
+      "id": "china_holding_share",
+      "domain": "fund",
+      "label": "China A-share / CN producer weight",
+      "value": 0.58,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.9,
+      "sources": [
+        "S05"
+      ],
+      "claim_ids": [
+        "C11"
+      ],
+      "weight": 1,
+      "fund": "REMX"
+    },
+    {
+      "id": "magnet_demand",
+      "domain": "demand",
+      "label": "Permanent magnet / NdFeB demand",
+      "value": 0.84,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "S07",
+        "S17"
+      ],
+      "claim_ids": [
+        "C26"
+      ],
+      "weight": 1.2,
+      "fund": "REMX"
+    },
+    {
+      "id": "ev_robotics_wind",
+      "domain": "demand",
+      "label": "EV / robotics / wind demand stack",
+      "value": 0.8,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "S07",
+        "S17"
+      ],
+      "claim_ids": [
+        "C26"
+      ],
+      "weight": 1.1,
+      "fund": "REMX"
+    },
+    {
+      "id": "defense_aerospace",
+      "domain": "demand",
+      "label": "Defense / aerospace demand",
+      "value": 0.76,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "S17",
+        "S24"
+      ],
+      "claim_ids": [
+        "C26"
+      ],
+      "weight": 1,
+      "fund": "REMX"
+    },
+    {
+      "id": "lithium_cycle",
+      "domain": "demand",
+      "label": "Lithium cycle supportiveness",
+      "value": 0.55,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "S05",
+        "S06"
+      ],
+      "claim_ids": [
+        "C11",
+        "C12"
+      ],
+      "weight": 0.9,
+      "fund": "REMX"
+    },
+    {
+      "id": "china_mine_dominance",
+      "domain": "supply",
+      "label": "China mine production dominance",
+      "value": 0.88,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.93,
+      "sources": [
+        "S11"
+      ],
+      "claim_ids": [
+        "C18"
+      ],
+      "weight": 1.2,
+      "fund": "REMX"
+    },
+    {
+      "id": "separation_concentration",
+      "domain": "supply",
+      "label": "Separation / refining concentration",
+      "value": 0.9,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.88,
+      "sources": [
+        "S11",
+        "S16"
+      ],
+      "claim_ids": [
+        "C18",
+        "C20"
+      ],
+      "weight": 1.3,
+      "fund": "REMX"
+    },
+    {
+      "id": "exchina_capacity_build",
+      "domain": "supply",
+      "label": "Ex-China processing capacity build",
+      "value": 0.52,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "S19",
+        "S20",
+        "S16"
+      ],
+      "claim_ids": [
+        "C20",
+        "C21"
+      ],
+      "weight": 1,
+      "fund": "REMX"
+    },
+    {
+      "id": "hree_scarcity",
+      "domain": "supply",
+      "label": "HREE (Dy/Tb) scarcity outside China",
+      "value": 0.86,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.75,
+      "sources": [
+        "S17",
+        "S11"
+      ],
+      "claim_ids": [
+        "C21"
+      ],
+      "weight": 1.1,
+      "fund": "REMX"
+    },
+    {
+      "id": "export_control_regime",
+      "domain": "geo",
+      "label": "China export-control intensity",
+      "value": 0.78,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.94,
+      "sources": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "claim_ids": [
+        "C19"
+      ],
+      "weight": 1.3,
+      "fund": "REMX"
+    },
+    {
+      "id": "us_china_trade_tension",
+      "domain": "geo",
+      "label": "U.S.–China trade / industrial policy tension",
+      "value": 0.74,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "S12",
+        "S13"
+      ],
+      "claim_ids": [
+        "C19"
+      ],
+      "weight": 1.1,
+      "fund": "REMX"
+    },
+    {
+      "id": "friendshoring_policy",
+      "domain": "policy",
+      "label": "Friend-shoring / subsidy support",
+      "value": 0.72,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "S17",
+        "S24",
+        "S20"
+      ],
+      "claim_ids": [
+        "C20"
+      ],
+      "weight": 1,
+      "fund": "REMX"
+    },
+    {
+      "id": "stockpiling",
+      "domain": "policy",
+      "label": "Strategic stockpiling / procurement",
+      "value": 0.68,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "S24",
+        "S17"
+      ],
+      "claim_ids": [
+        "C26"
+      ],
+      "weight": 0.8,
+      "fund": "REMX"
+    },
+    {
+      "id": "price_incentive",
+      "domain": "econ",
+      "label": "Price incentive for ex-China projects",
+      "value": 0.7,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "S16",
+        "S17"
+      ],
+      "claim_ids": [
+        "C21"
+      ],
+      "weight": 0.9,
+      "fund": "REMX"
+    },
+    {
+      "id": "equity_leverage",
+      "domain": "markets",
+      "label": "Equity leverage to REE / strategic metals",
+      "value": 0.72,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "S05",
+        "S08"
+      ],
+      "claim_ids": [
+        "C24"
+      ],
+      "weight": 1,
+      "fund": "REMX"
+    },
+    {
+      "id": "valuation_stretch",
+      "domain": "markets",
+      "label": "Valuation stretch",
+      "value": 0.62,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.65,
+      "sources": [
+        "S08",
+        "S06"
+      ],
+      "claim_ids": [
+        "C10"
+      ],
+      "weight": 0.8,
+      "fund": "REMX"
+    },
+    {
+      "id": "fund_flow_momentum",
+      "domain": "markets",
+      "label": "Fund-flow momentum",
+      "value": 0.58,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.6,
+      "sources": [
+        "S08"
+      ],
+      "claim_ids": [
+        "C10"
+      ],
+      "weight": 0.7,
+      "fund": "REMX"
+    },
+    {
+      "id": "processing_lag",
+      "domain": "constraint",
+      "label": "Processing plant lead time (high=slow)",
+      "value": 0.84,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.86,
+      "sources": [
+        "S16",
+        "S20"
+      ],
+      "claim_ids": [
+        "C22"
+      ],
+      "weight": 1.1,
+      "fund": "REMX"
+    },
+    {
+      "id": "jurisdiction_risk",
+      "domain": "risk",
+      "label": "Jurisdiction risk (CN + EM + AU)",
+      "value": 0.68,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "S05",
+        "S11"
+      ],
+      "claim_ids": [
+        "C11",
+        "C19"
+      ],
+      "weight": 1,
+      "fund": "REMX"
+    },
+    {
+      "id": "substitution_risk",
+      "domain": "risk",
+      "label": "Substitution / thrifting risk",
+      "value": 0.45,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.68,
+      "sources": [
+        "S11",
+        "S07"
+      ],
+      "claim_ids": [
+        "C26"
+      ],
+      "weight": 0.8,
+      "fund": "REMX"
+    }
+  ],
+  "variable_count": 24,
+  "state_weights": {
+    "structural_demand": [
+      "magnet_demand",
+      "ev_robotics_wind",
+      "defense_aerospace"
+    ],
+    "supply_scarcity": [
+      "china_mine_dominance",
+      "separation_concentration",
+      "hree_scarcity"
+    ],
+    "geopolitical_leverage": [
+      "export_control_regime",
+      "us_china_trade_tension",
+      "china_holding_share"
+    ],
+    "policy_support": [
+      "friendshoring_policy",
+      "stockpiling"
+    ],
+    "technological_demand": [
+      "magnet_demand",
+      "ev_robotics_wind"
+    ],
+    "industry_economics": [
+      "price_incentive",
+      "lithium_cycle",
+      "equity_leverage"
+    ],
+    "supply_chain_resilience": [
+      "exchina_capacity_build",
+      "commodity_purity"
+    ],
+    "capital_market_momentum": [
+      "fund_flow_momentum",
+      "aum_scale"
+    ],
+    "valuation_pressure": [
+      "valuation_stretch"
+    ],
+    "time_to_supply": [
+      "processing_lag"
+    ]
+  },
+  "sensitivities": {
+    "ai_power_growth": 0.04,
+    "reactor_build_rate": 0.02,
+    "uranium_supply_growth": 0,
+    "enrichment_capacity": 0,
+    "china_trade_tension": 0.18,
+    "rare_earth_export_controls": 0.22,
+    "robotics_growth": 0.14,
+    "ev_growth": 0.12,
+    "defense_spending": 0.12,
+    "interest_rates": -0.1,
+    "commodity_capex": -0.08,
+    "recession_probability": -0.14,
+    "geopolitical_conflict": 0.1,
+    "uranium_price": 0
+  },
+  "thesis_breakers": [
+    {
+      "id": "TB_R1",
+      "text": "Rapid Chinese export normalization removes scarcity premium and policy urgency.",
+      "evidence": [
+        "C19"
+      ],
+      "confidence": 0.88
+    },
+    {
+      "id": "TB_R2",
+      "text": "Rare-earth / lithium oversupply collapses margins across REMX holdings.",
+      "evidence": [
+        "C12",
+        "C11"
+      ],
+      "confidence": 0.82
+    },
+    {
+      "id": "TB_R3",
+      "text": "Slower EV / robotics / wind adoption weakens magnet demand growth.",
+      "evidence": [
+        "C26"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "id": "TB_R4",
+      "text": "Technological substitution (magnet thrifting / alternatives) reduces NdFeB intensity.",
+      "evidence": [
+        "C26"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": "TB_R5",
+      "text": "Ex-China projects fail economically despite subsidies, leaving China share intact while REMX China holdings face policy risk.",
+      "evidence": [
+        "C20",
+        "C21"
+      ],
+      "confidence": 0.76
+    }
+  ],
+  "momentum": [
+    {
+      "id": "magnet_demand",
+      "label": "Magnet / tech demand",
+      "direction": "up",
+      "velocity": "accelerating",
+      "confidence": 0.82,
+      "horizon": "medium",
+      "drivers": [
+        "EV",
+        "robotics",
+        "defense"
+      ]
+    },
+    {
+      "id": "china_controls",
+      "label": "China export controls",
+      "direction": "up",
+      "velocity": "moderate",
+      "confidence": 0.94,
+      "horizon": "near",
+      "drivers": [
+        "April 2025 regime still active"
+      ]
+    },
+    {
+      "id": "exchina_build",
+      "label": "Ex-China processing",
+      "direction": "up",
+      "velocity": "slow",
+      "confidence": 0.82,
+      "horizon": "long",
+      "drivers": [
+        "Lynas",
+        "MP Materials"
+      ]
+    },
+    {
+      "id": "lithium",
+      "label": "Lithium cycle",
+      "direction": "neutral",
+      "velocity": "moderate",
+      "confidence": 0.65,
+      "horizon": "near",
+      "drivers": [
+        "Material REMX weight"
+      ]
+    },
+    {
+      "id": "policy",
+      "label": "Industrial policy",
+      "direction": "up",
+      "velocity": "accelerating",
+      "confidence": 0.78,
+      "horizon": "medium",
+      "drivers": [
+        "Friend-shoring",
+        "DoD support"
+      ]
+    },
+    {
+      "id": "price",
+      "label": "Commodity/equity price momentum",
+      "direction": "neutral",
+      "velocity": "moderate",
+      "confidence": 0.55,
+      "horizon": "near",
+      "drivers": [
+        "Cyclical basket"
+      ]
+    },
+    {
+      "id": "flows",
+      "label": "Fund flows",
+      "direction": "neutral",
+      "velocity": "moderate",
+      "confidence": 0.55,
+      "horizon": "near",
+      "drivers": [
+        "AUM volatility"
+      ]
+    },
+    {
+      "id": "geo",
+      "label": "Geopolitical leverage",
+      "direction": "up",
+      "velocity": "accelerating",
+      "confidence": 0.88,
+      "horizon": "near",
+      "drivers": [
+        "Nov 2026 suspension expiry risk"
+      ]
+    }
+  ]
+}

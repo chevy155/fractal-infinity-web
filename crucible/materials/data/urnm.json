@@ -1,0 +1,682 @@
+{
+  "version": "1.0.0",
+  "id": "urnm",
+  "ticker": "URNM",
+  "name": "Sprott Uranium Miners ETF",
+  "issuer": "Sprott Asset Management",
+  "inception_date": "2019-12-03",
+  "expense_ratio": 0.0075,
+  "aum_usd": 1900000000,
+  "aum_note": "Sprott Q2 2026 presentation ~$1.9B; aggregator figures vary through Aug 2026",
+  "holdings_count": 25,
+  "index": "North Shore Global Uranium Mining Index (URNMX)",
+  "geographic_exposure": [
+    "Canada",
+    "Kazakhstan",
+    "Australia",
+    "United States",
+    "Africa",
+    "China-linked"
+  ],
+  "commodity_exposure": [
+    "Uranium (U3O8)",
+    "Uranium mining equities",
+    "Physical uranium trust"
+  ],
+  "top_holdings": [
+    {
+      "ticker": "CCJ",
+      "company": "Cameco Corp",
+      "weight": 0.1903,
+      "country": "Canada",
+      "primary_resource": "uranium",
+      "production_status": "producer"
+    },
+    {
+      "ticker": "U-U.CN",
+      "company": "Sprott Physical Uranium Trust",
+      "weight": 0.1327,
+      "country": "Canada",
+      "primary_resource": "physical_uranium",
+      "production_status": "physical"
+    },
+    {
+      "ticker": "NXE",
+      "company": "NexGen Energy",
+      "weight": 0.1241,
+      "country": "Canada",
+      "primary_resource": "uranium",
+      "production_status": "developer"
+    },
+    {
+      "ticker": "DML.TO",
+      "company": "Denison Mines",
+      "weight": 0.0528,
+      "country": "Canada",
+      "primary_resource": "uranium",
+      "production_status": "developer"
+    },
+    {
+      "ticker": "DYL.AX",
+      "company": "Deep Yellow",
+      "weight": 0.049,
+      "country": "Australia",
+      "primary_resource": "uranium",
+      "production_status": "developer"
+    }
+  ],
+  "concentration_top10": 0.779,
+  "historical": {
+    "as_of": "2026-06-30",
+    "nav_1y": 0.1305,
+    "nav_3y_ann": 0.1982,
+    "nav_5y_ann": 0.1442,
+    "beta_5y": 0.93,
+    "note": "Historical returns do not predict future results. Used only for regime context."
+  },
+  "variables": [
+    {
+      "id": "expense_ratio",
+      "domain": "fund",
+      "label": "Expense ratio (low=better)",
+      "value": 0.4,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.97,
+      "sources": [
+        "S01",
+        "S02"
+      ],
+      "claim_ids": [
+        "C01"
+      ],
+      "weight": 0.4,
+      "fund": "URNM"
+    },
+    {
+      "id": "aum_scale",
+      "domain": "fund",
+      "label": "AUM / liquidity scale",
+      "value": 0.78,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.88,
+      "sources": [
+        "S02",
+        "S04"
+      ],
+      "claim_ids": [
+        "C03"
+      ],
+      "weight": 0.7,
+      "fund": "URNM"
+    },
+    {
+      "id": "concentration",
+      "domain": "fund",
+      "label": "Holdings concentration (high=concentrated)",
+      "value": 0.82,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.94,
+      "sources": [
+        "S03"
+      ],
+      "claim_ids": [
+        "C04"
+      ],
+      "weight": 0.8,
+      "fund": "URNM"
+    },
+    {
+      "id": "commodity_purity",
+      "domain": "fund",
+      "label": "Uranium purity of exposure",
+      "value": 0.92,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.95,
+      "sources": [
+        "S01",
+        "S22"
+      ],
+      "claim_ids": [
+        "C05"
+      ],
+      "weight": 1,
+      "fund": "URNM"
+    },
+    {
+      "id": "producer_vs_explorer",
+      "domain": "fund",
+      "label": "Producer / physical weight vs explorers",
+      "value": 0.68,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "S01",
+        "S03"
+      ],
+      "claim_ids": [
+        "C04",
+        "C23"
+      ],
+      "weight": 0.9,
+      "fund": "URNM"
+    },
+    {
+      "id": "nuclear_fleet_growth",
+      "domain": "demand",
+      "label": "Nuclear fleet / construction demand",
+      "value": 0.86,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.92,
+      "sources": [
+        "S09",
+        "S10"
+      ],
+      "claim_ids": [
+        "C13",
+        "C14"
+      ],
+      "weight": 1.2,
+      "fund": "URNM"
+    },
+    {
+      "id": "utility_contracting",
+      "domain": "demand",
+      "label": "Utility contracting pressure",
+      "value": 0.8,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "S14"
+      ],
+      "claim_ids": [
+        "C15"
+      ],
+      "weight": 1.1,
+      "fund": "URNM"
+    },
+    {
+      "id": "ai_baseload_narrative",
+      "domain": "demand",
+      "label": "AI / data-center nuclear narrative",
+      "value": 0.7,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "S14",
+        "S23"
+      ],
+      "claim_ids": [
+        "C25"
+      ],
+      "weight": 0.8,
+      "fund": "URNM"
+    },
+    {
+      "id": "mine_supply_tightness",
+      "domain": "supply",
+      "label": "Primary mine supply tightness",
+      "value": 0.78,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "S15",
+        "S21"
+      ],
+      "claim_ids": [
+        "C16",
+        "C27"
+      ],
+      "weight": 1.2,
+      "fund": "URNM"
+    },
+    {
+      "id": "midstream_bottleneck",
+      "domain": "supply",
+      "label": "Conversion / enrichment bottleneck",
+      "value": 0.74,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.76,
+      "sources": [
+        "S10",
+        "S14"
+      ],
+      "claim_ids": [
+        "C15",
+        "C22"
+      ],
+      "weight": 1,
+      "fund": "URNM"
+    },
+    {
+      "id": "secondary_supply_buffer",
+      "domain": "supply",
+      "label": "Secondary / inventory buffer (high=more cushion)",
+      "value": 0.48,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "S10",
+        "S14"
+      ],
+      "claim_ids": [
+        "C28"
+      ],
+      "weight": 0.9,
+      "fund": "URNM"
+    },
+    {
+      "id": "kazakhstan_canada_exposure",
+      "domain": "geo",
+      "label": "Kazakhstan / Canada supply exposure leverage",
+      "value": 0.72,
+      "as_of": "2026-08",
+      "type": "FACT",
+      "confidence": 0.88,
+      "sources": [
+        "S15",
+        "S25",
+        "S18"
+      ],
+      "claim_ids": [
+        "C17"
+      ],
+      "weight": 0.9,
+      "fund": "URNM"
+    },
+    {
+      "id": "sanctions_transport_risk",
+      "domain": "geo",
+      "label": "Sanctions / transport corridor risk",
+      "value": 0.62,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "S10",
+        "S24"
+      ],
+      "claim_ids": [
+        "C17",
+        "C30"
+      ],
+      "weight": 0.8,
+      "fund": "URNM"
+    },
+    {
+      "id": "policy_nuclear_support",
+      "domain": "policy",
+      "label": "Nuclear policy support",
+      "value": 0.78,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "S23",
+        "S24",
+        "S09"
+      ],
+      "claim_ids": [
+        "C13"
+      ],
+      "weight": 1,
+      "fund": "URNM"
+    },
+    {
+      "id": "spot_term_price_structure",
+      "domain": "econ",
+      "label": "Spot / term price supportiveness",
+      "value": 0.72,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.7,
+      "sources": [
+        "S14",
+        "S02"
+      ],
+      "claim_ids": [
+        "C15"
+      ],
+      "weight": 1,
+      "fund": "URNM"
+    },
+    {
+      "id": "incentive_price_gap",
+      "domain": "econ",
+      "label": "Incentive price vs new-mine economics",
+      "value": 0.68,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.68,
+      "sources": [
+        "S15",
+        "S21"
+      ],
+      "claim_ids": [
+        "C16",
+        "C22"
+      ],
+      "weight": 0.9,
+      "fund": "URNM"
+    },
+    {
+      "id": "equity_leverage",
+      "domain": "markets",
+      "label": "Equity operating leverage to U3O8",
+      "value": 0.84,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "S01",
+        "S22"
+      ],
+      "claim_ids": [
+        "C23"
+      ],
+      "weight": 1.1,
+      "fund": "URNM"
+    },
+    {
+      "id": "valuation_stretch",
+      "domain": "markets",
+      "label": "Valuation stretch (high=expensive)",
+      "value": 0.58,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.65,
+      "sources": [
+        "S04",
+        "S02"
+      ],
+      "claim_ids": [
+        "C06",
+        "C07"
+      ],
+      "weight": 0.8,
+      "fund": "URNM"
+    },
+    {
+      "id": "fund_flow_momentum",
+      "domain": "markets",
+      "label": "Fund-flow / speculative momentum",
+      "value": 0.62,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.6,
+      "sources": [
+        "S04",
+        "S22"
+      ],
+      "claim_ids": [
+        "C03"
+      ],
+      "weight": 0.7,
+      "fund": "URNM"
+    },
+    {
+      "id": "permitting_lag",
+      "domain": "constraint",
+      "label": "Permitting / construction lag (high=slow response)",
+      "value": 0.82,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.86,
+      "sources": [
+        "S14",
+        "S21"
+      ],
+      "claim_ids": [
+        "C22"
+      ],
+      "weight": 1.1,
+      "fund": "URNM"
+    },
+    {
+      "id": "jurisdiction_risk",
+      "domain": "risk",
+      "label": "Jurisdiction / political risk in holdings",
+      "value": 0.55,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.75,
+      "sources": [
+        "S01",
+        "S03"
+      ],
+      "claim_ids": [
+        "C30"
+      ],
+      "weight": 0.9,
+      "fund": "URNM"
+    },
+    {
+      "id": "execution_risk_developers",
+      "domain": "risk",
+      "label": "Developer / restart execution risk",
+      "value": 0.6,
+      "as_of": "2026-08",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "S03",
+        "S15"
+      ],
+      "claim_ids": [
+        "C04",
+        "C16"
+      ],
+      "weight": 0.9,
+      "fund": "URNM"
+    }
+  ],
+  "variable_count": 22,
+  "state_weights": {
+    "structural_demand": [
+      "nuclear_fleet_growth",
+      "utility_contracting"
+    ],
+    "supply_scarcity": [
+      "mine_supply_tightness",
+      "midstream_bottleneck",
+      "secondary_supply_buffer"
+    ],
+    "geopolitical_leverage": [
+      "kazakhstan_canada_exposure",
+      "sanctions_transport_risk"
+    ],
+    "policy_support": [
+      "policy_nuclear_support"
+    ],
+    "technological_demand": [
+      "ai_baseload_narrative"
+    ],
+    "industry_economics": [
+      "spot_term_price_structure",
+      "incentive_price_gap",
+      "equity_leverage"
+    ],
+    "supply_chain_resilience": [
+      "producer_vs_explorer",
+      "commodity_purity"
+    ],
+    "capital_market_momentum": [
+      "fund_flow_momentum",
+      "aum_scale"
+    ],
+    "valuation_pressure": [
+      "valuation_stretch"
+    ],
+    "time_to_supply": [
+      "permitting_lag",
+      "execution_risk_developers"
+    ]
+  },
+  "sensitivities": {
+    "ai_power_growth": 0.1,
+    "reactor_build_rate": 0.18,
+    "uranium_supply_growth": -0.16,
+    "enrichment_capacity": -0.12,
+    "china_trade_tension": 0.06,
+    "rare_earth_export_controls": 0.02,
+    "robotics_growth": 0.02,
+    "ev_growth": 0.02,
+    "defense_spending": 0.04,
+    "interest_rates": -0.08,
+    "commodity_capex": -0.1,
+    "recession_probability": -0.12,
+    "geopolitical_conflict": 0.1,
+    "uranium_price": 0.2
+  },
+  "thesis_breakers": [
+    {
+      "id": "TB_U1",
+      "text": "Materially faster mine + midstream supply response closes the contracting gap before equities re-rate.",
+      "evidence": [
+        "C16",
+        "C22"
+      ],
+      "confidence": 0.78
+    },
+    {
+      "id": "TB_U2",
+      "text": "Broad cancellation or delay of reactor projects / life extensions reduces structural demand.",
+      "evidence": [
+        "C13",
+        "C14"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "id": "TB_U3",
+      "text": "Long-term contract prices deteriorate while secondary supply remains ample.",
+      "evidence": [
+        "C15",
+        "C28"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "id": "TB_U4",
+      "text": "Enrichment/conversion bottlenecks resolve faster than modeled, lowering scarcity premium.",
+      "evidence": [
+        "C15",
+        "C22"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "id": "TB_U5",
+      "text": "Nuclear policy reversal in key jurisdictions reduces utility willingness to contract.",
+      "evidence": [
+        "C13"
+      ],
+      "confidence": 0.82
+    }
+  ],
+  "momentum": [
+    {
+      "id": "nuclear_demand",
+      "label": "Nuclear demand",
+      "direction": "up",
+      "velocity": "accelerating",
+      "confidence": 0.91,
+      "horizon": "medium",
+      "drivers": [
+        "Reactor construction (WNA)",
+        "Life extensions",
+        "Contracting gap"
+      ]
+    },
+    {
+      "id": "uranium_supply",
+      "label": "Uranium supply response",
+      "direction": "up",
+      "velocity": "slow",
+      "confidence": 0.78,
+      "horizon": "long",
+      "drivers": [
+        "Mine timelines",
+        "Permitting lag"
+      ]
+    },
+    {
+      "id": "midstream",
+      "label": "Conversion/enrichment",
+      "direction": "down",
+      "velocity": "moderate",
+      "confidence": 0.76,
+      "horizon": "medium",
+      "drivers": [
+        "Coverage decline into 2030s"
+      ]
+    },
+    {
+      "id": "policy",
+      "label": "Nuclear policy",
+      "direction": "up",
+      "velocity": "moderate",
+      "confidence": 0.8,
+      "horizon": "medium",
+      "drivers": [
+        "Energy security",
+        "DOE/EIA context"
+      ]
+    },
+    {
+      "id": "price",
+      "label": "Commodity/equity price momentum",
+      "direction": "neutral",
+      "velocity": "moderate",
+      "confidence": 0.6,
+      "horizon": "near",
+      "drivers": [
+        "Volatile 52-week range"
+      ]
+    },
+    {
+      "id": "flows",
+      "label": "Fund flows",
+      "direction": "neutral",
+      "velocity": "moderate",
+      "confidence": 0.55,
+      "horizon": "near",
+      "drivers": [
+        "AUM growth with drawdown episodes"
+      ]
+    },
+    {
+      "id": "geo",
+      "label": "Geopolitics",
+      "direction": "up",
+      "velocity": "moderate",
+      "confidence": 0.72,
+      "horizon": "medium",
+      "drivers": [
+        "Supply concentration",
+        "Transport risk"
+      ]
+    },
+    {
+      "id": "tech",
+      "label": "AI/baseload narrative",
+      "direction": "up",
+      "velocity": "accelerating",
+      "confidence": 0.72,
+      "horizon": "long",
+      "drivers": [
+        "Data-center electricity demand"
+      ]
+    }
+  ]
+}

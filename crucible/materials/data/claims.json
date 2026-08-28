@@ -1,0 +1,369 @@
+{
+  "count": 30,
+  "claims": [
+    {
+      "id": "C01",
+      "text": "URNM expense ratio is 0.75% (total annual fund operating expenses).",
+      "type": "FACT",
+      "confidence": 0.97,
+      "sources": [
+        "S01",
+        "S02",
+        "S04"
+      ],
+      "as_of": "2026-06",
+      "related": "urnm_structure"
+    },
+    {
+      "id": "C02",
+      "text": "URNM inception 2019-12-03; reorganized into Sprott Uranium Miners ETF 2022-04-22.",
+      "type": "FACT",
+      "confidence": 0.96,
+      "sources": [
+        "S02"
+      ],
+      "as_of": "2026-06",
+      "related": "urnm_structure"
+    },
+    {
+      "id": "C03",
+      "text": "URNM AUM reported ~$1.9B (Sprott Q2 2026) to ~$2.2B (secondary aggregators Aug 2026).",
+      "type": "FACT",
+      "confidence": 0.88,
+      "sources": [
+        "S02",
+        "S22",
+        "S04"
+      ],
+      "as_of": "2026-08",
+      "related": "urnm_structure"
+    },
+    {
+      "id": "C04",
+      "text": "URNM top holdings include Cameco (~19%), Sprott Physical Uranium Trust (~13%), NexGen (~12%); top 10 ~78%.",
+      "type": "FACT",
+      "confidence": 0.94,
+      "sources": [
+        "S01",
+        "S03"
+      ],
+      "as_of": "2026-08",
+      "related": "urnm_concentration"
+    },
+    {
+      "id": "C05",
+      "text": "URNM holds physical uranium exposure via Sprott Physical Uranium Trust alongside mining equities.",
+      "type": "FACT",
+      "confidence": 0.95,
+      "sources": [
+        "S01",
+        "S22"
+      ],
+      "as_of": "2026-08",
+      "related": "urnm_commodity_purity"
+    },
+    {
+      "id": "C06",
+      "text": "URNM NAV trailing returns (as of 6/30/2026): 1Y +13.05%, 3Y +19.82%, 5Y +14.42% (annualized where applicable).",
+      "type": "FACT",
+      "confidence": 0.92,
+      "sources": [
+        "S02"
+      ],
+      "as_of": "2026-06-30",
+      "related": "urnm_performance"
+    },
+    {
+      "id": "C07",
+      "text": "URNM 5Y beta ~0.93; 52-week range roughly $46.82–$84.95 (Yahoo as of late Aug 2026).",
+      "type": "FACT",
+      "confidence": 0.85,
+      "sources": [
+        "S04"
+      ],
+      "as_of": "2026-08-26",
+      "related": "urnm_volatility"
+    },
+    {
+      "id": "C08",
+      "text": "REMX expense ratio 0.53% net; expense cap 0.57% until May 1, 2027.",
+      "type": "FACT",
+      "confidence": 0.96,
+      "sources": [
+        "S05",
+        "S06",
+        "S07"
+      ],
+      "as_of": "2026-07",
+      "related": "remx_structure"
+    },
+    {
+      "id": "C09",
+      "text": "REMX inception 2010-10-27; tracks MVIS Global Rare Earth/Strategic Metals Index.",
+      "type": "FACT",
+      "confidence": 0.97,
+      "sources": [
+        "S05",
+        "S06"
+      ],
+      "as_of": "2026-07",
+      "related": "remx_structure"
+    },
+    {
+      "id": "C10",
+      "text": "REMX AUM variously reported ~$1.9B (July fact sheet) to ~$2.3B (ETFdb Aug 2026).",
+      "type": "FACT",
+      "confidence": 0.86,
+      "sources": [
+        "S06",
+        "S08"
+      ],
+      "as_of": "2026-08",
+      "related": "remx_structure"
+    },
+    {
+      "id": "C11",
+      "text": "REMX holdings (~35) mix lithium (Pilbara, Albemarle, SQM), rare earths (Lynas, MP, China Northern), molybdenum/tungsten names; China A-shares material.",
+      "type": "FACT",
+      "confidence": 0.93,
+      "sources": [
+        "S05",
+        "S06"
+      ],
+      "as_of": "2026-08-26",
+      "related": "remx_concentration"
+    },
+    {
+      "id": "C12",
+      "text": "REMX is not rare-earth-pure: lithium and other strategic metals are material portfolio weights.",
+      "type": "FACT",
+      "confidence": 0.94,
+      "sources": [
+        "S05",
+        "S06"
+      ],
+      "as_of": "2026-08",
+      "related": "remx_commodity_purity"
+    },
+    {
+      "id": "C13",
+      "text": "About ~79–80 reactors are under construction worldwide; ~120 further planned (WNA).",
+      "type": "FACT",
+      "confidence": 0.92,
+      "sources": [
+        "S09"
+      ],
+      "as_of": "2026",
+      "related": "nuclear_demand"
+    },
+    {
+      "id": "C14",
+      "text": "WNA estimates ~68,920 tU reactor requirements in 2025; Reference Scenario ~150,000 tU by 2040.",
+      "type": "FACT",
+      "confidence": 0.9,
+      "sources": [
+        "S10",
+        "S21"
+      ],
+      "as_of": "2025",
+      "related": "uranium_demand"
+    },
+    {
+      "id": "C15",
+      "text": "Utility uranium contract coverage declines sharply into early 2030s if flexibility options are exercised (Sprott analysis).",
+      "type": "INFERENCE",
+      "confidence": 0.78,
+      "sources": [
+        "S14"
+      ],
+      "as_of": "2026-08",
+      "related": "uranium_contracting"
+    },
+    {
+      "id": "C16",
+      "text": "Industry analysts (UxC) flag uranium supply gaps emerging ~2030–2040 despite resources existing.",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "S15",
+        "S21"
+      ],
+      "as_of": "2026",
+      "related": "uranium_supply_gap"
+    },
+    {
+      "id": "C17",
+      "text": "Kazakhstan remains the largest uranium producer; Canada, Namibia, Australia also material (UxC/industry).",
+      "type": "FACT",
+      "confidence": 0.88,
+      "sources": [
+        "S15",
+        "S25"
+      ],
+      "as_of": "2025",
+      "related": "uranium_supply_geo"
+    },
+    {
+      "id": "C18",
+      "text": "China produced an estimated 270,000 t REO in 2024–2025 vs much smaller ex-China mine output (USGS MCS 2026).",
+      "type": "FACT",
+      "confidence": 0.93,
+      "sources": [
+        "S11"
+      ],
+      "as_of": "2026",
+      "related": "ree_china_share"
+    },
+    {
+      "id": "C19",
+      "text": "April 2025 China export controls on seven medium/heavy REEs remain in force; October 2025 expanded controls suspended until Nov 10, 2026.",
+      "type": "FACT",
+      "confidence": 0.94,
+      "sources": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "as_of": "2026",
+      "related": "china_export_controls"
+    },
+    {
+      "id": "C20",
+      "text": "Lynas is the primary large-scale rare-earth separator outside China; MP Materials advancing US mine-to-magnet integration.",
+      "type": "FACT",
+      "confidence": 0.9,
+      "sources": [
+        "S19",
+        "S20",
+        "S16"
+      ],
+      "as_of": "2026",
+      "related": "exchina_processing"
+    },
+    {
+      "id": "C21",
+      "text": "Non-China HREE (Dy/Tb) supply remains a small share of demand through mid-2030s in industry projections.",
+      "type": "INFERENCE",
+      "confidence": 0.75,
+      "sources": [
+        "S17",
+        "S16"
+      ],
+      "as_of": "2026-05",
+      "related": "hree_scarcity"
+    },
+    {
+      "id": "C22",
+      "text": "Permitting, mine construction, enrichment/conversion, and REE separation create multi-year supply-response lags.",
+      "type": "INFERENCE",
+      "confidence": 0.86,
+      "sources": [
+        "S14",
+        "S15",
+        "S21",
+        "S16"
+      ],
+      "as_of": "2026",
+      "related": "time_to_supply"
+    },
+    {
+      "id": "C23",
+      "text": "URNM equity transmission amplifies uranium moves via producer leverage + developer optionality + physical trust holding.",
+      "type": "INFERENCE",
+      "confidence": 0.8,
+      "sources": [
+        "S01",
+        "S03",
+        "S22"
+      ],
+      "as_of": "2026-08",
+      "related": "etf_transmission"
+    },
+    {
+      "id": "C24",
+      "text": "REMX transmission is diluted across lithium cycles, China A-share policy, and REE/magnet geopolitics — not a single-commodity beta.",
+      "type": "INFERENCE",
+      "confidence": 0.84,
+      "sources": [
+        "S05",
+        "S11",
+        "S12"
+      ],
+      "as_of": "2026-08",
+      "related": "etf_transmission"
+    },
+    {
+      "id": "C25",
+      "text": "AI/data-center power demand is a supporting narrative for nuclear baseload interest but is not yet the primary contracted uranium demand driver.",
+      "type": "INFERENCE",
+      "confidence": 0.72,
+      "sources": [
+        "S14",
+        "S23"
+      ],
+      "as_of": "2026",
+      "related": "ai_nuclear"
+    },
+    {
+      "id": "C26",
+      "text": "Defense, EV, wind, robotics, and automation are structural demand channels for NdFeB magnets and strategic metals in REMX universe.",
+      "type": "INFERENCE",
+      "confidence": 0.82,
+      "sources": [
+        "S07",
+        "S11",
+        "S17"
+      ],
+      "as_of": "2026",
+      "related": "tech_demand_ree"
+    },
+    {
+      "id": "C27",
+      "text": "OECD-NEA/IAEA: identified uranium resources are ample; the binding constraint is timely investment and midstream capacity.",
+      "type": "FACT",
+      "confidence": 0.9,
+      "sources": [
+        "S21"
+      ],
+      "as_of": "2024-2025",
+      "related": "uranium_resources"
+    },
+    {
+      "id": "C28",
+      "text": "Secondary uranium supplies and utility inventories can delay price discovery even when long-term deficits are projected.",
+      "type": "INFERENCE",
+      "confidence": 0.74,
+      "sources": [
+        "S10",
+        "S14"
+      ],
+      "as_of": "2026",
+      "related": "secondary_supply"
+    },
+    {
+      "id": "C29",
+      "text": "REMX top-10 concentration ~60–62% of assets (fact sheet / ETFdb period).",
+      "type": "FACT",
+      "confidence": 0.88,
+      "sources": [
+        "S06",
+        "S08"
+      ],
+      "as_of": "2026-07",
+      "related": "remx_concentration"
+    },
+    {
+      "id": "C30",
+      "text": "URNM is non-diversified and geographically exposed to Canada, Kazakhstan, Australia, Africa, China-linked miners.",
+      "type": "FACT",
+      "confidence": 0.9,
+      "sources": [
+        "S01",
+        "S03",
+        "S04"
+      ],
+      "as_of": "2026-08",
+      "related": "jurisdiction_risk"
+    }
+  ]
+}

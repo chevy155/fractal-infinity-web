@@ -1,0 +1,261 @@
+{
+  "version": "1.0.0",
+  "seed": 20260828,
+  "phases": 4,
+  "forces": [
+    "ai_power_growth",
+    "reactor_build_rate",
+    "uranium_supply_growth",
+    "enrichment_capacity",
+    "china_trade_tension",
+    "rare_earth_export_controls",
+    "robotics_growth",
+    "ev_growth",
+    "defense_spending",
+    "interest_rates",
+    "commodity_capex",
+    "recession_probability",
+    "geopolitical_conflict",
+    "uranium_price"
+  ],
+  "levels": {
+    "ai_power_growth": [
+      "plateau",
+      "steady",
+      "accel"
+    ],
+    "reactor_build_rate": [
+      "stalled",
+      "steady",
+      "renaissance"
+    ],
+    "uranium_supply_growth": [
+      "shock_down",
+      "tight",
+      "surge"
+    ],
+    "enrichment_capacity": [
+      "bottleneck",
+      "constrained",
+      "ample"
+    ],
+    "china_trade_tension": [
+      "detente",
+      "managed",
+      "war"
+    ],
+    "rare_earth_export_controls": [
+      "normalized",
+      "licensed",
+      "severe"
+    ],
+    "robotics_growth": [
+      "slow",
+      "steady",
+      "boom"
+    ],
+    "ev_growth": [
+      "slow",
+      "steady",
+      "boom"
+    ],
+    "defense_spending": [
+      "peace",
+      "baseline",
+      "surge"
+    ],
+    "interest_rates": [
+      "low",
+      "neutral",
+      "high"
+    ],
+    "commodity_capex": [
+      "frozen",
+      "selective",
+      "boom"
+    ],
+    "recession_probability": [
+      "expansion",
+      "soft",
+      "recession"
+    ],
+    "geopolitical_conflict": [
+      "peace",
+      "stressed",
+      "hot"
+    ],
+    "uranium_price": [
+      "weak",
+      "firm",
+      "spike"
+    ]
+  },
+  "default_weights": {
+    "ai_power_growth": [
+      0.2,
+      0.45,
+      0.35
+    ],
+    "reactor_build_rate": [
+      0.15,
+      0.5,
+      0.35
+    ],
+    "uranium_supply_growth": [
+      0.2,
+      0.55,
+      0.25
+    ],
+    "enrichment_capacity": [
+      0.3,
+      0.5,
+      0.2
+    ],
+    "china_trade_tension": [
+      0.2,
+      0.45,
+      0.35
+    ],
+    "rare_earth_export_controls": [
+      0.2,
+      0.45,
+      0.35
+    ],
+    "robotics_growth": [
+      0.2,
+      0.45,
+      0.35
+    ],
+    "ev_growth": [
+      0.25,
+      0.45,
+      0.3
+    ],
+    "defense_spending": [
+      0.2,
+      0.5,
+      0.3
+    ],
+    "interest_rates": [
+      0.25,
+      0.5,
+      0.25
+    ],
+    "commodity_capex": [
+      0.25,
+      0.5,
+      0.25
+    ],
+    "recession_probability": [
+      0.35,
+      0.45,
+      0.2
+    ],
+    "geopolitical_conflict": [
+      0.25,
+      0.5,
+      0.25
+    ],
+    "uranium_price": [
+      0.25,
+      0.45,
+      0.3
+    ]
+  },
+  "presets": {
+    "all": {
+      "label": "All Worlds",
+      "fixed": null
+    },
+    "ai_infrastructure_boom": {
+      "label": "AI Infrastructure Boom",
+      "fixed": {
+        "ai_power_growth": "accel",
+        "reactor_build_rate": "renaissance",
+        "interest_rates": "neutral",
+        "robotics_growth": "boom"
+      }
+    },
+    "us_china_trade_war": {
+      "label": "U.S.–China Trade War",
+      "fixed": {
+        "china_trade_tension": "war",
+        "rare_earth_export_controls": "severe",
+        "geopolitical_conflict": "stressed"
+      }
+    },
+    "global_recession": {
+      "label": "Global Recession",
+      "fixed": {
+        "recession_probability": "recession",
+        "interest_rates": "high",
+        "ev_growth": "slow",
+        "commodity_capex": "frozen"
+      }
+    },
+    "nuclear_renaissance": {
+      "label": "Nuclear Renaissance",
+      "fixed": {
+        "reactor_build_rate": "renaissance",
+        "uranium_price": "spike",
+        "enrichment_capacity": "bottleneck",
+        "uranium_supply_growth": "tight"
+      }
+    },
+    "peace_dividend": {
+      "label": "Peace Dividend",
+      "fixed": {
+        "defense_spending": "peace",
+        "geopolitical_conflict": "peace",
+        "china_trade_tension": "detente",
+        "rare_earth_export_controls": "normalized"
+      }
+    },
+    "resource_nationalism": {
+      "label": "Resource Nationalism",
+      "fixed": {
+        "geopolitical_conflict": "stressed",
+        "uranium_supply_growth": "shock_down",
+        "china_trade_tension": "managed",
+        "commodity_capex": "selective"
+      }
+    },
+    "china_ree_shock": {
+      "label": "China Rare-Earth Shock",
+      "fixed": {
+        "rare_earth_export_controls": "severe",
+        "china_trade_tension": "war",
+        "robotics_growth": "boom",
+        "defense_spending": "surge"
+      }
+    },
+    "uranium_supply_shock": {
+      "label": "Uranium Supply Shock",
+      "fixed": {
+        "uranium_supply_growth": "shock_down",
+        "enrichment_capacity": "bottleneck",
+        "uranium_price": "spike",
+        "geopolitical_conflict": "hot"
+      }
+    },
+    "commodity_capex_boom": {
+      "label": "Commodity Capex Boom",
+      "fixed": {
+        "commodity_capex": "boom",
+        "uranium_supply_growth": "surge",
+        "interest_rates": "low",
+        "rare_earth_export_controls": "licensed"
+      }
+    },
+    "tech_acceleration": {
+      "label": "Technological Acceleration",
+      "fixed": {
+        "ai_power_growth": "accel",
+        "robotics_growth": "boom",
+        "ev_growth": "boom",
+        "defense_spending": "surge",
+        "reactor_build_rate": "renaissance"
+      }
+    }
+  }
+}
