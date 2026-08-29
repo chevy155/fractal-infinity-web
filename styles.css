@@ -1874,42 +1874,64 @@ a.report-card:hover {
 .fi-rail-foot a { font-family: var(--mono); font-size: 10px; color: var(--ivory-faint); text-decoration: none; }
 .fi-rail-foot a:hover { color: var(--lime); }
 
-/* Content column: reserved left gutter; nav stays put while content scrolls */
-body.has-fi-rail { padding-left: 220px; overflow-x: hidden; }
+/* Site pages (home, reports, crucibles): fixed rail + content gutter */
+body.has-fi-rail:not(.fi-shell-mode) { padding-left: 220px; overflow-x: hidden; }
 
-/* Product pages = laboratory workspace beside the rail (not centered marketing wrap) */
-.fi-product-page .topbar {
-  display: none; /* rail is the nav; content starts at top of workspace */
+/* Product pages: true two-column shell — rail | content, both at top */
+body.fi-shell-mode {
+  padding-left: 0 !important;
+  margin: 0;
+  overflow-x: hidden;
 }
+.fi-shell {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  align-items: start;
+  min-height: 100vh;
+  width: 100%;
+}
+.fi-shell-mode .fi-rail {
+  position: sticky;
+  top: 0;
+  left: auto;
+  width: 220px;
+  height: 100vh;
+  align-self: start;
+  pointer-events: auto;
+}
+.fi-shell-mode .fi-rail-body {
+  height: 100vh;
+}
+.fi-workspace {
+  min-width: 0;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  align-self: start;
+  justify-self: stretch;
+}
+.fi-product-page .topbar { display: none; }
 .fi-product-page .fi-product.wrap,
 .fi-product-page main.wrap.fi-product,
-.fi-product-page .wrap.fi-product {
+.fi-product-page .wrap.fi-product,
+.fi-shell-mode .fi-product.wrap,
+.fi-shell-mode main.fi-product {
   max-width: 720px;
   width: 100%;
-  margin: 0;              /* override .wrap { margin: 0 auto } — kill empty center */
-  margin-left: 0;
-  margin-right: auto;
-  padding: 32px 40px 96px 36px;
+  margin: 0 !important; /* kill .wrap auto-centering */
+  padding: 28px 36px 80px 28px;
   min-height: 0;
   display: block;
   text-align: left;
   box-sizing: border-box;
 }
-.fi-product-page {
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-/* Override global section { padding: 96px 0 } — was pushing Coming Soon content down */
 .fi-product-page section.fi-product-block,
 .fi-product-page .fi-product-block {
-  padding: 0 0 18px;
+  padding: 0 0 18px !important;
   margin: 0 0 18px;
   border-bottom: 1px solid rgba(243,240,228,0.07);
 }
-.fi-product-page .section-footer-link {
-  margin-top: 32px;
-  padding-top: 0;
-}
+.fi-product-page .section-footer-link { margin-top: 28px; }
 .fi-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ivory-faint); margin: 0 0 8px; }
 .fi-headline { font-family: "Space Grotesk", var(--sans); font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: #fff; margin: 0 0 6px; letter-spacing: -0.02em; }
 .fi-sub { font-size: 16px; color: var(--lime); margin: 0 0 12px; }
@@ -1929,16 +1951,16 @@ body.has-fi-rail { padding-left: 220px; overflow-x: hidden; }
 .fi-live-list a { color: var(--lime); }
 
 @media (max-width: 900px) {
-  body.has-fi-rail { padding-left: 0; }
-  .fi-product-page .topbar { display: block; } /* restore compact header on small screens */
+  body.has-fi-rail:not(.fi-shell-mode) { padding-left: 0; }
+  .fi-shell { display: block; min-height: 0; }
+  .fi-shell-mode .fi-rail {
+    position: static; width: auto; height: auto;
+  }
+  .fi-product-page .topbar { display: block; }
   .fi-product-page .fi-product.wrap,
-  .fi-product-page main.wrap.fi-product,
-  .fi-product-page .wrap.fi-product {
+  .fi-shell-mode main.fi-product {
     padding: 24px 20px 72px;
     max-width: none;
-  }
-  .fi-rail {
-    width: auto; height: auto; bottom: auto; top: auto;
   }
   .fi-rail-toggle { display: block; }
   .fi-rail-body {

@@ -1,15 +1,13 @@
 /**
- * Fractal Infinity product rail — injects left nav. No product logic.
+ * Fractal Infinity product rail — injects left nav.
+ * Product pages: true two-column shell (rail | workspace) at top of viewport.
  */
 (function () {
   const path = (location.pathname || "").replace(/\\/g, "/");
-  const depth = (path.match(/\/(labs|tools|intelligence)\//) || path.endsWith("/labs/") || path.endsWith("/tools/") || path.endsWith("/intelligence/"))
-    ? ".."
-    : ".";
-  // Better depth: count segments after site root
   const file = path.split("/").pop() || "";
-  const inSub = /\/(labs|tools|intelligence)\//.test(path) || ["labs", "tools", "intelligence"].some(s => path.includes("/" + s + "/"));
+  const inSub = /\/(labs|tools|intelligence)\//.test(path);
   const root = inSub ? ".." : ".";
+  const isProductPage = document.body.classList.contains("fi-product-page");
 
   const items = [
     { group: "Labs", links: [
@@ -61,16 +59,32 @@
       </div>
     </div>`;
 
-  document.body.prepend(nav);
-  document.body.classList.add("has-fi-rail");
+  if (isProductPage) {
+    const shell = document.createElement("div");
+    shell.className = "fi-shell";
+    const workspace = document.createElement("div");
+    workspace.className = "fi-workspace";
+    const move = [];
+    for (const node of Array.from(document.body.childNodes)) {
+      if (node === nav) continue;
+      if (node.nodeType === 1 && (node.tagName === "SCRIPT" || node.classList.contains("fi-rail"))) continue;
+      move.push(node);
+    }
+    move.forEach(n => workspace.appendChild(n));
+    shell.appendChild(nav);
+    shell.appendChild(workspace);
+    document.body.insertBefore(shell, document.body.firstChild);
+    document.body.classList.add("has-fi-rail", "fi-shell-mode");
+  } else {
+    document.body.prepend(nav);
+    document.body.classList.add("has-fi-rail");
+  }
 
   const toggle = nav.querySelector(".fi-rail-toggle");
-  const body = nav.querySelector(".fi-rail-body");
   toggle.addEventListener("click", () => {
     const open = nav.classList.toggle("is-open");
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
   });
-  // close on outside tap (mobile)
   document.addEventListener("click", (e) => {
     if (!nav.contains(e.target) && nav.classList.contains("is-open")) {
       nav.classList.remove("is-open");
