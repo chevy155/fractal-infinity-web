@@ -1,13 +1,11 @@
 /**
- * Fractal Infinity product rail — injects left nav.
- * Product pages: true two-column shell (rail | workspace) at top of viewport.
+ * Fractal Infinity product rail — left column beside page content.
  */
 (function () {
   const path = (location.pathname || "").replace(/\\/g, "/");
   const file = path.split("/").pop() || "";
   const inSub = /\/(labs|tools|intelligence)\//.test(path);
   const root = inSub ? ".." : ".";
-  const isProductPage = document.body.classList.contains("fi-product-page");
 
   const items = [
     { group: "Labs", links: [
@@ -59,26 +57,21 @@
       </div>
     </div>`;
 
-  if (isProductPage) {
-    const shell = document.createElement("div");
-    shell.className = "fi-shell";
-    const workspace = document.createElement("div");
-    workspace.className = "fi-workspace";
-    const move = [];
-    for (const node of Array.from(document.body.childNodes)) {
-      if (node === nav) continue;
-      if (node.nodeType === 1 && (node.tagName === "SCRIPT" || node.classList.contains("fi-rail"))) continue;
-      move.push(node);
-    }
-    move.forEach(n => workspace.appendChild(n));
-    shell.appendChild(nav);
-    shell.appendChild(workspace);
-    document.body.insertBefore(shell, document.body.firstChild);
-    document.body.classList.add("has-fi-rail", "fi-shell-mode");
-  } else {
-    document.body.prepend(nav);
-    document.body.classList.add("has-fi-rail");
+  const shell = document.createElement("div");
+  shell.className = "fi-shell";
+  const workspace = document.createElement("div");
+  workspace.className = "fi-workspace";
+
+  const move = [];
+  for (const node of Array.from(document.body.childNodes)) {
+    if (node.nodeType === 1 && (node.tagName === "SCRIPT" || node.classList.contains("fi-rail") || node.classList.contains("fi-shell"))) continue;
+    move.push(node);
   }
+  move.forEach(n => workspace.appendChild(n));
+  shell.appendChild(nav);
+  shell.appendChild(workspace);
+  document.body.insertBefore(shell, document.body.firstChild);
+  document.body.classList.add("has-fi-rail", "fi-shell-mode");
 
   const toggle = nav.querySelector(".fi-rail-toggle");
   toggle.addEventListener("click", () => {
