@@ -1877,24 +1877,38 @@ a.report-card:hover {
 /* Content column: reserved left gutter; nav stays put while content scrolls */
 body.has-fi-rail { padding-left: 220px; overflow-x: hidden; }
 
-.fi-product-page {
-  align-items: flex-start;
-  justify-content: flex-start;
+/* Product pages = laboratory workspace beside the rail (not centered marketing wrap) */
+.fi-product-page .topbar {
+  display: none; /* rail is the nav; content starts at top of workspace */
 }
-.fi-product-page .fi-product {
+.fi-product-page .fi-product.wrap,
+.fi-product-page main.wrap.fi-product,
+.fi-product-page .wrap.fi-product {
   max-width: 720px;
+  width: 100%;
+  margin: 0;              /* override .wrap { margin: 0 auto } — kill empty center */
   margin-left: 0;
   margin-right: auto;
-  padding: 28px 0 64px;
+  padding: 32px 40px 96px 36px;
   min-height: 0;
   display: block;
   text-align: left;
+  box-sizing: border-box;
+}
+.fi-product-page {
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 /* Override global section { padding: 96px 0 } — was pushing Coming Soon content down */
 .fi-product-page section.fi-product-block,
 .fi-product-page .fi-product-block {
   padding: 0 0 18px;
   margin: 0 0 18px;
+  border-bottom: 1px solid rgba(243,240,228,0.07);
+}
+.fi-product-page .section-footer-link {
+  margin-top: 32px;
+  padding-top: 0;
 }
 .fi-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ivory-faint); margin: 0 0 8px; }
 .fi-headline { font-family: "Space Grotesk", var(--sans); font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: #fff; margin: 0 0 6px; letter-spacing: -0.02em; }
@@ -1916,6 +1930,13 @@ body.has-fi-rail { padding-left: 220px; overflow-x: hidden; }
 
 @media (max-width: 900px) {
   body.has-fi-rail { padding-left: 0; }
+  .fi-product-page .topbar { display: block; } /* restore compact header on small screens */
+  .fi-product-page .fi-product.wrap,
+  .fi-product-page main.wrap.fi-product,
+  .fi-product-page .wrap.fi-product {
+    padding: 24px 20px 72px;
+    max-width: none;
+  }
   .fi-rail {
     width: auto; height: auto; bottom: auto; top: auto;
   }
