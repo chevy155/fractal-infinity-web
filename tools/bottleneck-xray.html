@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Bottleneck & Supply Chain X-Ray — Fractal Infinity</title>
-<meta name="description" content="Find what physically prevents a product, project, or industry from scaling — and what becomes the next bottleneck if that constraint is relieved." />
+<meta name="description" content="Find what actually prevents a product, project, or industry from scaling — then discover what becomes the next constraint when that bottleneck is removed." />
 <link rel="icon" href="../assets/archival-portal.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,32 +27,140 @@
 <main class="wrap fi-product xr-landing">
   <p class="fi-kicker">Analysis Tools</p>
   <h1 class="fi-headline">Bottleneck &amp; Supply Chain X-Ray</h1>
-  <p class="fi-lede">Find what physically prevents a product, project, or industry from scaling — and what becomes the next bottleneck if that constraint is relieved.</p>
+  <p class="fi-lede xr-lede-wide">Find what actually prevents a product, project, or industry from scaling — then discover what becomes the next constraint when that bottleneck is removed.</p>
+
+  <section class="fi-product-block xr-prose-block">
+    <p>Most industries do not stop growing because demand disappears. They hit physical limits somewhere inside the system: a component with too few qualified suppliers, a manufacturing process that cannot expand quickly enough, a specialized material, limited equipment throughput, difficult qualification, low yield, or infrastructure that takes years to build.</p>
+    <p>The X-Ray is designed to find those constraints.</p>
+    <p>Instead of looking only at the companies everyone knows, Fractal decomposes a system through the physical chain underneath it:</p>
+    <p class="xr-chain">Product &rarr; Component &rarr; Process &rarr; Equipment &rarr; Material &rarr; Supplier &rarr; Capacity &rarr; Qualification</p>
+    <p>It then uses sourced evidence to examine where demand is colliding with real-world capacity, how difficult that constraint is to substitute, how important it is downstream, and what could relieve it.</p>
+    <p class="xr-emphasis">The result is not simply a list of supply-chain risks. It is a map of what controls scale.</p>
+  </section>
+
+  <section class="fi-product-block">
+    <h2 class="fi-h2">What can an X-Ray reveal?</h2>
+    <p class="xr-intro">An X-Ray can help answer questions such as:</p>
+    <dl class="xr-qa-list">
+      <div>
+        <dt>What breaks first?</dt>
+        <dd>If production increases 2&times;, 5&times; or 10&times;, which dependency becomes unable to keep up?</dd>
+      </div>
+      <div>
+        <dt>What's underneath the obvious bottleneck?</dt>
+        <dd>If advanced packaging is constrained, is the true control point packaging floor space — or substrates, materials, bonding equipment, yield, test capacity or qualification?</dd>
+      </div>
+      <div>
+        <dt>What happens if we fix it?</dt>
+        <dd>Relieve the current constraint and Fractal recomputes the system to identify the next likely bottleneck.</dd>
+      </div>
+      <div>
+        <dt>Can we route around it?</dt>
+        <dd>Alternative suppliers and technologies may exist technically but still require redesign, qualification or years of capacity expansion. X-Ray distinguishes an apparent substitute from a practical one.</dd>
+      </div>
+      <div>
+        <dt>Where could the market be looking in the wrong place?</dt>
+        <dd>A relatively small material, equipment supplier or manufacturing process can control production worth orders of magnitude more downstream.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="fi-product-block">
+    <h2 class="fi-h2">How the X-Ray works</h2>
+    <ol class="xr-steps">
+      <li>
+        <strong>Define the system</strong>
+        <p>Choose what you want to understand and the scale being tested.</p>
+        <p class="xr-example">Example: AI accelerator production &rarr; 5&times; growth</p>
+        <p>Future investigations can apply the same instrument to datacenters, humanoid robots, nuclear infrastructure, aerospace systems and other physical industries.</p>
+      </li>
+      <li>
+        <strong>Decompose the physical system</strong>
+        <p>Fractal traces the dependencies underneath the finished product instead of stopping at the obvious suppliers.</p>
+      </li>
+      <li>
+        <strong>Ground the model in evidence</strong>
+        <p>Important assumptions are connected to observable evidence such as manufacturer disclosures, earnings calls, technical publications, capacity announcements and other attributable sources.</p>
+        <p>Fractal distinguishes between:</p>
+        <ul class="xr-data-types">
+          <li><span class="xr-tag xr-tag-obs">Observed</span> — supported by evidence</li>
+          <li><span class="xr-tag xr-tag-mod">Modeled</span> — an explicit engineering judgment</li>
+          <li><span class="xr-tag xr-tag-calc">Calculated</span> — output produced by the X-Ray</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Identify the binding constraints</strong>
+        <p>The system evaluates factors such as demand pressure, scarcity, supplier concentration, lead-time pressure, substitution difficulty and downstream importance.</p>
+        <p>Evidence confidence is shown separately from constraint severity. A severe bottleneck with weak evidence is not presented as equivalent to one supported by strong evidence.</p>
+      </li>
+      <li>
+        <strong>Look underneath the bottleneck</strong>
+        <p>Finding that &ldquo;CoWoS is constrained&rdquo; is useful. Finding what prevents additional CoWoS capacity from becoming available may be considerably more valuable.</p>
+        <p>X-Ray therefore looks for both:</p>
+        <ul class="xr-pair-list">
+          <li><strong>Observed Bottleneck</strong> — what the market currently cannot obtain fast enough.</li>
+          <li><strong>Underlying Control Constraint</strong> — what prevents industry from relieving that shortage.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Relieve it and continue</strong>
+        <p>The investigation does not stop with today&rsquo;s bottleneck. Fractal asks: <em>If this constraint disappeared tomorrow, what would break next?</em></p>
+        <p>That produces a constraint cascade — a view of how bottlenecks may migrate as technology, manufacturing capacity and demand change.</p>
+      </li>
+    </ol>
+  </section>
 
   <section class="xr-invest-section" aria-label="Fractal investigations">
     <h2 class="fi-h2">Fractal Investigations</h2>
+    <p class="xr-invest-intro">Evidence-backed investigations built using the X-Ray methodology.</p>
 
-    <a class="xr-invest-live" href="xray/ai-accelerator.html">
-      <span class="xr-invest-meta">
-        <strong>AI Accelerator Scaling X-Ray</strong>
-        <span>Scenario: 5× production / capability growth</span>
-        <span class="xr-invest-status">Live · Evidence-backed · Updated Aug 2026</span>
-      </span>
-      <span class="xr-invest-open">Open &rarr;</span>
+    <a class="xr-invest-card xr-invest-live" href="xray/ai-accelerator.html">
+      <div class="xr-invest-card-body">
+        <strong class="xr-invest-title">AI Accelerator Scaling X-Ray</strong>
+        <p class="xr-invest-question">What physically prevents next-generation AI accelerator production from scaling 5&times;?</p>
+        <p class="xr-invest-desc">Trace the system through HBM, advanced packaging, substrates, interposers, bonding, test, photonics and the specialized manufacturing capacity underneath them.</p>
+        <dl class="xr-invest-meta-grid">
+          <div><dt>Scenario</dt><dd>5&times; production / capability growth</dd></div>
+          <div><dt>Current investigation</dt><dd>19 modeled constraint nodes &middot; sourced evidence &middot; constraint cascade</dd></div>
+          <div><dt>Status</dt><dd class="xr-invest-status">Live &middot; Evidence-backed &middot; Updated Aug 2026</dd></div>
+        </dl>
+      </div>
+      <span class="xr-invest-open">Open X-Ray &rarr;</span>
     </a>
 
-    <div class="xr-invest-soon" aria-disabled="true">
-      <strong>Datacenter Buildout X-Ray</strong>
-      <span>Coming Soon</span>
+    <div class="xr-invest-card xr-invest-soon" aria-disabled="true">
+      <div class="xr-invest-card-body">
+        <strong class="xr-invest-title">Datacenter Buildout X-Ray</strong>
+        <p class="xr-invest-question">What becomes the binding constraint if AI datacenter construction accelerates dramatically?</p>
+        <p class="xr-invest-desc">Future analysis could trace power availability, interconnection, transformers, switchgear, cooling, equipment, construction capacity, permitting and qualified suppliers.</p>
+      </div>
+      <span class="xr-invest-badge">Coming Soon</span>
     </div>
-    <div class="xr-invest-soon" aria-disabled="true">
-      <strong>Humanoid Robot Production X-Ray</strong>
-      <span>Coming Soon</span>
+
+    <div class="xr-invest-card xr-invest-soon" aria-disabled="true">
+      <div class="xr-invest-card-body">
+        <strong class="xr-invest-title">Humanoid Robot Production X-Ray</strong>
+        <p class="xr-invest-question">What prevents humanoid robots from moving from thousands of units to millions?</p>
+        <p class="xr-invest-desc">Future analysis could trace actuators, motors, gearing, sensors, batteries, magnets, semiconductors, precision manufacturing, materials and production capacity.</p>
+      </div>
+      <span class="xr-invest-badge">Coming Soon</span>
     </div>
-    <div class="xr-invest-soon" aria-disabled="true">
-      <strong>Custom X-Ray</strong>
-      <span>Coming Soon</span>
+
+    <div class="xr-invest-card xr-invest-soon" aria-disabled="true">
+      <div class="xr-invest-card-body">
+        <strong class="xr-invest-title">Custom X-Ray</strong>
+        <p class="xr-invest-question">Stress-test the physical scaling limits of a product, project or industry.</p>
+        <p class="xr-invest-desc">Define the system, scaling target and time horizon. Fractal decomposes the dependency chain and searches for the constraints controlling the outcome.</p>
+      </div>
+      <span class="xr-invest-badge">Coming Soon</span>
     </div>
+  </section>
+
+  <section class="fi-product-block xr-method-cta">
+    <h2 class="fi-h2">Read the methodology</h2>
+    <p>How does Fractal decide something is a bottleneck?</p>
+    <p>Read the X-Ray technical paper for the architecture, evidence standards, modeling assumptions, scoring methodology, constraint-relief logic, provenance rules and limitations behind the instrument.</p>
+    <p><a class="xr-method-link" href="xray/methodology.html">Read the X-Ray Methodology &rarr;</a></p>
   </section>
 
   <p class="section-footer-link"><a href="../index.html">&larr; Home</a> · <a href="../reports.html">Reports</a></p>

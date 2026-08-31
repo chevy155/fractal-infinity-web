@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Fractal X-Ray Method — Fractal Infinity</title>
+<meta name="description" content="Technical specification: how Fractal X-Ray moves from evidence to modeled constraints, calculated severity, relief, and constraint cascade." />
+<link rel="icon" href="../../assets/archival-portal.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../styles.css" />
+</head>
+<body class="fi-product-page">
+<div class="topbar">
+  <div class="wrap">
+    <a href="../../index.html" class="topbar-brand"><img src="../../assets/archival-portal.jpg" alt="" />FRACTAL INFINITY</a>
+    <nav class="topbar-nav">
+      <a href="../../labs/deep-research.html">Labs</a>
+      <a href="../crucible.html">Analysis</a>
+      <a href="../../intelligence/research-reports.html">Intelligence</a>
+    </nav>
+    <a href="../bottleneck-xray.html" class="btn btn-ghost">&larr; X-Ray</a>
+  </div>
+</div>
+
+<main class="wrap fi-product xr-method">
+  <p class="xr-instance-nav"><a href="../bottleneck-xray.html">&larr; Bottleneck &amp; Supply Chain X-Ray</a></p>
+  <p class="fi-kicker">Technical Specification</p>
+  <h1 class="fi-headline">The Fractal X-Ray Method</h1>
+  <p class="fi-sub">Finding the physical constraints that control technological scale</p>
+  <p class="fi-lede xr-lede-wide">This document specifies how a Fractal X-Ray investigation moves from attributable evidence to ranked constraints, relief sensitivity, and constraint cascade. It is written for engineers, investors, and technical reviewers who need to inspect the instrument rather than trust a score.</p>
+
+  <nav class="xr-method-toc" aria-label="Contents">
+    <p class="fi-h2">Contents</p>
+    <ol>
+      <li><a href="#problem">The problem</a></li>
+      <li><a href="#architecture">Architecture overview</a></li>
+      <li><a href="#decomposition">System decomposition</a></li>
+      <li><a href="#evidence">Evidence hierarchy</a></li>
+      <li><a href="#data-classes">Observed, modeled, calculated</a></li>
+      <li><a href="#variables">Constraint variables</a></li>
+      <li><a href="#severity">Severity calculation</a></li>
+      <li><a href="#confidence">Why confidence is separate</a></li>
+      <li><a href="#bottleneck-types">Observed vs underlying constraints</a></li>
+      <li><a href="#substitution">Substitution and qualification</a></li>
+      <li><a href="#relief">Relief mechanics</a></li>
+      <li><a href="#cascade">Constraint cascade</a></li>
+      <li><a href="#time">Time horizons</a></li>
+      <li><a href="#provenance">Provenance</a></li>
+      <li><a href="#falsification">Falsification</a></li>
+      <li><a href="#limitations">Limitations</a></li>
+      <li><a href="#example">Worked example: AI accelerator</a></li>
+    </ol>
+  </nav>
+
+  <section class="xr-method-section" id="problem">
+    <h2 class="fi-h2">1. The problem</h2>
+    <p>Frontier models can answer: &ldquo;What are the bottlenecks in AI chips?&rdquo; That answer is useful but not inspectable. It mixes sources, assumptions, and conclusions. It rarely shows what would change the ranking if one dependency were relieved.</p>
+    <p>Fractal X-Ray addresses a narrower question: <strong>What physical constraint stops a defined system from scaling to a stated target — and what becomes the next constraint if that one is relieved?</strong></p>
+    <p>The method is deliberately constrained. It does not model entire economies, generic supply chains, or every company in an industry. It decomposes one physical system at one scaling scenario and makes every important step auditable.</p>
+  </section>
+
+  <section class="xr-method-section" id="architecture">
+    <h2 class="fi-h2">2. Architecture overview</h2>
+    <p>Every X-Ray investigation follows the same pipeline. No stage silently overwrites the prior one.</p>
+    <div class="xr-method-diagram" role="img" aria-label="X-Ray architecture pipeline">
+      <span>Real-world sources</span>
+      <span>Observed claims</span>
+      <span>Physical dependency model</span>
+      <span>Modeled constraint variables</span>
+      <span>Calculated severity</span>
+      <span>Current bottleneck</span>
+      <span>Underlying control constraint</span>
+      <span>Relief test</span>
+      <span>Next bottleneck</span>
+      <span>Constraint cascade</span>
+    </div>
+    <p>Shared engine code (<code>xray/engine/</code>) performs scoring and cascade logic. Investigation-specific data (<code>xray/investigations/&lt;name&gt;/</code>) holds entities, dependencies, evidence, and modeled observations. Presentation code renders outputs without recomputing formulas in the UI.</p>
+  </section>
+
+  <section class="xr-method-section" id="decomposition">
+    <h2 class="fi-h2">3. System decomposition</h2>
+    <p>The dependency model traces the physical chain underneath a finished product:</p>
+    <p class="xr-chain">Product &rarr; Component &rarr; Process &rarr; Equipment &rarr; Material &rarr; Supplier &rarr; Capacity &rarr; Qualification</p>
+    <p>The important modeling unit is not merely <em>company</em>. It is:</p>
+    <ul>
+      <li>entity + capability</li>
+      <li>capacity or maturity signal</li>
+      <li>dependency relationship</li>
+      <li>substitution and qualification difficulty</li>
+    </ul>
+    <p>Relationships are explicit (<code>depends_on</code>, <code>requires</code>, <code>supplied_by</code>). A node may represent a component (HBM4), a process (hybrid bonding), equipment (bonding tools), or an integration step (CPO packaging). The decomposition depth is chosen to expose constraints that control scale, not to enumerate every supplier globally.</p>
+  </section>
+
+  <section class="xr-method-section" id="evidence">
+    <h2 class="fi-h2">4. Evidence hierarchy</h2>
+    <p>Evidence is ranked by authority and traceability. Preferred sources, in order:</p>
+    <ol>
+      <li>Company filings, earnings materials, and official technical disclosures</li>
+      <li>Government and regulatory documents</li>
+      <li>Foundry, memory, and equipment manufacturer roadmaps</li>
+      <li>Technical conference papers and peer-reviewed engineering publications</li>
+      <li>Reputable secondary reporting — only when primary evidence is unavailable</li>
+    </ol>
+    <p>Each observed claim retains: source URL, source title, source date, date observed, claim type, statement, confidence, and linked node(s). Claim types include <code>FACT</code>, <code>COMPANY_CLAIM</code>, <code>INFERENCE</code>, <code>ESTIMATE</code>, <code>SCENARIO</code>, and <code>UNKNOWN</code>.</p>
+    <p>Claims without attributable sources are not presented as observed facts.</p>
+  </section>
+
+  <section class="xr-method-section" id="data-classes">
+    <h2 class="fi-h2">5. Observed, modeled, calculated</h2>
+    <p>Three data classes must never be silently mixed:</p>
+    <table class="xr-method-table">
+      <thead>
+        <tr><th>Class</th><th>Meaning</th><th>Example</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="xr-tag xr-tag-obs">Observed</span></td>
+          <td>Directly supported by a sourced claim</td>
+          <td>&ldquo;TSMC continues expanding CoWoS capacity.&rdquo;</td>
+        </tr>
+        <tr>
+          <td><span class="xr-tag xr-tag-mod">Modeled</span></td>
+          <td>Fractal&rsquo;s normalized engineering judgment, with rationale</td>
+          <td><code>capacity_pressure = 0.82</code> because demand still exceeds announced qualified capacity</td>
+        </tr>
+        <tr>
+          <td><span class="xr-tag xr-tag-calc">Calculated</span></td>
+          <td>Output produced by the X-Ray engine from modeled inputs</td>
+          <td>Constraint severity score 78, ranked #1</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Every modeled numeric variable carries a <code>model_rationale</code> field explaining why the evidence maps to that value. A reviewer can challenge the rationale without disputing the engine arithmetic.</p>
+  </section>
+
+  <section class="xr-method-section" id="variables">
+    <h2 class="fi-h2">6. Constraint variables</h2>
+    <p>Each constraint node is evaluated on interpretable dimensions, normalized to 0–1 for transparency (not scientific calibration):</p>
+    <ul class="xr-var-list">
+      <li><code>demand_pressure</code> — scaling target vs. current absorption</li>
+      <li><code>capacity_pressure</code> — scarcity of available qualified capacity</li>
+      <li><code>capacity_growth</code> — announced or plausible expansion rate</li>
+      <li><code>supplier_concentration</code> — dependence on a small qualified supplier set</li>
+      <li><code>lead_time_pressure</code> — time to obtain additional qualified supply</li>
+      <li><code>yield_risk</code> — manufacturing maturity and yield exposure</li>
+      <li><code>technology_maturity</code> — readiness of the underlying process or product generation</li>
+      <li><code>qualification_difficulty</code> — time and cost to qualify alternatives</li>
+      <li><code>substitution_difficulty</code> — practical difficulty of routing around the node</li>
+      <li><code>geographic_concentration</code> — regional exposure</li>
+      <li><code>downstream_importance</code> — how many critical paths depend on this node</li>
+      <li><code>evidence_confidence</code> — strength of supporting evidence (reported separately)</li>
+    </ul>
+    <p>Values are engineering judgments derived from observed claims. They are inspectable, challengeable, and versioned with the investigation dataset.</p>
+  </section>
+
+  <section class="xr-method-section" id="severity">
+    <h2 class="fi-h2">7. Severity calculation</h2>
+    <p>Constraint severity is computed deterministically in <code>xray/engine/score.js</code>. Weights live in <code>xray/config/weights.json</code> and are not buried in UI code.</p>
+    <p>Scarcity combines capacity pressure, supplier concentration, and lead-time pressure:</p>
+    <pre class="xr-method-formula">scarcity = 0.55 × capacity_pressure
+         + 0.30 × supplier_concentration
+         + 0.15 × lead_time_pressure</pre>
+    <p>Severity multiplies demand, scarcity, substitution difficulty, and downstream importance:</p>
+    <pre class="xr-method-formula">severity = demand_pressure × scarcity
+         × substitution_difficulty × downstream_importance
+
+score = round(100 × severity)</pre>
+    <p>The displayed score is an ordinal ranking aid. The underlying drivers are shown so a reviewer can see <em>why</em> a node ranks highly — for example, extreme downstream importance with moderate scarcity vs. the reverse.</p>
+  </section>
+
+  <section class="xr-method-section" id="confidence">
+    <h2 class="fi-h2">8. Why confidence is separate</h2>
+    <p>Evidence confidence does <strong>not</strong> multiply into severity. A poorly evidenced but structurally dangerous node should not disappear from the ranking simply because sources are thin.</p>
+    <p>Instead, each node reports both:</p>
+    <ul>
+      <li><strong>Constraint severity</strong> — how binding the node would be if the modeled variables are correct</li>
+      <li><strong>Evidence confidence</strong> — how well supported those variables are</li>
+    </ul>
+    <p>Example presentation:</p>
+    <ul class="xr-status-examples">
+      <li>CoWoS — severity 78 / confidence 82% — <em>HIGH RISK / HIGH CONFIDENCE</em></li>
+      <li>Hypothetical immature node — severity 85 / confidence 41% — <em>HIGH RISK / LOW CONFIDENCE</em></li>
+    </ul>
+    <p>This separation is epistemically necessary. Unknown risk and low-confidence risk are different problems requiring different responses.</p>
+  </section>
+
+  <section class="xr-method-section" id="bottleneck-types">
+    <h2 class="fi-h2">9. Observed bottleneck vs underlying control constraint</h2>
+    <p>An <strong>observed bottleneck</strong> is what the market currently cannot obtain fast enough at the stated scaling target — the highest-ranked constraint node given current evidence.</p>
+    <p>An <strong>underlying control constraint</strong> is what prevents industry from relieving that shortage: equipment throughput, substrate supply, yield, qualification cycles, specialized materials, or floor space and tooling behind the named process.</p>
+    <p>X-Ray surfaces both because relieving the observed bottleneck often requires addressing a deeper node in the dependency tree. The ranking identifies where attention should go first; decomposition identifies what must change for relief to be real rather than nominal.</p>
+  </section>
+
+  <section class="xr-method-section" id="substitution">
+    <h2 class="fi-h2">10. Substitution and qualification</h2>
+    <p>Technical substitutes and practical substitutes are not equivalent. A second supplier may exist on paper but require:</p>
+    <ul>
+      <li>product redesign or package requalification</li>
+      <li>12–36 months of capacity ramp</li>
+      <li>lower performance or yield tradeoffs</li>
+      <li>geographic or export-control exposure</li>
+    </ul>
+    <p><code>substitution_difficulty</code> and <code>qualification_difficulty</code> encode this distinction. A node with many theoretical alternatives but one qualified path at scale should still rank as difficult to substitute.</p>
+  </section>
+
+  <section class="xr-method-section" id="relief">
+    <h2 class="fi-h2">11. Relief mechanics</h2>
+    <p>Relief is a <strong>variable perturbation</strong>, not node deletion. When the top constraint is &ldquo;relieved,&rdquo; the engine lowers specific scarcity-related variables and recomputes the full ranking. Structural variables remain intact.</p>
+    <p>Default relief multipliers (configurable in <code>weights.json</code>):</p>
+    <ul>
+      <li><code>capacity_pressure</code> &times; 0.35</li>
+      <li><code>lead_time_pressure</code> &times; 0.40</li>
+      <li><code>supplier_concentration</code> &times; 0.85</li>
+    </ul>
+    <p>Variables held intact during relief include demand pressure, substitution difficulty, downstream importance, technology maturity, qualification difficulty, yield risk, geographic concentration, capacity growth, and evidence confidence.</p>
+    <p>This models the idea that adding capacity reduces scarcity and lead-time pressure but does not instantly eliminate qualification barriers or downstream dependence. Relief is labeled explicitly as a sensitivity exercise, not a forecast.</p>
+  </section>
+
+  <section class="xr-method-section" id="cascade">
+    <h2 class="fi-h2">12. Constraint cascade</h2>
+    <p>After ranking constraints, the cascade engine (<code>xray/engine/cascade.js</code>) repeats:</p>
+    <ol>
+      <li>Identify highest-ranked node</li>
+      <li>Apply relief perturbation to that node</li>
+      <li>Recompute all severities</li>
+      <li>Record the new top node as the next bottleneck</li>
+      <li>Repeat for a fixed number of stages (default: 4)</li>
+    </ol>
+    <p>The output is a ordered sequence showing how bottlenecks may migrate as earlier constraints are relieved. It answers: <em>if this disappeared tomorrow, what breaks next?</em></p>
+    <p>Monte Carlo simulation, price modeling, and schedule forecasting are explicitly out of scope for the current engine version.</p>
+  </section>
+
+  <section class="xr-method-section" id="time">
+    <h2 class="fi-h2">13. Time horizons</h2>
+    <p>Each investigation declares a scaling scenario (e.g., 5&times; production / capability growth) and an evidence as-of date. Variables encode near-term binding constraints given announced capacity and qualification timelines — not a multi-decade equilibrium model.</p>
+    <p>Relief tests are counterfactual and instantaneous: they ask what reranks if scarcity variables drop, not when industry could realistically achieve that relief. Time-to-relief belongs in evidence and rationale, not in the cascade arithmetic.</p>
+  </section>
+
+  <section class="xr-method-section" id="provenance">
+    <h2 class="fi-h2">14. Provenance</h2>
+    <p>Provenance rules:</p>
+    <ul>
+      <li>Every observed claim links to a source URL and date</li>
+      <li>Every modeled variable links to rationale text</li>
+      <li>Every calculated score is reproducible from the versioned dataset and weights file</li>
+      <li>Engine version and weights version are recorded with the investigation</li>
+    </ul>
+    <p>A third party with the dataset and engine should obtain identical rankings and cascade output. Acceptance tests in <code>xray/test/</code> enforce this determinism.</p>
+  </section>
+
+  <section class="xr-method-section" id="falsification">
+    <h2 class="fi-h2">15. Falsification</h2>
+    <p>Each constraint node should declare what evidence would weaken or falsify the bottleneck thesis. Examples:</p>
+    <ul>
+      <li>Announced capacity exceeds modeled demand at the scaling target</li>
+      <li>A second supplier qualifies at scale with acceptable yield</li>
+      <li>Downstream redesign reduces dependence on the node</li>
+      <li>Lead times collapse without yield degradation</li>
+    </ul>
+    <p>Falsification criteria make the investigation actionable. They specify what Fractal would need to observe to lower severity or rerank the node.</p>
+  </section>
+
+  <section class="xr-method-section" id="limitations">
+    <h2 class="fi-h2">16. Limitations</h2>
+    <ul>
+      <li><strong>Not calibrated science.</strong> Normalized 0–1 variables are transparent judgments, not econometric estimates.</li>
+      <li><strong>Not a forecast.</strong> Cascade output is sensitivity analysis, not a prediction of future bottlenecks.</li>
+      <li><strong>Bounded scope.</strong> Each investigation covers a declared system boundary. Excluded domains (grid power, full fab networks, commodity markets) may contain constraints not modeled.</li>
+      <li><strong>Evidence-limited.</strong> Confidence bands reflect source quality. Thin evidence produces low-confidence high-severity flags, not certainty.</li>
+      <li><strong>Static snapshot.</strong> Rankings reflect the dataset as-of date. Live monitoring and automatic re-ingestion are not part of the current instrument.</li>
+      <li><strong>Relief model is simplified.</strong> Real capacity expansion affects multiple nodes simultaneously; the engine perturbs one node at a time by design.</li>
+    </ul>
+  </section>
+
+  <section class="xr-method-section" id="example">
+    <h2 class="fi-h2">17. Worked example: AI accelerator scaling</h2>
+    <p>Investigation: <a href="ai-accelerator.html">AI Accelerator Scaling X-Ray</a>. Scenario: 5&times; production / capability growth. System boundary: compute die through HBM, advanced packaging, substrates, interconnect, photonics, thermal, and critical manufacturing equipment.</p>
+
+    <h3 class="xr-method-h3">Current ranking (Aug 2026 dataset)</h3>
+    <table class="xr-method-table">
+      <thead>
+        <tr><th>Rank</th><th>Node</th><th>Severity</th><th>Confidence</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>#1</td><td>CoWoS</td><td>78</td><td>82%</td></tr>
+        <tr><td>#2</td><td>HBM4</td><td>70</td><td>84%</td></tr>
+        <tr><td>#3</td><td>Advanced Interposer</td><td>61</td><td>68%</td></tr>
+        <tr><td>#4</td><td>HBM3E</td><td>61</td><td>80%</td></tr>
+        <tr><td>#5</td><td>HBM Stacking / Bonding</td><td>55</td><td>62%</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="xr-method-h3">Evidence &rarr; model &rarr; score (CoWoS)</h3>
+    <p><span class="xr-tag xr-tag-obs">Observed</span> TSMC and industry disclosures indicate CoWoS remains a primary advanced-packaging bottleneck for AI accelerators; capacity expansion is ongoing but qualified leading-edge packaging remains concentrated.</p>
+    <p><span class="xr-tag xr-tag-mod">Modeled</span> High <code>capacity_pressure</code> and <code>supplier_concentration</code>, with rationale tied to those disclosures. High <code>downstream_importance</code> because multiple accelerator programs depend on the same packaging path.</p>
+    <p><span class="xr-tag xr-tag-calc">Calculated</span> Severity 78 — highest in the investigation — with confidence 82% because multiple primary sources align.</p>
+
+    <h3 class="xr-method-h3">Constraint cascade</h3>
+    <p>Relief perturbation applied sequentially:</p>
+    <ol class="xr-cascade-example">
+      <li><strong>Stage 1 — Current:</strong> CoWoS (78)</li>
+      <li><strong>Stage 2 — After CoWoS relief:</strong> HBM4 (70)</li>
+      <li><strong>Stage 3 — After HBM4 relief:</strong> Advanced Interposer (61)</li>
+      <li><strong>Stage 4 — After interposer relief:</strong> HBM3E (61)</li>
+    </ol>
+    <p>The cascade does not claim these transitions will happen on a schedule. It shows how the binding constraint may migrate if scarcity at each stage is materially relieved while structural difficulty variables remain.</p>
+    <p><a href="ai-accelerator.html">Open the live investigation &rarr;</a></p>
+  </section>
+
+  <p class="section-footer-link"><a href="../bottleneck-xray.html">&larr; All X-Ray Investigations</a> · <a href="../../index.html">Home</a></p>
+</main>
+<script src="../../js/product-rail.js"></script>
+</body>
+</html>
