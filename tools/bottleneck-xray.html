@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Bottleneck & Supply Chain X-Ray — Fractal Infinity</title>
-<meta name="description" content="Find the components, suppliers, manufacturing processes and physical infrastructure capable of stopping a product, project or industry from scaling." />
+<meta name="description" content="Next-generation AI accelerator constraint X-Ray: ranked bottlenecks, evidence classes, and deterministic cascade." />
 <link rel="icon" href="../assets/archival-portal.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,27 +23,34 @@
     <a href="../index.html" class="btn btn-ghost">&larr; Home</a>
   </div>
 </div>
-<main class="wrap fi-product">
+
+<main class="wrap fi-product xr-workspace">
   <p class="fi-kicker">Analysis Tools</p>
-  <h1 class="fi-headline">Bottleneck & Supply Chain X-Ray</h1>
-  
-  <p class="fi-lede">Find the components, suppliers, manufacturing processes and physical infrastructure capable of stopping a product, project or industry from scaling.</p>
-  <p class="fi-soon-badge">Coming Soon</p>
-  
-    <section class="fi-product-block">
-      <h2 class="fi-h2">What it will do</h2>
-      <p>Takes apart a product, factory, technology, infrastructure project or industry and looks through its components, suppliers, materials, manufacturing equipment, production capacity, energy, infrastructure, permits, logistics and qualification requirements to find what is most capable of limiting growth.</p>
+  <h1 class="fi-headline" id="xr-title">Next-Generation AI Accelerator X-Ray</h1>
+  <p class="fi-sub" id="xr-scenario">Scaling target: —</p>
+  <p class="fi-live-badge">Instrument v1 · seed dataset</p>
+  <p class="muted-note" id="xr-disclaimer"></p>
+
+  <div class="xray-grid xr-grid">
+    <section class="xray-panel">
+      <h2>Ranked bottlenecks</h2>
+      <div id="xr-rank" class="xr-rank" role="list"></div>
     </section>
-    <section class="fi-product-block">
-      <h2 class="fi-h2">Why it matters</h2>
-      <p>Find the small hidden constraint capable of controlling, delaying or reshaping a much larger market.</p>
+    <section class="xray-panel" id="xr-current"></section>
+  </div>
+
+  <div class="xray-grid xr-grid">
+    <section class="xray-panel" id="xr-detail"></section>
+    <section class="xray-panel">
+      <h2>Constraint cascade</h2>
+      <p class="muted-note">Relieve top constraint → recompute → next binding node. Sensitivity only.</p>
+      <ol id="xr-cascade" class="xr-cascade"></ol>
     </section>
-    <section class="fi-product-block">
-      <h2 class="fi-h2">Example</h2>
-      <p class="fi-example">What components or infrastructure could prevent humanoid robot production from increasing 10x?</p>
-    </section>
-  <p class="section-footer-link"><a href="../index.html">&larr; Home</a> · <a href="../reports.html">Reports</a></p>
+  </div>
+
+  <p class="section-footer-link"><a href="../index.html">&larr; Home</a> · <a href="../reports.html">Reports</a> · <a href="../tools/crucible.html">Crucible</a></p>
 </main>
 <script src="../js/product-rail.js"></script>
+<script type="module" src="../xray/app.js"></script>
 </body>
 </html>

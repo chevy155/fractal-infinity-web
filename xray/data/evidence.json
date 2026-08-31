@@ -1,0 +1,71 @@
+{
+  "status": "MODEL_SEED",
+  "disclaimer": "No fabricated citations. Entries are placeholders or clearly modeled. Replace with OBSERVED claims in a later evidence pass.",
+  "claims": [
+    {
+      "id": "claim_seed_001",
+      "statement": "Advanced packaging capacity is modeled as a high-concentration, high-demand constraint for accelerator ramps.",
+      "subject": "advanced-packaging",
+      "source_url": null,
+      "source_title": null,
+      "source_date": null,
+      "date_observed": "2026-08-30",
+      "claim_type": "ESTIMATE",
+      "confidence": 0.58,
+      "data_class": "MODELED",
+      "notes": "MODEL_SEED — awaiting evidence acquisition pass"
+    },
+    {
+      "id": "claim_seed_002",
+      "statement": "HBM supply is modeled as scarce relative to accelerator demand at a 5× scaling target.",
+      "subject": "hbm",
+      "source_url": null,
+      "source_title": null,
+      "source_date": null,
+      "date_observed": "2026-08-30",
+      "claim_type": "ESTIMATE",
+      "confidence": 0.55,
+      "data_class": "MODELED",
+      "notes": "MODEL_SEED — awaiting evidence acquisition pass"
+    },
+    {
+      "id": "claim_seed_003",
+      "statement": "Substrate/interposer availability is modeled to rise in rank after packaging capacity relief.",
+      "subject": "substrate-interposer",
+      "source_url": null,
+      "source_title": null,
+      "source_date": null,
+      "date_observed": "2026-08-30",
+      "claim_type": "SCENARIO",
+      "confidence": 0.50,
+      "data_class": "MODELED",
+      "notes": "MODEL_SEED sensitivity assumption for cascade demo"
+    },
+    {
+      "id": "claim_seed_004",
+      "statement": "Optical I/O / CPO is modeled as a later-stage interconnect constraint after electrical and packaging walls move.",
+      "subject": "optical-io",
+      "source_url": null,
+      "source_title": null,
+      "source_date": null,
+      "date_observed": "2026-08-30",
+      "claim_type": "INFERENCE",
+      "confidence": 0.42,
+      "data_class": "MODELED",
+      "notes": "MODEL_SEED — not an observed production claim"
+    },
+    {
+      "id": "claim_seed_005",
+      "statement": "Thermal density is modeled as a persistent package-level limiter under higher power envelopes.",
+      "subject": "thermal",
+      "source_url": null,
+      "source_title": null,
+      "source_date": null,
+      "date_observed": "2026-08-30",
+      "claim_type": "ESTIMATE",
+      "confidence": 0.48,
+      "data_class": "MODELED",
+      "notes": "MODEL_SEED"
+    }
+  ]
+}

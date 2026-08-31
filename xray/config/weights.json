@@ -1,0 +1,24 @@
+{
+  "version": "1.1.0",
+  "label": "Transparent v1 constraint severity",
+  "notes": "Inspectable. Change here only. Not calibrated science. Severity and evidence confidence are separate.",
+  "formula": "severity = demand_pressure * scarcity * substitution_difficulty * downstream_importance; score = round(100 * severity). evidence_confidence is reported separately and does NOT multiply into score.",
+  "scarcity": {
+    "capacity_pressure": 0.55,
+    "supplier_concentration": 0.30,
+    "lead_time_pressure": 0.15
+  },
+  "relief": {
+    "description": "Material capacity relief: lower capacity and lead-time pressure; mild supplier-concentration ease. Leave structural difficulty / importance / maturity intact.",
+    "floor": 0.05,
+    "multipliers": {
+      "capacity_pressure": 0.35,
+      "lead_time_pressure": 0.40,
+      "supplier_concentration": 0.85
+    }
+  },
+  "risk_bands": { "high": 70, "moderate": 40 },
+  "confidence_bands": { "high": 0.75, "moderate": 0.50 },
+  "cascade_stages": 4,
+  "score_scale": 100
+}

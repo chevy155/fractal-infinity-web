@@ -1,0 +1,19 @@
+{
+  "scenario_id": "ng-ai-accelerator-5x",
+  "title": "Next-Generation AI Accelerator X-Ray",
+  "system": "AI Accelerator",
+  "scaling_target": "5× production / capability growth",
+  "boundary": [
+    "compute die",
+    "HBM",
+    "advanced packaging",
+    "substrates/interposers",
+    "chiplets",
+    "high-speed interconnect",
+    "silicon photonics/CPO",
+    "thermal",
+    "critical manufacturing equipment"
+  ],
+  "status": "MODEL_SEED",
+  "disclaimer": "Provisional seed for architecture validation. Values are modeled, not calibrated facts."
+}

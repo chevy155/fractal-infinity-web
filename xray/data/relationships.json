@@ -1,0 +1,29 @@
+{
+  "status": "MODEL_SEED",
+  "relationships": [
+    { "from": "ai-accelerator", "relationship": "depends_on", "to": "compute-die" },
+    { "from": "ai-accelerator", "relationship": "depends_on", "to": "hbm" },
+    { "from": "ai-accelerator", "relationship": "depends_on", "to": "advanced-packaging" },
+    { "from": "ai-accelerator", "relationship": "depends_on", "to": "thermal" },
+    { "from": "ai-accelerator", "relationship": "depends_on", "to": "electrical-io" },
+    { "from": "compute-die", "relationship": "depends_on", "to": "chiplets" },
+    { "from": "compute-die", "relationship": "depends_on", "to": "lithography-equip" },
+    { "from": "hbm", "relationship": "depends_on", "to": "hbm-base-die" },
+    { "from": "hbm", "relationship": "depends_on", "to": "advanced-packaging" },
+    { "from": "advanced-packaging", "relationship": "depends_on", "to": "substrate-interposer" },
+    { "from": "advanced-packaging", "relationship": "depends_on", "to": "bonding-test" },
+    { "from": "chiplets", "relationship": "depends_on", "to": "bonding-test" },
+    { "from": "electrical-io", "relationship": "can_transition_to", "to": "optical-io" },
+    { "from": "optical-io", "relationship": "depends_on", "to": "advanced-packaging" },
+    { "from": "thermal", "relationship": "depends_on", "to": "advanced-packaging" }
+  ],
+  "capabilities": [
+    { "id": "skh-hbm", "entity_id": "sk-hynix", "node_id": "hbm", "capability_type": "memory", "status": "production", "data_class": "MODEL_SEED" },
+    { "id": "micron-hbm", "entity_id": "micron", "node_id": "hbm", "capability_type": "memory", "status": "production", "data_class": "MODEL_SEED" },
+    { "id": "samsung-hbm", "entity_id": "samsung", "node_id": "hbm", "capability_type": "memory", "status": "production", "data_class": "MODEL_SEED" },
+    { "id": "tsmc-adv-pkg", "entity_id": "tsmc", "node_id": "advanced-packaging", "capability_type": "advanced_packaging", "status": "production", "data_class": "MODEL_SEED" },
+    { "id": "tsmc-substrate", "entity_id": "tsmc", "node_id": "substrate-interposer", "capability_type": "substrate", "status": "production", "data_class": "MODEL_SEED" },
+    { "id": "nvidia-accel", "entity_id": "nvidia", "node_id": "compute-die", "capability_type": "accelerator", "status": "production", "data_class": "MODEL_SEED" },
+    { "id": "asml-litho", "entity_id": "asml", "node_id": "lithography-equip", "capability_type": "equipment", "status": "production", "data_class": "MODEL_SEED" }
+  ]
+}

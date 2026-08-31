@@ -1,0 +1,13 @@
+{
+  "status": "MODEL_SEED",
+  "entities": [
+    { "id": "nvidia", "type": "company", "name": "NVIDIA" },
+    { "id": "amd", "type": "company", "name": "AMD" },
+    { "id": "google", "type": "company", "name": "Google (custom accelerators)" },
+    { "id": "sk-hynix", "type": "company", "name": "SK hynix" },
+    { "id": "micron", "type": "company", "name": "Micron" },
+    { "id": "samsung", "type": "company", "name": "Samsung" },
+    { "id": "tsmc", "type": "company", "name": "TSMC" },
+    { "id": "asml", "type": "company", "name": "ASML" }
+  ]
+}

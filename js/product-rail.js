@@ -14,7 +14,7 @@
       { href: root + "/labs/dataset-builder.html", label: "Custom Dataset Builder", soon: true }
     ]},
     { group: "Analysis Tools", links: [
-      { href: root + "/tools/bottleneck-xray.html", label: "Bottleneck & Supply Chain X-Ray", soon: true },
+      { href: root + "/tools/bottleneck-xray.html", label: "Bottleneck & Supply Chain X-Ray", soon: false },
       { href: root + "/tools/crucible.html", label: "The Crucible — Decision Simulator", soon: false },
       { href: root + "/tools/thesis-risk-monitor.html", label: "Thesis & Risk Monitor", soon: true },
       { href: root + "/tools/evidence-dependency-map.html", label: "Evidence & Dependency Map", soon: true }
@@ -26,6 +26,9 @@
       { href: root + "/intelligence/bottleneck-reports.html", label: "Bottleneck Reports", soon: true },
       { href: root + "/intelligence/crucible-results.html", label: "Crucible Results", soon: false },
       { href: root + "/intelligence/predictions.html", label: "Prediction Track Record", soon: true }
+    ]},
+    { group: "Platform", links: [
+      { href: root + "/ecosystem.html", label: "Ecosystem", soon: false }
     ]}
   ];
 

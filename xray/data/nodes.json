@@ -1,0 +1,112 @@
+{
+  "status": "MODEL_SEED",
+  "nodes": [
+    {
+      "id": "ai-accelerator",
+      "label": "AI Accelerator",
+      "category": "system",
+      "role": "root",
+      "what": "Target system under X-Ray: next-gen GPU/ASIC accelerator package.",
+      "why_matters": "Economic question unit — scaling this system exposes binding physical constraints."
+    },
+    {
+      "id": "compute-die",
+      "label": "Compute Die / ASIC / GPU",
+      "category": "compute",
+      "what": "Logic silicon that performs matrix/tensor compute.",
+      "why_matters": "Defines demand for HBM, packaging, interconnect, and thermal envelope.",
+      "controllers": ["nvidia", "amd", "google"],
+      "relief_levers": ["node shrink", "chiplet partitioning", "lower utilization targets"]
+    },
+    {
+      "id": "chiplets",
+      "label": "Chiplets",
+      "category": "compute",
+      "what": "Disaggregated die modules assembled into one package.",
+      "why_matters": "Shifts pressure onto interconnect, bonding, and advanced packaging yield.",
+      "controllers": ["nvidia", "amd", "tsmc"],
+      "relief_levers": ["mature die-to-die standards", "higher bonding yield"]
+    },
+    {
+      "id": "hbm",
+      "label": "HBM Capacity",
+      "category": "memory",
+      "what": "High-bandwidth stacked DRAM attached near the compute die.",
+      "why_matters": "Often binding for accelerator bandwidth and memory capacity scaling.",
+      "controllers": ["sk-hynix", "micron", "samsung"],
+      "relief_levers": ["new stack capacity", "second-source qualification", "lower bits/accelerator"]
+    },
+    {
+      "id": "hbm-base-die",
+      "label": "HBM Base Die / Interface",
+      "category": "memory",
+      "what": "Logic/base die and memory interface attaching HBM stacks.",
+      "why_matters": "Can limit stack height, bandwidth, and package integration even when DRAM wafer supply exists.",
+      "controllers": ["sk-hynix", "micron", "samsung"],
+      "relief_levers": ["base-die process maturity", "interface standardization"]
+    },
+    {
+      "id": "advanced-packaging",
+      "label": "Advanced Packaging",
+      "category": "packaging",
+      "what": "CoWoS-class / equivalent 2.5D/3D packaging capacity.",
+      "why_matters": "Joins compute + HBM + substrates; scarce capacity can dominate ramp.",
+      "controllers": ["tsmc"],
+      "relief_levers": ["capacity expansion", "alternate packaging platforms", "design for less package area"]
+    },
+    {
+      "id": "substrate-interposer",
+      "label": "Substrate / Interposer",
+      "category": "packaging",
+      "what": "Silicon/organic interposers and substrates carrying dense interconnect.",
+      "why_matters": "Physical carrier for die attach; yield and supply can bind after packaging slots open.",
+      "controllers": ["tsmc"],
+      "relief_levers": ["substrate capacity", "design shrink", "alternate interposer tech"]
+    },
+    {
+      "id": "bonding-test",
+      "label": "Bonding / Test / Metrology",
+      "category": "manufacturing",
+      "what": "Hybrid bonding, inspection, metrology, and package test steps.",
+      "why_matters": "Yield and throughput gates for stacked and multi-die packages.",
+      "controllers": ["tsmc", "asml"],
+      "relief_levers": ["tooling capacity", "higher yield recipes", "test parallelism"]
+    },
+    {
+      "id": "electrical-io",
+      "label": "High-Speed Electrical I/O",
+      "category": "interconnect",
+      "what": "SerDes / electrical package and board interconnect.",
+      "why_matters": "Bandwidth and reach limits force architectural tradeoffs before optics.",
+      "controllers": ["nvidia", "amd"],
+      "relief_levers": ["SerDes generation jump", "shorter reach topologies", "move traffic to optics"]
+    },
+    {
+      "id": "optical-io",
+      "label": "Optical I/O / CPO",
+      "category": "interconnect",
+      "what": "Silicon photonics and co-packaged optics for package/rack bandwidth.",
+      "why_matters": "Candidate next wall after electrical I/O and package density improve.",
+      "controllers": ["nvidia", "tsmc"],
+      "relief_levers": ["CPO maturity", "foundry photonics capacity", "lower-loss packaging"]
+    },
+    {
+      "id": "thermal",
+      "label": "Thermal Density",
+      "category": "thermal",
+      "what": "Package and cold-plate thermal limits including TIM interfaces.",
+      "why_matters": "Power density can bind even when silicon and memory supply exist.",
+      "controllers": ["nvidia", "amd"],
+      "relief_levers": ["better TIM", "liquid cooling headroom", "lower TDP designs"]
+    },
+    {
+      "id": "lithography-equip",
+      "label": "Critical Lithography Equipment",
+      "category": "manufacturing",
+      "what": "Leading-edge lithography tools required for advanced nodes and related flows.",
+      "why_matters": "Long-lead capital equipment can constrain upstream wafer starts.",
+      "controllers": ["asml"],
+      "relief_levers": ["tool deliveries", "process efficiency", "node stay"]
+    }
+  ]
+}
