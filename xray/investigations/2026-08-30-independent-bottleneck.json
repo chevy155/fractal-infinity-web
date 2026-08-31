@@ -1,0 +1,127 @@
+{
+  "investigation_id": "ai-accelerator-bottleneck-independent-2026-08-30",
+  "status": "RAW_INTELLIGENCE",
+  "disclaimer": "Independent investigation. Not auto-ingested into X-Ray scoring. Observed vs inferred labeled per claim.",
+  "findings": [
+    {
+      "id": "F01",
+      "statement": "Primary near-term binding constraint on leading NVIDIA-class AI accelerator shipments is advanced packaging allocation (CoWoS-class), not front-end logic wafer starts.",
+      "node": "advanced_packaging_allocation",
+      "horizon": "CURRENT_2026_2027",
+      "claim_type": "INFERENCE",
+      "confidence": 0.78,
+      "why_matters": "Lead times for packaging reported far longer than logic fab; industry analysis consistently places packaging as ceiling once HBM4 reaches multi-supplier volume.",
+      "sources": [
+        {"title": "TSMC 3Q25 Earnings Call Transcript", "url": "https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2025-10/6860312f04fd291d0f26b46c1234f84e6332717e/TSMC%203Q25%20Transcript.pdf", "date": "2025-10-16", "class": "primary", "excerpt": "CEO: AI-related frontend and backend capacity very tight; working to narrow CoWoS demand-supply gap into 2026."},
+        {"title": "HBM4 volume shipping; CoWoS lead times stretch past 12 months", "url": "https://siliconanalysts.com/newsletter/qual-watch/2026-08-25", "date": "2026-08-25", "class": "secondary", "excerpt": "All three major HBM vendors in volume HBM4 for NVIDIA; qualification bottleneck shifted to packaging; CoWoS lead times >12 months."}
+      ]
+    },
+    {
+      "id": "F02",
+      "statement": "HBM4 is no longer a single-supplier monopoly constraint: SK hynix, Micron (and Samsung) report volume/HVP paths in 2026, but qualified stack yield and allocation still matter.",
+      "node": "hbm4_qualified_supply",
+      "horizon": "CURRENT_2026_2027",
+      "claim_type": "FACT",
+      "confidence": 0.85,
+      "why_matters": "Overturns simplistic 'HBM4 is THE bottleneck' if packaging is scarcer than qualified stacks; keeps HBM as co-constraint via yield/qualification.",
+      "sources": [
+        {"title": "Micron HBM4 HVP for Vera Rubin", "url": "https://investors.micron.com/news/press-release/2026/Micron-in-High-Volume-Production-of-HBM4-Designed-for-NVIDIA-Vera-Rubin-PCIe-Gen6-SSD-and-SOCAMM2-03-16-2026/default.aspx", "date": "2026-03-16", "class": "primary"},
+        {"title": "SK hynix FY25 results", "url": "https://www.prnewswire.com/news-releases/sk-hynix-announces-fy25-financial-results-posts-record-high-results-and-delivers-highest-shareholder-returns-302672384.html", "date": "2026-01-28", "class": "primary"},
+        {"title": "HBM4 capacity bottleneck analysis", "url": "https://siliconanalysts.com/analysis/hbm4-capacity-bottleneck-2026-samsung-sk-hynix-qual", "date": "2026-08-01", "class": "secondary", "excerpt": "Binding constraint framed as qualified shippable HBM / stacking yield, not raw wafer announcements."}
+      ]
+    },
+    {
+      "id": "F03",
+      "statement": "Under CoWoS, the commercially meaningful deeper control layers are (a) large ABF package substrates + ABF film concentration and (b) installable bonding/assembly tool throughput — not only 'silicon interposer' as a standalone named node.",
+      "node": "abf_substrate_and_bonding_tools",
+      "horizon": "CURRENT_TO_TRANSITION",
+      "claim_type": "INFERENCE",
+      "confidence": 0.70,
+      "why_matters": "Fractal's 'advanced interposer' node may be mislabeled; organic ABF substrate / film may have more leverage and slower relief than interposer silicon.",
+      "sources": [
+        {"title": "Ajinomoto Fine-Techno Gifu plant site for ABF", "url": "https://www.ajinomoto.co.jp/company/en/ir/news/news-20260507_2/main/00/link/20260507_2_E.pdf", "date": "2026-05-07", "class": "primary", "excerpt": "Construction 2028; operations 2032 — third ABF base after Kawasaki/Gunma."},
+        {"title": "Ajinomoto Electronic Materials growth strategy", "url": "https://www.ajinomoto.co.jp/company/en/ir/event/business_briefing/main/011117/teaserItems1/01/linkList/03/link/20260630_presentation_E.pdf", "date": "2026-06-30", "class": "primary", "excerpt": "Gunma new plant entered operation 2025; staged capacity through 2030; Gifu for post-2030."},
+        {"title": "Besi Q1 2026 earnings call (hybrid bonding capacity)", "url": "https://stockanalysis.com/quote/ams/BESI/transcripts/403246-q1-2026/", "date": "2026-04-23", "class": "primary", "excerpt": "Hybrid bonder capacity expanded ~180→250 systems/year; ~6-month lead time; HBM needs far more bonders than logic (stack ratio)."}
+      ]
+    },
+    {
+      "id": "F04",
+      "statement": "Hybrid bonding equipment (esp. Besi) is a structural rate-limiter for NEXT-GEN HBM stacking densification and SoIC/CPO paths, but is NOT the primary reason today's CoWoS lines are sold out (current CoWoS still heavily microbump/TCB oriented).",
+      "node": "hybrid_bonding_equipment",
+      "horizon": "TRANSITION_2028_2030",
+      "claim_type": "INFERENCE",
+      "confidence": 0.72,
+      "why_matters": "Don't confuse current packaging bottleneck with future hybrid-bonding wall; Samsung large hybrid line install late 2026 targeting ~2029–2030 HVM.",
+      "sources": [
+        {"title": "Besi Q1 2026 transcript", "url": "https://stockanalysis.com/quote/ams/BESI/transcripts/403246-q1-2026/", "date": "2026-04-23", "class": "primary"},
+        {"title": "Samsung hybrid bonding line / 2029–2030 HVM", "url": "https://www.trendforce.com/news/2026/07/22/news-samsung-reportedly-builds-hybrid-bonding-mass-production-line-full-scale-deployment-seen-in-2029-2030/", "date": "2026-07-22", "class": "secondary"}
+      ]
+    },
+    {
+      "id": "F05",
+      "statement": "Substitution exists technically (Intel EMIB-T, ASE FoCoS, Samsung I-Cube) but is NOT commercially equivalent for current NVIDIA flagship GPUs; useful mainly for ASIC spillover and 2027+ redesigns.",
+      "node": "packaging_substitution",
+      "horizon": "TRANSITION_2028_2030",
+      "claim_type": "INFERENCE",
+      "confidence": 0.68,
+      "why_matters": "Supplier concentration at TSMC is overstated if counting all AI silicon, understated if counting NVIDIA GPU packages.",
+      "sources": [
+        {"title": "Intel EMIB-T spillover amid CoWoS crunch", "url": "https://www.trendforce.com/news/2026/08/19/news-intel-emib-t-push-gains-momentum-as-tsmc-cowos-crunch-drives-spillover-unimicron-ase-stand-to-benefit/", "date": "2026-08-19", "class": "secondary"},
+        {"title": "Advanced packaging alternatives late 2026", "url": "https://supplyics.com/insights/supply-chain/advanced-packaging-alternatives-cowos-intel-emib-samsung-2026/", "date": "2026-08-01", "class": "secondary"}
+      ]
+    },
+    {
+      "id": "F06",
+      "statement": "Ajinomoto ABF film capacity expansions are staged through 2030 with a third plant only operating ~2032; AI packages use more area and layers per unit, raising film intensity even if CoWoS tool counts rise.",
+      "node": "abf_film",
+      "horizon": "STRUCTURAL_2030_PLUS",
+      "claim_type": "COMPANY_CLAIM",
+      "confidence": 0.80,
+      "why_matters": "Hidden missing Fractal node: ABF film / large organic substrate — small materials market, large downstream leverage; relief lag exceeds CoWoS fab announcements.",
+      "sources": [
+        {"title": "Ajinomoto Gifu ABF plant announcement", "url": "https://www.ajinomoto.co.jp/company/en/ir/news/news-20260507_2/main/00/link/20260507_2_E.pdf", "date": "2026-05-07", "class": "primary"},
+        {"title": "Ajinomoto electronic materials briefing PDF", "url": "https://www.ajinomoto.co.jp/company/en/ir/event/business_briefing/main/011117/teaserItems1/01/linkList/03/link/20260630_presentation_E.pdf", "date": "2026-06-30", "class": "primary"}
+      ]
+    },
+    {
+      "id": "F07",
+      "statement": "Contradiction: HBM remains tight on bits/pricing (2027 talks/pricing power) WHILE packaging lead times may still dominate system ship dates for GPU platforms — both can be true because they bind different parts of the chain.",
+      "node": "dual_constraint",
+      "horizon": "CURRENT_2026_2027",
+      "claim_type": "INFERENCE",
+      "confidence": 0.74,
+      "why_matters": "X-Ray should allow co-binding constraints, not force a single winner.",
+      "sources": [
+        {"title": "TrendForce HBM Market Bulletin Aug 2026", "url": "https://www.trendforce.com/research/download/RP260817WP3", "date": "2026-08-17", "class": "secondary"},
+        {"title": "Silicon Analysts Qual Watch 2026-08-25", "url": "https://siliconanalysts.com/newsletter/qual-watch/2026-08-25", "date": "2026-08-25", "class": "secondary"}
+      ]
+    },
+    {
+      "id": "F08",
+      "statement": "CPO/silicon photonics is a real 2026–2027 networking scale path (NVIDIA Spectrum-X / Quantum-X) but is NOT a current GPU package production bottleneck.",
+      "node": "cpo_integration",
+      "horizon": "TRANSITION_2028_2030",
+      "claim_type": "COMPANY_CLAIM",
+      "confidence": 0.82,
+      "why_matters": "Keeps CPO in model as next-wave interconnect constraint, not current accelerator ship limiter.",
+      "sources": [
+        {"title": "NVIDIA Spectrum-X Photonics CPO announcement", "url": "https://nvidianews.nvidia.com/news/nvidia-spectrum-x-co-packaged-optics-networking-switches-ai-factories", "date": "2025-03-18", "class": "primary"}
+      ]
+    }
+  ],
+  "proposed_cascade": [
+    {"rank": 1, "id": "cowos_class_packaging_slots", "label": "CoWoS-class packaging slot allocation (TSMC-centric for NVIDIA GPUs)", "horizon": "2026–2027"},
+    {"rank": 2, "id": "abf_large_substrate", "label": "Large ABF package substrate + ABF film intensity", "horizon": "co-binds now; may lead after CoWoS expands"},
+    {"rank": 3, "id": "hbm_qualified_stacks", "label": "Qualified HBM3E/HBM4 stacks (yield + customer qual, not announcement capacity)", "horizon": "co-binds; can re-lead if packaging eases"},
+    {"rank": 4, "id": "hybrid_bonding_hbm_soic", "label": "Hybrid bonding tool/process for taller HBM / SoIC densification", "horizon": "2028–2030"},
+    {"rank": 5, "id": "cpo_optical_engine", "label": "CPO optical engine / laser / photonics for fabric scale", "horizon": "2027–2030 networking; later package I/O"}
+  ],
+  "missing_from_fractal_model": [
+    "ABF film (Ajinomoto-class)",
+    "Large ABF organic substrate makers (Ibiden/Unimicron/Nan Ya class) as distinct from silicon interposer",
+    "Qualified vs announced HBM capacity split",
+    "NVIDIA-locked vs ASIC-substitutable packaging paths",
+    "CoWoS-L vs CoWoS-S process differentiation",
+    "Panel-level / CoPoS as relief path with its own yield/warpage risks"
+  ]
+}

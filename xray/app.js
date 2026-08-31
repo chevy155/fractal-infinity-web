@@ -121,18 +121,16 @@ function renderCascade(cascade, nodes) {
 }
 
 async function main() {
-  const base = new URL("./", import.meta.url);
-  // app lives in /xray/ so data paths are relative to this module when imported from HTML at /tools/
-  // Load via absolute-from-site paths:
-  const root = "../xray/";
+  const dataBase = new URL("./investigations/ai-accelerator/", import.meta.url);
+  const configBase = new URL("./config/", import.meta.url);
   const [scenario, entitiesFile, nodesFile, relFile, constraints, evidence, weights] = await Promise.all([
-    loadJson(root + "data/scenario.json"),
-    loadJson(root + "data/entities.json"),
-    loadJson(root + "data/nodes.json"),
-    loadJson(root + "data/relationships.json"),
-    loadJson(root + "data/constraints.json"),
-    loadJson(root + "data/evidence.json"),
-    loadJson(root + "config/weights.json")
+    loadJson(new URL("scenario.json", dataBase).href),
+    loadJson(new URL("entities.json", dataBase).href),
+    loadJson(new URL("nodes.json", dataBase).href),
+    loadJson(new URL("relationships.json", dataBase).href),
+    loadJson(new URL("constraints.json", dataBase).href),
+    loadJson(new URL("evidence.json", dataBase).href),
+    loadJson(new URL("weights.json", configBase).href)
   ]);
 
   const entities = entitiesFile.entities;
@@ -143,7 +141,7 @@ async function main() {
   const cascade = runCascade(constraints.observations, weights);
 
   $("xr-title").textContent = scenario.title;
-  $("xr-scenario").textContent = `Scaling target: ${scenario.scaling_target}`;
+  $("xr-scenario").textContent = `Scenario: ${scenario.scaling_target}`;
   $("xr-disclaimer").textContent = scenario.disclaimer;
 
   let selected = ranked[0]?.node_id;
@@ -159,7 +157,6 @@ async function main() {
   renderCascade(cascade, nodes);
   renderDetail(selected, ctx);
 
-  // expose for console / tests
   window.__xray = { ranked, cascade, weights, scenario };
 }
 

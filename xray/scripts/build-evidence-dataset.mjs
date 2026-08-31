@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const out = (rel, obj) =>
-  writeFileSync(join(root, rel), JSON.stringify(obj, null, 2) + "\n");
+  writeFileSync(join(root, "investigations/ai-accelerator", rel), JSON.stringify(obj, null, 2) + "\n");
 
 const TODAY = "2026-08-30";
 
@@ -107,9 +107,9 @@ function obs(node_id, fields) {
   return o;
 }
 
-out("data/scenario.json", {
+out("scenario.json", {
   scenario_id: "ng-ai-accelerator-5x",
-  title: "Next-Generation AI Accelerator X-Ray",
+  title: "AI Accelerator Scaling X-Ray",
   system: "AI Accelerator",
   scaling_target: "5× production / capability growth",
   status: "EVIDENCE_BACKED_v1",
@@ -123,7 +123,7 @@ out("data/scenario.json", {
   ]
 });
 
-out("data/entities.json", {
+out("entities.json", {
   status: "EVIDENCE_BACKED",
   entities: [
     { id: "nvidia", type: "company", name: "NVIDIA" },
@@ -161,13 +161,13 @@ const nodes = [
   { id: "advanced-test", label: "Advanced Test Equipment", category: "equipment", what: "ATE and burn-in systems for HBM stacks and AI packages.", why_matters: "Long test times on expensive packages create a silent capacity wall.", controllers: ["tsmc"], relief_levers: ["ATE expansion", "DFT"], falsify: "Test equipment utilization low while front-end constraints dominate." }
 ];
 
-out("data/nodes.json", {
+out("nodes.json", {
   status: "EVIDENCE_BACKED",
   node_count: nodes.length,
   nodes: nodes.map((n) => ({ ...n, data_class: "STRUCTURED", status: "EVIDENCE_BACKED" }))
 });
 
-out("data/relationships.json", {
+out("relationships.json", {
   status: "EVIDENCE_BACKED",
   relationships: [
     { from: "ai-accelerator", relationship: "depends_on", to: "hbm3e" },
@@ -475,7 +475,7 @@ const observations = [
   })
 ];
 
-out("data/constraints.json", {
+out("constraints.json", {
   status: "EVIDENCE_BACKED",
   disclaimer: "MODELED values are transparent engineering judgments mapped from OBSERVED claims. Not scientifically calibrated.",
   observations
@@ -514,7 +514,7 @@ const claims = [
   claim("c030", "hbm3e", "SK hynix: only industry player (self-claim) capable of stably supplying both HBM3E and HBM4 simultaneously.", "skh_fy25", "COMPANY_CLAIM", 0.80)
 ];
 
-out("data/evidence.json", {
+out("evidence.json", {
   status: "EVIDENCE_BACKED",
   disclaimer: "OBSERVED claims only. No fabricated citations. Secondary/aged sources labeled.",
   source_inventory: Object.entries(sources).map(([id, s]) => ({ id, ...s })),

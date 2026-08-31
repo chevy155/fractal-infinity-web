@@ -4,8 +4,9 @@
 (function () {
   const path = (location.pathname || "").replace(/\\/g, "/");
   const file = path.split("/").pop() || "";
+  const inNestedTool = /\/tools\/[^/]+\//.test(path);
   const inSub = /\/(labs|tools|intelligence)\//.test(path);
-  const root = inSub ? ".." : ".";
+  const root = inNestedTool ? "../.." : inSub ? ".." : ".";
 
   const items = [
     { group: "Labs", links: [

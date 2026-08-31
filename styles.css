@@ -1839,6 +1839,36 @@ a.report-card:hover {
 .xr-cascade em { font-style: normal; font-family: var(--mono); color: #76ff03; }
 .xr-rationale { margin-top: 4px; font-size: 12px; color: var(--ivory-faint); line-height: 1.45; font-weight: 400; }
 .xr-src-date { font-family: var(--mono); font-size: 10px; color: var(--ivory-faint); }
+
+/* X-Ray product landing */
+.xr-landing { max-width: 720px !important; }
+.xr-invest-section { margin: 36px 0 48px; }
+.xr-invest-section .fi-h2 { margin-bottom: 16px; }
+.xr-invest-live {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 18px 20px; margin-bottom: 10px; text-decoration: none;
+  border: 1px solid rgba(118,255,3,0.35); border-radius: 10px;
+  background: rgba(118,255,3,0.06); color: var(--ivory);
+  transition: border-color 0.2s, background 0.2s;
+}
+.xr-invest-live:hover { border-color: #76ff03; background: rgba(118,255,3,0.1); text-decoration: none; }
+.xr-invest-meta { display: grid; gap: 4px; }
+.xr-invest-meta strong { font-size: 17px; color: #76ff03; }
+.xr-invest-meta span { font-size: 13.5px; color: var(--ivory-dim); }
+.xr-invest-status { font-family: var(--mono); font-size: 11px !important; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ivory-faint) !important; }
+.xr-invest-open { font-family: var(--mono); font-size: 12px; color: #76ff03; flex-shrink: 0; }
+.xr-invest-soon {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+  padding: 14px 20px; margin-bottom: 8px;
+  border: 1px solid rgba(243,240,228,0.1); border-radius: 10px; color: var(--ivory-faint);
+}
+.xr-invest-soon strong { font-size: 15px; font-weight: 600; color: var(--ivory-dim); }
+.xr-invest-soon span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+.xr-instance-nav { margin: 0 0 12px; }
+.xr-instance-nav a { font-family: var(--mono); font-size: 12px; color: var(--ivory-faint); text-decoration: none; }
+.xr-instance-nav a:hover { color: #76ff03; }
+.fi-shell-mode .xr-landing.fi-product { max-width: 720px !important; }
+
 .fi-shell-mode .xr-workspace.fi-product,
 .fi-shell-mode main.xr-workspace { max-width: 960px !important; }
 

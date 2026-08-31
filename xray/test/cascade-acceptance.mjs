@@ -12,8 +12,8 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const load = (p) => JSON.parse(readFileSync(join(root, p), "utf8"));
 
 const weights = load("config/weights.json");
-const { observations } = load("data/constraints.json");
-const { nodes } = load("data/nodes.json");
+const { observations } = load("investigations/ai-accelerator/constraints.json");
+const { nodes } = load("investigations/ai-accelerator/nodes.json");
 const label = (id) => nodes.find((n) => n.id === id)?.label || id;
 
 const ranked = rankConstraints(observations, weights);

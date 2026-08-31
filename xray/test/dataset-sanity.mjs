@@ -33,10 +33,11 @@ for (const p of Object.keys(FROZEN)) {
   console.log("HASH", p, FROZEN[p]);
 }
 
+const dataRel = "investigations/ai-accelerator";
 const weights = load("config/weights.json");
-const constraints = load("data/constraints.json");
-const nodes = load("data/nodes.json");
-const evidence = load("data/evidence.json");
+const constraints = load(`${dataRel}/constraints.json`);
+const nodes = load(`${dataRel}/nodes.json`);
+const evidence = load(`${dataRel}/evidence.json`);
 const MODEL_FIELDS = [
   "demand_pressure",
   "capacity_pressure",
