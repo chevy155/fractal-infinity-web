@@ -1,112 +1,350 @@
 {
-  "status": "MODEL_SEED",
+  "status": "EVIDENCE_BACKED",
+  "node_count": 19,
   "nodes": [
     {
-      "id": "ai-accelerator",
-      "label": "AI Accelerator",
-      "category": "system",
-      "role": "root",
-      "what": "Target system under X-Ray: next-gen GPU/ASIC accelerator package.",
-      "why_matters": "Economic question unit — scaling this system exposes binding physical constraints."
-    },
-    {
-      "id": "compute-die",
-      "label": "Compute Die / ASIC / GPU",
-      "category": "compute",
-      "what": "Logic silicon that performs matrix/tensor compute.",
-      "why_matters": "Defines demand for HBM, packaging, interconnect, and thermal envelope.",
-      "controllers": ["nvidia", "amd", "google"],
-      "relief_levers": ["node shrink", "chiplet partitioning", "lower utilization targets"]
-    },
-    {
-      "id": "chiplets",
-      "label": "Chiplets",
-      "category": "compute",
-      "what": "Disaggregated die modules assembled into one package.",
-      "why_matters": "Shifts pressure onto interconnect, bonding, and advanced packaging yield.",
-      "controllers": ["nvidia", "amd", "tsmc"],
-      "relief_levers": ["mature die-to-die standards", "higher bonding yield"]
-    },
-    {
-      "id": "hbm",
-      "label": "HBM Capacity",
+      "id": "hbm3e",
+      "label": "HBM3E",
       "category": "memory",
-      "what": "High-bandwidth stacked DRAM attached near the compute die.",
-      "why_matters": "Often binding for accelerator bandwidth and memory capacity scaling.",
-      "controllers": ["sk-hynix", "micron", "samsung"],
-      "relief_levers": ["new stack capacity", "second-source qualification", "lower bits/accelerator"]
+      "what": "Fifth-generation high-bandwidth memory stacks used on current AI accelerators.",
+      "why_matters": "Still the volume workhorse while HBM4 ramps; shortage here immediately caps GPU/ASIC shipments.",
+      "controllers": [
+        "sk-hynix",
+        "micron",
+        "samsung"
+      ],
+      "relief_levers": [
+        "M15X / fab expansions",
+        "second-source qualification",
+        "lower stack count per GPU"
+      ],
+      "falsify": "Sustained HBM3E oversupply with short lead times across all three suppliers.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "hbm4",
+      "label": "HBM4",
+      "category": "memory",
+      "what": "Sixth-generation HBM with wider interface and higher bandwidth per stack.",
+      "why_matters": "Required for next-gen accelerators (e.g. Vera Rubin class); ramp timing gates platform launches.",
+      "controllers": [
+        "sk-hynix",
+        "micron",
+        "samsung"
+      ],
+      "relief_levers": [
+        "volume yield maturity",
+        "additional HBM fabs",
+        "custom HBM variants"
+      ],
+      "falsify": "Multiple suppliers shipping qualified HBM4 ahead of demand with spare capacity.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
     },
     {
       "id": "hbm-base-die",
-      "label": "HBM Base Die / Interface",
+      "label": "HBM Base Die",
       "category": "memory",
-      "what": "Logic/base die and memory interface attaching HBM stacks.",
-      "why_matters": "Can limit stack height, bandwidth, and package integration even when DRAM wafer supply exists.",
-      "controllers": ["sk-hynix", "micron", "samsung"],
-      "relief_levers": ["base-die process maturity", "interface standardization"]
+      "what": "Logic/base die under the DRAM stack providing the HBM host interface.",
+      "why_matters": "Can limit stack bandwidth, height, and package integration even when DRAM wafers exist.",
+      "controllers": [
+        "sk-hynix",
+        "micron",
+        "samsung",
+        "tsmc"
+      ],
+      "relief_levers": [
+        "base-die process maturity",
+        "foundry base-die partnerships"
+      ],
+      "falsify": "Base-die capacity and yields cease to constrain stack shipments.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
     },
     {
-      "id": "advanced-packaging",
-      "label": "Advanced Packaging",
+      "id": "hbm-stacking",
+      "label": "HBM Stacking / Bonding",
+      "category": "memory",
+      "what": "TSV / hybrid bonding assembly of DRAM dies into HBM cubes.",
+      "why_matters": "Stack height and yield determine bits per package footprint.",
+      "controllers": [
+        "sk-hynix",
+        "micron",
+        "samsung"
+      ],
+      "relief_levers": [
+        "bonding yield",
+        "taller-stack qualification"
+      ],
+      "falsify": "16-high+ stacks shipping at mature yields with no assembly bottleneck.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "hbm-test",
+      "label": "HBM Test",
+      "category": "memory",
+      "what": "Known-good-stack test and burn-in for HBM cubes before package attach.",
+      "why_matters": "Test throughput and coverage gate shippable supply and field reliability.",
+      "controllers": [
+        "sk-hynix",
+        "micron",
+        "samsung"
+      ],
+      "relief_levers": [
+        "test parallelism",
+        "DFT improvements"
+      ],
+      "falsify": "Test capacity unused while stacks wait on other constraints.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "cowos",
+      "label": "CoWoS",
       "category": "packaging",
-      "what": "CoWoS-class / equivalent 2.5D/3D packaging capacity.",
-      "why_matters": "Joins compute + HBM + substrates; scarce capacity can dominate ramp.",
-      "controllers": ["tsmc"],
-      "relief_levers": ["capacity expansion", "alternate packaging platforms", "design for less package area"]
+      "what": "TSMC CoWoS-class 2.5D advanced packaging attaching logic + HBM on interposer.",
+      "why_matters": "De facto AI accelerator package path; capacity gap has been repeatedly called out by TSMC management.",
+      "controllers": [
+        "tsmc"
+      ],
+      "relief_levers": [
+        "AP fab expansions",
+        "OSAT spillover for non-leading packages",
+        "package-area reduction"
+      ],
+      "falsify": "TSMC states CoWoS supply meets demand with spare allocation and short lead times.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
     },
     {
-      "id": "substrate-interposer",
-      "label": "Substrate / Interposer",
+      "id": "advanced-interposer",
+      "label": "Advanced Interposer",
       "category": "packaging",
-      "what": "Silicon/organic interposers and substrates carrying dense interconnect.",
-      "why_matters": "Physical carrier for die attach; yield and supply can bind after packaging slots open.",
-      "controllers": ["tsmc"],
-      "relief_levers": ["substrate capacity", "design shrink", "alternate interposer tech"]
+      "what": "Silicon / RDL interposer carrying dense die-to-die and HBM interconnect.",
+      "why_matters": "Physical carrier for CoWoS-class packages; yield and size limit multi-HBM designs.",
+      "controllers": [
+        "tsmc"
+      ],
+      "relief_levers": [
+        "interposer capacity",
+        "alternative RDL / bridge approaches"
+      ],
+      "falsify": "Interposer supply no longer limits CoWoS starts.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
     },
     {
-      "id": "bonding-test",
-      "label": "Bonding / Test / Metrology",
-      "category": "manufacturing",
-      "what": "Hybrid bonding, inspection, metrology, and package test steps.",
-      "why_matters": "Yield and throughput gates for stacked and multi-die packages.",
-      "controllers": ["tsmc", "asml"],
-      "relief_levers": ["tooling capacity", "higher yield recipes", "test parallelism"]
+      "id": "package-substrate",
+      "label": "Package Substrate",
+      "category": "packaging",
+      "what": "Organic / advanced substrates under the package for board-level interconnect.",
+      "why_matters": "Large AI packages stress substrate supply and layer counts.",
+      "controllers": [
+        "tsmc"
+      ],
+      "relief_levers": [
+        "substrate capacity expansion",
+        "design shrink"
+      ],
+      "falsify": "Substrate lead times normalize while packaging slots remain idle.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
     },
     {
-      "id": "electrical-io",
-      "label": "High-Speed Electrical I/O",
+      "id": "hybrid-bonding",
+      "label": "Hybrid Bonding",
+      "category": "packaging",
+      "what": "Cu-Cu / dielectric hybrid bonding used in SoIC and dense 3D stacking.",
+      "why_matters": "Enables tighter pitches than microbumps; critical for SoIC and taller stacks.",
+      "controllers": [
+        "tsmc"
+      ],
+      "relief_levers": [
+        "SoIC capacity ramp",
+        "pitch maturity"
+      ],
+      "falsify": "Hybrid-bonded capacity abundant relative to AI demand.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "packaging-yield",
+      "label": "Advanced Packaging Yield",
+      "category": "packaging",
+      "what": "End-to-end yield of multi-die AI packages (interposer + HBM + logic).",
+      "why_matters": "Yield multiplies effective capacity; poor yield turns wafer starts into scrap.",
+      "controllers": [
+        "tsmc"
+      ],
+      "relief_levers": [
+        "process learning",
+        "KGD improvements"
+      ],
+      "falsify": "Package yields mature enough that capacity is limited only by tool counts.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "package-test",
+      "label": "Package Test",
+      "category": "packaging",
+      "what": "Final / system-level test of assembled AI accelerator packages.",
+      "why_matters": "Complex multi-die packages require long test times; can throttle shipments.",
+      "controllers": [
+        "tsmc"
+      ],
+      "relief_levers": [
+        "ATE capacity",
+        "parallel test"
+      ],
+      "falsify": "Package test queues empty while earlier steps constrain.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "electrical-serdes",
+      "label": "Electrical SerDes",
       "category": "interconnect",
-      "what": "SerDes / electrical package and board interconnect.",
-      "why_matters": "Bandwidth and reach limits force architectural tradeoffs before optics.",
-      "controllers": ["nvidia", "amd"],
-      "relief_levers": ["SerDes generation jump", "shorter reach topologies", "move traffic to optics"]
+      "what": "High-speed electrical SerDes for package and board reach.",
+      "why_matters": "Current scale-up path before optics; power/reach limits push toward CPO.",
+      "controllers": [
+        "nvidia",
+        "amd"
+      ],
+      "relief_levers": [
+        "SerDes generation",
+        "shorter topologies",
+        "move traffic to optics"
+      ],
+      "falsify": "Electrical I/O meets bandwidth/power targets without optical transition.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
     },
     {
-      "id": "optical-io",
-      "label": "Optical I/O / CPO",
+      "id": "silicon-photonics",
+      "label": "Silicon Photonics",
       "category": "interconnect",
-      "what": "Silicon photonics and co-packaged optics for package/rack bandwidth.",
-      "why_matters": "Candidate next wall after electrical I/O and package density improve.",
-      "controllers": ["nvidia", "tsmc"],
-      "relief_levers": ["CPO maturity", "foundry photonics capacity", "lower-loss packaging"]
+      "what": "Silicon photonic circuits integrating optical I/O with electronics.",
+      "why_matters": "Foundation for CPO switches and future package optical I/O.",
+      "controllers": [
+        "nvidia",
+        "tsmc"
+      ],
+      "relief_levers": [
+        "foundry photonics capacity",
+        "process maturity"
+      ],
+      "falsify": "Photonic capacity and yields exceed CPO demand.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
     },
     {
-      "id": "thermal",
-      "label": "Thermal Density",
-      "category": "thermal",
-      "what": "Package and cold-plate thermal limits including TIM interfaces.",
-      "why_matters": "Power density can bind even when silicon and memory supply exist.",
-      "controllers": ["nvidia", "amd"],
-      "relief_levers": ["better TIM", "liquid cooling headroom", "lower TDP designs"]
+      "id": "optical-engine",
+      "label": "Optical Engine",
+      "category": "interconnect",
+      "what": "Integrated optical engine modules co-packaged with switch/accelerator ASICs.",
+      "why_matters": "Engine assembly/yield sits between photonics dies and usable CPO systems.",
+      "controllers": [
+        "nvidia",
+        "tsmc"
+      ],
+      "relief_levers": [
+        "engine yield",
+        "ecosystem suppliers"
+      ],
+      "falsify": "Optical engines commoditized with multiple qualified sources.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
     },
     {
-      "id": "lithography-equip",
-      "label": "Critical Lithography Equipment",
-      "category": "manufacturing",
-      "what": "Leading-edge lithography tools required for advanced nodes and related flows.",
-      "why_matters": "Long-lead capital equipment can constrain upstream wafer starts.",
-      "controllers": ["asml"],
-      "relief_levers": ["tool deliveries", "process efficiency", "node stay"]
+      "id": "cpo-integration",
+      "label": "CPO Integration",
+      "category": "interconnect",
+      "what": "Co-packaged optics integration of optics onto switch/ASIC packages.",
+      "why_matters": "Required to scale AI fabrics beyond pluggable transceiver power/density limits.",
+      "controllers": [
+        "nvidia",
+        "tsmc"
+      ],
+      "relief_levers": [
+        "CPO HVM ramp",
+        "detachable fiber attach yield"
+      ],
+      "falsify": "CPO shipping at volume with yields matching pluggables and spare capacity.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "laser-source",
+      "label": "Laser Source",
+      "category": "interconnect",
+      "what": "Laser sources feeding silicon photonic engines (external or integrated).",
+      "why_matters": "Laser count, reliability, and supply can limit CPO economics and scale.",
+      "controllers": [
+        "coherent",
+        "lumentum"
+      ],
+      "relief_levers": [
+        "fewer lasers per system",
+        "multi-source lasers"
+      ],
+      "falsify": "Laser supply is abundant and not on CPO critical path.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "bonding-equipment",
+      "label": "Bonding Equipment",
+      "category": "equipment",
+      "what": "Hybrid / thermo-compression bonding tools for HBM and SoIC.",
+      "why_matters": "Tool lead times and install rates cap stacking and 3D packaging ramps.",
+      "controllers": [
+        "besi",
+        "applied-materials"
+      ],
+      "relief_levers": [
+        "tool deliveries",
+        "throughput recipes"
+      ],
+      "falsify": "Bonding tools idle while other constraints bind.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "inspection-metrology",
+      "label": "Inspection / Metrology",
+      "category": "equipment",
+      "what": "Inspection and metrology for bonding, interposers, and advanced packages.",
+      "why_matters": "Yield learning and outbound quality depend on metrology throughput.",
+      "controllers": [
+        "applied-materials"
+      ],
+      "relief_levers": [
+        "tool capacity",
+        "inline sampling strategies"
+      ],
+      "falsify": "Metrology no longer gates packaging starts.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "advanced-test",
+      "label": "Advanced Test Equipment",
+      "category": "equipment",
+      "what": "ATE and burn-in systems for HBM stacks and AI packages.",
+      "why_matters": "Long test times on expensive packages create a silent capacity wall.",
+      "controllers": [
+        "tsmc"
+      ],
+      "relief_levers": [
+        "ATE expansion",
+        "DFT"
+      ],
+      "falsify": "Test equipment utilization low while front-end constraints dominate.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
     }
   ]
 }

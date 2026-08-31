@@ -17,9 +17,24 @@ function dependents(rels, nodeId) {
   return rels.filter((r) => r.to === nodeId).map((r) => r.from);
 }
 
-function driversHtml(drivers) {
+function driversHtml(drivers, obs) {
   return drivers
-    .map((d) => `<li><code>${d.key}</code> = ${typeof d.value === "number" ? d.value.toFixed(3) : d.value}</li>`)
+    .map((d) => {
+      const rationale = obs?.[`${d.key}_rationale`] || (d.key === "scarcity" ? null : obs?.[`${d.key}_rationale`]);
+      const scarR =
+        d.key === "scarcity"
+          ? [
+              obs?.capacity_pressure_rationale && `capacity_pressure: ${obs.capacity_pressure_rationale}`,
+              obs?.supplier_concentration_rationale && `supplier_concentration: ${obs.supplier_concentration_rationale}`,
+              obs?.lead_time_pressure_rationale && `lead_time_pressure: ${obs.lead_time_pressure_rationale}`
+            ]
+              .filter(Boolean)
+              .join(" ")
+          : null;
+      const note = d.key === "scarcity" ? scarR : rationale;
+      const val = typeof d.value === "number" ? d.value.toFixed(3) : d.value;
+      return `<li><code>${d.key}</code> = ${val}${note ? `<div class="xr-rationale">${note}</div>` : ""}</li>`;
+    })
     .join("");
 }
 
@@ -60,15 +75,23 @@ function renderDetail(nodeId, ctx) {
       <dt>Why it matters</dt><dd>${node?.why_matters || "—"}</dd>
       <dt>Who controls it</dt><dd>${controllers}</dd>
       <dt>Who / what depends on it</dt><dd>${depLabels}</dd>
-      <dt>Substitution difficulty</dt><dd>${obs?.substitution_difficulty ?? "—"}</dd>
+      <dt>Substitution difficulty</dt><dd>${obs?.substitution_difficulty ?? "—"}<div class="xr-rationale">${obs?.substitution_difficulty_rationale || ""}</div></dd>
       <dt>What could relieve it</dt><dd>${(node?.relief_levers || []).join("; ") || "—"}</dd>
+      <dt>What would falsify this bottleneck</dt><dd>${node?.falsify || "—"}</dd>
     </dl>
     <h4>Severity drivers</h4>
-    <ul class="reason-list">${driversHtml(score?.drivers || [])}</ul>
+    <ul class="reason-list">${driversHtml(score?.drivers || [], obs)}</ul>
     <h4>Supporting evidence</h4>
     <ul class="reason-list">${
       evidence.length
-        ? evidence.map((c) => `<li><span class="xr-claim-type">${c.claim_type}</span> [${c.data_class}] ${c.statement}${c.source_url ? ` — <a href="${c.source_url}">source</a>` : " — no source yet"}</li>`).join("")
+        ? evidence
+            .map((c) => {
+              const src = c.source_url
+                ? ` — <a href="${c.source_url}" target="_blank" rel="noopener">${c.source_title || "source"}</a> <span class="xr-src-date">(${c.source_date || "?"}, ${c.source_class || "?"})</span>`
+                : " — no source";
+              return `<li><span class="xr-claim-type">${c.claim_type}</span> [${c.data_class}] ${c.statement}${src}</li>`;
+            })
+            .join("")
         : "<li>No claims attached yet.</li>"
     }</ul>
   `;
@@ -81,7 +104,7 @@ function renderDetail(nodeId, ctx) {
     <p class="level-badge">${nodes.find((n) => n.id === current.bottleneck_id)?.label} · ${current.score}</p>
     <p class="xr-status-line">${curNode?.status || current.status || ""}</p>
     <p class="muted-note">Severity drivers (confidence not included):</p>
-    <ul class="reason-list">${driversHtml(current.drivers)}</ul>
+    <ul class="reason-list">${driversHtml(current.drivers, curNode?.observation)}</ul>
     <p class="xr-next-label">If this bottleneck is relieved →</p>
     <p class="level-badge xr-next">${nodes.find((n) => n.id === stage2?.bottleneck_id)?.label || "—"} · ${stage2?.score ?? "—"}</p>
     <p class="muted-note">${cascade.disclaimer}</p>

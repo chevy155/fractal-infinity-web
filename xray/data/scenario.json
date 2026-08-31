@@ -3,17 +3,12 @@
   "title": "Next-Generation AI Accelerator X-Ray",
   "system": "AI Accelerator",
   "scaling_target": "5× production / capability growth",
+  "status": "EVIDENCE_BACKED_v1",
+  "disclaimer": "Constraint scores are CALCULATED from MODELED judgments grounded in OBSERVED claims. Values are inspectable engineering judgments, not calibrated science.",
   "boundary": [
-    "compute die",
-    "HBM",
+    "HBM / memory",
     "advanced packaging",
-    "substrates/interposers",
-    "chiplets",
-    "high-speed interconnect",
-    "silicon photonics/CPO",
-    "thermal",
-    "critical manufacturing equipment"
-  ],
-  "status": "MODEL_SEED",
-  "disclaimer": "Provisional seed for architecture validation. Values are modeled, not calibrated facts."
+    "CPO / silicon photonics",
+    "critical bonding / metrology / test equipment"
+  ]
 }
