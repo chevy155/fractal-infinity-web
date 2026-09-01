@@ -18,7 +18,7 @@
       { href: root + "/tools/bottleneck-xray.html", label: "Bottleneck & Supply Chain X-Ray", soon: false },
       { href: root + "/tools/crucible.html", label: "The Crucible — Decision Simulator", soon: false },
       { href: root + "/tools/thesis-risk-monitor.html", label: "Thesis & Risk Monitor", soon: true },
-      { href: root + "/tools/evidence-dependency-map.html", label: "Evidence & Dependency Map", soon: true }
+      { href: root + "/tools/evidence-dependency-map.html", label: "Evidence & Dependency Map", soon: false }
     ]},
     { group: "Intelligence", links: [
       { href: root + "/intelligence/research-reports.html", label: "Research Reports", soon: false },
