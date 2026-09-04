@@ -1982,7 +1982,15 @@ a.report-card:hover {
 .xr-src-date { font-family: var(--mono); font-size: 10px; color: var(--ivory-faint); }
 
 /* X-Ray product landing */
-.xr-landing { max-width: 720px !important; }
+.xr-landing { max-width: 1080px !important; }
+.xr-landing-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+  gap: 28px 36px;
+  align-items: start;
+  margin: 0 0 28px;
+}
+.xr-landing-copy .fi-lede { margin-bottom: 0; }
 .xr-lede-wide { max-width: 640px !important; }
 .xr-prose-block p,
 .xr-prose-block .xr-chain { font-size: 14.5px; line-height: 1.65; color: var(--ivory-dim); margin: 0 0 14px; }
@@ -2019,12 +2027,13 @@ a.report-card:hover {
 .xr-invest-section .fi-h2 { margin-bottom: 8px; }
 .xr-invest-intro { font-size: 14px; color: var(--ivory-dim); margin: 0 0 16px; line-height: 1.55; }
 .xr-group-select {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
-  margin: 0 0 14px;
+  display: grid; grid-template-columns: 1fr; gap: 10px;
+  margin: 4px 0 0;
 }
 .xr-group-tile {
-  appearance: none; cursor: pointer; text-align: left;
-  padding: 14px 14px 12px; border-radius: 10px;
+  appearance: none; cursor: pointer; text-align: left; text-decoration: none;
+  display: block;
+  padding: 16px 16px 14px; border-radius: 10px;
   color: #d4d7dc;
   background:
     linear-gradient(180deg, rgba(176, 182, 190, 0.22) 0%, rgba(58, 64, 72, 0.92) 42%, rgba(32, 36, 42, 0.98) 100%);
@@ -2039,6 +2048,8 @@ a.report-card:hover {
 .xr-group-tile:hover {
   filter: brightness(1.08);
   border-color: rgba(196, 204, 214, 0.7);
+  text-decoration: none;
+  color: #f3f0e4;
 }
 .xr-group-tile:focus-visible {
   outline: 2px solid rgba(118, 255, 3, 0.55);
@@ -2110,7 +2121,9 @@ a.report-card:hover {
 .xr-instance-nav { margin: 0 0 12px; }
 .xr-instance-nav a { font-family: var(--mono); font-size: 12px; color: var(--ivory-faint); text-decoration: none; }
 .xr-instance-nav a:hover { color: #76ff03; }
-.fi-shell-mode .xr-landing.fi-product { max-width: 720px !important; }
+.fi-shell-mode .xr-landing.fi-product,
+.fi-product-page main.wrap.fi-product.xr-landing,
+.fi-shell-mode main.fi-product.xr-landing { max-width: 1080px !important; }
 
 /* X-Ray methodology paper */
 .xr-method { max-width: 760px !important; }
@@ -2162,6 +2175,10 @@ a.report-card:hover {
 .xr-status-examples { list-style: none; padding-left: 0 !important; }
 .xr-status-examples li { padding: 8px 12px; margin-bottom: 6px; border-left: 2px solid rgba(118,255,3,0.3); background: rgba(118,255,3,0.03); }
 .xr-cascade-example { font-size: 14px !important; }
+@media (max-width: 820px) {
+  .xr-landing-hero { grid-template-columns: 1fr; }
+  .xr-group-select { grid-template-columns: repeat(3, 1fr); margin: 0 0 8px; }
+}
 @media (max-width: 600px) {
   .xr-group-select { grid-template-columns: 1fr; }
   .xr-invest-card { flex-direction: column; gap: 12px; }
