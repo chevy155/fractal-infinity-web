@@ -78,6 +78,7 @@ function renderDetail(nodeId, ctx) {
       <dt>Substitution difficulty</dt><dd>${obs?.substitution_difficulty ?? "—"}<div class="xr-rationale">${obs?.substitution_difficulty_rationale || ""}</div></dd>
       <dt>What could relieve it</dt><dd>${(node?.relief_levers || []).join("; ") || "—"}</dd>
       <dt>What would falsify this bottleneck</dt><dd>${node?.falsify || "—"}</dd>
+      ${node?.opportunity_on_relief ? `<dt>Opportunity to investigate after relief</dt><dd>${node.opportunity_on_relief}</dd>` : ""}
     </dl>
     <h4>Severity drivers</h4>
     <ul class="reason-list">${driversHtml(score?.drivers || [], obs)}</ul>
@@ -107,6 +108,7 @@ function renderDetail(nodeId, ctx) {
     <ul class="reason-list">${driversHtml(current.drivers, curNode?.observation)}</ul>
     <p class="xr-next-label">If this bottleneck is relieved →</p>
     <p class="level-badge xr-next">${nodes.find((n) => n.id === stage2?.bottleneck_id)?.label || "—"} · ${stage2?.score ?? "—"}</p>
+    ${nodes.find((n) => n.id === current.bottleneck_id)?.opportunity_on_relief ? `<p class="muted-note"><strong>Opportunity to investigate:</strong> ${nodes.find((n) => n.id === current.bottleneck_id).opportunity_on_relief}</p>` : ""}
     <p class="muted-note">${cascade.disclaimer}</p>
   `;
 }

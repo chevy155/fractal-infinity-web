@@ -1,0 +1,33 @@
+{
+  "scenario_id": "datacenter-buildout-2026",
+  "title": "Datacenter Buildout X-Ray",
+  "system": "Large-scale AI datacenter physical infrastructure",
+  "scaling_target": "Energizing GW-scale AI campuses on 2026–2030 timelines",
+  "subtitle": "Power delivery, grid equipment, generation, construction",
+  "status": "EVIDENCE_BACKED_v1",
+  "as_of": "2026-09-04",
+  "disclaimer": "Constraint scores are CALCULATED from MODELED judgments grounded in OBSERVED claims. Values are inspectable engineering judgments, not calibrated science. Generation interconnection queues are not the same as datacenter load interconnection. Capacity announcements for 2028–2030 are not available capacity today. For infrastructure nodes, yield_risk means project-execution risk, not semiconductor fab yield. Engine weights are unchanged.",
+  "methodology_notes": [
+    "Reused existing score.js / cascade.js / weights.json with no formula change.",
+    "supplier_concentration maps to OEM/ISO/utility concentration for infrastructure.",
+    "yield_risk maps to execution/completion risk for construction and long-lead equipment, not manufacturing yield.",
+    "Future OEM expansions (Siemens +50% by 2030; GE Vernova 30 GW in 2030) scored as capacity_growth, not current scarcity relief."
+  ],
+  "boundary": [
+    "grid interconnection process",
+    "large power transformers",
+    "electrical switchgear",
+    "transmission / substations",
+    "gas turbines / new thermal generation",
+    "utility generation headroom",
+    "permitting and siting",
+    "datacenter shells / space",
+    "liquid cooling",
+    "AI accelerators (included to test whether chips still bind)"
+  ],
+  "out_of_scope": [
+    "HBM / CoWoS (see AI Accelerator X-Ray)",
+    "optical transceivers / CPO (see AI Networking X-Ray)",
+    "investment recommendations"
+  ]
+}

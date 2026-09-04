@@ -1,0 +1,183 @@
+{
+  "status": "EVIDENCE_BACKED",
+  "disclaimer": "OBSERVED claims only. Primary preferred. Secondary labeled. Generation interconnection data are not load-interconnection data. Backlog growth is demand evidence, not by itself a measured shortage. 2028–2030 capacity is not 2026 capacity.",
+  "source_inventory": [
+    {"id": "gev_q2_2026", "url": "https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial", "title": "GE Vernova Q2 2026 Financial Results", "date": "2026-07-22", "class": "primary"},
+    {"id": "se_q3_fy2026", "url": "https://assets.siemens-energy.com/dam/d0147174-31a9-4a78-b062-b49d00428fc4/earnings-release-q3-fy2026-en-pdf_Original%20file.pdf", "title": "Siemens Energy Earnings Release Q3 FY 2026", "date": "2026-08-05", "class": "primary"},
+    {"id": "lbnl_queued_2026", "url": "https://eta-publications.lbl.gov/sites/default/files/2026-06/queued_up_2026_edition.pdf", "title": "LBNL Queued Up: 2026 Edition", "date": "2026-06-01", "class": "primary"},
+    {"id": "lbnl_queues_page", "url": "https://emp.lbl.gov/queues", "title": "LBNL Queued Up project page", "date": "2026-06-01", "class": "primary"},
+    {"id": "gao_lpt_2023", "url": "https://www.gao.gov/products/gao-23-106180", "title": "GAO-23-106180 Electricity Grid Transformer Reserves", "date": "2023-08-02", "class": "primary"},
+    {"id": "msft_fy26_q1", "url": "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q1", "title": "Microsoft FY2026 Q1 Earnings Conference Call", "date": "2025-10-29", "class": "primary"},
+    {"id": "eaton_q1_2026", "url": "https://www.eaton.com/us/en-us/company/news-insights/news-releases/2026/eaton-reports-record-first-quarter-2026-results.html", "title": "Eaton Q1 2026 Results", "date": "2026-05-05", "class": "primary"},
+    {"id": "eaton_q1_slides", "url": "https://www.eaton.com/content/dam/eaton/company/investor-relations/quarterly-earnings/filings/2026/q1/q1-2026-analyst-presentation.pdf", "title": "Eaton Q1 2026 Analyst Presentation", "date": "2026-05-05", "class": "primary"},
+    {"id": "eaton_q2_2026", "url": "https://www.eaton.com/content/dam/eaton/company/investor-relations/quarterly-earnings/filings/2026/q2/q2-20265-earnings-complete.pdf", "title": "Eaton Q2 2026 Results", "date": "2026-07-31", "class": "primary"},
+    {"id": "pjm_2026_load", "url": "https://www.pjm.com/-/media/DotCom/library/reports-notices/load-forecast/2026-load-report.pdf", "title": "PJM 2026 Long-Term Load Forecast Report", "date": "2026-01-14", "class": "primary"},
+    {"id": "pjm_inside_lines", "url": "https://insidelines.pjm.com/pjms-updated-20-year-forecast-continues-to-see-significant-long-term-load-growth/", "title": "PJM Inside Lines: 2026 Load Forecast", "date": "2026-01-14", "class": "primary"},
+    {"id": "vertiv_q2_2026", "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050323/q22026exhibit991vrt07292026.htm", "title": "Vertiv Q2 2026 Exhibit 99.1", "date": "2026-07-29", "class": "primary"},
+    {"id": "powermag_woodmac", "url": "https://www.powermag.com/transformers-in-2026-shortage-scramble-or-self-inflicted-crisis/", "title": "POWER Magazine on Wood Mackenzie Q2 2025 transformer survey", "date": "2026-01-01", "class": "secondary"},
+    {"id": "utilitydive_gev", "url": "https://www.utilitydive.com/news/ge-vernova-gas-turbine-backlog-climbs-to-116-gw/826039/", "title": "Utility Dive: GE Vernova 116 GW backlog and DC share", "date": "2026-07-23", "class": "secondary"},
+    {"id": "dck_pjm_postisa", "url": "https://www.datacenterknowledge.com/energy-power-supply/why-ai-data-center-projects-face-years-of-delays-after-approval", "title": "Data Center Knowledge citing PJM post-ISA delays", "date": "2026-01-01", "class": "secondary"}
+  ],
+  "claims": [
+    {
+      "id": "d001", "node_id": "large-power-transformers", "subject": "large-power-transformers",
+      "statement": "Siemens Energy Grid Technologies: Q3 FY2026 orders rose across all GT businesses; the major contribution was substantial growth in the transformer business including data center projects; book-to-bill 1.48; order backlog increased to €51bn.",
+      "source_url": "https://assets.siemens-energy.com/dam/d0147174-31a9-4a78-b062-b49d00428fc4/earnings-release-q3-fy2026-en-pdf_Original%20file.pdf",
+      "source_title": "Siemens Energy Earnings Release Q3 FY 2026", "source_date": "2026-08-05", "source_class": "primary",
+      "date_observed": "2026-09-04", "claim_type": "COMPANY_CLAIM", "confidence": 0.93, "data_class": "OBSERVED",
+      "notes": "Backlog and book-to-bill >1 are demand/queue evidence. They do not by themselves quantify weeks of lead time."
+    },
+    {
+      "id": "d002", "node_id": "large-power-transformers", "subject": "large-power-transformers",
+      "statement": "Siemens Energy plans transformer and gas-insulated switchgear manufacturing capacity about 50% higher by 2030; brownfield expansions supported increased product shipments in the reported quarter, with further greenfield/brownfield additions through FY30.",
+      "source_url": "https://assets.siemens-energy.com/dam/d0147174-31a9-4a78-b062-b49d00428fc4/earnings-release-q3-fy2026-en-pdf_Original%20file.pdf",
+      "source_title": "Siemens Energy Earnings Release Q3 FY 2026", "source_date": "2026-08-05", "source_class": "primary",
+      "date_observed": "2026-09-04", "claim_type": "COMPANY_CLAIM", "confidence": 0.9, "data_class": "OBSERVED",
+      "notes": "2030 capacity is not 2026 capacity. Score as capacity_growth, not current relief."
+    },
+    {
+      "id": "d003", "node_id": "large-power-transformers", "subject": "large-power-transformers",
+      "statement": "GAO (2023): utilities identified supply-chain constraints as the most pressing LPT challenge; one large utility reported LPT lead times rising from 12–18 months to 18–36 months; smaller utilities reported worse delays.",
+      "source_url": "https://www.gao.gov/products/gao-23-106180",
+      "source_title": "GAO-23-106180 Transformer Reserves", "source_date": "2023-08-02", "source_class": "primary",
+      "date_observed": "2026-09-04", "claim_type": "FACT", "confidence": 0.88, "data_class": "OBSERVED",
+      "notes": "Dated 2023 primary. Establishes structural LPT lead-time lengthening; not a 2026 week measurement."
+    },
+    {
+      "id": "d004", "node_id": "large-power-transformers", "subject": "large-power-transformers",
+      "statement": "Secondary reporting of Wood Mackenzie Q2 2025 survey: power transformers averaging 128 weeks; generator step-up transformers 144 weeks; GSU demand +274% and substation power transformers +116% since 2019.",
+      "source_url": "https://www.powermag.com/transformers-in-2026-shortage-scramble-or-self-inflicted-crisis/",
+      "source_title": "POWER Magazine / Wood Mackenzie survey (secondary)", "source_date": "2026-01-01", "source_class": "secondary",
+      "date_observed": "2026-09-04", "claim_type": "ESTIMATE", "confidence": 0.62, "data_class": "OBSERVED",
+      "notes": "Not used as sole scarcity proof. Confirms direction of 2023 GAO finding; week-level figures are secondary."
+    },
+    {
+      "id": "d005", "node_id": "electrical-switchgear", "subject": "electrical-switchgear",
+      "statement": "GE Vernova: data center orders in Electrification reached over $5 billion year-to-date, more than double the 2025 total.",
+      "source_url": "https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial",
+      "source_title": "GE Vernova Q2 2026 Financial Results", "source_date": "2026-07-22", "source_class": "primary",
+      "date_observed": "2026-09-04", "claim_type": "COMPANY_CLAIM", "confidence": 0.92, "data_class": "OBSERVED",
+      "notes": "Electrification (grid/electrical equipment), not Gas Power turbines. Demand evidence for DC electrical gear."
+    },
+    {
+      "id": "d006", "node_id": "gas-turbines", "subject": "gas-turbines",
+      "statement": "GE Vernova Q2 2026: Gas Power equipment backlog and slot reservation agreements grew from 100 to 116 GW; company anticipates at least 125 GW by year-end 2026; on track for 20 GW annual gas turbine output in Q3 2026, 24 GW in 2028, and actions to produce 30 GW in 2030.",
+      "source_url": "https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial",
+      "source_title": "GE Vernova Q2 2026 Financial Results", "source_date": "2026-07-22", "source_class": "primary",
+      "date_observed": "2026-09-04", "claim_type": "COMPANY_CLAIM", "confidence": 0.95, "data_class": "OBSERVED",
+      "notes": "116 GW vs ~20 GW/year is quantified scarcity for heavy-duty turbines. 2028/2030 output is not current capacity. Mix is not all datacenter."
+    },
+    {
+      "id": "d007", "node_id": "gas-turbines", "subject": "gas-turbines",
+      "statement": "Secondary report of GE Vernova earnings commentary: about 20% of the gas-power order book is data-center / AI applications and 80% traditional customers; CEO taking reservations for 2031 deliveries.",
+      "source_url": "https://www.utilitydive.com/news/ge-vernova-gas-turbine-backlog-climbs-to-116-gw/826039/",
+      "source_title": "Utility Dive on GE Vernova Q2 call", "source_date": "2026-07-23", "source_class": "secondary",
+      "date_observed": "2026-09-04", "claim_type": "COMPANY_CLAIM", "confidence": 0.72, "data_class": "OBSERVED",
+      "notes": "Used to avoid treating the entire 116 GW book as an AI-datacenter shortage."
+    },
+    {
+      "id": "d008", "node_id": "grid-interconnection", "subject": "grid-interconnection",
+      "statement": "LBNL Queued Up 2026: as of end-2025, ~8,244 active U.S. projects seeking transmission interconnection, ~2,061 GW (1,312 GW generation and 749 GW storage).",
+      "source_url": "https://eta-publications.lbl.gov/sites/default/files/2026-06/queued_up_2026_edition.pdf",
+      "source_title": "LBNL Queued Up: 2026 Edition", "source_date": "2026-06-01", "source_class": "primary",
+      "date_observed": "2026-09-04", "claim_type": "FACT", "confidence": 0.95, "data_class": "OBSERVED",
+      "notes": "This is generation/storage interconnection, not datacenter load interconnection."
+    },
+    {
+      "id": "d009", "node_id": "grid-interconnection", "subject": "grid-interconnection",
+      "statement": "LBNL: for regions with data, median duration from interconnection request to commercial operation was over 5 years for projects built in 2025.",
+      "source_url": "https://emp.lbl.gov/queues",
+      "source_title": "LBNL Queued Up project page", "source_date": "2026-06-01", "source_class": "primary",
+      "date_observed": "2026-09-04", "claim_type": "FACT", "confidence": 0.93, "data_class": "OBSERVED",
+      "notes": "Time-to-COD includes post-ISA construction, not only study-queue time."
+    },
+    {
+      "id": "d010", "node_id": "transmission-substations", "subject": "transmission-substations",
+      "statement": "LBNL: 549 GW of capacity already has a draft or executed interconnection agreement but has not reached commercial operations (including 45 GW of gas).",
+      "source_url": "https://emp.lbl.gov/queues",
+      "source_title": "LBNL Queued Up project page", "source_date": "2026-06-01", "source_class": "primary",
+      "date_observed": "2026-09-04", "claim_type": "FACT", "confidence": 0.93, "data_class": "OBSERVED",
+      "notes": "Shows post-agreement delivery is a distinct constraint from getting into the study queue."
+    },
+    {
+      "id": "d011", "node_id": "utility-generation-headroom", "subject": "utility-generation-headroom",
+      "statement": "PJM 2026 long-term load forecast: RTO summer peak growth averaging 3.6%/year over 10 years; summer peak 222,106 MW in 2036 (+65,733 MW) and 253,077 MW in 2046. Multiple zones adjusted for data-center load.",
+      "source_url": "https://www.pjm.com/-/media/DotCom/library/reports-notices/load-forecast/2026-load-report.pdf",
+      "source_title": "PJM 2026 Long-Term Load Forecast Report", "source_date": "2026-01-14", "source_class": "primary",
+      "date_observed": "2026-09-04", "claim_type": "FACT", "confidence": 0.92, "data_class": "OBSERVED",
+      "notes": "Forecasted demand, not a measured present reserve-margin breach. Near-term peaks were revised down vs 2025 forecast after vetting large-load requests."
+    },
+    {
+      "id": "d012", "node_id": "utility-generation-headroom", "subject": "utility-generation-headroom",
+      "statement": "PJM Inside Lines: 10-year average annual growth is 3.6%/year versus 0.3%/year in the 2021 forecast; near-term peaks through 2032 are lower than the 2025 forecast after improved vetting of data-center and large-load requests.",
+      "source_url": "https://insidelines.pjm.com/pjms-updated-20-year-forecast-continues-to-see-significant-long-term-load-growth/",
+      "source_title": "PJM Inside Lines on 2026 load forecast", "source_date": "2026-01-14", "source_class": "primary",
+      "date_observed": "2026-09-04", "claim_type": "FACT", "confidence": 0.9, "data_class": "OBSERVED",
+      "notes": "Do not treat every announced data-center MW as certain load."
+    },
+    {
+      "id": "d013", "node_id": "ai-accelerators", "subject": "ai-accelerators",
+      "statement": "Microsoft CFO on FY2026 Q1 call: the company was not actually short GPUs and CPUs per se; it was short the space or the power to put them in; remaining short for many quarters as demand increased.",
+      "source_url": "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q1",
+      "source_title": "Microsoft FY2026 Q1 Earnings Call", "source_date": "2025-10-29", "source_class": "primary",
+      "date_observed": "2026-09-04", "claim_type": "COMPANY_CLAIM", "confidence": 0.94, "data_class": "OBSERVED",
+      "notes": "Directly falsifies chips-as-#1 for this datacenter-expansion question, for this hyperscaler at this date."
+    },
+    {
+      "id": "d014", "node_id": "datacenter-shells", "subject": "datacenter-shells",
+      "statement": "Same Microsoft FY2026 Q1 commentary: constraint language is space or power to install compute, with continued build-out and increased use of leases (15–20 year assets).",
+      "source_url": "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q1",
+      "source_title": "Microsoft FY2026 Q1 Earnings Call", "source_date": "2025-10-29", "source_class": "primary",
+      "date_observed": "2026-09-04", "claim_type": "COMPANY_CLAIM", "confidence": 0.9, "data_class": "OBSERVED",
+      "notes": "Space is observed as a co-stated constraint with power; does not prove construction labor/materials are the scarce input versus energized halls."
+    },
+    {
+      "id": "d015", "node_id": "electrical-switchgear", "subject": "electrical-switchgear",
+      "statement": "Eaton Q1 2026 analyst presentation: Electrical Americas data center orders up approximately 240% and revenue up approximately 50% versus 1Q25; Electrical Americas backlog up 44% year-over-year; book-to-bill 1.2 on a rolling 12-month basis.",
+      "source_url": "https://www.eaton.com/content/dam/eaton/company/investor-relations/quarterly-earnings/filings/2026/q1/q1-2026-analyst-presentation.pdf",
+      "source_title": "Eaton Q1 2026 Analyst Presentation", "source_date": "2026-05-05", "source_class": "primary",
+      "date_observed": "2026-09-04", "claim_type": "COMPANY_CLAIM", "confidence": 0.92, "data_class": "OBSERVED",
+      "notes": "Order surge is demand. Revenue +50% shows they are also shipping more — do not equate orders with inability to supply."
+    },
+    {
+      "id": "d016", "node_id": "electrical-switchgear", "subject": "electrical-switchgear",
+      "statement": "Eaton Q2 2026: Electrical Americas record $4.0B sales, +18% organic; 12-month rolling orders +41% organically; Electrical Americas backlog +33% versus June 2025; electrical businesses book-to-bill 1.2.",
+      "source_url": "https://www.eaton.com/content/dam/eaton/company/investor-relations/quarterly-earnings/filings/2026/q2/q2-20265-earnings-complete.pdf",
+      "source_title": "Eaton Q2 2026 Results", "source_date": "2026-07-31", "source_class": "primary",
+      "date_observed": "2026-09-04", "claim_type": "COMPANY_CLAIM", "confidence": 0.92, "data_class": "OBSERVED",
+      "notes": "Sustained book-to-bill above 1.0 indicates backlog still growing, not a measured multi-year LPT-class lead time."
+    },
+    {
+      "id": "d017", "node_id": "liquid-cooling", "subject": "liquid-cooling",
+      "statement": "Vertiv Q2 2026: organic sales growth with AI and general compute demand intensifying; Q2 revenue had minor timing shifts from temporary supply-chain congestion and multi-phased project execution; company raised full-year sales guidance and is accelerating capacity expansion.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050323/q22026exhibit991vrt07292026.htm",
+      "source_title": "Vertiv Q2 2026 Exhibit 99.1", "source_date": "2026-07-29", "source_class": "primary",
+      "date_observed": "2026-09-04", "claim_type": "COMPANY_CLAIM", "confidence": 0.88, "data_class": "OBSERVED",
+      "notes": "Congestion is observed but described as temporary; raising guidance argues against treating cooling as the binding system constraint."
+    },
+    {
+      "id": "d018", "node_id": "permitting-siting", "subject": "permitting-siting",
+      "statement": "Secondary report citing PJM January 2026 presentation: permitting accounted for 29% of milestone change requests for projects under construction or development, ahead of supply-chain delays at 23%.",
+      "source_url": "https://www.datacenterknowledge.com/energy-power-supply/why-ai-data-center-projects-face-years-of-delays-after-approval",
+      "source_title": "Data Center Knowledge citing PJM milestone data", "source_date": "2026-01-01", "source_class": "secondary",
+      "date_observed": "2026-09-04", "claim_type": "ESTIMATE", "confidence": 0.58, "data_class": "OBSERVED",
+      "notes": "Not independently retrieved from a PJM PDF in this build. Permitting is a delay cause, not proven as the highest-scarcity node."
+    },
+    {
+      "id": "d019", "node_id": "transmission-substations", "subject": "transmission-substations",
+      "statement": "Secondary report citing PJM: projects entering service in 2025 averaged more than seven years to operation, with more than three years to an interconnection service agreement and another four years after approval; transformer lead times cited as exceeding 160 weeks in 2026.",
+      "source_url": "https://www.datacenterknowledge.com/energy-power-supply/why-ai-data-center-projects-face-years-of-delays-after-approval",
+      "source_title": "Data Center Knowledge citing PJM", "source_date": "2026-01-01", "source_class": "secondary",
+      "date_observed": "2026-09-04", "claim_type": "ESTIMATE", "confidence": 0.6, "data_class": "OBSERVED",
+      "notes": "Used only as triangulation that post-ISA time can exceed study time. 160-week transformer figure is not treated as primary."
+    },
+    {
+      "id": "d020", "node_id": "gas-turbines", "subject": "gas-turbines",
+      "statement": "Siemens Energy Gas Services shipped 6 GW and booked 15 GW in the quarter ending 30 June 2026; company commentary (via secondary) puts gas-services backlog near 69 GW with turbine lead times of three years or more.",
+      "source_url": "https://assets.siemens-energy.com/dam/d0147174-31a9-4a78-b062-b49d00428fc4/earnings-release-q3-fy2026-en-pdf_Original%20file.pdf",
+      "source_title": "Siemens Energy Q3 FY2026 (primary orders/revenue; backlog mix in release)", "source_date": "2026-08-05", "source_class": "primary",
+      "date_observed": "2026-09-04", "claim_type": "COMPANY_CLAIM", "confidence": 0.8, "data_class": "OBSERVED",
+      "notes": "Primary PDF confirms GT/GS order strength and group backlog €162bn. Specific 69 GW / 3-year lead time is widely reported from the same quarter's analyst materials; do not over-precise beyond the earnings release text."
+    }
+  ]
+}

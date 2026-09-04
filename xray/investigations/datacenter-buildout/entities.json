@@ -1,0 +1,16 @@
+{
+  "status": "EVIDENCE_BACKED",
+  "entities": [
+    {"id": "ge-vernova", "type": "company", "name": "GE Vernova"},
+    {"id": "siemens-energy", "type": "company", "name": "Siemens Energy"},
+    {"id": "eaton", "type": "company", "name": "Eaton"},
+    {"id": "hitachi-energy", "type": "company", "name": "Hitachi Energy"},
+    {"id": "mitsubishi-power", "type": "company", "name": "Mitsubishi Power"},
+    {"id": "microsoft", "type": "company", "name": "Microsoft"},
+    {"id": "vertiv", "type": "company", "name": "Vertiv"},
+    {"id": "nvidia", "type": "company", "name": "NVIDIA"},
+    {"id": "pjm", "type": "grid_operator", "name": "PJM Interconnection"},
+    {"id": "lbnl", "type": "lab", "name": "Lawrence Berkeley National Laboratory"},
+    {"id": "gao", "type": "agency", "name": "U.S. Government Accountability Office"}
+  ]
+}

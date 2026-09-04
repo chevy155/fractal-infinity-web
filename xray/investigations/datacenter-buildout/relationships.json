@@ -1,0 +1,21 @@
+{
+  "status": "EVIDENCE_BACKED",
+  "relationships": [
+    {"from": "ai-accelerators", "relationship": "depends_on", "to": "datacenter-shells", "rationale": "Chips cannot enter service without a hall to land in."},
+    {"from": "datacenter-shells", "relationship": "depends_on", "to": "grid-interconnection", "rationale": "A shell is not an operating AI factory until it can take grid or onsite power."},
+    {"from": "datacenter-shells", "relationship": "depends_on", "to": "liquid-cooling", "rationale": "High-density AI halls require heat removal matched to rack power."},
+    {"from": "datacenter-shells", "relationship": "depends_on", "to": "permitting-siting", "rationale": "Entitlements gate vertical construction."},
+    {"from": "grid-interconnection", "relationship": "depends_on", "to": "transmission-substations", "rationale": "Study results typically require physical upgrades before energization."},
+    {"from": "grid-interconnection", "relationship": "depends_on", "to": "large-power-transformers", "rationale": "Load and generation interconnects need LPT/GSU hardware."},
+    {"from": "grid-interconnection", "relationship": "depends_on", "to": "utility-generation-headroom", "rationale": "Interconnection is worthless if the region has no energy/capacity to serve the load."},
+    {"from": "transmission-substations", "relationship": "depends_on", "to": "large-power-transformers", "rationale": "Substation cutovers wait on transformer delivery."},
+    {"from": "transmission-substations", "relationship": "depends_on", "to": "electrical-switchgear", "rationale": "Breakers and GIS/AIS are required to operate a substation."},
+    {"from": "datacenter-shells", "relationship": "depends_on", "to": "electrical-switchgear", "rationale": "Campus MV/HV distribution is required to move power from the fence to IT halls."},
+    {"from": "gas-turbines", "relationship": "relieves_pressure_on", "to": "grid-interconnection", "rationale": "Behind-the-meter or dedicated generation is the main substitute when grid connection is slow."},
+    {"from": "gas-turbines", "relationship": "relieves_pressure_on", "to": "utility-generation-headroom", "rationale": "New thermal generation adds the energy/capacity new load needs."},
+    {"from": "gas-turbines", "relationship": "depends_on", "to": "large-power-transformers", "rationale": "Turbines still need GSU transformers to reach usable voltage."},
+    {"from": "gas-turbines", "relationship": "depends_on", "to": "permitting-siting", "rationale": "New generation requires its own siting and air/water permits."},
+    {"from": "ai-accelerators", "relationship": "drives_demand_for", "to": "utility-generation-headroom", "rationale": "Accelerator deployment is the load that consumes regional power."},
+    {"from": "liquid-cooling", "relationship": "depends_on", "to": "electrical-switchgear", "rationale": "Cooling plants are large electrical loads inside the same campus electrical architecture."}
+  ]
+}
