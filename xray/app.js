@@ -122,6 +122,56 @@ function renderCascade(cascade, nodes) {
     .join("");
 }
 
+function renderIntelligence(layer, ranked, cascade, nodes) {
+  const host = $("xr-intel");
+  if (!host) return;
+  if (!layer) {
+    host.hidden = true;
+    host.innerHTML = "";
+    return;
+  }
+  host.hidden = false;
+  const top = ranked[0];
+  const next = cascade.stages[1];
+  const topLabel = nodes.find((n) => n.id === top?.node_id)?.label || top?.node_id;
+  const nextLabel = nodes.find((n) => n.id === next?.bottleneck_id)?.label || next?.bottleneck_id;
+  const conf = layer.confidence || {};
+  const watch = layer.watch_signals || {};
+  const list = (arr) =>
+    Array.isArray(arr) && arr.length
+      ? `<ul class="reason-list">${arr.map((x) => `<li>${x}</li>`).join("")}</ul>`
+      : "<p class=\"muted-note\">—</p>";
+
+  host.innerHTML = `
+    <h2>Intelligence layer</h2>
+    <p class="xr-badge">${layer.data_class || "MODELED"} · interpretation of ranking · not investment advice</p>
+    <p class="xr-status-line">${conf.band || "—"} CONFIDENCE${typeof conf.level === "number" ? ` · ${Math.round(conf.level * 100)}%` : ""}</p>
+    <dl class="xr-dl">
+      <dt>Current reality</dt>
+      <dd>${layer.current_reality || "—"}</dd>
+      <dt>Constraint migration</dt>
+      <dd>${layer.constraint_migration || "—"}
+        <p class="muted-note">${topLabel} (${top?.score ?? "—"}) → ${nextLabel} (${next?.score ?? "—"}) · engine cascade</p>
+      </dd>
+      <dt>Who gains leverage</dt>
+      <dd>${list(layer.gains_leverage)}</dd>
+      <dt>Who loses leverage</dt>
+      <dd>${list(layer.loses_leverage)}</dd>
+      <dt>Second-order effect</dt>
+      <dd>${layer.second_order_effect || "—"}</dd>
+      <dt>Opportunity</dt>
+      <dd>${layer.opportunity || "—"}</dd>
+      <dt>Watch signals — confirm</dt>
+      <dd>${list(watch.confirm)}</dd>
+      <dt>Watch signals — invalidate</dt>
+      <dd>${list(watch.invalidate)}</dd>
+      <dt>Confidence</dt>
+      <dd>${conf.rationale || "—"}</dd>
+    </dl>
+    <p class="muted-note">${layer.disclaimer || ""}</p>
+  `;
+}
+
 async function main() {
   const inv = document.body.dataset.investigation || "ai-accelerator";
   const dataBase = new URL(`./investigations/${inv}/`, import.meta.url);
@@ -135,6 +185,15 @@ async function main() {
     loadJson(new URL("evidence.json", dataBase).href),
     loadJson(new URL("weights.json", configBase).href)
   ]);
+
+  let intelligence = null;
+  if ($("xr-intel")) {
+    try {
+      intelligence = await loadJson(new URL("intelligence.json", dataBase).href);
+    } catch {
+      intelligence = null;
+    }
+  }
 
   const entities = entitiesFile.entities;
   const nodes = nodesFile.nodes;
@@ -159,8 +218,9 @@ async function main() {
   renderRank(ranked, nodes, selected, select);
   renderCascade(cascade, nodes);
   renderDetail(selected, ctx);
+  renderIntelligence(intelligence, ranked, cascade, nodes);
 
-  window.__xray = { ranked, cascade, weights, scenario };
+  window.__xray = { ranked, cascade, weights, scenario, intelligence };
 }
 
 main().catch((err) => {

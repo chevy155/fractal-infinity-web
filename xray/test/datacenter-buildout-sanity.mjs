@@ -82,6 +82,19 @@ assert(cascade.stages[1].bottleneck_id !== cascade.stages[0].bottleneck_id, "rel
 const xfmr = constraints.observations.find((o) => o.node_id === "large-power-transformers");
 assert(xfmr.evidence_confidence < 0.75, "transformer #1 must not claim HIGH confidence without 2026 primary lead times");
 
+const intel = load(`${dataRel}/intelligence.json`);
+const INTEL_FIELDS = [
+  "current_reality", "constraint_migration", "gains_leverage", "loses_leverage",
+  "second_order_effect", "opportunity", "watch_signals", "confidence"
+];
+for (const f of INTEL_FIELDS) assert(intel[f] != null, `intelligence.${f}`);
+assert(intel.data_class === "MODELED", "intelligence MODELED");
+assert(intel.bottleneck_id === ranked[0].node_id, "intelligence bottleneck matches engine #1");
+assert(intel.next_bottleneck_id === cascade.stages[1].bottleneck_id, "intelligence next matches cascade");
+assert(intel.confidence.band === "MODERATE" || intel.confidence.level < 0.75, "intelligence confidence not overstated");
+assert(!JSON.stringify(intel).toLowerCase().includes("buy "), "intelligence is not investment advice");
+assert(Array.isArray(intel.watch_signals.confirm) && Array.isArray(intel.watch_signals.invalidate), "watch signals both sides");
+
 console.log("\nRANKED");
 ranked.forEach((r, i) => {
   const n = nodes.nodes.find((x) => x.id === r.node_id);

@@ -1,0 +1,43 @@
+{
+  "data_class": "MODELED",
+  "status": "EVIDENCE_BACKED",
+  "as_of": "2026-09-04",
+  "disclaimer": "MODELED interpretation of a CALCULATED ranking grounded in OBSERVED claims. Not a forecast and not investment advice. Areas worth investigating, not securities to buy.",
+  "bottleneck_id": "large-power-transformers",
+  "next_bottleneck_id": "grid-interconnection",
+  "current_reality": "The ranking does not say AI datacenters lack capital, chips, or announced campuses. It says energization is gated by long-lead high-voltage equipment. Large power transformers score #1 because they sit on both the grid path and the behind-the-meter generation path, substitution is poor, and 2026 OEM filings show transformer-driven order growth with book-to-bill still above 1. Microsoft’s primary testimony is that GPUs were waiting on space or power — not the reverse. Confidence stays moderate because 2026 week-level lead times are still secondary (GAO’s 18–36 month finding is 2023).",
+  "constraint_migration": "The engine relieves transformer capacity/lead-time/concentration only, then re-ranks. Grid interconnection rises next: study queues and post-agreement upgrades still take years even if a transformer slot appears. Heavy-duty gas turbines are close behind as the main substitute for slow grid power — and they still need GSU transformers, so turbine relief does not fully bypass this node.",
+  "gains_leverage": [
+    "LPT/GSU manufacturers and the electrical-steel / specialized plant capacity behind them (Siemens Energy Grid Technologies, Hitachi Energy, GE Vernova Electrification)",
+    "ISO/RTO interconnection throughput and utilities that can actually construct assigned upgrades after an ISA",
+    "Behind-the-meter / dedicated generation packages only after GSU delivery is credible — GE Vernova, Siemens Energy, Mitsubishi Power as slot holders, not as a free substitute",
+    "Switchgear and campus electrical distribution (Eaton-class) as complementary gear, not as the same scarcity as LPTs"
+  ],
+  "loses_leverage": [
+    "The story that GPU scarcity is what currently stops GW-scale halls from turning on",
+    "Queue-reform narratives that treat a faster study as equivalent to an energized campus",
+    "2030 OEM expansion announcements treated as 2026 deliverable capacity",
+    "Cooling and shell construction as the system bottleneck — demand is real; the evidence does not show they bind first"
+  ],
+  "second_order_effect": "Clearing transformers does not create megawatts. LBNL shows 549 GW already holding an interconnection agreement and not operating. GE Vernova’s >$5B year-to-date datacenter orders are Electrification (grid gear), not Gas Power — so AI demand is already pulling the transformer/switchgear stack harder than the turbine book, of which only a minority is datacenter. The coupled trap: the substitute for slow interconnection (new gas) still consumes the same constrained GSU transformers.",
+  "opportunity": "Worth investigating: who can actually deliver LPTs/GSUs into 2027–2028 AI interconnects; surplus-interconnection or co-location that avoids a new substation; whether switchgear stays a demand boom or becomes a second equipment queue; and which generation projects have both a turbine slot and a GSU. Not a conclusion: utilities-in-general or turbines-as-grid-replacement.",
+  "watch_signals": {
+    "confirm": [
+      "OEM transformer book-to-bill remains well above 1.0 while data-center projects remain in Electrification order commentary",
+      "Primary 2026 LPT/GSU lead-time disclosures stay multi-year (not just 2023 GAO or secondary surveys)",
+      "LBNL IA-not-COD backlog stays large even as study reforms are claimed",
+      "Hyperscalers continue to describe power/space, not chips, as the bind"
+    ],
+    "invalidate": [
+      "Major LPT OEMs report book-to-bill near 1.0 and returning 12–18 month quotes",
+      "Primary datacenter load-queue data show study time — not equipment — as the remaining clock",
+      "Hyperscalers report idle energized halls waiting on GPUs",
+      "New generation reaches COD fast enough in AI zones that transformer scarcity no longer gates energization"
+    ]
+  },
+  "confidence": {
+    "band": "MODERATE",
+    "level": 0.74,
+    "rationale": "Matches transformer-node evidence confidence. Direction (optics of power-delivery over chips; cascade into interconnection then turbines) is better supported than the exact #1 margin over interconnection. Load vs generation queue distinction remains a material caveat."
+  }
+}

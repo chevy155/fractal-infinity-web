@@ -1977,7 +1977,8 @@ a.report-card:hover {
 .xr-cascade span { font-family: var(--mono); font-size: 10px; color: var(--ivory-faint); text-transform: uppercase; }
 .xr-cascade strong { font-size: 14px; color: var(--ivory); }
 .xr-cascade em { font-style: normal; font-family: var(--mono); color: #76ff03; }
-.xr-rationale { margin-top: 4px; font-size: 12px; color: var(--ivory-faint); line-height: 1.45; font-weight: 400; }
+.xr-intel-panel { margin-top: 18px; }
+.xr-intel-panel .xr-dl dd .reason-list { margin: 6px 0 0; }
 .xr-src-date { font-family: var(--mono); font-size: 10px; color: var(--ivory-faint); }
 
 /* X-Ray product landing */
