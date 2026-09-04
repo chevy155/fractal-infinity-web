@@ -51,7 +51,7 @@
       "statement": "Secondary analysis citing McKinsey (June 2025): 800G transceiver production projected 40–60% short of demand through 2027; 1.6T shortfalls 30–40% through 2029.",
       "source_url": "https://mlq.ai/research/optical-networking-interconnect-constraint/",
       "source_title": "Optical Networking: The Interconnect Constraint (MLQ)", "source_date": "2026-01-01", "source_class": "secondary",
-      "date_observed": "2026-09-03", "claim_type": "ESTIMATE", "confidence": 0.62, "data_class": "OBSERVED", "notes": "Secondary reporting of analyst estimate; not Broadcom primary."
+      "date_observed": "2026-09-03", "claim_type": "ESTIMATE", "confidence": 0.62, "data_class": "OBSERVED", "notes": "Secondary reporting of analyst estimate; forward through 2027–2029 — not a primary present shortfall measurement."
     },
     {
       "id": "n007", "node_id": "optical-dsp", "subject": "optical-dsp",
@@ -79,14 +79,14 @@
       "statement": "Broadcom (earnings commentary via syndicated transcript): more than tripling year-over-year capacity at indium phosphide factories for EML, CW laser, and VCSEL products (US and Singapore).",
       "source_url": "https://www.tradingkey.com/news/transcripts/262147548-tradingkey",
       "source_title": "Broadcom Q3 FY2026 Earnings Call Highlights", "source_date": "2026-09-02", "source_class": "secondary",
-      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.8, "data_class": "OBSERVED", "notes": "Capacity expansion implies prior pressure; syndicated transcript."
+      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.8, "data_class": "OBSERVED", "notes": "Observed capacity expansion only. Must not be scored as proof of current laser scarcity."
     },
     {
       "id": "n011", "node_id": "laser-sources", "subject": "laser-sources",
-      "statement": "Secondary research: Lumentum described as only supplier shipping 200G-per-lane EMLs at volume for 1.6T transceivers; EML production concentrated in precision InP fabs.",
+      "statement": "Secondary research asserts Lumentum is the only supplier shipping 200G-per-lane EMLs at volume for 1.6T transceivers; this is an analyst assertion, not a primary supplier capacity disclosure.",
       "source_url": "https://mlq.ai/research/optical-networking-interconnect-constraint/",
       "source_title": "Optical Networking: The Interconnect Constraint (MLQ)", "source_date": "2026-01-01", "source_class": "secondary",
-      "date_observed": "2026-09-03", "claim_type": "INFERENCE", "confidence": 0.58, "data_class": "OBSERVED", "notes": "Secondary claim of supplier concentration; confidence moderated."
+      "date_observed": "2026-09-03", "claim_type": "ESTIMATE", "confidence": 0.45, "data_class": "OBSERVED", "notes": "Do not treat as proven monopoly. Used only as weak concentration hint; scoring does not elevate lasers to #1 on this claim."
     },
     {
       "id": "n012", "node_id": "optical-engines", "subject": "optical-engines",
@@ -146,10 +146,10 @@
     },
     {
       "id": "n020", "node_id": "cpo-integration", "subject": "cpo-integration",
-      "statement": "Davisson uses external lasers with co-packaged optical engines — laser supply remains an external dependency even when optics are packaged with the switch.",
+      "statement": "Davisson CPO integrates sixteen optical engines with the switch ASIC; primary PR establishes engine co-packaging, not a verified external-laser bill of materials.",
       "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-announces-tomahawkr-6-davisson-industrys-first-1024",
       "source_title": "Broadcom Tomahawk 6 – Davisson CPO", "source_date": "2025-10-08", "source_class": "primary",
-      "date_observed": "2026-09-03", "claim_type": "FACT", "confidence": 0.84, "data_class": "OBSERVED", "notes": "External laser architecture noted in product descriptions / industry coverage of Davisson; confirm via primary product materials."
+      "date_observed": "2026-09-03", "claim_type": "FACT", "confidence": 0.9, "data_class": "OBSERVED", "notes": "Corrected: prior external-laser wording was architecture-inferred beyond the primary PR text."
     }
   ]
 }

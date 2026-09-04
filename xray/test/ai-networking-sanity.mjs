@@ -68,6 +68,8 @@ const opticsRank = ranked.findIndex((r) => r.node_id === "optical-transceivers")
 const laserRank = ranked.findIndex((r) => r.node_id === "laser-sources");
 assert(switchRank > 0, "switch silicon not falsely #1 solely by product leadership");
 assert(opticsRank < switchRank || laserRank < switchRank, "optics or lasers outrank switch silicon");
+// Evidence correction: lasers must not outrank modules without stronger scarcity proof than module shortfall estimates
+assert(opticsRank <= laserRank, "optical-transceivers rank at or above laser-sources given evidence quality");
 
 console.log("\nRANKED");
 ranked.forEach((r, i) => {
