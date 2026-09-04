@@ -1,35 +1,71 @@
 # Fractal Infinity
 
-Fractal Infinity is a California-born, U.S.-made frontier-technology research and consulting practice. The canonical public site is https://fractalinfinity.io.
+Fractal Infinity maps the emerging ASI economy so people can see what is changing, what is constrained, and where the next advantage is forming.
 
-## Public services
-- Brand, market, and platform ecosystem design
-- Data creation and knowledge graph design
-- LLM workflows and AI assistance
-- Emerging-network and ASI-readiness planning
-- Difficult technical, product, and personal-AI problem solving
+Canonical site: https://fractalinfinity.io
 
-## Human engagement
-Consulting is human-assisted and begins by email. It is not an autonomous API or a self-service agent endpoint.
+Positioning: Frontier intelligence, applied.
 
-- Contact: fractalinfinityfuture@gmail.com
-- Contact page: https://fractalinfinity.io/contact.html
-- Rates: $250/hour signal call; $400/hour build session; $650/hour embedded partner
+## What it is
+An intelligence platform for the emerging ASI economy. Broader than a media brand, newsletter, research lab, or forecasting site.
+
+Includes:
+- frontier research
+- ecosystem mapping
+- bottleneck analysis
+- forecasts
+- simulation
+- applied experimentation
+- interactive tools
+- agent-oriented machine-readable intelligence
+
+## Primary topics
+- artificial intelligence
+- compute
+- semiconductors
+- memory
+- photonics
+- robotics
+- quantum systems
+- energy
+- manufacturing
+- datacenters
+- autonomous agents
+- bottlenecks
+- dependencies
+- opportunity discovery
+
+## Operating method
+capability → dependency → constraint → breakthrough → consequence → opportunity
+
+Also:
+Map the system → Detect the change → Find the constraint → Trace the consequence → Surface the opportunity → Record the outcome
+
+## Major tools
+- Bottleneck & Supply Chain X-Ray: https://fractalinfinity.io/tools/bottleneck-xray.html
+- Evidence & Dependency Map: https://fractalinfinity.io/tools/evidence-dependency-map.html
+- The Crucible: https://fractalinfinity.io/tools/crucible.html
+- Research Lab / Process Intelligence: https://fractalinfinity.io/research-lab.html
+
+## Major reports and surfaces
+- Research reports: https://fractalinfinity.io/intelligence/research-reports.html
+- Crucible results: https://fractalinfinity.io/intelligence/crucible-results.html
+- All reports: https://fractalinfinity.io/reports.html
+- Sample process X-Ray: https://fractalinfinity.io/report/sample.html
+- Ecosystem: https://fractalinfinity.io/ecosystem.html
 
 ## Machine-readable resources
+- Vision: https://fractalinfinity.io/vision.html
+- Intelligence descriptor: https://fractalinfinity.io/intelligence.json
 - Service discovery: https://fractalinfinity.io/api/discovery.json
 - Agent discovery: https://fractalinfinity.io/.well-known/agent.json
-- Sitemap: https://fractalinfinity.io/sitemap.xml
+- This file: https://fractalinfinity.io/llms.txt
 
-## Public research
-- Home: https://fractalinfinity.io/
-- Research Lab (Process Intelligence): https://fractalinfinity.io/research-lab.html
-- Sample Process X-Ray: https://fractalinfinity.io/report/sample.html
-- Reports and comparisons: https://fractalinfinity.io/reports.html
-- Ecosystem and channels: https://fractalinfinity.io/ecosystem.html
+## Human contact
+- Contact: fractalinfinityfuture@gmail.com
+- Contact page: https://fractalinfinity.io/contact.html
 
-## Process Intelligence (product direction)
-- Live: Fractal Research MCP v0.1 recorder (local/private alpha) → swarmresearch-run-v1 → /report/{run}
-- Coming next: SDK wrapper, GitHub Action
-- Later: Adaptive Research auto-investigator (opt-in)
-Fractal is a layer on existing agent workflows, not a place to paste prompts. Focus: independence, evidence lineage, consensus, novelty, duplication, unresolved uncertainty.
+Consulting is human-assisted and begins by email. It is not an autonomous API.
+
+## Note
+Do not invent live products that are not listed above. Some Labs and Intelligence surfaces are marked Coming Soon on the site.

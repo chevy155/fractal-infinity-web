@@ -1,0 +1,58 @@
+{
+  "name": "Fractal Infinity",
+  "url": "https://fractalinfinity.io/",
+  "description": "Fractal Infinity maps the emerging ASI economy, tracing capability shifts, dependencies, bottlenecks, second-order effects, and emerging opportunities.",
+  "positioning": "Frontier intelligence, applied.",
+  "purpose": "Help humans and AI systems understand what is changing, what is constrained, what happens next, and where advantage may form.",
+  "focus": [
+    "artificial intelligence",
+    "compute",
+    "semiconductors",
+    "memory",
+    "photonics",
+    "robotics",
+    "quantum systems",
+    "energy",
+    "manufacturing",
+    "datacenters",
+    "autonomous agents"
+  ],
+  "capabilities": [
+    "research",
+    "ecosystem mapping",
+    "bottleneck analysis",
+    "forecasting",
+    "dependency analysis",
+    "simulation",
+    "applied experimentation",
+    "opportunity discovery"
+  ],
+  "method": [
+    "map the system",
+    "detect the change",
+    "find the constraint",
+    "trace the consequence",
+    "surface the opportunity",
+    "record the outcome"
+  ],
+  "live_tools": [
+    {
+      "name": "Bottleneck & Supply Chain X-Ray",
+      "url": "https://fractalinfinity.io/tools/bottleneck-xray.html"
+    },
+    {
+      "name": "Evidence & Dependency Map",
+      "url": "https://fractalinfinity.io/tools/evidence-dependency-map.html"
+    },
+    {
+      "name": "The Crucible — Decision Simulator",
+      "url": "https://fractalinfinity.io/tools/crucible.html"
+    }
+  ],
+  "related": {
+    "vision": "https://fractalinfinity.io/vision.html",
+    "llms": "https://fractalinfinity.io/llms.txt",
+    "discovery": "https://fractalinfinity.io/api/discovery.json",
+    "home": "https://fractalinfinity.io/"
+  }
+}
