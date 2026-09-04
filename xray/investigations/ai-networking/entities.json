@@ -1,0 +1,13 @@
+{
+  "status": "EVIDENCE_BACKED",
+  "entities": [
+    {"id": "broadcom", "type": "company", "name": "Broadcom"},
+    {"id": "nvidia", "type": "company", "name": "NVIDIA"},
+    {"id": "marvell", "type": "company", "name": "Marvell"},
+    {"id": "lumentum", "type": "company", "name": "Lumentum"},
+    {"id": "coherent", "type": "company", "name": "Coherent"},
+    {"id": "innolight", "type": "company", "name": "Innolight"},
+    {"id": "tsmc", "type": "company", "name": "TSMC"},
+    {"id": "arista", "type": "company", "name": "Arista"}
+  ]
+}

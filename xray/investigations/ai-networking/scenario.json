@@ -1,0 +1,20 @@
+{
+  "scenario_id": "ai-networking-scale",
+  "title": "AI Networking X-Ray",
+  "system": "AI Networking / Interconnect Infrastructure",
+  "scaling_target": "Scale-up & scale-out of multi-XPU AI clusters",
+  "subtitle": "Broadcom / Scale-Up & Scale-Out Infrastructure",
+  "status": "EVIDENCE_BACKED_v1",
+  "disclaimer": "Constraint scores are CALCULATED from MODELED judgments grounded in OBSERVED claims. Values are inspectable engineering judgments, not calibrated science. Broadcom is an evidence-rich anchor, not the sole system subject.",
+  "boundary": [
+    "AI Ethernet switch silicon",
+    "high-speed SerDes",
+    "800G / 1.6T optical interconnect",
+    "optical DSP / PHY",
+    "laser sources",
+    "optical engines / silicon photonics",
+    "CPO / optical integration",
+    "networking packaging",
+    "network power / thermal"
+  ]
+}

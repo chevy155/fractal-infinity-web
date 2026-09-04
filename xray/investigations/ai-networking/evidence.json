@@ -1,0 +1,155 @@
+{
+  "status": "EVIDENCE_BACKED",
+  "disclaimer": "OBSERVED claims only. Primary preferred. Secondary labeled. No fabricated citations.",
+  "source_inventory": [
+    {"id": "avgo_th6_prod", "url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-now-shipping-worlds-first-1024-tbps-switch-production", "title": "Broadcom Shipping Tomahawk 6 102.4 Tbps Switch in Production Volume", "date": "2026-03-12", "class": "primary"},
+    {"id": "avgo_davisson", "url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-announces-tomahawkr-6-davisson-industrys-first-1024", "title": "Broadcom Announces Tomahawk 6 – Davisson CPO Switch", "date": "2025-10-08", "class": "primary"},
+    {"id": "avgo_sian3", "url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-extends-200glane-dsp-phy-leadership-next-generation-ai", "title": "Broadcom Extends 200G/lane DSP PHY Leadership for AI Infrastructure", "date": "2025-03-25", "class": "primary"},
+    {"id": "avgo_taurus", "url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-delivers-industrys-first-400glane-optical-dsp-next", "title": "Broadcom Delivers First 400G/lane Optical DSP (Taurus)", "date": "2026-03-11", "class": "primary"},
+    {"id": "nvda_cpo", "url": "https://nvidianews.nvidia.com/news/nvidia-spectrum-x-co-packaged-optics-networking-switches-ai-factories", "title": "NVIDIA Spectrum-X Photonics CPO Networking Switches", "date": "2025-03-18", "class": "primary"},
+    {"id": "avgo_q3_transcript_secondary", "url": "https://www.tradingkey.com/news/transcripts/262147548-tradingkey", "title": "Broadcom Q3 FY2026 Earnings Call Highlights (syndicated transcript)", "date": "2026-09-02", "class": "secondary"},
+    {"id": "mlq_optics_secondary", "url": "https://mlq.ai/research/optical-networking-interconnect-constraint/", "title": "Optical Networking: The Interconnect Constraint — MLQ Research", "date": "2026-01-01", "class": "secondary"}
+  ],
+  "claims": [
+    {
+      "id": "n001", "node_id": "ai-switch-silicon", "subject": "ai-switch-silicon",
+      "statement": "Broadcom: Tomahawk 6 family (102.4 Tbps) is shipping in production volume; optimized for AI scale-out and scale-up networks targeting clusters with more than one million XPUs.",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-now-shipping-worlds-first-1024-tbps-switch-production",
+      "source_title": "Broadcom Shipping Tomahawk 6 in Production Volume", "source_date": "2026-03-12", "source_class": "primary",
+      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.95, "data_class": "OBSERVED", "notes": ""
+    },
+    {
+      "id": "n002", "node_id": "ai-switch-silicon", "subject": "ai-switch-silicon",
+      "statement": "Broadcom (earnings commentary via syndicated transcript): Tomahawk 6 deployed across nearly all AI hyperscalers building XPUs with Broadcom, and also used by customers not using Broadcom XPUs.",
+      "source_url": "https://www.tradingkey.com/news/transcripts/262147548-tradingkey",
+      "source_title": "Broadcom Q3 FY2026 Earnings Call Highlights", "source_date": "2026-09-02", "source_class": "secondary",
+      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.78, "data_class": "OBSERVED", "notes": "Syndicated transcript; treat as company claim pending primary filing."
+    },
+    {
+      "id": "n003", "node_id": "high-speed-serdes", "subject": "high-speed-serdes",
+      "statement": "Tomahawk 6 supports 100G and 200G SerDes; Broadcom claims industry-leading SerDes reach for passive copper interconnect and options for 512×200G or 1024×100G SerDes on a single chip.",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-now-shipping-worlds-first-1024-tbps-switch-production",
+      "source_title": "Broadcom Shipping Tomahawk 6 in Production Volume", "source_date": "2026-03-12", "source_class": "primary",
+      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.92, "data_class": "OBSERVED", "notes": ""
+    },
+    {
+      "id": "n004", "node_id": "optical-transceivers", "subject": "optical-transceivers",
+      "statement": "Broadcom: rapid AI workload growth drives demand for increased bandwidth and interconnect density; positions 800G and 1.6T optical transceiver applications as target markets for new DSP PHYs.",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-extends-200glane-dsp-phy-leadership-next-generation-ai",
+      "source_title": "Broadcom 200G/lane DSP PHY Leadership", "source_date": "2025-03-25", "source_class": "primary",
+      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.9, "data_class": "OBSERVED", "notes": ""
+    },
+    {
+      "id": "n005", "node_id": "optical-transceivers", "subject": "optical-transceivers",
+      "statement": "Broadcom Taurus 400G/lane optical DSP enables low-power 1.6T pluggable modules and a path toward 3.2T designs for AI data centers.",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-delivers-industrys-first-400glane-optical-dsp-next",
+      "source_title": "Broadcom First 400G/lane Optical DSP", "source_date": "2026-03-11", "source_class": "primary",
+      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.91, "data_class": "OBSERVED", "notes": ""
+    },
+    {
+      "id": "n006", "node_id": "optical-transceivers", "subject": "optical-transceivers",
+      "statement": "Secondary analysis citing McKinsey (June 2025): 800G transceiver production projected 40–60% short of demand through 2027; 1.6T shortfalls 30–40% through 2029.",
+      "source_url": "https://mlq.ai/research/optical-networking-interconnect-constraint/",
+      "source_title": "Optical Networking: The Interconnect Constraint (MLQ)", "source_date": "2026-01-01", "source_class": "secondary",
+      "date_observed": "2026-09-03", "claim_type": "ESTIMATE", "confidence": 0.62, "data_class": "OBSERVED", "notes": "Secondary reporting of analyst estimate; not Broadcom primary."
+    },
+    {
+      "id": "n007", "node_id": "optical-dsp", "subject": "optical-dsp",
+      "statement": "Broadcom Sian3 3nm 200G/lane PAM4 DSP PHY targets 800G and 1.6T modules; claims >20% power reduction vs prior for EML and SiP-based 1.6T modules; production ramp planned Q3 2025.",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-extends-200glane-dsp-phy-leadership-next-generation-ai",
+      "source_title": "Broadcom 200G/lane DSP PHY Leadership", "source_date": "2025-03-25", "source_class": "primary",
+      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.9, "data_class": "OBSERVED", "notes": ""
+    },
+    {
+      "id": "n008", "node_id": "optical-dsp", "subject": "optical-dsp",
+      "statement": "Broadcom: Taurus BCM83640 is industry-first 3nm 400G/lane optical PAM4 DSP for 1.6T transceiver solutions with integrated laser driver.",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-delivers-industrys-first-400glane-optical-dsp-next",
+      "source_title": "Broadcom First 400G/lane Optical DSP", "source_date": "2026-03-11", "source_class": "primary",
+      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.93, "data_class": "OBSERVED", "notes": ""
+    },
+    {
+      "id": "n009", "node_id": "laser-sources", "subject": "laser-sources",
+      "statement": "Broadcom: 200G EML in production with millions of units shipped; shipping 200G/lane lasers alongside DSP portfolio for AI optical interconnects.",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-extends-200glane-dsp-phy-leadership-next-generation-ai",
+      "source_title": "Broadcom 200G/lane DSP PHY Leadership", "source_date": "2025-03-25", "source_class": "primary",
+      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.9, "data_class": "OBSERVED", "notes": ""
+    },
+    {
+      "id": "n010", "node_id": "laser-sources", "subject": "laser-sources",
+      "statement": "Broadcom (earnings commentary via syndicated transcript): more than tripling year-over-year capacity at indium phosphide factories for EML, CW laser, and VCSEL products (US and Singapore).",
+      "source_url": "https://www.tradingkey.com/news/transcripts/262147548-tradingkey",
+      "source_title": "Broadcom Q3 FY2026 Earnings Call Highlights", "source_date": "2026-09-02", "source_class": "secondary",
+      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.8, "data_class": "OBSERVED", "notes": "Capacity expansion implies prior pressure; syndicated transcript."
+    },
+    {
+      "id": "n011", "node_id": "laser-sources", "subject": "laser-sources",
+      "statement": "Secondary research: Lumentum described as only supplier shipping 200G-per-lane EMLs at volume for 1.6T transceivers; EML production concentrated in precision InP fabs.",
+      "source_url": "https://mlq.ai/research/optical-networking-interconnect-constraint/",
+      "source_title": "Optical Networking: The Interconnect Constraint (MLQ)", "source_date": "2026-01-01", "source_class": "secondary",
+      "date_observed": "2026-09-03", "claim_type": "INFERENCE", "confidence": 0.58, "data_class": "OBSERVED", "notes": "Secondary claim of supplier concentration; confidence moderated."
+    },
+    {
+      "id": "n012", "node_id": "optical-engines", "subject": "optical-engines",
+      "statement": "Tomahawk 6 – Davisson integrates sixteen 6.4 Tbps optical engines with the 102.4 Tbps switch ASIC for co-packaged optics.",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-announces-tomahawkr-6-davisson-industrys-first-1024",
+      "source_title": "Broadcom Tomahawk 6 – Davisson CPO", "source_date": "2025-10-08", "source_class": "primary",
+      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.92, "data_class": "OBSERVED", "notes": ""
+    },
+    {
+      "id": "n013", "node_id": "cpo-integration", "subject": "cpo-integration",
+      "statement": "Broadcom: TH6-Davisson is third-generation CPO Ethernet switch shipping; claims first 102.4 Tbps optically enabled switching capacity and power-efficiency gains for AI scale-up/scale-out.",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-announces-tomahawkr-6-davisson-industrys-first-1024",
+      "source_title": "Broadcom Tomahawk 6 – Davisson CPO", "source_date": "2025-10-08", "source_class": "primary",
+      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.88, "data_class": "OBSERVED", "notes": "Shipping announced; production volume vs sampling not quantified in primary PR."
+    },
+    {
+      "id": "n014", "node_id": "cpo-integration", "subject": "cpo-integration",
+      "statement": "NVIDIA announces Spectrum-X Photonics co-packaged optics networking switches for AI factories, indicating multi-vendor CPO push for AI networking.",
+      "source_url": "https://nvidianews.nvidia.com/news/nvidia-spectrum-x-co-packaged-optics-networking-switches-ai-factories",
+      "source_title": "NVIDIA Spectrum-X Photonics CPO Switches", "source_date": "2025-03-18", "source_class": "primary",
+      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.9, "data_class": "OBSERVED", "notes": ""
+    },
+    {
+      "id": "n015", "node_id": "networking-packaging", "subject": "networking-packaging",
+      "statement": "Davisson CPO architecture packages switch ASIC with multiple optical engines in one system — implying specialized advanced packaging beyond standard pluggable switch designs.",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-announces-tomahawkr-6-davisson-industrys-first-1024",
+      "source_title": "Broadcom Tomahawk 6 – Davisson CPO", "source_date": "2025-10-08", "source_class": "primary",
+      "date_observed": "2026-09-03", "claim_type": "FACT", "confidence": 0.85, "data_class": "OBSERVED", "notes": "Packaging implication is structural from product description."
+    },
+    {
+      "id": "n016", "node_id": "network-power", "subject": "network-power",
+      "statement": "Broadcom: optical interconnect power is a major factor limiting AI/ML cluster scalability; new DSP generations explicitly target power reduction for 800G/1.6T modules.",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-extends-200glane-dsp-phy-leadership-next-generation-ai",
+      "source_title": "Broadcom 200G/lane DSP PHY Leadership", "source_date": "2025-03-25", "source_class": "primary",
+      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.9, "data_class": "OBSERVED", "notes": ""
+    },
+    {
+      "id": "n017", "node_id": "network-power", "subject": "network-power",
+      "statement": "Davisson CPO positioned for major advancements in power efficiency versus prior CPO generations while doubling optically enabled switch bandwidth.",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-announces-tomahawkr-6-davisson-industrys-first-1024",
+      "source_title": "Broadcom Tomahawk 6 – Davisson CPO", "source_date": "2025-10-08", "source_class": "primary",
+      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.86, "data_class": "OBSERVED", "notes": ""
+    },
+    {
+      "id": "n018", "node_id": "network-thermal", "subject": "network-thermal",
+      "statement": "Partner commentary in Broadcom Davisson release: as industry scales 800G today and prepares for 1.6T interconnects, power savings and stability are required for next-generation large-scale AI infrastructure.",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-announces-tomahawkr-6-davisson-industrys-first-1024",
+      "source_title": "Broadcom Tomahawk 6 – Davisson CPO", "source_date": "2025-10-08", "source_class": "primary",
+      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.72, "data_class": "OBSERVED", "notes": "Partner quote in Broadcom PR; thermal/power coupling inferred from power density."
+    },
+    {
+      "id": "n019", "node_id": "high-speed-serdes", "subject": "high-speed-serdes",
+      "statement": "Broadcom positions extended copper reach via SerDes as reducing optics count and improving reliability/TCO for AI clusters — implying SerDes performance shapes copper-vs-optics boundary.",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-now-shipping-worlds-first-1024-tbps-switch-production",
+      "source_title": "Broadcom Shipping Tomahawk 6 in Production Volume", "source_date": "2026-03-12", "source_class": "primary",
+      "date_observed": "2026-09-03", "claim_type": "COMPANY_CLAIM", "confidence": 0.88, "data_class": "OBSERVED", "notes": ""
+    },
+    {
+      "id": "n020", "node_id": "cpo-integration", "subject": "cpo-integration",
+      "statement": "Davisson uses external lasers with co-packaged optical engines — laser supply remains an external dependency even when optics are packaged with the switch.",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-announces-tomahawkr-6-davisson-industrys-first-1024",
+      "source_title": "Broadcom Tomahawk 6 – Davisson CPO", "source_date": "2025-10-08", "source_class": "primary",
+      "date_observed": "2026-09-03", "claim_type": "FACT", "confidence": 0.84, "data_class": "OBSERVED", "notes": "External laser architecture noted in product descriptions / industry coverage of Davisson; confirm via primary product materials."
+    }
+  ]
+}

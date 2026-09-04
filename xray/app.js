@@ -121,7 +121,8 @@ function renderCascade(cascade, nodes) {
 }
 
 async function main() {
-  const dataBase = new URL("./investigations/ai-accelerator/", import.meta.url);
+  const inv = document.body.dataset.investigation || "ai-accelerator";
+  const dataBase = new URL(`./investigations/${inv}/`, import.meta.url);
   const configBase = new URL("./config/", import.meta.url);
   const [scenario, entitiesFile, nodesFile, relFile, constraints, evidence, weights] = await Promise.all([
     loadJson(new URL("scenario.json", dataBase).href),

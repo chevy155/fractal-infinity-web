@@ -1,0 +1,126 @@
+{
+  "status": "EVIDENCE_BACKED",
+  "node_count": 10,
+  "nodes": [
+    {
+      "id": "ai-switch-silicon",
+      "label": "AI Network Switch Silicon",
+      "category": "switching",
+      "what": "High-radix Ethernet switch ASICs (e.g. 102.4 Tbps Tomahawk-class) used for AI scale-up and scale-out fabrics.",
+      "why_matters": "Determines how many XPUs can be connected per tier and how many optics/tiers a cluster needs.",
+      "controllers": ["broadcom", "nvidia"],
+      "relief_levers": ["next-gen switch ASICs", "multi-vendor Ethernet fabrics", "fewer tiers via higher radix"],
+      "falsify": "Multiple vendors ship 100T+ AI Ethernet ASICs with spare foundry capacity and short lead times.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "high-speed-serdes",
+      "label": "High-Speed SerDes",
+      "category": "electrical_io",
+      "what": "100G/200G+ SerDes lanes connecting switch silicon to copper or optical modules.",
+      "why_matters": "Electrical reach and power-per-bit limit how far copper can go before optics are required.",
+      "controllers": ["broadcom", "nvidia", "marvell"],
+      "relief_levers": ["longer-reach SerDes", "lower-power PHY", "near-package / CPO architectures"],
+      "falsify": "Passive copper covers most AI rack/row interconnect without optical conversion at target speeds.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "optical-transceivers",
+      "label": "800G / 1.6T Optical Transceivers",
+      "category": "optics",
+      "what": "Pluggable optical modules carrying cluster east-west traffic at 800G and emerging 1.6T rates.",
+      "why_matters": "As switch bandwidth doubles, module count and speed must rise or fabrics stall.",
+      "controllers": ["innolight", "broadcom", "coherent"],
+      "relief_levers": ["module capacity expansion", "CPO reducing front-panel modules", "lower-power DSP+laser designs"],
+      "falsify": "800G/1.6T modules available with short lead times and declining ASP across suppliers.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "optical-dsp",
+      "label": "Optical DSP / PHY",
+      "category": "optics",
+      "what": "PAM4 optical DSPs/PHYs inside high-speed modules (200G/lane → 400G/lane).",
+      "why_matters": "DSPs gate module power, BER, and ability to ship 800G/1.6T at scale.",
+      "controllers": ["broadcom", "marvell"],
+      "relief_levers": ["3nm DSP ramps", "second-source DSPs", "lower-power FEC/DSP architectures"],
+      "falsify": "Multiple DSP vendors ship qualified 200G/400G-lane silicon with excess capacity.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "laser-sources",
+      "label": "Laser Sources",
+      "category": "optics",
+      "what": "EML, VCSEL, and CW lasers supplying light for optical interconnect (pluggable and CPO).",
+      "why_matters": "Without qualified laser volume, modules and CPO engines cannot ship.",
+      "controllers": ["broadcom", "lumentum", "coherent"],
+      "relief_levers": ["InP fab expansions", "multi-sourcing EMLs", "CW laser redundancy architectures"],
+      "falsify": "EML/CW/VCSEL supply exceeds AI optics demand with diversified foundries.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "optical-engines",
+      "label": "Optical Engines / Silicon Photonics",
+      "category": "photonics",
+      "what": "Integrated optical engines and SiPho assemblies used in CPO and advanced interconnect.",
+      "why_matters": "Moves conversion closer to the switch ASIC; required for CPO bandwidth density.",
+      "controllers": ["broadcom", "nvidia"],
+      "relief_levers": ["engine yield", "external laser modules", "qualified SiPho foundry capacity"],
+      "falsify": "Optical engines available as commodity attach with mature yields independent of switch vendor.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "cpo-integration",
+      "label": "Co-Packaged Optics Integration",
+      "category": "integration",
+      "what": "Packaging optical engines with switch ASICs to shorten electrical I/O paths.",
+      "why_matters": "Candidate relief for SerDes power/reach walls at 102.4T+ switching.",
+      "controllers": ["broadcom", "nvidia"],
+      "relief_levers": ["field reliability", "serviceability designs", "hyperscaler qualification"],
+      "falsify": "CPO widely deployed in production AI fabrics with proven service model.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "networking-packaging",
+      "label": "Networking Advanced Packaging",
+      "category": "packaging",
+      "what": "Advanced package integration for switch + optics (including CPO package complexes).",
+      "why_matters": "CPO and high-SerDes switches require specialized packaging beyond standard ASIC packages.",
+      "controllers": ["broadcom", "tsmc"],
+      "relief_levers": ["packaging capacity", "yield on multi-engine packages", "OSAT diversification"],
+      "falsify": "CPO/switch packages assemble with commodity packaging capacity and high yields.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "network-power",
+      "label": "Network Power Consumption",
+      "category": "power",
+      "what": "Energy consumed by switches, SerDes, DSPs, lasers, and optical conversion in AI fabrics.",
+      "why_matters": "Optical interconnect power is a stated limiter of cluster scalability.",
+      "controllers": ["broadcom", "nvidia"],
+      "relief_levers": ["lower-power DSPs", "CPO power savings", "copper where reach allows"],
+      "falsify": "Networking power ceases to constrain AI cluster size vs compute/power budget.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    },
+    {
+      "id": "network-thermal",
+      "label": "Network Thermal Management",
+      "category": "thermal",
+      "what": "Cooling of high-power switch systems, DSPs, lasers, and CPO packages.",
+      "why_matters": "As power density rises, thermal design gates density and reliability.",
+      "controllers": ["broadcom", "nvidia", "arista"],
+      "relief_levers": ["liquid cooling", "lower-power optics", "thermal-aware CPO design"],
+      "falsify": "Air-cooled networking meets 102.4T+ density targets without thermal throttling.",
+      "data_class": "STRUCTURED",
+      "status": "EVIDENCE_BACKED"
+    }
+  ]
+}

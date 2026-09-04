@@ -1,0 +1,21 @@
+{
+  "status": "EVIDENCE_BACKED",
+  "relationships": [
+    {"from": "ai-cluster-scale", "relationship": "depends_on", "to": "ai-switch-silicon"},
+    {"from": "ai-switch-silicon", "relationship": "depends_on", "to": "high-speed-serdes"},
+    {"from": "ai-switch-silicon", "relationship": "depends_on", "to": "optical-transceivers"},
+    {"from": "high-speed-serdes", "relationship": "drives_demand_for", "to": "optical-transceivers"},
+    {"from": "optical-transceivers", "relationship": "depends_on", "to": "optical-dsp"},
+    {"from": "optical-transceivers", "relationship": "depends_on", "to": "laser-sources"},
+    {"from": "cpo-integration", "relationship": "depends_on", "to": "optical-engines"},
+    {"from": "cpo-integration", "relationship": "depends_on", "to": "laser-sources"},
+    {"from": "cpo-integration", "relationship": "depends_on", "to": "networking-packaging"},
+    {"from": "cpo-integration", "relationship": "relieves_pressure_on", "to": "high-speed-serdes"},
+    {"from": "optical-engines", "relationship": "depends_on", "to": "networking-packaging"},
+    {"from": "ai-switch-silicon", "relationship": "depends_on", "to": "network-power"},
+    {"from": "optical-dsp", "relationship": "drives", "to": "network-power"},
+    {"from": "network-power", "relationship": "depends_on", "to": "network-thermal"},
+    {"from": "cpo-integration", "relationship": "affects", "to": "network-power"},
+    {"from": "ai-switch-silicon", "relationship": "optionally_uses", "to": "cpo-integration"}
+  ]
+}
