@@ -2018,6 +2018,60 @@ a.report-card:hover {
 .xr-invest-section { margin: 36px 0 48px; border-bottom: none !important; padding-bottom: 0 !important; }
 .xr-invest-section .fi-h2 { margin-bottom: 8px; }
 .xr-invest-intro { font-size: 14px; color: var(--ivory-dim); margin: 0 0 16px; line-height: 1.55; }
+.xr-group-select {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+  margin: 0 0 14px;
+}
+.xr-group-tile {
+  appearance: none; cursor: pointer; text-align: left;
+  padding: 14px 14px 12px; border-radius: 10px;
+  color: #d4d7dc;
+  background:
+    linear-gradient(180deg, rgba(176, 182, 190, 0.22) 0%, rgba(58, 64, 72, 0.92) 42%, rgba(32, 36, 42, 0.98) 100%);
+  border: 1px solid rgba(168, 176, 186, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+    0 8px 18px rgba(0, 0, 0, 0.28);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s, filter 0.2s;
+  font-family: inherit;
+}
+.xr-group-tile:hover {
+  filter: brightness(1.08);
+  border-color: rgba(196, 204, 214, 0.7);
+}
+.xr-group-tile:focus-visible {
+  outline: 2px solid rgba(118, 255, 3, 0.55);
+  outline-offset: 2px;
+}
+.xr-group-tile.is-selected {
+  border-color: rgba(210, 216, 224, 0.85);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 0 0 1px rgba(118, 255, 3, 0.28),
+    0 10px 22px rgba(0, 0, 0, 0.38);
+  color: #f3f0e4;
+}
+.xr-group-kicker {
+  display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: rgba(212, 215, 220, 0.72); margin-bottom: 6px;
+}
+.xr-group-name {
+  display: block; font-size: 16px; font-weight: 600; letter-spacing: 0.01em;
+  color: inherit; margin-bottom: 6px;
+}
+.xr-group-meta {
+  display: block; font-family: var(--mono); font-size: 11px; color: rgba(196, 200, 206, 0.78);
+}
+.xr-group-hint { font-size: 12.5px; color: var(--ivory-faint); margin: 0 0 16px; }
+.xr-group-chip {
+  display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: #c9ced4;
+  border: 1px solid rgba(168, 176, 186, 0.4);
+  background: linear-gradient(180deg, rgba(140, 148, 158, 0.25), rgba(48, 52, 58, 0.85));
+  padding: 2px 7px; border-radius: 999px; margin-bottom: 8px;
+}
+.xr-invest-card[hidden] { display: none !important; }
 .xr-invest-card {
   display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;
   padding: 20px 22px; margin-bottom: 12px; border-radius: 10px; text-decoration: none;
@@ -2109,6 +2163,7 @@ a.report-card:hover {
 .xr-status-examples li { padding: 8px 12px; margin-bottom: 6px; border-left: 2px solid rgba(118,255,3,0.3); background: rgba(118,255,3,0.03); }
 .xr-cascade-example { font-size: 14px !important; }
 @media (max-width: 600px) {
+  .xr-group-select { grid-template-columns: 1fr; }
   .xr-invest-card { flex-direction: column; gap: 12px; }
   .xr-invest-open,
   .xr-invest-badge { margin-top: 0; }

@@ -110,12 +110,33 @@
     </ol>
   </section>
 
-  <section class="xr-invest-section" aria-label="Fractal investigations">
+  <section class="xr-invest-section" id="xr-investigations" aria-label="Fractal investigations">
     <h2 class="fi-h2">Fractal Investigations</h2>
-    <p class="xr-invest-intro">Evidence-backed investigations built using the X-Ray methodology.</p>
+    <p class="xr-invest-intro">Select a system. The X-Ray list updates to that group.</p>
 
-    <a class="xr-invest-card xr-invest-live" href="xray/ai-accelerator.html">
+    <div class="xr-group-select" role="tablist" aria-label="X-Ray system groups">
+      <button type="button" class="xr-group-tile" role="tab" id="xr-tab-hbm" data-group="hbm" aria-selected="false" aria-controls="xr-invest-list">
+        <span class="xr-group-kicker">Memory &amp; packaging</span>
+        <span class="xr-group-name">HBM</span>
+        <span class="xr-group-meta">1 live X-Ray</span>
+      </button>
+      <button type="button" class="xr-group-tile" role="tab" id="xr-tab-datacenters" data-group="datacenters" aria-selected="false" aria-controls="xr-invest-list">
+        <span class="xr-group-kicker">Power &amp; construction</span>
+        <span class="xr-group-name">Data Centers</span>
+        <span class="xr-group-meta">1 live X-Ray</span>
+      </button>
+      <button type="button" class="xr-group-tile" role="tab" id="xr-tab-photonics" data-group="photonics" aria-selected="false" aria-controls="xr-invest-list">
+        <span class="xr-group-kicker">Optics &amp; interconnect</span>
+        <span class="xr-group-name">Photonics</span>
+        <span class="xr-group-meta">1 live X-Ray</span>
+      </button>
+    </div>
+    <p class="xr-group-hint" id="xr-group-hint">Showing all investigations. Choose a steel tile to isolate a group.</p>
+
+    <div id="xr-invest-list">
+    <a class="xr-invest-card xr-invest-live" data-group="hbm" href="xray/ai-accelerator.html">
       <div class="xr-invest-card-body">
+        <span class="xr-group-chip">HBM</span>
         <strong class="xr-invest-title">AI Accelerator Scaling X-Ray</strong>
         <p class="xr-invest-question">What physically prevents next-generation AI accelerator production from scaling 5&times;?</p>
         <p class="xr-invest-desc">Trace the system through HBM, advanced packaging, substrates, interposers, bonding, test, photonics and the specialized manufacturing capacity underneath them.</p>
@@ -128,8 +149,9 @@
       <span class="xr-invest-open">Open X-Ray &rarr;</span>
     </a>
 
-    <a class="xr-invest-card xr-invest-live" href="xray/ai-networking.html">
+    <a class="xr-invest-card xr-invest-live" data-group="photonics" href="xray/ai-networking.html">
       <div class="xr-invest-card-body">
+        <span class="xr-group-chip">Photonics</span>
         <strong class="xr-invest-title">AI Networking X-Ray</strong>
         <p class="xr-invest-question">As AI clusters scale, what constrains networking and interconnect — and where does the bottleneck move when it is relieved?</p>
         <p class="xr-invest-desc">Trace switch silicon, SerDes, 800G/1.6T optics, optical DSP, lasers, CPO, packaging, and network power/thermal — using Broadcom as an evidence-rich anchor, not the sole subject.</p>
@@ -142,8 +164,9 @@
       <span class="xr-invest-open">Open X-Ray &rarr;</span>
     </a>
 
-    <a class="xr-invest-card xr-invest-live" href="xray/datacenter-buildout.html">
+    <a class="xr-invest-card xr-invest-live" data-group="datacenters" href="xray/datacenter-buildout.html">
       <div class="xr-invest-card-body">
+        <span class="xr-group-chip">Data Centers</span>
         <strong class="xr-invest-title">Datacenter Buildout X-Ray</strong>
         <p class="xr-invest-question">What is actually limiting large-scale AI datacenter expansion now — and what becomes the dominant constraint after that bottleneck is relieved?</p>
         <p class="xr-invest-desc">Trace power delivery through interconnection, transformers, switchgear, generation headroom, gas turbines, permitting, shells, cooling, and accelerators. Chips are included to test whether they still bind.</p>
@@ -156,7 +179,7 @@
       <span class="xr-invest-open">Open X-Ray &rarr;</span>
     </a>
 
-    <div class="xr-invest-card xr-invest-soon" aria-disabled="true">
+    <div class="xr-invest-card xr-invest-soon" data-group="other" aria-disabled="true">
       <div class="xr-invest-card-body">
         <strong class="xr-invest-title">Humanoid Robot Production X-Ray</strong>
         <p class="xr-invest-question">What prevents humanoid robots from moving from thousands of units to millions?</p>
@@ -165,13 +188,14 @@
       <span class="xr-invest-badge">Coming Soon</span>
     </div>
 
-    <div class="xr-invest-card xr-invest-soon" aria-disabled="true">
+    <div class="xr-invest-card xr-invest-soon" data-group="other" aria-disabled="true">
       <div class="xr-invest-card-body">
         <strong class="xr-invest-title">Custom X-Ray</strong>
         <p class="xr-invest-question">Stress-test the physical scaling limits of a product, project or industry.</p>
         <p class="xr-invest-desc">Define the system, scaling target and time horizon. Fractal decomposes the dependency chain and searches for the constraints controlling the outcome.</p>
       </div>
       <span class="xr-invest-badge">Coming Soon</span>
+    </div>
     </div>
   </section>
 
@@ -185,5 +209,50 @@
   <p class="section-footer-link"><a href="../index.html">&larr; Home</a> · <a href="../reports.html">Reports</a></p>
 </main>
 <script src="../js/product-rail.js"></script>
+<script>
+(function () {
+  const tiles = Array.from(document.querySelectorAll(".xr-group-tile"));
+  const cards = Array.from(document.querySelectorAll("#xr-invest-list [data-group]"));
+  const hint = document.getElementById("xr-group-hint");
+  const labels = { hbm: "HBM", datacenters: "Data Centers", photonics: "Photonics" };
+  const valid = new Set(Object.keys(labels));
+
+  function apply(group, pushHash) {
+    const selected = valid.has(group) ? group : "";
+    tiles.forEach((tile) => {
+      const on = tile.dataset.group === selected;
+      tile.classList.toggle("is-selected", on);
+      tile.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    cards.forEach((card) => {
+      const show = !selected || card.dataset.group === selected;
+      card.hidden = !show;
+    });
+    if (hint) {
+      hint.textContent = selected
+        ? "Showing " + labels[selected] + ". Select the tile again to show all."
+        : "Showing all investigations. Choose a steel tile to isolate a group.";
+    }
+    if (pushHash) {
+      const url = new URL(window.location.href);
+      url.hash = selected ? selected : "";
+      history.replaceState(null, "", url.pathname + url.search + (selected ? "#" + selected : ""));
+    }
+  }
+
+  tiles.forEach((tile) => {
+    tile.addEventListener("click", () => {
+      const next = tile.classList.contains("is-selected") ? "" : tile.dataset.group;
+      apply(next, true);
+    });
+  });
+
+  const fromHash = (location.hash || "").replace("#", "").toLowerCase();
+  apply(fromHash, false);
+  window.addEventListener("hashchange", () => {
+    apply((location.hash || "").replace("#", "").toLowerCase(), false);
+  });
+})();
+</script>
 </body>
 </html>
