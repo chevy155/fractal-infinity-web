@@ -1,0 +1,43 @@
+{
+  "data_class": "MODELED",
+  "status": "EVIDENCE_BACKED",
+  "as_of": "2026-09-04",
+  "disclaimer": "MODELED interpretation of a CALCULATED ranking grounded in OBSERVED claims. Not a forecast and not investment advice. Areas worth investigating, not securities to buy.",
+  "bottleneck_id": "cowos",
+  "next_bottleneck_id": "hbm4",
+  "current_reality": "The ranking does not say frontend wafers, GPU architecture, or HBM design is what currently stops 5× accelerator shipments. It says CoWoS-class packaging is. TSMC’s CEO on the 2Q26 call said packaging capacity is so tight it limits customers’ growth, and that backend is still in shortage mode with a bigger gap — stronger than the 3Q25 “very tight / working to narrow the gap” language. HBM4 is close behind: SK hynix, Micron, and Samsung are all in volume, and SK’s own 2Q26 release still says customer demand exceeds supply capabilities. Capacity-expansion stories (WPM estimates, Arizona AP, Yongin, 13 Taiwan fabs) are not 2026 surplus.",
+  "constraint_migration": "The engine relieves CoWoS capacity, lead time, and concentration only, then re-ranks. HBM4 rises next because Vera Rubin-class platforms are designed around it and memory makers still report allocation, not idle cubes. After HBM4, the advanced interposer inherits the same physical stack — a CoWoS “slot” without an interposer does not complete the package. HBM3E remains the volume workhorse during the transition and sits just behind the interposer.",
+  "gains_leverage": [
+    "TSMC CoWoS / advanced-packaging tool install rate and Taiwan AP campuses — Arizona packaging is announced, not 2026 deliverable",
+    "HBM4 makers that can actually ship qualified cubes on time (SK hynix, Micron, Samsung) and the stacking sites behind them (M15X, P&T7, Indiana)",
+    "Hybrid-bonding equipment (Besi / Applied Materials class) as the shared tool layer under both HBM stacking and SoIC",
+    "Substrate vendors TSMC is working with — glass-core is ~1 year from production per Wei, so organic high-layer substrates still bind large packages"
+  ],
+  "loses_leverage": [
+    "The story that frontend wafer starts or GPU architecture is the binding 5× constraint",
+    "Treating Intel EMIB-T or OSAT spillover as a drop-in for current NVIDIA-class CoWoS — Wei welcomes it as flexibility to unstick frontend wafers, not as equivalence",
+    "2027–2028 fab announcements treated as 2026 shippable capacity",
+    "CPO / silicon photonics as the current accelerator bottleneck — those bind networking scale-out later, not today’s HBM attach"
+  ],
+  "second_order_effect": "Clearing CoWoS slots moves the bind onto HBM4 cubes, not onto “more GPUs.” Three-supplier HBM4 is not slack: SK says demand exceeds supply, and HBM wafer intensity also pulls conventional DRAM. The coupled trap: HBM stacking and SoIC both consume hybrid bonders, so HBM relief and denser 3D packaging compete for the same tools. Glass substrates are a cost/size path, not a 2026 bypass.",
+  "opportunity": "Worth investigating: who actually holds incremental CoWoS-L allocation into 2027; whether HBM4 16H qualification (still sampling) raises bits-per-placement faster than new cube capacity; whether P&T7 / Indiana packaging relieves stacking faster than wafer starts; and whether EMIB-T takes only non-flagship AI packages. Not a conclusion: TSMC, SK hynix, or Micron as securities, or that the packaging shortage is over.",
+  "watch_signals": {
+    "confirm": [
+      "TSMC continues to describe backend / CoWoS as shortage or as limiting customer growth on subsequent calls",
+      "SK hynix, Micron, or Samsung keep demand-exceeds-supply, sold-out, or LTA-allocation language",
+      "Official TSMC WPM is still not disclosed, and secondary capacity figures remain below implied demand",
+      "HBM4 16H stays in sample / qualification rather than volume"
+    ],
+    "invalidate": [
+      "TSMC states CoWoS supply meets demand with spare allocation and short lead times",
+      "All three HBM makers report unused HBM capacity and normalized lead times",
+      "A leading AI flagship package qualifies a true drop-in non-CoWoS path at volume",
+      "Interposer or substrate lines sit idle while CoWoS tools wait — that would invert the stack"
+    ]
+  },
+  "confidence": {
+    "band": "HIGH",
+    "level": 0.86,
+    "rationale": "Matches the CoWoS-node evidence confidence after the 2Q26 transcript. Direction (packaging over HBM4 over interposer) is better supported than the exact score margin. WPM remains unofficial; glass-substrate timing is a CEO estimate, not a dated process-of-record."
+  }
+}

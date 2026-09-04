@@ -150,6 +150,13 @@
       "status": "production"
     },
     {
+      "id": "samsung-hbm4",
+      "entity_id": "samsung",
+      "node_id": "hbm4",
+      "capability_type": "memory",
+      "status": "production"
+    },
+    {
       "id": "tsmc-cowos",
       "entity_id": "tsmc",
       "node_id": "cowos",
