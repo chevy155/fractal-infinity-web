@@ -21,6 +21,7 @@
   ],
   "second_order_effect": "Clearing transformers does not create megawatts. LBNL shows 549 GW already holding an interconnection agreement and not operating. GE Vernova’s >$5B year-to-date datacenter orders are Electrification (grid gear), not Gas Power — so AI demand is already pulling the transformer/switchgear stack harder than the turbine book, of which only a minority is datacenter. The coupled trap: the substitute for slow interconnection (new gas) still consumes the same constrained GSU transformers.",
   "opportunity": "Worth investigating: who can actually deliver LPTs/GSUs into 2027–2028 AI interconnects; surplus-interconnection or co-location that avoids a new substation; whether switchgear stays a demand boom or becomes a second equipment queue; and which generation projects have both a turbine slot and a GSU. Not a conclusion: utilities-in-general or turbines-as-grid-replacement.",
+  "next_question": "If large power transformer delivery were suddenly abundant, what becomes the next binding constraint on AI campus energization — grid interconnection study/upgrade queues, heavy-duty gas turbines, or transmission and substation construction?",
   "watch_signals": {
     "confirm": [
       "OEM transformer book-to-bill remains well above 1.0 while data-center projects remain in Electrification order commentary",

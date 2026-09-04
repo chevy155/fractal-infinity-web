@@ -167,6 +167,7 @@ function renderIntelligence(layer, ranked, cascade, nodes) {
       <dd>${list(watch.invalidate)}</dd>
       <dt>Confidence</dt>
       <dd>${conf.rationale || "—"}</dd>
+      ${layer.next_question ? `<dt>Next question</dt><dd>${layer.next_question}</dd>` : ""}
     </dl>
     <p class="muted-note">${layer.disclaimer || ""}</p>
   `;

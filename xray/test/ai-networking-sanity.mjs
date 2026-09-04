@@ -71,6 +71,20 @@ assert(opticsRank < switchRank || laserRank < switchRank, "optics or lasers outr
 // Evidence correction: lasers must not outrank modules without stronger scarcity proof than module shortfall estimates
 assert(opticsRank <= laserRank, "optical-transceivers rank at or above laser-sources given evidence quality");
 
+const intel = load(`${dataRel}/intelligence.json`);
+const INTEL_FIELDS = [
+  "current_reality", "constraint_migration", "gains_leverage", "loses_leverage",
+  "second_order_effect", "opportunity", "watch_signals", "confidence", "next_question"
+];
+for (const f of INTEL_FIELDS) assert(intel[f] != null, `intelligence.${f}`);
+assert(intel.data_class === "MODELED", "intelligence MODELED");
+assert(intel.bottleneck_id === ranked[0].node_id, "intelligence bottleneck matches engine #1");
+assert(intel.next_bottleneck_id === cascade.stages[1].bottleneck_id, "intelligence next matches cascade");
+assert(intel.confidence.level === ranked[0].evidence_confidence, "intelligence confidence tracks top-node evidence");
+assert(!JSON.stringify(intel).toLowerCase().includes("buy "), "intelligence is not investment advice");
+assert(Array.isArray(intel.watch_signals.confirm) && Array.isArray(intel.watch_signals.invalidate), "watch signals both sides");
+assert(typeof intel.next_question === "string" && intel.next_question.length > 20, "next_question present");
+
 console.log("\nRANKED");
 ranked.forEach((r, i) => {
   const n = nodes.nodes.find((x) => x.id === r.node_id);

@@ -21,6 +21,7 @@
   ],
   "second_order_effect": "Clearing CoWoS slots moves the bind onto HBM4 cubes, not onto “more GPUs.” Three-supplier HBM4 is not slack: SK says demand exceeds supply, and HBM wafer intensity also pulls conventional DRAM. The coupled trap: HBM stacking and SoIC both consume hybrid bonders, so HBM relief and denser 3D packaging compete for the same tools. Glass substrates are a cost/size path, not a 2026 bypass.",
   "opportunity": "Worth investigating: who actually holds incremental CoWoS-L allocation into 2027; whether HBM4 16H qualification (still sampling) raises bits-per-placement faster than new cube capacity; whether P&T7 / Indiana packaging relieves stacking faster than wafer starts; and whether EMIB-T takes only non-flagship AI packages. Not a conclusion: TSMC, SK hynix, or Micron as securities, or that the packaging shortage is over.",
+  "next_question": "If CoWoS-class packaging capacity were suddenly abundant, what becomes the next binding constraint on 5× accelerator shipments — HBM4 cubes, advanced interposers, or hybrid-bonding equipment?",
   "watch_signals": {
     "confirm": [
       "TSMC continues to describe backend / CoWoS as shortage or as limiting customer growth on subsequent calls",
