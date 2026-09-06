@@ -32,25 +32,113 @@
   <p class="muted-note">Broadcom / Scale-Up &amp; Scale-Out Infrastructure — system subject, company as evidence anchor</p>
   <p class="fi-live-badge">Live · Evidence-backed</p>
   <p class="muted-note" id="xr-disclaimer"></p>
+  <p class="muted-note" id="xr-as-of"><!-- xray-prerender:as-of:start -->
+Evidence as of 2026-09-04
+<!-- xray-prerender:as-of:end --></p>
+  <p class="muted-note"><!-- xray-prerender:methodology:start -->
+Methodology: <a href="methodology.html">How scoring and cascade work</a>
+<!-- xray-prerender:methodology:end --></p>
+  <p class="muted-note"><!-- xray-prerender:evidence-disclaimer:start -->
+OBSERVED claims only. Primary preferred. Secondary labeled. No fabricated citations.
+<!-- xray-prerender:evidence-disclaimer:end --></p>
 
   <div class="xray-grid xr-grid">
     <section class="xray-panel">
       <h2>Ranked bottlenecks</h2>
-      <div id="xr-rank" class="xr-rank" role="list"></div>
+      <div id="xr-rank" class="xr-rank" role="list">
+        <!-- xray-prerender:rank:start -->
+<button type="button" class="xr-rank-item is-active"><span class="xr-rank-n">#1</span><span class="xr-rank-label">800G / 1.6T Optical Transceivers<small class="xr-rank-status">MODERATE RISK / MODERATE CONFIDENCE</small></span><span class="xr-rank-score">60</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#2</span><span class="xr-rank-label">Optical Engines / Silicon Photonics<small class="xr-rank-status">MODERATE RISK / HIGH CONFIDENCE</small></span><span class="xr-rank-score">50</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#3</span><span class="xr-rank-label">Optical DSP / PHY<small class="xr-rank-status">MODERATE RISK / HIGH CONFIDENCE</small></span><span class="xr-rank-score">49</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#4</span><span class="xr-rank-label">Laser Sources<small class="xr-rank-status">MODERATE RISK / MODERATE CONFIDENCE</small></span><span class="xr-rank-score">46</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#5</span><span class="xr-rank-label">AI Network Switch Silicon<small class="xr-rank-status">MODERATE RISK / HIGH CONFIDENCE</small></span><span class="xr-rank-score">42</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#6</span><span class="xr-rank-label">Networking Advanced Packaging<small class="xr-rank-status">MODERATE RISK / MODERATE CONFIDENCE</small></span><span class="xr-rank-score">42</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#7</span><span class="xr-rank-label">Network Power Consumption<small class="xr-rank-status">LOWER RISK / HIGH CONFIDENCE</small></span><span class="xr-rank-score">39</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#8</span><span class="xr-rank-label">Co-Packaged Optics Integration<small class="xr-rank-status">LOWER RISK / HIGH CONFIDENCE</small></span><span class="xr-rank-score">36</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#9</span><span class="xr-rank-label">High-Speed SerDes<small class="xr-rank-status">LOWER RISK / HIGH CONFIDENCE</small></span><span class="xr-rank-score">34</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#10</span><span class="xr-rank-label">Network Thermal Management<small class="xr-rank-status">LOWER RISK / MODERATE CONFIDENCE</small></span><span class="xr-rank-score">27</span></button>
+<!-- xray-prerender:rank:end -->
+      </div>
     </section>
-    <section class="xray-panel" id="xr-current"></section>
+    <section class="xray-panel" id="xr-current">
+      <!-- xray-prerender:current:start -->
+
+    <h2>Current bottleneck</h2>
+    <p class="level-badge">800G / 1.6T Optical Transceivers · 60</p>
+    <p class="xr-status-line">MODERATE RISK / MODERATE CONFIDENCE</p>
+    <p class="muted-note">Severity drivers (confidence not included):</p>
+    <ul class="reason-list"><li><code>demand_pressure</code> = 0.950<div class="xr-rationale">Primary Broadcom materials tie AI cluster growth to 800G/1.6T module demand; TH6 production volume multiplies east-west optics attach.</div></li><li><code>scarcity</code> = 0.816<div class="xr-rationale">capacity_pressure: Only quantified shortage claim is secondary McKinsey-via-MLQ (800G/1.6T shortfalls through 2027–2029). Counted as partial present pressure, not full current observed shortfall. Still the strongest scarcity signal in this X-Ray. supplier_concentration: Module assembly has several vendors (Innolight et al.) but key subcomponents (DSP/EML) are concentrated. lead_time_pressure: Forward shortage estimates and AI optics allocation language imply extended lead times; primary lead-time data not disclosed.</div></li><li><code>substitution_difficulty</code> = 0.800<div class="xr-rationale">CPO can reduce front-panel modules but is not yet a drop-in substitute at production scale.</div></li><li><code>downstream_importance</code> = 0.970<div class="xr-rationale">Without optics, 102.4T fabrics cannot leave the copper island.</div></li></ul>
+    <p class="xr-next-label">If this bottleneck is relieved →</p>
+    <p class="level-badge xr-next">Optical Engines / Silicon Photonics · 50</p>
+    
+    <p class="muted-note">Structured sensitivity exercise. Not a forecast. Relief perturbs capacity/lead-time/(optional) concentration only.</p>
+  
+<!-- xray-prerender:current:end -->
+    </section>
   </div>
 
   <div class="xray-grid xr-grid">
-    <section class="xray-panel" id="xr-detail"></section>
+    <section class="xray-panel" id="xr-detail">
+      <!-- xray-prerender:detail:start -->
+
+    <h2>Selected node</h2>
+    <p class="xr-badge">MODELED · severity CALCULATED · confidence separate</p>
+    <h3>800G / 1.6T Optical Transceivers</h3>
+    <p class="xr-scoreline">Constraint severity <strong>60</strong></p>
+    <p class="xr-conf-line">Evidence confidence <strong>70%</strong></p>
+    <p class="xr-status-line">MODERATE RISK / MODERATE CONFIDENCE</p>
+    <dl class="xr-dl">
+      <dt>What it is</dt><dd>Pluggable optical modules carrying cluster east-west traffic at 800G and emerging 1.6T rates.</dd>
+      <dt>Why it matters</dt><dd>As switch bandwidth doubles, module count and speed must rise or fabrics stall.</dd>
+      <dt>Who controls it</dt><dd>Innolight, Broadcom, Coherent</dd>
+      <dt>Who / what depends on it</dt><dd>AI Network Switch Silicon, High-Speed SerDes</dd>
+      <dt>Substitution difficulty</dt><dd>0.8<div class="xr-rationale">CPO can reduce front-panel modules but is not yet a drop-in substitute at production scale.</div></dd>
+      <dt>What could relieve it</dt><dd>module capacity expansion; CPO reducing front-panel modules; lower-power DSP+laser designs</dd>
+      <dt>What would falsify this bottleneck</dt><dd>800G/1.6T modules available with short lead times and declining ASP across suppliers.</dd>
+      
+    </dl>
+    <h4>Severity drivers</h4>
+    <ul class="reason-list"><li><code>demand_pressure</code> = 0.950<div class="xr-rationale">Primary Broadcom materials tie AI cluster growth to 800G/1.6T module demand; TH6 production volume multiplies east-west optics attach.</div></li><li><code>scarcity</code> = 0.816<div class="xr-rationale">capacity_pressure: Only quantified shortage claim is secondary McKinsey-via-MLQ (800G/1.6T shortfalls through 2027–2029). Counted as partial present pressure, not full current observed shortfall. Still the strongest scarcity signal in this X-Ray. supplier_concentration: Module assembly has several vendors (Innolight et al.) but key subcomponents (DSP/EML) are concentrated. lead_time_pressure: Forward shortage estimates and AI optics allocation language imply extended lead times; primary lead-time data not disclosed.</div></li><li><code>substitution_difficulty</code> = 0.800<div class="xr-rationale">CPO can reduce front-panel modules but is not yet a drop-in substitute at production scale.</div></li><li><code>downstream_importance</code> = 0.970<div class="xr-rationale">Without optics, 102.4T fabrics cannot leave the copper island.</div></li></ul>
+    <h4>Supporting evidence</h4>
+    <ul class="reason-list"><li><span class="xr-claim-type">COMPANY_CLAIM</span> [OBSERVED] Broadcom: rapid AI workload growth drives demand for increased bandwidth and interconnect density; positions 800G and 1.6T optical transceiver applications as target markets for new DSP PHYs. — <a href="https://investors.broadcom.com/news-releases/news-release-details/broadcom-extends-200glane-dsp-phy-leadership-next-generation-ai" target="_blank" rel="noopener">Broadcom 200G/lane DSP PHY Leadership</a> <span class="xr-src-date">(2025-03-25, primary)</span></li><li><span class="xr-claim-type">COMPANY_CLAIM</span> [OBSERVED] Broadcom Taurus 400G/lane optical DSP enables low-power 1.6T pluggable modules and a path toward 3.2T designs for AI data centers. — <a href="https://investors.broadcom.com/news-releases/news-release-details/broadcom-delivers-industrys-first-400glane-optical-dsp-next" target="_blank" rel="noopener">Broadcom First 400G/lane Optical DSP</a> <span class="xr-src-date">(2026-03-11, primary)</span></li><li><span class="xr-claim-type">ESTIMATE</span> [OBSERVED] Secondary analysis citing McKinsey (June 2025): 800G transceiver production projected 40–60% short of demand through 2027; 1.6T shortfalls 30–40% through 2029. — <a href="https://mlq.ai/research/optical-networking-interconnect-constraint/" target="_blank" rel="noopener">Optical Networking: The Interconnect Constraint (MLQ)</a> <span class="xr-src-date">(2026-01-01, secondary)</span></li></ul>
+  
+<!-- xray-prerender:detail:end -->
+    </section>
     <section class="xray-panel">
       <h2>Constraint cascade</h2>
       <p class="muted-note">Relieve top constraint → recompute → next binding node. Sensitivity only.</p>
-      <ol id="xr-cascade" class="xr-cascade"></ol>
+      <ol id="xr-cascade" class="xr-cascade">
+        <!-- xray-prerender:cascade:start -->
+<li><span>CURRENT</span><strong>#1 800G / 1.6T Optical Transceivers</strong><em>60</em></li><li><span>AFTER PRIOR RELIEF</span><strong>#2 Optical Engines / Silicon Photonics</strong><em>50</em></li><li><span>AFTER PRIOR RELIEF</span><strong>#3 Optical DSP / PHY</strong><em>49</em></li><li><span>AFTER PRIOR RELIEF</span><strong>#4 Laser Sources</strong><em>46</em></li>
+<!-- xray-prerender:cascade:end -->
+      </ol>
     </section>
   </div>
 
-  <section class="xray-panel xr-intel-panel" id="xr-intel" hidden></section>
+  <section class="xray-panel xr-intel-panel" id="xr-intel">
+    <!-- xray-prerender:intel:start -->
+
+    <h2>Intelligence layer</h2>
+    <p class="xr-badge">MODELED · interpretation of ranking · not investment advice</p>
+    <p class="xr-status-line">MODERATE CONFIDENCE · 70%</p>
+    <dl class="xr-dl">
+      <dt>Current reality</dt>
+      <dd>The ranking does not say Tomahawk-class switch silicon is what currently stops AI networking scale. TH6 is shipping in production volume. It says 800G / 1.6T optical attach is. Primary Broadcom materials tie AI cluster growth and 400G/lane DSP to module demand, while the only quantified shortfall (McKinsey via MLQ: 800G 40–60% short through 2027; 1.6T 30–40% through 2029) is secondary and partly forward-looking. That is still the strongest scarcity signal in this investigation. Lasers were previously over-ranked on secondary unique-supplier language and InP expansion stories; expansion is not scarcity, and Broadcom itself ships millions of 200G EMLs. Confidence stays moderate because present module lead times and industry WPM remain weakly disclosed.</dd>
+      <dt>Constraint migration</dt>
+      <dd>The engine relieves transceiver capacity, lead time, and concentration only, then re-ranks. Optical engines rise next because the relief path away from front-panel modules is CPO (Davisson 16×6.4T engines; NVIDIA Spectrum-X Photonics) — and engines are vendor-coupled, yield-sensitive, and not yet commodity capacity. Optical DSP sits close behind as the shared control for both pluggable 1.6T and future CPO paths (Sian3 / Taurus primary). Lasers remain under both stacks but stay below modules: primary shows production and capacity expansion, not a measured present shortfall that outranks the module attach bind.
+        <p class="muted-note">800G / 1.6T Optical Transceivers (60) → Optical Engines / Silicon Photonics (50) · engine cascade</p>
+      </dd>
+      <dt>Who gains leverage</dt>
+      <dd><ul class="reason-list"><li>800G / 1.6T module makers who can actually deliver qualified volume into TH6-scale fabrics (Innolight-class assemblers and vertically integrated optics houses)</li><li>Optical DSP / PHY suppliers at 200G and 400G per lane (Broadcom Sian3 / Taurus; Marvell-class second sources if they qualify)</li><li>CPO optical-engine attach that can displace front-panel modules once hyperscaler service models clear — Broadcom Davisson and NVIDIA Spectrum-X Photonics paths</li><li>InP / EML capacity only as the underlying laser surface under modules — watched, not treated as the observed #1 without primary shortfall series</li></ul></dd>
+      <dt>Who loses leverage</dt>
+      <dd><ul class="reason-list"><li>The story that AI Ethernet switch silicon is the binding networking constraint while TH6 ships in volume</li><li>Treating Broadcom or Lumentum InP expansion announcements as proof the optics shortage is over</li><li>Elevating lasers to #1 on secondary monopoly claims when Broadcom primary shows millions of EMLs shipping</li><li>Assuming CPO already replaces pluggable module scarcity at production scale — product announcements are not hyperscaler volume</li></ul></dd>
+      <dt>Second-order effect</dt>
+      <dd>Clearing front-panel transceiver slots does not create lossless AI fabrics. It moves the bind onto engine attach and the DSP+laser bill of materials those engines still need. CPO reduces module count but concentrates packaging and engine yield risk. Network power remains a parallel facility constraint (Broadcom states optical interconnect power limits cluster scalability) — component relief does not erase rack watts. The coupled trap: the same specialty lasers and PAM4 DSPs sit under both the pluggable path and the CPO relief path.</dd>
+      <dt>Opportunity</dt>
+      <dd>Worth investigating: who can deliver incremental 800G/1.6T modules into 2027 with hyperscaler quals intact; whether 400G/lane DSP (Taurus) actually unlocks 1.6T volume or only shifts the laser/driver bind; whether Davisson / Spectrum-X CPO engines clear field-service gates before pluggable shortfalls ease; and whether InP/EML lead times, if disclosed in primary filings, invert lasers above modules. Not a conclusion: Broadcom, Coherent, or Lumentum as securities, or that the interconnect shortage is over.</dd>
+      <dt>Watch signals — confirm</dt>
+      <dd><ul class="reason-list"><li>Primary module makers or hyperscalers disclose multi-quarter 800G/1.6T allocation or shortfall language</li><li>Secondary shortfall estimates remain directionally consistent while primary lead-time series stay opaque</li><li>CPO remains sampling / limited shipping without large production attach that would demote pluggable scarcity</li><li>DSP roadmaps keep tying new generations explicitly to 800G/1.6T module markets</li></ul></dd>
+      <dt>Watch signals — invalidate</dt>
+      <dd><ul class="reason-list"><li>Primary disclosures show 800G/1.6T modules with short lead times and unused capacity across major suppliers</li><li>CPO ships at production volume that materially reduces front-panel module demand for AI fabrics</li><li>Primary laser / InP filings show measured present shortfall that clearly outranks module attach as the binding clock</li><li>Hyperscalers report idle 100T-class switch silicon waiting on something other than optics</li></ul></dd>
+      <dt>Confidence</dt>
+      <dd>Matches the transceiver-node evidence confidence. Direction (modules over engines over DSP/lasers; switch silicon demoted) is better supported than the exact score margin. The quantified shortfall remains secondary and partly forward-looking; mid-2026 Coherent InP-constraint commentary was not verified against a primary IR filing in this pass and is treated as a watch item, not a ranking flip.</dd>
+      <dt>Next question</dt><dd>If 800G / 1.6T pluggable capacity were suddenly abundant, what becomes the next binding constraint on AI networking scale — CPO optical-engine attach, optical DSP, laser sources, or network power density?</dd>
+    </dl>
+    <p class="muted-note">MODELED interpretation of a CALCULATED ranking grounded in OBSERVED claims. Not a forecast and not investment advice. Areas worth investigating, not securities to buy.</p>
+  
+<!-- xray-prerender:intel:end -->
+  </section>
 
   <p class="section-footer-link"><a href="../bottleneck-xray.html">&larr; All X-Ray Investigations</a> · <a href="../../index.html">Home</a></p>
 </main>

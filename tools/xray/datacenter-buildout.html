@@ -32,25 +32,113 @@
   <p class="muted-note">Physical infrastructure required to turn AI compute demand into operating datacenter capacity — not a semiconductor packaging report.</p>
   <p class="fi-live-badge">Live · Evidence-backed</p>
   <p class="muted-note" id="xr-disclaimer"></p>
+  <p class="muted-note" id="xr-as-of"><!-- xray-prerender:as-of:start -->
+Evidence as of 2026-09-04
+<!-- xray-prerender:as-of:end --></p>
+  <p class="muted-note"><!-- xray-prerender:methodology:start -->
+Methodology: <a href="methodology.html">How scoring and cascade work</a>
+<!-- xray-prerender:methodology:end --></p>
+  <p class="muted-note"><!-- xray-prerender:evidence-disclaimer:start -->
+OBSERVED claims only. Primary preferred. Secondary labeled. Generation interconnection data are not load-interconnection data. Backlog growth is demand evidence, not by itself a measured shortage. 2028–2030 capacity is not 2026 capacity.
+<!-- xray-prerender:evidence-disclaimer:end --></p>
 
   <div class="xray-grid xr-grid">
     <section class="xray-panel">
       <h2>Ranked bottlenecks</h2>
-      <div id="xr-rank" class="xr-rank" role="list"></div>
+      <div id="xr-rank" class="xr-rank" role="list">
+        <!-- xray-prerender:rank:start -->
+<button type="button" class="xr-rank-item is-active"><span class="xr-rank-n">#1</span><span class="xr-rank-label">Large Power Transformers<small class="xr-rank-status">MODERATE RISK / MODERATE CONFIDENCE</small></span><span class="xr-rank-score">66</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#2</span><span class="xr-rank-label">Grid Interconnection Process<small class="xr-rank-status">MODERATE RISK / MODERATE CONFIDENCE</small></span><span class="xr-rank-score">48</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#3</span><span class="xr-rank-label">Heavy-Duty Gas Turbines<small class="xr-rank-status">MODERATE RISK / HIGH CONFIDENCE</small></span><span class="xr-rank-score">47</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#4</span><span class="xr-rank-label">Transmission &amp; Substation Upgrades<small class="xr-rank-status">MODERATE RISK / MODERATE CONFIDENCE</small></span><span class="xr-rank-score">42</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#5</span><span class="xr-rank-label">Utility Generation Headroom<small class="xr-rank-status">LOWER RISK / MODERATE CONFIDENCE</small></span><span class="xr-rank-score">39</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#6</span><span class="xr-rank-label">Switchgear &amp; Electrical Distribution<small class="xr-rank-status">LOWER RISK / HIGH CONFIDENCE</small></span><span class="xr-rank-score">39</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#7</span><span class="xr-rank-label">AI Accelerators<small class="xr-rank-status">LOWER RISK / HIGH CONFIDENCE</small></span><span class="xr-rank-score">33</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#8</span><span class="xr-rank-label">Permitting &amp; Siting<small class="xr-rank-status">LOWER RISK / MODERATE CONFIDENCE</small></span><span class="xr-rank-score">32</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#9</span><span class="xr-rank-label">Liquid Cooling Systems<small class="xr-rank-status">LOWER RISK / HIGH CONFIDENCE</small></span><span class="xr-rank-score">26</span></button><button type="button" class="xr-rank-item"><span class="xr-rank-n">#10</span><span class="xr-rank-label">Datacenter Shells &amp; Space<small class="xr-rank-status">LOWER RISK / HIGH CONFIDENCE</small></span><span class="xr-rank-score">23</span></button>
+<!-- xray-prerender:rank:end -->
+      </div>
     </section>
-    <section class="xray-panel" id="xr-current"></section>
+    <section class="xray-panel" id="xr-current">
+      <!-- xray-prerender:current:start -->
+
+    <h2>Current bottleneck</h2>
+    <p class="level-badge">Large Power Transformers · 66</p>
+    <p class="xr-status-line">MODERATE RISK / MODERATE CONFIDENCE</p>
+    <p class="muted-note">Severity drivers (confidence not included):</p>
+    <ul class="reason-list"><li><code>demand_pressure</code> = 0.940<div class="xr-rationale">Siemens: transformer business including data-center projects was the major Grid Technologies order driver; GEV Electrification DC orders &gt;$5B YTD. LPTs sit on both load and generation paths.</div></li><li><code>scarcity</code> = 0.815<div class="xr-rationale">capacity_pressure: Siemens GT book-to-bill 1.48 and €51B backlog show shipments trailing bookings. +50% capacity is a 2030 plan, not 2026 output. Week-level 2025/26 lead times remain secondary, so pressure is high but not maxed. supplier_concentration: Few global LPT/GSU OEMs (Siemens Energy, Hitachi Energy, GE Vernova class). Concentration is structural, not a 2026-only finding. lead_time_pressure: GAO 2023: large-utility LPT lead times 18–36 months vs 12–18 prior. Secondary 2025 surveys still show multi-year LPTs/GSUs. Not scored as 0.95 because current week counts are not primary.</div></li><li><code>substitution_difficulty</code> = 0.900<div class="xr-rationale">No practical substitute for high-voltage transformation. Behind-the-meter generation still needs GSU transformers.</div></li><li><code>downstream_importance</code> = 0.960<div class="xr-rationale">Without LPTs/GSUs, neither grid energization nor new generation interconnection can complete.</div></li></ul>
+    <p class="xr-next-label">If this bottleneck is relieved →</p>
+    <p class="level-badge xr-next">Grid Interconnection Process · 48</p>
+    <p class="muted-note"><strong>Opportunity to investigate:</strong> If transformer delivery shortens, investigate who can actually interconnect and build next: transmission upgrades, switchgear, electrical construction, and remaining generation-headroom deals — not a general 'buy utilities' conclusion.</p>
+    <p class="muted-note">Structured sensitivity exercise. Not a forecast. Relief perturbs capacity/lead-time/(optional) concentration only.</p>
+  
+<!-- xray-prerender:current:end -->
+    </section>
   </div>
 
   <div class="xray-grid xr-grid">
-    <section class="xray-panel" id="xr-detail"></section>
+    <section class="xray-panel" id="xr-detail">
+      <!-- xray-prerender:detail:start -->
+
+    <h2>Selected node</h2>
+    <p class="xr-badge">MODELED · severity CALCULATED · confidence separate</p>
+    <h3>Large Power Transformers</h3>
+    <p class="xr-scoreline">Constraint severity <strong>66</strong></p>
+    <p class="xr-conf-line">Evidence confidence <strong>74%</strong></p>
+    <p class="xr-status-line">MODERATE RISK / MODERATE CONFIDENCE</p>
+    <dl class="xr-dl">
+      <dt>What it is</dt><dd>High-voltage and generator step-up transformers that connect datacenters and new generation to the transmission system.</dd>
+      <dt>Why it matters</dt><dd>A campus cannot be energized, and new generation cannot inject, without these long-lead units. They sit on both the grid path and the behind-the-meter generation path.</dd>
+      <dt>Who controls it</dt><dd>Siemens Energy, Hitachi Energy, GE Vernova</dd>
+      <dt>Who / what depends on it</dt><dd>Grid Interconnection Process, Transmission &amp; Substation Upgrades, Heavy-Duty Gas Turbines</dd>
+      <dt>Substitution difficulty</dt><dd>0.9<div class="xr-rationale">No practical substitute for high-voltage transformation. Behind-the-meter generation still needs GSU transformers.</div></dd>
+      <dt>What could relieve it</dt><dd>OEM brownfield/greenfield plants actually shipping; standardized specs to cut custom cycle time; refurb/spare pooling</dd>
+      <dt>What would falsify this bottleneck</dt><dd>LPT and GSU quotes return to ~12–18 months with book-to-bill near 1.0 across major OEMs.</dd>
+      <dt>Opportunity to investigate after relief</dt><dd>If transformer delivery shortens, investigate who can actually interconnect and build next: transmission upgrades, switchgear, electrical construction, and remaining generation-headroom deals — not a general 'buy utilities' conclusion.</dd>
+    </dl>
+    <h4>Severity drivers</h4>
+    <ul class="reason-list"><li><code>demand_pressure</code> = 0.940<div class="xr-rationale">Siemens: transformer business including data-center projects was the major Grid Technologies order driver; GEV Electrification DC orders &gt;$5B YTD. LPTs sit on both load and generation paths.</div></li><li><code>scarcity</code> = 0.815<div class="xr-rationale">capacity_pressure: Siemens GT book-to-bill 1.48 and €51B backlog show shipments trailing bookings. +50% capacity is a 2030 plan, not 2026 output. Week-level 2025/26 lead times remain secondary, so pressure is high but not maxed. supplier_concentration: Few global LPT/GSU OEMs (Siemens Energy, Hitachi Energy, GE Vernova class). Concentration is structural, not a 2026-only finding. lead_time_pressure: GAO 2023: large-utility LPT lead times 18–36 months vs 12–18 prior. Secondary 2025 surveys still show multi-year LPTs/GSUs. Not scored as 0.95 because current week counts are not primary.</div></li><li><code>substitution_difficulty</code> = 0.900<div class="xr-rationale">No practical substitute for high-voltage transformation. Behind-the-meter generation still needs GSU transformers.</div></li><li><code>downstream_importance</code> = 0.960<div class="xr-rationale">Without LPTs/GSUs, neither grid energization nor new generation interconnection can complete.</div></li></ul>
+    <h4>Supporting evidence</h4>
+    <ul class="reason-list"><li><span class="xr-claim-type">COMPANY_CLAIM</span> [OBSERVED] Siemens Energy Grid Technologies: Q3 FY2026 orders rose across all GT businesses; the major contribution was substantial growth in the transformer business including data center projects; book-to-bill 1.48; order backlog increased to €51bn. — <a href="https://assets.siemens-energy.com/dam/d0147174-31a9-4a78-b062-b49d00428fc4/earnings-release-q3-fy2026-en-pdf_Original%20file.pdf" target="_blank" rel="noopener">Siemens Energy Earnings Release Q3 FY 2026</a> <span class="xr-src-date">(2026-08-05, primary)</span></li><li><span class="xr-claim-type">COMPANY_CLAIM</span> [OBSERVED] Siemens Energy plans transformer and gas-insulated switchgear manufacturing capacity about 50% higher by 2030; brownfield expansions supported increased product shipments in the reported quarter, with further greenfield/brownfield additions through FY30. — <a href="https://assets.siemens-energy.com/dam/d0147174-31a9-4a78-b062-b49d00428fc4/earnings-release-q3-fy2026-en-pdf_Original%20file.pdf" target="_blank" rel="noopener">Siemens Energy Earnings Release Q3 FY 2026</a> <span class="xr-src-date">(2026-08-05, primary)</span></li><li><span class="xr-claim-type">FACT</span> [OBSERVED] GAO (2023): utilities identified supply-chain constraints as the most pressing LPT challenge; one large utility reported LPT lead times rising from 12–18 months to 18–36 months; smaller utilities reported worse delays. — <a href="https://www.gao.gov/products/gao-23-106180" target="_blank" rel="noopener">GAO-23-106180 Transformer Reserves</a> <span class="xr-src-date">(2023-08-02, primary)</span></li><li><span class="xr-claim-type">ESTIMATE</span> [OBSERVED] Secondary reporting of Wood Mackenzie Q2 2025 survey: power transformers averaging 128 weeks; generator step-up transformers 144 weeks; GSU demand +274% and substation power transformers +116% since 2019. — <a href="https://www.powermag.com/transformers-in-2026-shortage-scramble-or-self-inflicted-crisis/" target="_blank" rel="noopener">POWER Magazine / Wood Mackenzie survey (secondary)</a> <span class="xr-src-date">(2026-01-01, secondary)</span></li></ul>
+  
+<!-- xray-prerender:detail:end -->
+    </section>
     <section class="xray-panel">
       <h2>Constraint cascade</h2>
       <p class="muted-note">Relieve top constraint → recompute → next binding node. Sensitivity only.</p>
-      <ol id="xr-cascade" class="xr-cascade"></ol>
+      <ol id="xr-cascade" class="xr-cascade">
+        <!-- xray-prerender:cascade:start -->
+<li><span>CURRENT</span><strong>#1 Large Power Transformers</strong><em>66</em></li><li><span>AFTER PRIOR RELIEF</span><strong>#2 Grid Interconnection Process</strong><em>48</em></li><li><span>AFTER PRIOR RELIEF</span><strong>#3 Heavy-Duty Gas Turbines</strong><em>47</em></li><li><span>AFTER PRIOR RELIEF</span><strong>#4 Transmission &amp; Substation Upgrades</strong><em>42</em></li>
+<!-- xray-prerender:cascade:end -->
+      </ol>
     </section>
   </div>
 
-  <section class="xray-panel xr-intel-panel" id="xr-intel" hidden></section>
+  <section class="xray-panel xr-intel-panel" id="xr-intel">
+    <!-- xray-prerender:intel:start -->
+
+    <h2>Intelligence layer</h2>
+    <p class="xr-badge">MODELED · interpretation of ranking · not investment advice</p>
+    <p class="xr-status-line">MODERATE CONFIDENCE · 74%</p>
+    <dl class="xr-dl">
+      <dt>Current reality</dt>
+      <dd>The ranking does not say AI datacenters lack capital, chips, or announced campuses. It says energization is gated by long-lead high-voltage equipment. Large power transformers score #1 because they sit on both the grid path and the behind-the-meter generation path, substitution is poor, and 2026 OEM filings show transformer-driven order growth with book-to-bill still above 1. Microsoft’s primary testimony is that GPUs were waiting on space or power — not the reverse. Confidence stays moderate because 2026 week-level lead times are still secondary (GAO’s 18–36 month finding is 2023).</dd>
+      <dt>Constraint migration</dt>
+      <dd>The engine relieves transformer capacity/lead-time/concentration only, then re-ranks. Grid interconnection rises next: study queues and post-agreement upgrades still take years even if a transformer slot appears. Heavy-duty gas turbines are close behind as the main substitute for slow grid power — and they still need GSU transformers, so turbine relief does not fully bypass this node.
+        <p class="muted-note">Large Power Transformers (66) → Grid Interconnection Process (48) · engine cascade</p>
+      </dd>
+      <dt>Who gains leverage</dt>
+      <dd><ul class="reason-list"><li>LPT/GSU manufacturers and the electrical-steel / specialized plant capacity behind them (Siemens Energy Grid Technologies, Hitachi Energy, GE Vernova Electrification)</li><li>ISO/RTO interconnection throughput and utilities that can actually construct assigned upgrades after an ISA</li><li>Behind-the-meter / dedicated generation packages only after GSU delivery is credible — GE Vernova, Siemens Energy, Mitsubishi Power as slot holders, not as a free substitute</li><li>Switchgear and campus electrical distribution (Eaton-class) as complementary gear, not as the same scarcity as LPTs</li></ul></dd>
+      <dt>Who loses leverage</dt>
+      <dd><ul class="reason-list"><li>The story that GPU scarcity is what currently stops GW-scale halls from turning on</li><li>Queue-reform narratives that treat a faster study as equivalent to an energized campus</li><li>2030 OEM expansion announcements treated as 2026 deliverable capacity</li><li>Cooling and shell construction as the system bottleneck — demand is real; the evidence does not show they bind first</li></ul></dd>
+      <dt>Second-order effect</dt>
+      <dd>Clearing transformers does not create megawatts. LBNL shows 549 GW already holding an interconnection agreement and not operating. GE Vernova’s &gt;$5B year-to-date datacenter orders are Electrification (grid gear), not Gas Power — so AI demand is already pulling the transformer/switchgear stack harder than the turbine book, of which only a minority is datacenter. The coupled trap: the substitute for slow interconnection (new gas) still consumes the same constrained GSU transformers.</dd>
+      <dt>Opportunity</dt>
+      <dd>Worth investigating: who can actually deliver LPTs/GSUs into 2027–2028 AI interconnects; surplus-interconnection or co-location that avoids a new substation; whether switchgear stays a demand boom or becomes a second equipment queue; and which generation projects have both a turbine slot and a GSU. Not a conclusion: utilities-in-general or turbines-as-grid-replacement.</dd>
+      <dt>Watch signals — confirm</dt>
+      <dd><ul class="reason-list"><li>OEM transformer book-to-bill remains well above 1.0 while data-center projects remain in Electrification order commentary</li><li>Primary 2026 LPT/GSU lead-time disclosures stay multi-year (not just 2023 GAO or secondary surveys)</li><li>LBNL IA-not-COD backlog stays large even as study reforms are claimed</li><li>Hyperscalers continue to describe power/space, not chips, as the bind</li></ul></dd>
+      <dt>Watch signals — invalidate</dt>
+      <dd><ul class="reason-list"><li>Major LPT OEMs report book-to-bill near 1.0 and returning 12–18 month quotes</li><li>Primary datacenter load-queue data show study time — not equipment — as the remaining clock</li><li>Hyperscalers report idle energized halls waiting on GPUs</li><li>New generation reaches COD fast enough in AI zones that transformer scarcity no longer gates energization</li></ul></dd>
+      <dt>Confidence</dt>
+      <dd>Matches transformer-node evidence confidence. Direction (optics of power-delivery over chips; cascade into interconnection then turbines) is better supported than the exact #1 margin over interconnection. Load vs generation queue distinction remains a material caveat.</dd>
+      <dt>Next question</dt><dd>If large power transformer delivery were suddenly abundant, what becomes the next binding constraint on AI campus energization — grid interconnection study/upgrade queues, heavy-duty gas turbines, or transmission and substation construction?</dd>
+    </dl>
+    <p class="muted-note">MODELED interpretation of a CALCULATED ranking grounded in OBSERVED claims. Not a forecast and not investment advice. Areas worth investigating, not securities to buy.</p>
+  
+<!-- xray-prerender:intel:end -->
+  </section>
 
   <p class="section-footer-link"><a href="../bottleneck-xray.html">&larr; All X-Ray Investigations</a> · <a href="../../index.html">Home</a></p>
 </main>
