@@ -1,18 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core Pages -->
   <url><loc>https://fractalinfinity.io/</loc></url>
   <url><loc>https://fractalinfinity.io/vision.html</loc></url>
-  <url><loc>https://fractalinfinity.io/intelligence.json</loc></url>
-  <url><loc>https://fractalinfinity.io/llms.txt</loc></url>
-  <url><loc>https://fractalinfinity.io/research-lab.html</loc></url>
-  <url><loc>https://fractalinfinity.io/report/sample.html</loc></url>
-  <url><loc>https://fractalinfinity.io/reports.html</loc></url>
-  <url><loc>https://fractalinfinity.io/crucible.html</loc></url>
-  <url><loc>https://fractalinfinity.io/tools/xray/ai-networking.html</loc></url>
-  <url><loc>https://fractalinfinity.io/tools/xray/datacenter-buildout.html</loc></url>
-  <url><loc>https://fractalinfinity.io/tools/evidence-dependency-map.html</loc></url>
-  <url><loc>https://fractalinfinity.io/tools/crucible.html</loc></url>
-  <url><loc>https://fractalinfinity.io/ecosystem.html</loc></url>
   <url><loc>https://fractalinfinity.io/contact.html</loc></url>
   <url><loc>https://fractalinfinity.io/privacy.html</loc></url>
+  
+  <!-- X-Ray Tools (Primary Product) -->
+  <url><loc>https://fractalinfinity.io/tools/bottleneck-xray.html</loc></url>
+  <url><loc>https://fractalinfinity.io/tools/xray/methodology.html</loc></url>
+  <url><loc>https://fractalinfinity.io/tools/xray/ai-accelerator.html</loc></url>
+  <url><loc>https://fractalinfinity.io/tools/xray/ai-networking.html</loc></url>
+  <url><loc>https://fractalinfinity.io/tools/xray/datacenter-buildout.html</loc></url>
+  
+  <!-- Analysis Tools -->
+  <url><loc>https://fractalinfinity.io/tools/evidence-dependency-map.html</loc></url>
+  <url><loc>https://fractalinfinity.io/tools/dependency-map/lightmatter.html</loc></url>
+  <url><loc>https://fractalinfinity.io/tools/crucible.html</loc></url>
+  <url><loc>https://fractalinfinity.io/tools/thesis-risk-monitor.html</loc></url>
+  
+  <!-- Research & Intelligence -->
+  <url><loc>https://fractalinfinity.io/research-lab.html</loc></url>
+  <url><loc>https://fractalinfinity.io/intelligence/research-reports.html</loc></url>
+  <url><loc>https://fractalinfinity.io/intelligence/crucible-results.html</loc></url>
+  <url><loc>https://fractalinfinity.io/intelligence/live-datasets.html</loc></url>
+  <url><loc>https://fractalinfinity.io/intelligence/predictions.html</loc></url>
+  <url><loc>https://fractalinfinity.io/intelligence/supply-chain-maps.html</loc></url>
+  
+  <!-- Labs -->
+  <url><loc>https://fractalinfinity.io/labs/deep-research.html</loc></url>
+  <url><loc>https://fractalinfinity.io/labs/dataset-builder.html</loc></url>
+  <url><loc>https://fractalinfinity.io/labs/supplier-substitute.html</loc></url>
+  
+  <!-- Reports & Data -->
+  <url><loc>https://fractalinfinity.io/reports.html</loc></url>
+  <url><loc>https://fractalinfinity.io/report/sample.html</loc></url>
+  <url><loc>https://fractalinfinity.io/crucible.html</loc></url>
+  <url><loc>https://fractalinfinity.io/materials-crucible.html</loc></url>
+  <url><loc>https://fractalinfinity.io/memory-crucible.html</loc></url>
+  <url><loc>https://fractalinfinity.io/ecosystem.html</loc></url>
+  
+  <!-- Machine-Readable Resources -->
+  <url><loc>https://fractalinfinity.io/intelligence.json</loc></url>
+  <url><loc>https://fractalinfinity.io/llms.txt</loc></url>
+  <url><loc>https://fractalinfinity.io/api/discovery.json</loc></url>
+  <url><loc>https://fractalinfinity.io/.well-known/agent.json</loc></url>
 </urlset>
