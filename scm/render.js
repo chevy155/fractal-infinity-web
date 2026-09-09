@@ -6,6 +6,8 @@ export function classTag(value) {
   const map = { OBSERVED: "edm-tag-obs", INFERRED: "edm-tag-inf", ESTIMATED: "edm-tag-est", DISPUTED: "edm-tag-dis", UNKNOWN: "edm-tag-unk", MODELED: "edm-tag-inf" };
   return `<span class="edm-tag ${map[value] || "edm-tag-unk"}">${escapeHtml(value)}</span>`;
 }
+
+export function statusTag(value) { return value ? `<span class="edm-status">${escapeHtml(value)}</span>` : ""; }
 export function nodeById(nodes, id) { return nodes.find((node) => node.id === id); }
 export function upstream(edges, id) { return edges.filter((edge) => edge.from === id); }
 export function downstream(edges, id) { return edges.filter((edge) => edge.to === id); }
@@ -16,7 +18,7 @@ function neighborsHtml(title, edges, direction, nodes, interactive = false) {
   return `<h3>${escapeHtml(title)}</h3><ul class="edm-neighbor-list">${edges.map((edge) => {
     const id = direction === "upstream" ? edge.to : edge.from;
     const node = nodeById(nodes, id);
-    const label = `<span class="edm-rel">${escapeHtml(edge.rel.replaceAll("_", " "))}</span> <strong>${escapeHtml(node?.label || id)}</strong><span class="edm-rel-why">${escapeHtml(edge.why)}</span>${classTag(edge.class)}`;
+    const label = `<span class="edm-rel">${escapeHtml(edge.rel.replaceAll("_", " "))}</span> <strong>${escapeHtml(node?.label || id)}</strong><span class="edm-rel-why">${escapeHtml(edge.why)}</span>${statusTag(edge.relationship_status)}${classTag(edge.class)}`;
     return `<li>${interactive ? `<button type="button" class="edm-neighbor-btn" data-id="${escapeHtml(id)}">${label}</button>` : label}</li>`;
   }).join("")}</ul>`;
 }
@@ -31,14 +33,25 @@ export function buildDetailHtml({ investigation, node, up, down, nodeEvidence, c
 
 function list(values) { return Array.isArray(values) && values.length ? `<ul class="reason-list">${values.map((value) => `<li>${escapeHtml(value)}</li>`).join("")}</ul>` : '<p class="muted-note">—</p>'; }
 export function buildConcentrationHtml(signals) { return `<h2>Concentration signals</h2><p class="muted-note">Exposure flags are modeled unless a primary source proves a binding condition today.</p>${signals.map((signal) => `<article class="edm-signal-card"><strong>${escapeHtml(signal.title)}</strong><span>${escapeHtml(signal.summary)}</span>${classTag(signal.class)}</article>`).join("")}`; }
-export function buildIntelligenceHtml(layer) {
+
+function companyEvidence(record, evidence) {
+  return (record.evidence || []).map((id) => evidence.find((item) => item.id === id)).filter(Boolean).map((item) => `<a href="${escapeHtml(item.source_url)}" target="_blank" rel="noopener">${escapeHtml(item.source_title)}</a> <span class="xr-src-date">(${escapeHtml(item.source_date)})</span>`).join("; ");
+}
+
+function companyGroup(title, records, evidence) {
+  if (!records?.length) return "";
+  return `<section class="scm-company-group"><h3>${escapeHtml(title)}</h3><div class="scm-company-list">${records.map((record) => `<article class="edm-signal-card"><strong>${escapeHtml(record.name)}</strong><span>${escapeHtml(record.role)} · <b>${escapeHtml(record.status)}</b></span><span>${escapeHtml(record.relationship)}</span><span><b>Source:</b> ${companyEvidence(record, evidence)}</span><span><b>Uncertainty:</b> ${escapeHtml(record.uncertainty)}</span></article>`).join("")}</div></section>`;
+}
+
+export function buildIntelligenceHtml(layer, evidence = []) {
   if (!layer) return "";
   const conf = layer.confidence || {}; const watch = layer.watch_signals || {};
-  return `<h2>Intelligence layer</h2><p class="xr-badge">${escapeHtml(layer.data_class || "MODELED")} · interpretation of the supply-chain map · not investment advice</p><dl class="xr-dl"><dt>What is happening</dt><dd>${escapeHtml(layer.current_reality)}</dd><dt>Why it matters</dt><dd>${escapeHtml(layer.why_it_matters)}</dd>${layer.what_changes_from_prior ? `<dt>What changes from the prior generation</dt><dd>${escapeHtml(layer.what_changes_from_prior)}</dd>` : ""}<dt>What it means</dt><dd>${escapeHtml(layer.what_it_means)}</dd><dt>What could happen next</dt><dd>${escapeHtml(layer.what_could_happen_next)}<p class="muted-note">${escapeHtml(layer.if_this_scales)}</p></dd><dt>Concentration may move</dt><dd>${escapeHtml(layer.concentration_migration)}</dd><dt>Who may gain leverage</dt><dd>${list(layer.gains_leverage)}</dd><dt>Who may lose leverage</dt><dd>${list(layer.loses_leverage)}</dd><dt>Second-order consequence</dt><dd>${escapeHtml(layer.second_order_effect)}</dd><dt>What to watch — confirm</dt><dd>${list(watch.confirm)}</dd><dt>What to watch — weaken</dt><dd>${list(watch.invalidate)}</dd><dt>Uncertainty</dt><dd>${escapeHtml(conf.rationale)}</dd><dt>Next question</dt><dd>${escapeHtml(layer.next_question)}</dd></dl><p class="muted-note">${escapeHtml(layer.disclaimer)}</p>`;
+  const companies = `${companyGroup("Suppliers and builders", layer.suppliers, evidence)}${companyGroup("Cloud customers and operators (separate)", layer.operators, evidence)}`;
+  return `<h2>Intelligence layer</h2><p class="xr-badge">${escapeHtml(layer.data_class || "MODELED")} · interpretation of the supply-chain map · not investment advice</p><dl class="xr-dl"><dt>What is happening</dt><dd>${escapeHtml(layer.current_reality)}</dd><dt>Why it matters</dt><dd>${escapeHtml(layer.why_it_matters)}</dd>${layer.what_changes_from_prior ? `<dt>What changes from the prior generation</dt><dd>${escapeHtml(layer.what_changes_from_prior)}</dd>` : ""}<dt>What it means</dt><dd>${escapeHtml(layer.what_it_means)}</dd><dt>What could happen next</dt><dd>${escapeHtml(layer.what_could_happen_next)}<p class="muted-note">${escapeHtml(layer.if_this_scales)}</p></dd><dt>Concentration may move</dt><dd>${escapeHtml(layer.concentration_migration)}</dd><dt>Who may gain leverage</dt><dd>${list(layer.gains_leverage)}</dd><dt>Who may lose leverage</dt><dd>${list(layer.loses_leverage)}</dd><dt>Second-order consequence</dt><dd>${escapeHtml(layer.second_order_effect)}</dd><dt>What to watch — confirm</dt><dd>${list(watch.confirm)}</dd><dt>What to watch — weaken</dt><dd>${list(watch.invalidate)}</dd><dt>Uncertainty</dt><dd>${escapeHtml(conf.rationale)}</dd><dt>Next question</dt><dd>${escapeHtml(layer.next_question)}</dd></dl><p class="muted-note">${escapeHtml(layer.disclaimer)}</p><h2>Who supplies and builds this</h2><p class="muted-note">These are evidence-backed company relationships, not a complete vendor list. Status describes the cited source, not a claim of exclusivity, volume or shortage.</p>${companies}`;
 }
 
 export function buildModel({ investigation, edgesFile, evidenceFile, concentrationFile, intelligence }) {
   const nodes = investigation.nodes; const edges = edgesFile.edges; const evidence = evidenceFile.evidence; const concentration = concentrationFile.signals;
   const node = nodeById(nodes, investigation.anchor);
-  return { investigation, nodes, edges, evidence, concentration, intelligence, detailHtml: buildDetailHtml({ investigation, node, up: upstream(edges, investigation.anchor), down: downstream(edges, investigation.anchor), nodeEvidence: evidenceFor(evidence, investigation.anchor), concentration }), concentrationHtml: buildConcentrationHtml(concentration), intelligenceHtml: buildIntelligenceHtml(intelligence) };
+  return { investigation, nodes, edges, evidence, concentration, intelligence, detailHtml: buildDetailHtml({ investigation, node, up: upstream(edges, investigation.anchor), down: downstream(edges, investigation.anchor), nodeEvidence: evidenceFor(evidence, investigation.anchor), concentration }), concentrationHtml: buildConcentrationHtml(concentration), intelligenceHtml: buildIntelligenceHtml(intelligence, evidence) };
 }
