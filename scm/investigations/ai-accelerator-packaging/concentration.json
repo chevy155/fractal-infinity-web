@@ -1,0 +1,9 @@
+{
+  "map_id":"ai-accelerator-packaging",
+  "signals":[
+    {"id":"cs01","title":"Advanced packaging concentration","summary":"CoWoS-class packaging and interposer attach are modeled as concentrated because qualified capacity is specialized; this does not prove a present binding shortage.","nodes":["cowos-advanced-packaging","advanced-interposer","tsmc"],"class":"INFERRED","evidence":["ev003"]},
+    {"id":"cs02","title":"Small qualified HBM supplier set","summary":"HBM qualification and ramp exposure sits with a small group of memory suppliers. Supplier count is a concentration signal, not a claim that all capacity is unavailable.","nodes":["hbm3e","hbm4","hbm-suppliers"],"class":"INFERRED","evidence":["ev001","ev002"]},
+    {"id":"cs03","title":"Shared tool layer","summary":"Bonding and inspection tools can serve several advanced memory and packaging flows, creating possible migration or allocation exposure as demand scales.","nodes":["hbm-stacking-bonding","hybrid-bonding-equipment","advanced-packaging-tools"],"class":"INFERRED","evidence":["ev005","ev006"]},
+    {"id":"cs04","title":"Facility and grid dependence","summary":"Cluster growth depends on site power, cooling and grid connection. The map flags infrastructure exposure without estimating a regional power deficit.","nodes":["datacenter-power","ai-cluster","advanced-packaging-geography"],"class":"INFERRED","evidence":["ev010"]}
+  ]
+}

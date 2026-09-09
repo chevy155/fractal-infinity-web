@@ -1,0 +1,9 @@
+{
+  "map_id":"nvidia-rubin",
+  "signals":[
+    {"id":"cs01","title":"HBM4 qualification concentration","summary":"Micron and SK hynix publicly connect HBM4 work to Rubin, while Samsung publicly establishes HBM4 production. That is a small named set, not proof that Rubin has a shortage or a sole source.","nodes":["hbm4","memory-suppliers"],"class":"INFERRED","evidence":["ev006","ev007","ev008"]},
+    {"id":"cs02","title":"Rack-scale integration exposure","summary":"Rubin combines several chips and networking components in a rack. More integration creates more qualification and assembly dependencies, but public sources do not identify a binding rack constraint.","nodes":["nvl72-rack","rubin-supply-chain-partners","ai-factory"],"class":"INFERRED","evidence":["ev002","ev004","ev013"]},
+    {"id":"cs03","title":"Liquid-cooling and power exposure","summary":"Rubin’s documented liquid-cooled design makes facility readiness part of deployment. IEA evidence supports local grid and connection exposure generally, not a Rubin-specific power shortage.","nodes":["liquid-cooling","power-delivery","ai-factory"],"class":"INFERRED","evidence":["ev010","ev011"]},
+    {"id":"cs04","title":"Optical scale-out exposure","summary":"Spectrum-X Ethernet Photonics adds optical components and co-packaged switch integration to the platform path. The map does not establish a specific photonics supplier or current capacity limit.","nodes":["spectrum-x-photonics","spectrum-6-ethernet","ai-factory"],"class":"INFERRED","evidence":["ev009"]}
+  ]
+}
