@@ -10,3 +10,5 @@ tmp/
 tmp/**
 docs/
 docs/**
+worker/
+worker/**
