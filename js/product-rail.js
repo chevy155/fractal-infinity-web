@@ -5,7 +5,7 @@
   const path = (location.pathname || "").replace(/\\/g, "/");
   const file = path.split("/").pop() || "";
   const inNestedTool = /\/tools\/[^/]+\//.test(path);
-  const inSub = /\/(labs|tools|intelligence)\//.test(path);
+  const inSub = /\/(labs|tools|intelligence|physical-design)\//.test(path);
   const root = inNestedTool ? "../.." : inSub ? ".." : ".";
 
   const items = [
@@ -19,6 +19,9 @@
       { href: root + "/tools/crucible.html", label: "The Crucible — Decision Simulator", soon: false },
       { href: root + "/tools/thesis-risk-monitor.html", label: "Thesis & Risk Monitor", soon: true },
       { href: root + "/tools/evidence-dependency-map.html", label: "Evidence & Dependency Map", soon: false }
+    ]},
+    { group: "Physical Design AI", links: [
+      { href: root + "/physical-design/blender-rendering.html", label: "Blender Rendering & Animation", soon: false }
     ]},
     { group: "Intelligence", links: [
       { href: root + "/intelligence/research-reports.html", label: "Research Reports", soon: false },

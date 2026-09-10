@@ -45,6 +45,7 @@ Map the system → Detect the change → Find the constraint → Trace the conse
 - Bottleneck & Supply Chain X-Ray: https://fractalinfinity.io/tools/bottleneck-xray.html
 - Evidence & Dependency Map: https://fractalinfinity.io/tools/evidence-dependency-map.html
 - The Crucible: https://fractalinfinity.io/tools/crucible.html
+- Physical Design AI / Blender Rendering & Animation: https://fractalinfinity.io/physical-design/blender-rendering.html
 - Research Lab / Process Intelligence: https://fractalinfinity.io/research-lab.html
 
 ## Major reports and surfaces
