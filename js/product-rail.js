@@ -37,8 +37,15 @@
   ];
 
   function isActive(href) {
-    const leaf = href.split("/").pop();
-    return file === leaf || path.endsWith("/" + leaf);
+    const leaf = href.split("/").pop() || "";
+    const leafBase = leaf.replace(/\.html$/i, "");
+    const fileBase = file.replace(/\.html$/i, "");
+    return (
+      file === leaf ||
+      fileBase === leafBase ||
+      path.endsWith("/" + leaf) ||
+      path.endsWith("/" + leafBase)
+    );
   }
 
   const nav = document.createElement("nav");
