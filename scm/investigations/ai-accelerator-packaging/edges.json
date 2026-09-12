@@ -1,0 +1,31 @@
+{
+  "map_id":"ai-accelerator-packaging",
+  "edges":[
+    {"id":"e01","from":"advanced-interposer","to":"advanced-packaging-tools","rel":"uses","why":"Interposer fabrication and attach require specialized process tools.","class":"INFERRED","evidence":["ev006"]},
+    {"id":"e02","from":"ai-accelerator","to":"advanced-interposer","rel":"depends_on","why":"HBM and logic are joined through an interposer in the package path; applying that package relationship to the anchor is modeled here.","class":"INFERRED","evidence":["ev003"]},
+    {"id":"e03","from":"ai-accelerator","to":"ai-server-system","rel":"integrates_into","why":"The package becomes useful when qualified in a server platform.","class":"INFERRED","evidence":["ev009"]},
+    {"id":"e04","from":"ai-accelerator","to":"cowos-advanced-packaging","rel":"requires","why":"Advanced accelerator packages use a 2.5D packaging step to attach logic and HBM; applying the general package architecture to the anchor is modeled here.","class":"INFERRED","evidence":["ev003"]},
+    {"id":"e05","from":"ai-accelerator","to":"hbm3e","rel":"attaches","why":"HBM3E is a current memory path for AI accelerators; the exact anchor configuration is not established by the cited source.","class":"INFERRED","evidence":["ev001"]},
+    {"id":"e06","from":"ai-accelerator","to":"hbm4","rel":"transitions_to","why":"HBM4 is designed for next-generation AI platforms; the exact anchor adoption path is not established by the cited source.","class":"INFERRED","evidence":["ev002"]},
+    {"id":"e07","from":"ai-accelerator","to":"logic-wafer-fabrication","rel":"starts_with","why":"The compute logic dies originate on leading-edge wafers.","class":"OBSERVED","evidence":["ev004"]},
+    {"id":"e08","from":"ai-accelerator","to":"package-substrate","rel":"mounts_on","why":"The assembled package requires a suitable package substrate.","class":"INFERRED","evidence":["ev007"]},
+    {"id":"e09","from":"ai-accelerator","to":"package-test","rel":"must_pass","why":"Completed packages require final electrical and reliability testing.","class":"INFERRED","evidence":["ev008"]},
+    {"id":"e10","from":"ai-accelerator","to":"ai-cluster","rel":"enables","why":"Accelerators are deployed as part of connected cluster capacity.","class":"INFERRED","evidence":["ev010"]},
+    {"id":"e11","from":"ai-cluster","to":"datacenter-power","rel":"requires","why":"Cluster deployment depends on power delivery and thermal capacity; the anchor-specific dependency is modeled from the infrastructure evidence.","class":"INFERRED","evidence":["ev010"]},
+    {"id":"e12","from":"ai-server-system","to":"datacenter-power","rel":"requires","why":"Server systems need site power and cooling to operate; the anchor-specific dependency is modeled from the infrastructure evidence.","class":"INFERRED","evidence":["ev010"]},
+    {"id":"e13","from":"ai-server-system","to":"ai-cluster","rel":"scales_into","why":"Multiple qualified servers form a usable cluster.","class":"INFERRED","evidence":["ev010"]},
+    {"id":"e14","from":"advanced-packaging-geography","to":"cowos-advanced-packaging","rel":"hosts","why":"Qualified package capacity exists at particular manufacturing locations.","class":"INFERRED","evidence":["ev003"]},
+    {"id":"e15","from":"cowos-advanced-packaging","to":"advanced-interposer","rel":"attaches","why":"The package flow attaches dies and HBM on an interposer.","class":"OBSERVED","evidence":["ev003"]},
+    {"id":"e16","from":"cowos-advanced-packaging","to":"package-substrate","rel":"uses","why":"The assembled package requires a substrate for board-level connection.","class":"INFERRED","evidence":["ev007"]},
+    {"id":"e17","from":"cowos-advanced-packaging","to":"package-test","rel":"feeds","why":"Assembly output must proceed to package test.","class":"INFERRED","evidence":["ev008"]},
+    {"id":"e18","from":"cowos-advanced-packaging","to":"tsmc","rel":"provided_by","why":"TSMC publicly identifies CoWoS and advanced packaging as a major capacity area.","class":"OBSERVED","evidence":["ev003"]},
+    {"id":"e19","from":"hbm3e","to":"hbm-suppliers","rel":"provided_by","why":"HBM3E supply depends on qualified memory manufacturers; the size of the qualified set is modeled from the map.","class":"INFERRED","evidence":["ev001"]},
+    {"id":"e20","from":"hbm4","to":"hbm-suppliers","rel":"provided_by","why":"HBM4 supply is being ramped by qualified memory suppliers; the full supplier set is not established by the cited source.","class":"INFERRED","evidence":["ev002"]},
+    {"id":"e21","from":"hbm-stacking-bonding","to":"hbm-suppliers","rel":"performed_by","why":"HBM suppliers are the modeled production owners for stack assembly; the cited source establishes HBM activity, not every assembly step.","class":"INFERRED","evidence":["ev001"]},
+    {"id":"e22","from":"hbm-stacking-bonding","to":"hybrid-bonding-equipment","rel":"uses","why":"Dense stack assembly depends on bonding equipment and process maturity.","class":"INFERRED","evidence":["ev005"]},
+    {"id":"e23","from":"hbm3e","to":"hbm-stacking-bonding","rel":"requires","why":"HBM3E is assembled as a multi-die stack.","class":"OBSERVED","evidence":["ev001"]},
+    {"id":"e24","from":"hbm4","to":"hbm-stacking-bonding","rel":"requires","why":"HBM4 stack height and yield depend on stack assembly.","class":"OBSERVED","evidence":["ev002"]},
+    {"id":"e25","from":"hybrid-bonding-equipment","to":"advanced-packaging-tools","rel":"shares_toolchain","why":"Bonding equipment is part of the broader advanced-packaging tool layer.","class":"INFERRED","evidence":["ev005"]},
+    {"id":"e26","from":"logic-wafer-fabrication","to":"tsmc","rel":"provided_by","why":"Leading-edge logic wafers are commonly sourced through foundry process nodes.","class":"INFERRED","evidence":["ev004"]}
+  ]
+}

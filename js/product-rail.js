@@ -26,7 +26,7 @@
     { group: "Intelligence", links: [
       { href: root + "/intelligence/research-reports.html", label: "Research Reports", soon: false },
       { href: root + "/intelligence/live-datasets.html", label: "Live Industry Datasets", soon: true },
-      { href: root + "/intelligence/supply-chain-maps.html", label: "Supply-Chain Maps", soon: true },
+      { href: root + "/intelligence/supply-chain-maps.html", label: "Supply-Chain Maps", soon: false },
       { href: root + "/intelligence/bottleneck-reports.html", label: "Bottleneck Reports", soon: true },
       { href: root + "/intelligence/crucible-results.html", label: "Crucible Results", soon: false },
       { href: root + "/intelligence/predictions.html", label: "Prediction Track Record", soon: true }
