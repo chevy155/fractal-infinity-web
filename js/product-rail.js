@@ -53,6 +53,7 @@
   nav.setAttribute("aria-label", "Product navigation");
   nav.innerHTML = `
     <button type="button" class="fi-rail-toggle" aria-expanded="false" aria-controls="fi-rail-body">Products</button>
+    <div class="fi-rail-backdrop" hidden></div>
     <div class="fi-rail-body" id="fi-rail-body">
       <a class="fi-rail-brand" href="${root}/index.html">Fractal Infinity</a>
       ${items.map(g => `
@@ -88,14 +89,29 @@
   document.body.classList.add("has-fi-rail", "fi-shell-mode");
 
   const toggle = nav.querySelector(".fi-rail-toggle");
-  toggle.addEventListener("click", () => {
-    const open = nav.classList.toggle("is-open");
+  const backdrop = nav.querySelector(".fi-rail-backdrop");
+
+  function setOpen(open) {
+    nav.classList.toggle("is-open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.classList.toggle("fi-rail-open", open);
+    if (backdrop) {
+      if (open) backdrop.removeAttribute("hidden");
+      else backdrop.setAttribute("hidden", "");
+    }
+  }
+
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    setOpen(!nav.classList.contains("is-open"));
+  });
+  if (backdrop) {
+    backdrop.addEventListener("click", () => setOpen(false));
+  }
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && nav.classList.contains("is-open")) setOpen(false);
   });
   document.addEventListener("click", (e) => {
-    if (!nav.contains(e.target) && nav.classList.contains("is-open")) {
-      nav.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-    }
+    if (!nav.contains(e.target) && nav.classList.contains("is-open")) setOpen(false);
   });
 })();
