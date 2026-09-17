@@ -66,6 +66,9 @@ export default {
 
     const match = url.pathname.match(/^\/report\/([^/]+)$/);
     if (match && env.DB) {
+      // Static report aliases must resolve before looking for a database run.
+      const staticReport = await env.ASSETS.fetch(request);
+      if (staticReport.status !== 404) return staticReport;
       const runId = decodeURIComponent(match[1]);
       if (!runId.endsWith(".html")) {
         const row = await env.DB.prepare(
@@ -83,7 +86,7 @@ export default {
           });
         }
         return new Response(
-          '<!doctype html><html><body><h1>Report not found</h1><p><a href="/research-lab.html">Research Lab</a></p></body></html>',
+          '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Report not found</title></head><body><h1>Report not found</h1><p><a href="/research-lab.html">Research Lab</a></p></body></html>',
           { status: 404, headers: { "content-type": "text/html; charset=utf-8" } }
         );
       }

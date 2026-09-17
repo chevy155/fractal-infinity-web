@@ -12,3 +12,13 @@ docs/
 docs/**
 worker/
 worker/**
+
+.editorconfig
+.github/
+.github/**
+scripts/
+scripts/**
+test/
+test/**
+fractal-core/
+fractal-core/**

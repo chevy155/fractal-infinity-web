@@ -1,10 +1,13 @@
 /** Generate product placeholder + hub pages. Run: node scripts/gen-product-pages.mjs */
-import { writeFileSync, mkdirSync } from "fs";
-import { dirname, join } from "path";
+import { writeFileSync as writeBytes, mkdirSync } from "fs";
+import { dirname, join, resolve } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const root = join(__dirname, "..");
+const outputArg = process.argv.indexOf("--out-dir");
+const root = outputArg < 0 ? join(__dirname, "..") : resolve(process.argv[outputArg + 1]);
+
+const writeFileSync = (path, text) => { mkdirSync(dirname(path), {recursive:true}); writeBytes(path, text, "utf8"); };
 
 function page({ title, section, headline, sub, desc, does, why, example, status, liveBody }) {
   const soon = status === "soon";
