@@ -1,6 +1,6 @@
 # Fractal Infinity — Website
 
-Static one-pager. Plain HTML/CSS, no build step, no dependencies.
+Static HTML/CSS and browser JavaScript. Wrangler validates UTF-8 source and generates HTML response headers before bundling the Worker.
 
 **Canonical public site:** [https://fractalinfinity.io](https://fractalinfinity.io)
 
@@ -62,3 +62,9 @@ Rollback during the window: keep `geniusblack9999/fractal-infinity-site` intact 
 ## Verification notes
 
 Visually inspected at desktop (1440px) and true mobile viewport (390px, verified via Playwright/CDP — the system Chrome CLI's `--headless --screenshot` flag does not reliably emulate viewports under ~500px in this environment, silently rendering wider and cropping the screenshot; a real headless run via `playwright-core` pointed at the system Chrome binary was used instead to confirm no horizontal overflow or clipped text at true mobile widths). Fixed one real bug found this way: the topbar was overflowing at narrow widths before `overflow-x: hidden` + topbar truncation rules were added.
+
+## Encoding verification
+
+Save text as UTF-8. Run `node --test test/encoding.test.mjs` and `node scripts/check-encoding.mjs` before publishing. `npx wrangler deploy --dry-run --outdir tmp/worker-build` runs the production build gate; it does not deploy. `_headers` is generated from tracked HTML routes by `scripts/build-headers.mjs`.
+
+The product generator is a historical scaffold, not a rebuild of the customized production pages. Validate its output with `node scripts/gen-product-pages.mjs --out-dir tmp/generated-products` followed by `node scripts/check-encoding.mjs tmp/generated-products`. Do not overwrite customized pages with the scaffold. See `docs/encoding-fix.md` for the investigation.
