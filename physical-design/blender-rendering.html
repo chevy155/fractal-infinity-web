@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../styles.css?v=20260912b" />
+<link rel="stylesheet" href="../styles.css?v=20261001a" />
 </head>
 <body class="fi-product-page fi-physical-design">
 <div class="topbar">
@@ -30,6 +30,85 @@
   <p class="fi-sub">From digital concepts to physical capability.</p>
   <p class="fi-lede">Fractal Infinity is expanding into physical AI—connecting intelligent design, simulation, and visualization with real-world fabrication. We’re building toward rapid prototyping, robotic components, and manufacturing workflows that address immediate engineering needs and long-term supply-chain demand.</p>
   <p class="fi-direction-badge">Direction</p>
+
+  <section class="pd-showcase pd-turbine" aria-labelledby="pd-turbine-heading">
+    <p class="pd-showcase-kicker">SolidWorks &times; Blender &middot; Hybrid Build</p>
+    <h2 class="pd-showcase-title" id="pd-turbine-heading">Turbine Module V001 &mdash; Held in the Field.</h2>
+    <p class="pd-showcase-caption">Seven solid parts, born in SolidWorks and bound by mates: a &Oslash;160&nbsp;mm housing, a 12-vane stator, a 16-blade rotor pitched at 62&deg;, a stainless shaft, two bronze bushings, and an end cover. Exported as true solid geometry&mdash;no proxy meshes, no sculpted stand-ins&mdash;then handed to an ASI-style containment field in Blender.</p>
+    <p class="pd-showcase-caption">The field takes the module apart in mid-air, tags every component with its spec, then pulls it back together and drives the rotor up to speed. A hologram you could machine: the same solids generate the GD&amp;T production drawings below.</p>
+
+    <ul class="pd-spec-list" aria-label="Turbine Module V001 at a glance">
+      <li>7 SolidWorks solids</li>
+      <li>16-blade rotor &middot; 62.2&deg; pitch</li>
+      <li>12-vane stator</li>
+      <li>&Oslash;160 &times; 180&nbsp;mm envelope</li>
+      <li>7 GD&amp;T drawings</li>
+    </ul>
+
+    <div class="pd-video-frame">
+      <video
+        class="pd-video"
+        data-motion-video
+        autoplay
+        controls
+        loop
+        muted
+        playsinline
+        preload="metadata"
+        poster="../assets/turbine-module-poster.jpg"
+        title="Turbine Module V001 cinematic: containment-field teardown, reassembly, and spin-up">
+        <source src="../assets/media/turbine-module-v001-cinematic.mp4" type="video/mp4" />
+        Your browser does not support HTML5 video. A poster still of the turbine teardown is shown above when supported.
+      </video>
+    </div>
+
+    <div class="pd-viewer-block">
+      <div class="pd-viewer-head">
+        <h3 class="pd-viewer-title">Hold it yourself.</h3>
+        <div class="pd-toggle" role="group" aria-label="Model view">
+          <button type="button" class="is-active" aria-pressed="true" data-model-src="../assets/models/turbine-module-v001.glb" data-orbit="35deg 72deg auto">Assembled</button>
+          <button type="button" aria-pressed="false" data-model-src="../assets/models/turbine-module-v001-exploded.glb" data-orbit="140deg 72deg auto">Exploded</button>
+        </div>
+      </div>
+      <model-viewer
+        class="pd-viewer"
+        id="pd-turbine-model"
+        src="../assets/models/turbine-module-v001.glb"
+        alt="Interactive 3D model of Turbine Module V001, built from the SolidWorks part files"
+        camera-controls
+        auto-rotate
+        auto-rotate-delay="1500"
+        rotation-per-second="18deg"
+        camera-orbit="35deg 72deg auto"
+        environment-image="neutral"
+        exposure="1.05"
+        shadow-intensity="0.6"
+        interaction-prompt="none"
+        loading="lazy">
+      </model-viewer>
+      <p class="pd-viewer-hint">Drag to orbit &middot; scroll or pinch to zoom &middot; the housing is rendered translucent so the stator and rotor stay visible.</p>
+    </div>
+
+    <div class="pd-drawings">
+      <p class="pd-drawings-lede">From the same CAD: ASME Y14.5 drawings with datums, feature control frames, fits, and angle callouts&mdash;generated through the SolidWorks API.</p>
+      <div class="pd-drawings-grid">
+        <a href="../assets/drawings/turbine-housing.png" target="_blank" rel="noopener">
+          <img src="../assets/drawings/turbine-housing.png" alt="SolidWorks GD&amp;T drawing of the turbine housing with section A-A" loading="lazy" width="2200" height="1700" />
+          <span>Turbine Housing</span>
+        </a>
+        <a href="../assets/drawings/turbine-rotor.png" target="_blank" rel="noopener">
+          <img src="../assets/drawings/turbine-rotor.png" alt="SolidWorks GD&amp;T drawing of the 16-blade turbine rotor with blade-angle callout" loading="lazy" width="2200" height="1700" />
+          <span>Turbine Rotor</span>
+        </a>
+        <a href="../assets/drawings/turbine-stator-ring.png" target="_blank" rel="noopener">
+          <img src="../assets/drawings/turbine-stator-ring.png" alt="SolidWorks GD&amp;T drawing of the 12-vane stator ring with vane-angle section" loading="lazy" width="2200" height="1700" />
+          <span>Stator Ring</span>
+        </a>
+      </div>
+    </div>
+
+    <p class="pd-showcase-note">Hybrid workflow: true SolidWorks solids; containment-field effects rendered in Blender. Geometry and fit demonstration&mdash;aerodynamic performance, materials, and drawing tolerances (Rev A) are proposed and untested.</p>
+  </section>
 
   <section class="pd-showcase" aria-labelledby="pd-purpose-built-grip-heading">
     <p class="pd-showcase-kicker">Blender Rendering &amp; Animation</p>
@@ -114,7 +193,23 @@
   });
   syncMotionPreference();
   motionPreference.addEventListener('change', syncMotionPreference);
+
+  const turbineModel = document.getElementById('pd-turbine-model');
+  const modelButtons = document.querySelectorAll('[data-model-src]');
+  if (motionPreference.matches) turbineModel.removeAttribute('auto-rotate');
+  modelButtons.forEach((button) => button.addEventListener('click', () => {
+    turbineModel.addEventListener('load', () => {
+      turbineModel.cameraOrbit = button.dataset.orbit;
+      turbineModel.jumpCameraToGoal();
+    }, { once: true });
+    turbineModel.src = button.dataset.modelSrc;
+    modelButtons.forEach((b) => {
+      b.classList.toggle('is-active', b === button);
+      b.setAttribute('aria-pressed', String(b === button));
+    });
+  }));
 </script>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.1.0/model-viewer.min.js"></script>
 <script src="../js/product-rail.js?v=20260912b"></script>
 </body>
 </html>
